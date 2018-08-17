@@ -6,7 +6,11 @@ title: "OpenPitrix 简介"
 
 [OpenPitrix](https://openpitrix.io) 是一款开源多云应用程序管理系统。
 
-[观看演示视频](http://t.cn/RDzlgVP)
+## 演示视频
+
+<video controls="controls" style="width: 100% !important; height: auto !important;">
+  <source type="video/mp4" src="https://openpitrix.pek3a.qingstor.com/video/OpenPitrix_min.mp4">
+</video>
 
 ## 产品功能
 

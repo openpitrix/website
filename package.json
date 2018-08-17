@@ -36,7 +36,7 @@
     "kubernetes",
     "k8s"
   ],
-  "license": "Apache 2.0",
+  "license": "Apache-2.0",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",

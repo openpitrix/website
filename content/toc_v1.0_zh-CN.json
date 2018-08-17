@@ -7,20 +7,15 @@
     },
     {
       "title": "安装指南",
-      "chapters": [
+      "entries": [
         {
-          "title": "部署模式",
-          "entries": [
-            {
-              "entry": "./v1.0/zh-CN/openpitrix-install-guide.md"
-            },
-            {
-              "entry": "./v1.0/zh-CN/allinone.md"
-            },
-            {
-              "entry": "./v1.0/zh-CN/kubernetes.md"
-            }
-          ]
+          "entry": "./v1.0/zh-CN/openpitrix-install-guide.md"
+        },
+        {
+          "entry": "./v1.0/zh-CN/allinone.md"
+        },
+        {
+          "entry": "./v1.0/zh-CN/kubernetes.md"
         }
       ]
     },

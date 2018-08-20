@@ -1,23 +1,9 @@
-# Documents for [OpenPitrix](OpenPitrix).
+# Documents for [OpenPitrix](https://github.com/openpitrix/openpitrix).
 
 [![Build Status](https://travis-ci.org/openpitrix/docs.openpitrix.io.svg)](https://travis-ci.org/openpitrix/docs.openpitrix.io)
 
 ## Develop
 
-### Setting up with git
-If you choose this way, we recommend you to install some requisites
-- git
-- node.js
-- yarn (or npm, `we recommend yarn`)
-
-Check your requisites:
-```shell
-git --version
-node -v
-yarn -v
-```
-
-Then you are ready to go:
 ```shell
 git clone https://github.com/openpitrix/docs.openpitrix.io.git
 

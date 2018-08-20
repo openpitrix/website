@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 
-import Header from '../components/Header'
+// import Header from '../components/Header'
 import Versions from '../components/Versions'
 import TableOfContents from '../components/TableOfContents/index'
 
@@ -22,14 +22,14 @@ export default class MarkdownTemplate extends React.Component {
   componentDidMount() {
     this.scrollToHash()
 
-    if (typeof docsearch !== 'undefined') {
-      docsearch({
-        apiKey: '221332a85783d16a5b930969fe4a934a',
-        indexName: 'openpitrix',
-        inputSelector: '.ks-search > input',
-        debug: false,
-      })
-    }
+    // if (typeof docsearch === 'function') {
+    //   docsearch({
+    //     apiKey: '221332a85783d16a5b930969fe4a934a',
+    //     indexName: 'openpitrix',
+    //     inputSelector: '.ks-search > input',
+    //     debug: false,
+    //   })
+    // }
 
     document.addEventListener('click', this.handleClick)
   }
@@ -97,11 +97,11 @@ export default class MarkdownTemplate extends React.Component {
             </ToCContainer>
           </NavContainer>
           <MainContainer isExpand={this.state.isExpand}>
-            <Header
-              location={this.props.location}
-              isExpand={this.state.isExpand}
-              toggleExpand={this.handleExpand}
-            />
+            {/*<Header*/}
+              {/*location={this.props.location}*/}
+              {/*isExpand={this.state.isExpand}*/}
+              {/*toggleExpand={this.handleExpand}*/}
+            {/*/>*/}
             <MarkdownBody
               className="md-body"
               innerRef={ref => {
@@ -167,10 +167,10 @@ const ToCContainer = styled.div`
 `
 
 const MarkdownBody = styled.div`
-  padding: 120px 40px 40px;
+  padding: 40px 40px;
 
   @media only screen and (max-width: 768px) {
-    padding: 100px 24px 24px;
+    padding: 24px 24px;
   }
 `
 

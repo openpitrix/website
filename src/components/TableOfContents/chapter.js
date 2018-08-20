@@ -90,7 +90,7 @@ const Headings = ({ heads, prefix, level }) => (
             prefix +
             '#' +
             value
-              .replace(/:/g, '')
+              .replace(/[:.]/g, '')
               .split(' ')
               .join('-')
               .toLowerCase()

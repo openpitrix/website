@@ -99,7 +99,7 @@ NAME                   TYPE       CLUSTER-IP     EXTERNAL-IP   PORT(S)        AG
 openpitrix-dashboard   NodePort   10.96.41.130   <none>        80:31879/TCP   5m
 ```
 
-    您可以通过浏览器，使用集群中任一节点的 IP 地址和上面命令结果的端口号访问 Dashboard 服务，如：http://139.198.121.143:31879, 即可进入 OpenPitrix 主页面。
+    您可以通过浏览器，使用集群中任一节点的 IP 地址和上面命令结果的端口号访问 Dashboard 服务，如：http://139.198.121.143:31879，即可进入 OpenPitrix 主页面。
 
     ![](/dashboard-kubernetes.png)
 

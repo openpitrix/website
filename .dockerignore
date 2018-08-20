@@ -1,6 +1,8 @@
 .git
 .cache
 .vscode
-src
-node_modules
 yarn-error.log
+.DS_Store
+
+.idea/
+node_modules/

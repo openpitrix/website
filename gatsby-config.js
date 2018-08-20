@@ -9,12 +9,12 @@ module.exports = {
       resolve: "gatsby-transformer-remark",
       options: {
         plugins: [
-          {
-            resolve: "gatsby-remark-images",
-            options: {
-              maxWidth: 690
-            }
-          },
+          // {
+          //   resolve: "gatsby-remark-images",
+          //   options: {
+          //     maxWidth: 690
+          //   }
+          // },
           {
             resolve: "gatsby-remark-responsive-iframe"
           },
@@ -47,7 +47,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-no-sourcemaps",
     },
-    "gatsby-plugin-sharp",
+    // "gatsby-plugin-sharp",
     "gatsby-plugin-catch-links",
     "gatsby-transformer-json",
   ],

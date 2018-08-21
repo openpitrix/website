@@ -327,10 +327,12 @@ vxnet|创建应用时所在网络ID
   多角色节点应用必填项，单角色应用可以无此项。角色名称自定义，但必须和 config.json 里定义的名字一致。
 - container <br />
   镜像信息，必填项。
+
   | 参数 | 描述 |
   | --- | --- |
   | type|镜像类型，目前支持 docker。|
   | image| docker image name，包含 tag 部分。|
+
 - count <br />
   节点个数，必填项，可以为0，但集群节点总数必须大于0。
 - cpu <br />
@@ -339,18 +341,21 @@ vxnet|创建应用时所在网络ID
   每个节点内存大小，单位 MiB。
 - volume <br />
   每个节点数据盘信息，如果此类节点不需要数据盘，不需要填写此项。
+
   | 参数|描述|
   | --- | --- |
   | size|每个节点挂盘容量大小，单位 GiB。|
   | mount\_point|每个节点数据盘挂载路径。|
   | mount\_options|描述数据盘的挂接方式，默认值 ext4 是 defaults,noatime，xfs 是 rw,noatime,inode64,allocsize=16m。|
   | filesystem|数据盘文件系统类型。如果 image 是基于 Linux 操作系统，目前支持 ext4 和 xfs，默认为 ext4。|
+
 - passphraseless　<br />
   生成密钥信息，即提供此类节点能无密码登录其它节点的可能性，但青云调度系统只负责把此信息注册到 metadata service 中，开发者自行去获取密钥配置主机。目前支持 ssh-dsa, ssh-rsa，非必填项。
 - services　<br />
   应用本身服务的初始化、启停等指令，OpenPitrix 调度系统会发送这些命令到指定节点执行，非必填项。
 - init　<br />
   初始化命令，在创建集群或者新加节点时会触发该命令的执行。
+
   | 参数 | 描述 |
   | --- | --- |
   | nodes\_to\_execute_on|控制此命令在此类角色节点上某几个节点上执行，如果需要在所有此类节点上执行该命令可不填此项。|
@@ -358,31 +363,39 @@ vxnet|创建应用时所在网络ID
   | order|控制不同角色节点之间执行此命令顺序。比如主从节点，有时候需要主节点先启动服务，从节点后启动服务，非必填项。|
   | cmd|具体需执行的命令，必填项。|
   | timeout|执行该命令 timeout 时间(单位秒)，系统默认10分钟，由于某些命令可能需要迁移数据而耗时比较长，这种情况下需要计算出最长可能时间，最大值是86400，非必填项。|
+
 - start <br />
   服务启动命令，具体参数参考初始化命令 init。
 - stop　<br />
   停止服务命令，具体参数参考初始化命令 init。
 - scale\_out　<br />
   加节点时在非新加节点上需执行的命令，具体参数参考初始化命令 init。
+
   | 参数 | 描述 |
   | --- | --- |
   | pre\_check|删除节点时在非删除节点上执行的预检查命令，若返回非0值表示不可删除节点。此项是 scale\_in 和 scale\_out 独有。|
+
 - scale\_in <br />
   删除节点时在非删除节点上需执行的命令，具体参数参考初始化命令 init。
+
   | 参数|描述|
   | --- | --- |
   | pre\_check|删除节点时在非删除节点上执行的预检查命令，若返回非0值表示不可删除节点。此项是 scale\_in 和 scale\_out 独有。|
+
 - restart <br />
   服务重启动命令，具体参数参考初始化命令 init。
 - destroy <br />
   销毁命令，在删除集群或者节点时会触发该命令的执行，通常用作删除资源之前检查安全性，具体参数参考初始化命令 init。
+
   | 参数|描述|
   | --- | --- |
   | allow\_force |是否允许强制删除, 默认值为 true 表示允许强制删除该节点, 强制删除时即使 destroy 的 cmd 返回非 0 值也会继续将节点删除。|
+
 - post\_stop\_service　<br />
   控制销毁命令是在 [stop](#stop) 命令执行完毕后执行还是之前执行，如果 post\_stop\_service 为 true 则表示 destroy 在 stop 后执行；默认 (即不加此项) 是之前执行。此项是 destroy 独有。
-- custom_service <br />
+- custom\_service <br />
   用户自定义命令，具体参数参考备份命令 backup，除此之外自定义的服务参数还有：
+
   | 参数|描述|
   | --- | --- |
   | type |type = custom 表示这个服务是自定义的， 自定义的名字 (即 key，此处为 custom_service) 开发者自行定义。|

@@ -30,7 +30,7 @@
           "title": "OpenPitrix 规范应用开发",
           "entries": [
             {
-              "entry": "./v1.0/zh-CN/openpitrix-schema.md"
+              "entry": "./v1.0/zh-CN/openpitrix-specification.md"
             },
             {
               "entry": "./v1.0/zh-CN/openpitrix-repo.md"

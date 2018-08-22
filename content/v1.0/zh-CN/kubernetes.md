@@ -122,3 +122,23 @@ openpitrix-api-gateway   NodePort   10.96.66.66   <none>         9100:30441/TCP 
     您可以通过浏览器，使用集群中任一节点的 IP 地址和上面命令结果的端口号访问 OpenPitrix API 界面，如：http://139.198.121.143:30441/swagger-ui/。
 
     ![](/swagger-kubernetes.png)
+    
+## 升级
+
+升级操作数据库和 Etcd 服务中已有数据会保留，无需担心数据丢失
+
+### 一. 无需管理 vm-based 平台
+
+1. 执行脚本，升级基础服务，升级 Dashboard 服务
+
+```bash
+$ kubernetes/scripts/deploy-k8s.sh -n openpitrix-system -b -d -s
+```
+
+### 二. 需要管理 vm-based 平台
+
+1. 执行脚本，升级基础服务，升级 Dashboard 服务，升级 Pilot 服务
+
+```
+$ kubernetes/scripts/deploy-k8s.sh -n openpitrix-system -b -d -s -m
+```

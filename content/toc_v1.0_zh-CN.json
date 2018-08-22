@@ -23,25 +23,26 @@
       "title": "开发指南",
       "chapters": [
         {
+          "title": "快速入门",
+          "entry": "./v1.0/zh-CN/developer-quick-start.md"
+        },
+        {
           "title": "仓库创建",
           "entry": "./v1.0/zh-CN/repo-guide.md"
         },
         {
-          "title": "OpenPitrix 规范应用开发",
+          "title": "OpenPitrix 规范及开发",
           "entries": [
             {
               "entry": "./v1.0/zh-CN/openpitrix-specification.md"
             },
             {
               "entry": "./v1.0/zh-CN/openpitrix-repo.md"
-            },
-            {
-              "entry": "./v1.0/zh-CN/wordpress-app.md"
             }
           ]
         },
         {
-          "title": "Helm 规范应用开发",
+          "title": "Helm 规范及开发",
           "entry": "./v1.0/zh-CN/kubernetes-schema.md"
         }
       ]

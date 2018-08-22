@@ -50,3 +50,11 @@ $ docker ps
 访问 http://localhost:9100/swagger-ui/ 查看 OpenPitrix API 界面。
 
 ![](/swagger.png)
+
+## 升级
+
+更新代码后可使用以下命令升级环境
+
+```bash
+$ make compose-update
+```

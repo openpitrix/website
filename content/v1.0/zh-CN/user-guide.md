@@ -1,5 +1,5 @@
 ---
-title: "OpenPitrix 基本概念"
+title: "用户指南"
 ---
 
 ## 基础模块
@@ -18,4 +18,17 @@ title: "OpenPitrix 基本概念"
 |-------|------|
 | 管理员 | 管理整个环境的仓库、应用、应用分类、应用审核、运行时环境等 |
 | 开发者	| 开发应用和测试、提交审核、上架下架、应用运维等 | 
-| 普通用户 | 注册运行时环境、应用市场上部署应用到自有的运行时环境中、应用评价等 | 
+| 普通用户 | 注册运行时环境、应用市场上部署应用到自有的运行时环境中、应用评价等 |
+
+## 支持环境
+
+目前 OpenPitrix 支持以下三种云运行时环境：AWS、QingCloud、Kubernetes
+
+接下来将通过实例介绍如何将应用部署到每种云运行时环境中：
+
+* [部署 WordPress 到 QingCloud](../qingcloud-quick-start)
+* [部署 WordPress 到 AWS](../aws-quick-start)
+* [部署 WordPress 到 kubernetes](../kubernetes-quick-start)
+
+
+

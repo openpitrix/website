@@ -6,7 +6,7 @@ OpenPitrix 应用仓库是独立于 OpenPitrix 的外部存储，可以是 Googl
 
 本文档介绍如何创建一个仓库。
 
-## 创建基于青云 QingStor 对象存储的仓库
+## 基于青云 QingStor 对象存储
 
 ### 登录
 

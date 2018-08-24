@@ -1,5 +1,5 @@
 ---
-title: "OpenPitrix 应用规范"
+title: "开发模板规范"
 ---
 
 ## OpenPitrix 开发包文件结构
@@ -22,7 +22,7 @@ title: "OpenPitrix 应用规范"
 |-------|-----|
 | apiVersion | [必须] OpenPitrix 开发包 API 版本，可用值 v1 |
 | name | [必须] 应用名称 |
-| version | [必须] 应用版本 |
+| version | [必须] 应用版本，遵循 [SemVer 2 标准](https://semver.org/) |
 | description | [可选] 应用的简要描述 |
 | home | [可选] 应用主页 URL |
 | icon | [可选] SVG 或者 PNG 格式的图片地址 |

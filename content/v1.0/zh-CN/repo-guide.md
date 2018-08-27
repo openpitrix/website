@@ -44,3 +44,26 @@ OpenPitrix 应用仓库是独立于 OpenPitrix 的外部存储，可以是 Googl
 
 以上就完成了相应配置，可进行应用开发。
 
+## 基于 AWS S3 对象存储
+
+### 登录
+
+首先登录 [AWS 控制台](https://console.aws.amazon.com)，点击左上方的 `Services`，在弹出的服务列表中选择 `S3` 。
+
+![AWS console](/aws-s3.png)
+
+### 创建 bucket 
+
+进入 S3 管理页面后点击 `Create bucket`，弹出 `创建 bucket` 对话框。
+
+在对话框中输入 `Bucket name` 后，点击 `Create`。
+
+![对象存储bucket](/aws-create-bucket.png)
+
+输入名称后点击 `Create`，这样就完成了 Bucket 的创建。
+
+![创建bucket](/aws-bucket-created.png)
+
+注册 OpenPitrix 仓库时所需要的 `URL` 参数形式为 `s3://s3.<region>.amazonaws.com/<bucket_name>`。
+
+图中的示例，则 URL 为 `s3://s3.us-east-2.amazonaws.com/my-openpitrix`。

@@ -77,10 +77,10 @@ $ kubernetes/scripts/deploy-k8s.sh -n openpitrix-system -b -d -s -m
 $ kubectl get service openpitrix-pilot-service -n openpitrix-system
 root@i-tjwio1m2:/opt/openpitrix-v0.1.9-kubernetes/kubernetes# kubectl get service openpitrix-pilot-service -n openpitrix-system
 NAME                       TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
-openpitrix-pilot-service   NodePort   10.96.224.102   <none>        9110:30119/TCP   5m
+openpitrix-pilot-service   NodePort   10.96.224.102   <none>        9110:31866/TCP,9114:30119/TCP   5m
 ```
 
-这里看到 Pilot 服务的 nodePort 是 30119
+这里看到 Pilot 服务的 9114 端口对应的 nodePort 是 30119
 
 2. 修改 global 配置文件中 Pilot 服务的 IP 和 PORT
 

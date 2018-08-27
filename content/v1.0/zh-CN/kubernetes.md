@@ -76,7 +76,7 @@ $ kubernetes/scripts/deploy-k8s.sh -n openpitrix-system -b -d -s -m
 ```
 $ kubectl get service openpitrix-pilot-service -n openpitrix-system
 root@i-tjwio1m2:/opt/openpitrix-v0.1.9-kubernetes/kubernetes# kubectl get service openpitrix-pilot-service -n openpitrix-system
-NAME                       TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+NAME                       TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)                         AGE
 openpitrix-pilot-service   NodePort   10.96.224.102   <none>        9110:31866/TCP,9114:30119/TCP   5m
 ```
 

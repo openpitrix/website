@@ -67,3 +67,11 @@ OpenPitrix 应用仓库是独立于 OpenPitrix 的外部存储，可以是 Googl
 注册 OpenPitrix 仓库时所需要的 `URL` 参数形式为 `s3://s3.<region>.amazonaws.com/<bucket_name>`。
 
 图中的示例，则 URL 为 `s3://s3.us-east-2.amazonaws.com/my-openpitrix`。
+
+在 Openpitrix 中注册 repo 时，请选择 URL 类型为 `S3` ，然后填入相应的 `Access Key ID` 和 `Secret Access Key`。
+
+> 关于获取 AWS `Access Key ID` 和 `Secret Access Key` 的方式请参考[官方文档](https://docs.aws.amazon.com/zh_cn/general/latest/gr/managing-aws-access-keys.html)
+
+![OpenPitrix console](/openpitrix-create-repo.png)
+
+点击 `Validate` 按钮可以检查配置是否有效。

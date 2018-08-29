@@ -111,6 +111,7 @@ openpitrix-dashboard   NodePort   10.96.41.130   <none>        80:31879/TCP   5m
 
 
 2. 查看 Api Gateway 服务
+
 ```
 $ kubectl get service openpitrix-api-gateway -n openpitrix-system
 NAME                     TYPE       CLUSTER-IP    EXTERNAL-IP    PORT(S)          AGE

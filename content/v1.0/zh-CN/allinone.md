@@ -8,10 +8,10 @@ title: "All-in-One 模式"
 
 | 软件需求 | 最低版本 |
 | --- | --- |
-| docker | 18.03.0-ce |
-| docker-compose | 1.21.0 |
-| git | 1.9.1 |
-| make | 3.81 |
+| [Docker](https://docs.docker.com/install/) | 18.03.0-ce |
+| [Docker-Compose](https://docs.docker.com/compose/install/) | 1.21.0 |
+| [Git](https://git-scm.com/downloads) | 1.9.1 |
+| [Make](https://www.gnu.org/software/make/) | 3.81 |
 
 ## 第二步: 准备 OpenPitrix 源码文件
 

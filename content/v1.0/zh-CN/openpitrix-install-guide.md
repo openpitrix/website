@@ -1,8 +1,8 @@
 ---
-title: "OpenPitrix 部署模式"
+title: "部署 OpenPitrix"
 ---
 
-OpenPitrix 部署支持 **`all-in-one`** 和 **`Kubernetes`** 两种部署模式。
+OpenPitrix 支持 **`all-in-one`** 和 **`Kubernetes`** 两种部署模式。
 
 ### All-in-One 模式
 

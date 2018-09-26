@@ -127,6 +127,8 @@ title: "仓库管理"
 
 ![OpenPitrix console](/openpitrix-create-repo.png)
 
+### 基于 GitHub 创建仓库
+
 ## 修改仓库
 
 在应用仓库列表页的右侧或在某个应用仓库的详情页中点击 “···” ，选择 **修改仓库** 可以修改应用仓库的信息，其中运行环境提供商、可见性和 URL 不支持修改。

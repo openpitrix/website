@@ -29,6 +29,7 @@ URL 填写 http://kubernetes-charts.storage.googleapis.com ，这只是一个 he
 * **凭证（Credential）** 填写 Kubernetes 环境下 ~/.kube/config 或 /etc/kubernetes/admin.conf 中内容。
 * **命名空间（Namespace）** 填写由小写字母和中划线组成的字符串。
 
+
 ## 部署应用
 
 ### 准备 Kubernetes 平台环境：安装 Helm

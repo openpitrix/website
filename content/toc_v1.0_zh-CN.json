@@ -27,10 +27,6 @@
           "entry": "./v1.0/zh-CN/developer-guide.md"
         },
         {
-          "title": "仓库创建",
-          "entry": "./v1.0/zh-CN/repo-guide.md"
-        },
-        {
           "title": "OpenPitrix 规范及开发",
           "entries": [
             {
@@ -69,6 +65,14 @@
         },
         {
           "title": "快速入门",
+          "entry": "./v1.0/zh-CN/app-management.md"
+        },
+        {
+          "title": "总览",
+          "entry": "./v1.0/zh-CN/dashboard-management.md"
+        },
+        {
+          "title": "部署应用",
           "entries": [
             {
               "entry": "./v1.0/zh-CN/qingcloud-quick-start.md"
@@ -78,6 +82,32 @@
             },
             {
               "entry": "./v1.0/zh-CN/kubernetes-quick-start.md"
+            }
+          ]
+        },
+        {
+          "title": "用户管理",
+          "entry": "./v1.0/zh-CN/user-management.md"
+        },
+        {
+          "title": "运行环境管理",
+          "entry": "./v1.0/zh-CN/runtime-management.md"
+        },
+        {
+          "title": "仓库管理",
+          "entry": "./v1.0/zh-CN/repo-guide.md"
+        },
+        {
+          "title": "商店管理",
+           "entries": [
+            {
+          "entry": "./v1.0/zh-CN/store-management.md"
+            },
+            {
+          "entry": "./v1.0/zh-CN/category-management.md"
+            },
+            {
+          "entry": "./v1.0/zh-CN/cluster-management.md"
             }
           ]
         }

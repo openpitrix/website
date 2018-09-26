@@ -28,7 +28,7 @@ title: "用户指南"
 
 * [部署 WordPress 到 QingCloud](../qingcloud-quick-start)
 * [部署 WordPress 到 AWS](../aws-quick-start)
-* [部署 WordPress 到 kubernetes](../kubernetes-quick-start)
+* [部署 WordPress 到 Kubernetes](../kubernetes-quick-start)
 
 
 

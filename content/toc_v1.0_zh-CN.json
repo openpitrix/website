@@ -27,7 +27,6 @@
           "entry": "./v1.0/zh-CN/developer-guide.md"
         },
         {
-          "title": "OpenPitrix 规范及开发",
           "entries": [
             {
               "entry": "./v1.0/zh-CN/openpitrix-developer-quick-start.md"
@@ -41,7 +40,7 @@
           ]
         },
         {
-          "title": "Helm 规范及开发",
+          "title": "Helm 规范及应用开发",
           "entries": [
             {
               "entry": "./v1.0/zh-CN/helm-developer-quick-start.md"
@@ -53,6 +52,10 @@
               "entry": "./v1.0/zh-CN/helm-app-develop.md"
             }
           ]
+        },
+        {
+          "title": "实现新的 Provider Plugin",
+          "entry": "./v1.0/zh-CN/implementing_a_new_plugin.md"
         }
       ]
     },

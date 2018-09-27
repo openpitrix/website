@@ -20,45 +20,8 @@
       ]
     },
     {
-      "title": "开发指南",
-      "chapters": [
-        {
-          "title": "基本概念",
-          "entry": "./v1.0/zh-CN/developer-guide.md"
-        },
-        {
-          "title": "OpenPitrix 规范及应用开发",
-          "entries": [
-            {
-              "entry": "./v1.0/zh-CN/openpitrix-developer-quick-start.md"
-            },
-            {
-              "entry": "./v1.0/zh-CN/openpitrix-specification.md"
-            },
-            {
-              "entry": "./v1.0/zh-CN/openpitrix-app-develop.md"
-            }
-          ]
-        },
-        {
-          "title": "Helm 规范及应用开发",
-          "entries": [
-            {
-              "entry": "./v1.0/zh-CN/helm-developer-quick-start.md"
-            },
-            {
-              "entry": "./v1.0/zh-CN/helm-specification.md"
-            },
-            {
-              "entry": "./v1.0/zh-CN/helm-app-develop.md"
-            }
-          ]
-        },
-        {
-          "title": "实现新的 Provider Plugin",
-          "entry": "./v1.0/zh-CN/implementing_a_new_plugin.md"
-        }
-      ]
+          "title": "快速入门",
+          "entry": "./v1.0/zh-CN/user-quick-start.md"
     },
     {
       "title": "用户指南",
@@ -67,10 +30,7 @@
           "title": "基本概念",
           "entry": "./v1.0/zh-CN/user-guide.md"
         },
-        {
-          "title": "快速入门",
-          "entry": "./v1.0/zh-CN/user-quick-start.md"
-        },
+        
         {
           "title": "总览",
           "entry": "./v1.0/zh-CN/dashboard-management.md"
@@ -118,6 +78,47 @@
           "entry": "./v1.0/zh-CN/app-management.md"
         }
           ]
+        }
+      ]
+    },
+    {
+      "title": "开发指南",
+      "chapters": [
+        {
+          "title": "基本概念",
+          "entry": "./v1.0/zh-CN/developer-guide.md"
+        },
+        {
+          "title": "OpenPitrix 规范及应用开发",
+          "entries": [
+            {
+              "entry": "./v1.0/zh-CN/openpitrix-developer-quick-start.md"
+            },
+            {
+              "entry": "./v1.0/zh-CN/openpitrix-specification.md"
+            },
+            {
+              "entry": "./v1.0/zh-CN/openpitrix-app-develop.md"
+            }
+          ]
+        },
+        {
+          "title": "Helm 规范及应用开发",
+          "entries": [
+            {
+              "entry": "./v1.0/zh-CN/helm-developer-quick-start.md"
+            },
+            {
+              "entry": "./v1.0/zh-CN/helm-specification.md"
+            },
+            {
+              "entry": "./v1.0/zh-CN/helm-app-develop.md"
+            }
+          ]
+        },
+        {
+          "title": "实现新的 Provider Plugin",
+          "entry": "./v1.0/zh-CN/implementing_a_new_plugin.md"
         }
       ]
     }

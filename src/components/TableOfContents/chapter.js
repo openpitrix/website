@@ -198,7 +198,7 @@ const ListItem = styled.li`
   margin: 0;
 
   .selected-link > h5 {
-    background-color: #55bc8a;
+    background-color: rgb(255,255,255, 0.1);
   }
 
   &.list-toggle > ol > li {
@@ -213,9 +213,8 @@ const ListItem = styled.li`
 
 const Title = styled.h5`
   position: relative;
-  font-family: Proxima Nova;
-  font-size: 0.725rem;
-  font-weight: 600;
+  font-size: 0.875rem;
+  font-weight: normal;
   line-height: 1.67;
   text-align: left;
   color: #ffffff;
@@ -223,11 +222,11 @@ const Title = styled.h5`
   padding-left: ${({ level }) => {
     switch (level % 4) {
       case 1:
-        return '40px'
+        return '44px'
       case 2:
-        return '60px'
+        return '66px'
       case 3:
-        return '80px'
+        return '88px'
       default:
         return '20px'
     }
@@ -238,7 +237,7 @@ const Title = styled.h5`
   text-overflow: ellipsis;
 
   &:hover {
-    background-color: #55bc8add;
+    background-color: rgb(255,255,255,0.2);
   }
 
   & > svg {

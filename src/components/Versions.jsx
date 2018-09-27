@@ -23,8 +23,8 @@ const VersionsWrapper = styled.div`
   padding: 25px 20px;
 
   .version-logo {
-    width: 40px; 
-    height: 40px; 
+    width: 24px; 
+    height: 24px; 
     margin-right: 16px;
     vertical-align: middle;
   }

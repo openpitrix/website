@@ -128,7 +128,7 @@ const NavContainer = styled.div`
   left: 0;
   width: 280px;
   height: 100vh;
-  background-color: #242e42;
+  background-image: linear-gradient(0deg, #8454CD 0%, #854FB9 32%, #484999 100%);
   box-shadow: 4px 0 8px 0 rgba(101, 125, 149, 0.2);
   transition: left 0.2s ease-in-out;
   overflow-y: auto;
@@ -163,7 +163,7 @@ const MainContainer = styled.div`
 `
 
 const ToCContainer = styled.div`
-  padding: 40px 0;
+  padding: 10px 0;
 `
 
 const MarkdownBody = styled.div`

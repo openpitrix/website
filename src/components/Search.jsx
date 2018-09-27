@@ -38,7 +38,6 @@ const SearchWrapper = styled.div`
     height: 100%;
     padding: 7px 20px 7px 40px;
     font-size: 0.875rem;
-    font-family: Proxima Nova;
     font-weight: 600;
     line-height: 1.7;
     color: #303e5a;

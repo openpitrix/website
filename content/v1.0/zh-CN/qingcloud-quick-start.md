@@ -37,8 +37,8 @@ URL 填写 http://openpitrix.pek3a.qingstor.com/package/ ，这只是一个 demo
 
 1. 创建 [VPC](https://console.qingcloud.com/pek3a/routers/)
 2. 创建私有网络并连接到 VPC
-3. 创建[公网 ip ](https://console.qingcloud.com/pek3a/eips/)
-4. 绑定公网 ip 到 VPC 
+3. 创建 [公网 IP ](https://console.qingcloud.com/pek3a/eips/)
+4. 绑定公网 IP 到 VPC 
 
 ### 准备应用
 

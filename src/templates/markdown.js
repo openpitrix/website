@@ -7,6 +7,8 @@ import styled from 'styled-components'
 import Versions from '../components/Versions'
 import TableOfContents from '../components/TableOfContents/index'
 
+import { ReactComponent as Logo } from '../assets/op-logo.svg'
+
 import './markdown.css'
 import './b16-tomorrow-dark.css'
 
@@ -95,6 +97,12 @@ export default class MarkdownTemplate extends React.Component {
                 }
               />
             </ToCContainer>
+            <footer className="op-footer">
+              <Logo className="logo"/>
+              <div className="copy">
+                Openpitrix Technology © 2018
+              </div>
+            </footer>
           </NavContainer>
           <MainContainer isExpand={this.state.isExpand}>
             {/*<Header*/}
@@ -136,9 +144,9 @@ const NavContainer = styled.div`
   z-index: 2;
 
   @media only screen and (max-width: 768px) {
-    left: ${({ isExpand }) => {
-      return isExpand ? 0 : '-290px'
-    }};
+  left: ${({ isExpand }) => {
+  return isExpand ? 0 : '-290px'
+  }};
   }
 `
 
@@ -146,31 +154,32 @@ const MainContainer = styled.div`
   margin-left: 280px;
 
   & > div {
-    margin: auto;
+  margin: auto;
   }
 
   & > h1 {
-    color: #303e5a;
+  color: #303e5a;
   }
 
   @media only screen and (max-width: 768px) {
-    width: 100vw;
-    margin-left: ${({ isExpand }) => {
-      return isExpand ? '280px' : '0'
-    }};
-    transition: margin-left 0.2s ease-in-out;
+  width: 100vw;
+  margin-left: ${({ isExpand }) => {
+  return isExpand ? '280px' : '0'
+  }};
+  transition: margin-left 0.2s ease-in-out;
   }
 `
 
 const ToCContainer = styled.div`
   padding: 10px 0;
+  min-height: calc(100vh - 220px);
 `
 
 const MarkdownBody = styled.div`
   padding: 40px 40px;
 
   @media only screen and (max-width: 768px) {
-    padding: 24px 24px;
+  padding: 24px 24px;
   }
 `
 

@@ -1,0 +1,133 @@
+{
+  "id": "v0.3-zh-CN",
+  "chapters": [
+    {
+      "title": "简介",
+      "describe": "通过直观的视频资料与简单的描述对整个平台有个全面的了解。",
+      "entry": "./v0.3/zh-CN/basic.md"
+    },
+    {
+      "title": "安装指南",
+      "describe": "指导用户如何快速部署平台，并对平台做简单设置，投入使用。",
+      "chapters": [
+        {
+          "title": "部署 OpenPitrix",
+          "entry": "./v0.3/zh-CN/openpitrix-install-guide.md"
+        },
+        {
+          "title": "All-in-One 模式",
+          "entry": "./v0.3/zh-CN/allinone.md"
+        },
+        {
+          "title": "Kubernetes 模式",
+          "entry": "./v0.3/zh-CN/kubernetes.md"
+        }
+      ]
+    },
+    {
+      "title": "快速入门",
+      "describe": "部署完成后，通过关键功能的介绍来进一步使用平台。",
+      "entry": "./v0.3/zh-CN/user-quick-start.md"
+    },
+    {
+      "title": "用户指南",
+      "describe": "指导用户如何使用平台提供的项功能。",
+      "chapters": [
+        {
+          "title": "基本概念",
+          "entry": "./v0.3/zh-CN/user-guide.md"
+        },
+        {
+          "title": "总览",
+          "entry": "./v0.3/zh-CN/dashboard-management.md"
+        },
+        {
+          "title": "部署应用",
+          "entries": [
+            {
+              "entry": "./v0.3/zh-CN/qingcloud-quick-start.md"
+            },
+            {
+              "entry": "./v0.3/zh-CN/aws-quick-start.md"
+            },
+            {
+              "entry": "./v0.3/zh-CN/kubernetes-quick-start.md"
+            }
+          ]
+        },
+        {
+          "title": "用户管理",
+          "entry": "./v0.3/zh-CN/user-management.md"
+        },
+        {
+          "title": "运行环境管理",
+          "entry": "./v0.3/zh-CN/runtime-management.md"
+        },
+        {
+          "title": "集群管理",
+          "entry": "./v0.3/zh-CN/cluster-management.md"
+        },
+        {
+          "title": "仓库管理",
+          "entry": "./v0.3/zh-CN/repo-guide.md"
+        },
+        {
+          "title": "商店管理",
+           "entries": [
+            {
+          "entry": "./v0.3/zh-CN/store-management.md"
+            },
+            {
+          "entry": "./v0.3/zh-CN/category-management.md"
+            },
+            {
+          "entry": "./v0.3/zh-CN/app-management.md"
+        }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "开发指南",
+      "describe": "全面介绍应用的完整生命周期，以及不同平台的应用开发规范。",
+      "chapters": [
+        {
+          "title": "基本概念",
+          "entry": "./v0.3/zh-CN/developer-guide.md"
+        },
+        {
+          "title": "OpenPitrix 规范及应用开发",
+          "entries": [
+            {
+              "entry": "./v0.3/zh-CN/openpitrix-developer-quick-start.md"
+            },
+            {
+              "entry": "./v0.3/zh-CN/openpitrix-specification.md"
+            },
+            {
+              "entry": "./v0.3/zh-CN/openpitrix-app-develop.md"
+            }
+          ]
+        },
+        {
+          "title": "Helm 规范及应用开发",
+          "entries": [
+            {
+              "entry": "./v0.3/zh-CN/helm-developer-quick-start.md"
+            },
+            {
+              "entry": "./v0.3/zh-CN/helm-specification.md"
+            },
+            {
+              "entry": "./v0.3/zh-CN/helm-app-develop.md"
+            }
+          ]
+        },
+        {
+          "title": "实现新的 Provider Plugin",
+          "entry": "./v0.3/zh-CN/implementing_a_new_plugin.md"
+        }
+      ]
+    }
+  ]
+}

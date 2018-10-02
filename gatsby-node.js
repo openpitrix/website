@@ -42,7 +42,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         fromPath: `/`,
         isPermanent: true,
         redirectInBrowser: true,
-        toPath: `/v1.0/zh-CN/basic/`,
+        toPath: 'home'
       })
 
       edges.forEach(({ node }) => {

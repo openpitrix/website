@@ -20,13 +20,13 @@ Tree of repo:
 
 ```bash
 ├── content                                         // documents directory
-│   ├── v1.0                                        // documents version
+│   ├── v0.3                                        // documents version
 │   │   ├── en                                      // documents language 
 │   │   │   └── openpitrix-install-guide.md         // document
 │   │   └── zh-CN
 │   │       └── openpitrix-install-guide.md 
-│   ├── toc_v1.0_en.json                            // table of contents, define the page navigation
-│   └── toc_v1.0_zh-CN.json
+│   ├── toc_v0.3_en.json                            // table of contents, define the page navigation
+│   └── toc_v0.3_zh-CN.json
 ├── src
 └── static                                          // put document images here
     └── create-repo.png
@@ -68,11 +68,11 @@ navigation file example
 
 ```json
 {
-  "id": "v1.0-zh-CN",
+  "id": "v0.3-zh-CN",
   "chapters": [
     {
       "title": "简介",
-      "entry": "./v1.0/zh-CN/basic.md"
+      "entry": "./v0.3/zh-CN/basic.md"
     },
     {
       "title": "安装指南",
@@ -81,13 +81,13 @@ navigation file example
           "title": "部署模式",
           "entries": [
             {
-              "entry": "./v1.0/zh-CN/openpitrix-install-guide.md"
+              "entry": "./v0.3/zh-CN/openpitrix-install-guide.md"
             },
             {
-              "entry": "./v1.0/zh-CN/allinone.md"
+              "entry": "./v0.3/zh-CN/allinone.md"
             },
             {
-              "entry": "./v1.0/zh-CN/kubernetes.md"
+              "entry": "./v0.3/zh-CN/kubernetes.md"
             }
           ]
         }

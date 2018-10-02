@@ -1,11 +1,11 @@
 {
-  "id": "v1.0-en",
+  "id": "v0.3-en",
   "chapters": [
     {
       "title": "Introduction",
       "entries": [
         {
-          "entry": "./v1.0/en/basic.md"
+          "entry": "./v0.3/en/basic.md"
         }
       ]
     }

@@ -110,7 +110,7 @@ OpenPitrix 提供了应用创建、打包上传、应用审核、应用商店、
 
 ![Wordpress 部署信息](/deployment-wp.png)
 
-应用部署后将创建 frontgate 和 Wordpress 两个集群。其中 frontgate 包含 proxy 和 etcd，负责元数据存储以及 OpenPitrix 框架同应用实例主机进行通信等功能，由系统自动创建，Wordpress 集群包含 MySQL 和 Wordpress 两个角色的节点，部署成功后，将会在 QingCloud 运行环境创建 3 台主机。此时可以通过 [VPC 端口转发](https://docs.qingcloud.com/product/network/vpc.html#%E5%8A%9F%E8%83%BD%E7%AE%A1%E7%90%86) （Wordpress 默认端口为 80）并在防火墙放行对应的端口，即可在浏览器通过公网 IP 和转发的端口如 [http://139.198.177.98:8000](http://139.198.177.98:8000) 来访问 Wordpress。
+8.4. 应用部署后将创建 frontgate 和 Wordpress 两个集群。其中 frontgate 包含 proxy 和 etcd，负责元数据存储以及 OpenPitrix 框架同应用实例主机进行通信等功能，由系统自动创建，Wordpress 集群包含 MySQL 和 Wordpress 两个角色的节点，部署成功后，将会在 QingCloud 运行环境创建 3 台主机。此时可以通过 [VPC 端口转发](https://docs.qingcloud.com/product/network/vpc.html#%E5%8A%9F%E8%83%BD%E7%AE%A1%E7%90%86) （Wordpress 默认端口为 80）并在防火墙放行对应的端口，即可在浏览器通过公网 IP 和转发的端口如 [http://139.198.177.98:8000](http://139.198.177.98:8000) 来访问 Wordpress。
 
 ![Wordpress 主页](/wordpress-page.png)
 

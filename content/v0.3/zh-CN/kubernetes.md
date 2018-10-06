@@ -12,7 +12,7 @@ title: "Kubernetes 模式"
 
 * **[KubeSphere](https://kubesphere.io) 容器管理平台**
 
-KubeSphere 是在目前主流容器调度平台 [Kubernetes](https://kubernetes.io) 之上构建的 **企业级分布式多租户容器管理平台**，为用户提供简单易用的操作界面以及向导式操作方式，KubeSphere 提供了在生产环境集群部署的全栈化容器部署与管理平台。
+KubeSphere 是在目前主流容器调度平台 [Kubernetes](https://kubernetes.io) 之上构建的 **企业级分布式多租户容器管理平台**，为用户提供简单易用的操作界面以及向导式操作方式，KubeSphere 提供了在生产环境集群部署的全栈化容器部署与管理平台，且 KubeSphere 提供一键部署的方式，提供在 Kubernetes 中最优的存储和网络解决方案，帮助用户快速部署环境。
 
 * **[Kubernetes on QingCloud AppCenter](https://docs.qingcloud.com/product/container/k8s)**
 
@@ -22,23 +22,23 @@ KubeSphere 是在目前主流容器调度平台 [Kubernetes](https://kubernetes.
 
 ## 第二步: 准备 OpenPitrix 安装包
 
-1. 下载 OpenPitrix 安装包并解压，此命令会自动下载最新版本的 OpenPitrix 在 Kubernetes 平台上的安装包：
+1. 下载 OpenPitrix 安装包并解压，此命令会自动下载最新版本的 OpenPitrix 在 Kubernetes 运行环境上的安装包：
 
 ```bash
 $ curl -L https://git.io/GetOpenPitrix | sh -
 ``` 
 
-2. 进入解压完成后的文件夹：
+2. 进入解压完成后的文件夹，以 `openpitrix-v0.2.3-kubernetes.tar.gz` 为例：
 
 ```bash
-$ cd openpitrix-${OPENPITRIX_VERSION}-kubernetes/
+$ cd openpitrix-v0.2.3-kubernetes.tar.gz/
 ```
 
 ## 第三步: 安装 OpenPitrix
 
-OpenPitrix 管理的多云环境可以是 vm-based 的云平台，如 QingCloud、AWS 等，也可以是容器平台，如 Kubernetes 等。以下分两种情况说明安装步骤：
+OpenPitrix 管理的多云环境可以是 VM-based 的云平台，如 QingCloud、AWS 等，也可以是容器管理平台，如 Kubernetes 等。以下分两种情况说明安装步骤：
 
-### 无需管理 vm-based 平台
+### 无需管理 VM-based 平台
 
 如果只需要管理 Kubernetes 运行环境，可参考如下执行安装脚本，升级基础服务，启动 Dashboard 服务：
 
@@ -62,9 +62,9 @@ deploy-k8s.sh [-n NAMESPACE] [-v VERSION] COMMAND
 > -  -s          ： 将要部署图形界面 Dashboard 服务。
 
 
-### 需要管理 vm-based 平台
+### 需要管理 VM-based 平台
 
-如果需要管理 Kubernetes 运行环境和 IaaS 运行环境，则参考如下步骤部署：
+如果需要管理 Kubernetes 运行环境和 VM-based 运行环境，则参考如下步骤部署：
 
 1. 执行安装脚本，升级基础服务，启动 Dashboard 服务，启动 Pilot 服务：
 
@@ -101,14 +101,14 @@ openpitrix-dashboard   NodePort   10.96.41.130   <none>        80:31879/TCP   5m
 
 ![OpenPitrix 主页](/dashboard-kubernetes.png)
 
-可通过右上角 Sign In 进入登录页面。
+> 若公网 IP 有防火墙，请在防火墙添加规则放行对应的端口，外部才能够访问。
+
+OpenPitrix 部署成功后，点击右上角 **登录**，可使用以下的管理员默认的用户名和密码登录 OpenPitrix 控制台体验，参见 [用户管理](../user-management) 创建开发者和普通用户的角色，[快速入门](../user-quick-start) 将帮助您快速上手 OpenPitrix。
+
 
 | 角色 |	用户名 |	密码 |
 |-----|-----|-----|
-| 管理员	| admin	| passw0rd | 
-| 开发者	| dev| passw0rd | 
-| 普通用户 | normal| passw0rd | 
-
+| 管理员	| admin@op.com 	| 将生成在 `kubernetes/iam-config/admin-password.txt` 文件中 | 
 
 2. 查看 Api Gateway 服务
 
@@ -118,15 +118,15 @@ NAME                     TYPE       CLUSTER-IP    EXTERNAL-IP    PORT(S)        
 openpitrix-api-gateway   NodePort   10.96.66.66   <none>         9100:30441/TCP   5m
 ```
 
-您可以通过浏览器，使用集群中任一节点的 IP 地址和上面命令结果的端口号访问 OpenPitrix API 界面，如：http://139.198.121.143:30441/swagger-ui/。
+您可以通过浏览器，使用集群中任一节点的 IP 地址和上面命令结果的端口号访问 OpenPitrix API 界面，如：[http://139.198.121.143:30441/swagger-ui](http://139.198.121.143:30441/swagger-ui)。
 
 ![swagger 页面](/swagger-kubernetes.png)
     
 ## 升级
 
-升级操作数据库和 Etcd 服务中已有数据会保留，无需担心数据丢失。
+更新代码后，仅需要执行脚本即可升级环境。由于在第三步安装时提供了两种安装方式，因此升级也应根据第三步所选的安装方式进行升级。升级操作会保留数据库和 Etcd 服务中已有的数据，无需担心数据丢失。
 
-### 一. 无需管理 vm-based 平台
+###  无需管理 VM-based 平台
 
 执行脚本，升级基础服务，升级 Dashboard 服务：
 
@@ -134,7 +134,7 @@ openpitrix-api-gateway   NodePort   10.96.66.66   <none>         9100:30441/TCP 
 $ kubernetes/scripts/deploy-k8s.sh -n openpitrix-system -b -d -s
 ```
 
-### 二. 需要管理 vm-based 平台
+###  需要管理 VM-based 平台
 
 执行脚本，升级基础服务，升级 Dashboard 服务，升级 Pilot 服务：
 

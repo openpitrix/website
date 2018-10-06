@@ -27,7 +27,24 @@
     {
       "title": "快速入门",
       "describe": "部署完成后，通过关键功能的介绍来进一步使用平台。",
+      "chapters": [
+        {
+      "title": "入门必读",    
       "entry": "./v0.3/zh-CN/user-quick-start.md"
+        },
+        {
+      "title": "开发者",    
+      "entry": "./v0.3/zh-CN/ISV-quick-start.md"
+        },
+        {
+      "title": "管理员",    
+      "entry": "./v0.3/zh-CN/admin-quick-start.md"    
+        },
+        {
+      "title": "普通用户",    
+      "entry": "./v0.3/zh-CN/normal-user-quick-start.md"    
+        }
+                  ]
     },
     {
       "title": "用户指南",
@@ -56,10 +73,6 @@
           ]
         },
         {
-          "title": "用户管理",
-          "entry": "./v0.3/zh-CN/user-management.md"
-        },
-        {
           "title": "运行环境管理",
           "entry": "./v0.3/zh-CN/runtime-management.md"
         },
@@ -82,8 +95,12 @@
             },
             {
           "entry": "./v0.3/zh-CN/app-management.md"
-        }
+            }
           ]
+        },
+        {
+          "title": "用户管理",
+          "entry": "./v0.3/zh-CN/user-management.md"
         }
       ]
     },
@@ -128,6 +145,11 @@
           "entry": "./v0.3/zh-CN/implementing_a_new_plugin.md"
         }
       ]
-    }
+    },
+   {
+      "title": "常见问题",
+      "describe": "总结实际应用场景中可能遇到的问题并给出通用解决方案。",
+      "entry": "./v0.3/zh-CN/faq.md"
+    }  
   ]
 }

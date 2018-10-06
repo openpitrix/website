@@ -4,7 +4,7 @@ title: "仓库管理"
 
 ## 简介
 
-在 OpenPitrix 中，部署的每个应用程序都是基础软件包存储库，如果要将 OpenPitrix 用于多云应用程序管理，则需要先创建存储库。应用程序管理器可以将包存储到 http / https 服务器或 S3对象存储。OpenPitrix 应用仓库是独立于 OpenPitrix 的外部存储，可以是青云 QingCloud 的 QingStor 对象存储，也可以是 AWS 对象存储，后续将支持 GitHub 和 Google 作为存储，里面存储的内容是开发者开发好的应用的配置包以及索引文件。对于用户而言，仅管理员和开发者拥有仓库管理的权限，能够在平台中添加和管理仓库。
+在 OpenPitrix 中，部署的每个应用程序都是基础软件包存储库，如果要将 OpenPitrix 用于多云应用程序管理，则需要先创建存储库。应用程序管理器可以将包存储到 http / https 服务器或 S3对象存储。OpenPitrix 应用仓库是独立于 OpenPitrix 的外部存储，可以是青云 QingCloud 的 QingStor 对象存储，也可以是 AWS 对象存储，后续将支持 GitHub 和 Google 作为存储，里面存储的内容是开发者开发好的应用的配置包以及索引文件。注册好仓库后，对象存储中存储的应用配置包会被自动索引成为可部署的应用。对于用户而言，仅管理员和开发者拥有仓库管理的权限，能够在平台中添加和管理仓库。
 
 ## 查看仓库
 在 OpenPitrix 菜单栏选择 **仓库** 即可查看应用仓库的列表，包括公共仓库和私有仓库，显示运行环境提供商和仓库中的应用数目。
@@ -50,7 +50,7 @@ title: "仓库管理"
 4、至此就完成了 QingStor 对象存储的相关配置，下一步可在 OpenPitrix 控制台添加对象存储作为仓库进行应用开发。
 
 #### 第四步：创建仓库
-在 Openpitrix 控制台菜单栏选择 **仓库**，然后点击 **创建仓库**。
+在 Openpitrix 控制台菜单栏选择 **仓库**，然后点击 **创建仓库**。创建完成后，对象存储中存储的应用配置包会被自动索引成为可部署的应用。
 
 ![创建应用仓库](/create-repo-vmbased.png)
 
@@ -64,7 +64,7 @@ title: "仓库管理"
 
 - URL 选择 S3 协议，然后填写 `s3://s3.sh1a.qingstor.com/my-openpitrix`，这只是一个示例仓库，URL 填写实际的对象存储地址。Access Key ID 和 Secret Access Key 请参考 [获取 Access Key](https://docs.qingcloud.com/qingstor/api/common/signature.html#%E8%8E%B7%E5%8F%96-access-key)，填写后点击 `Validate` 按钮可以检查配置是否有效。以下分别说明每种协议的场景：
    
-   - S3：可读可写，支持获取该应用仓库中的应用并部署到运行环境，且支持在 OpenPitrix 中上传应用到该仓库。参数形式为 `s3://s3.<region>.qingstor.com/<bucket_name>`。
+   - S3：可读可写，支持获取该应用仓库中的应用，支持部署到运行环境，且支持在 OpenPitrix 中上传应用到该仓库。参数形式为 `s3://s3.<region>.qingstor.com/<bucket_name>`。
    - HTTP：可读，不可写，仅支持获取该应用仓库（对象存储）中的应用，支持部署到运行环境，但不支持在 OpenPitrix 中上传应用。
    - HTTPS：可读，不可写，仅支持获取该应用仓库（对象存储）中的应用，支持部署到运行环境，但不支持在 OpenPitrix 中上传应用。
 

@@ -68,7 +68,7 @@ class HomePage extends Component {
             <GatsbyLink
               to={`/v0.3/zh-CN/basic/#应用场景`}
             >
-              Abount
+              OpenPitrix Documentation
             </GatsbyLink>
             OpenPitrix © 2018
           </div>

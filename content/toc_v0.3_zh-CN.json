@@ -3,12 +3,12 @@
   "chapters": [
     {
       "title": "简介",
-      "describe": "通过直观的视频资料与简单的描述对整个平台有个全面的了解。",
+      "describe": "通过直观的视频资料与简单的介绍帮助您了解 OpenPitrix。",
       "entry": "./v0.3/zh-CN/basic.md"
     },
     {
       "title": "安装指南",
-      "describe": "指导用户如何快速部署平台，并对平台做简单设置，投入使用。",
+      "describe": "指导用户如何快速安装 OpenPitrix，并对平台做简单设置，投入使用。",
       "chapters": [
         {
           "title": "部署 OpenPitrix",
@@ -26,7 +26,7 @@
     },
     {
       "title": "快速入门",
-      "describe": "部署完成后，通过关键功能的介绍来进一步使用平台。",
+      "describe": "安装完成后，通过关键功能和流程的介绍引导用户快速入门。",
       "chapters": [
         {
       "title": "入门必读",    
@@ -48,7 +48,7 @@
     },
     {
       "title": "用户指南",
-      "describe": "指导用户如何使用平台提供的项功能。",
+      "describe": "指导用户如何使用平台提供的基本功能。",
       "chapters": [
         {
           "title": "基本概念",

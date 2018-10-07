@@ -4,9 +4,11 @@ title: "应用开发流程"
 
 ## 一. 准备 OpenPitrix 客户端工具
 
+以 v0.2.3 为例，以下命令中的版本号以实际最新的为准：
+
 ```bash
 $ curl -L https://git.io/GetOpenPitrixBin | sh -
-$ cd openpitrix-${OPENPITRIX_VERSION}-bin/
+$ cd openpitrix-v0.2.3-bin/
 $ cp * /usr/local/bin/
 ```
 

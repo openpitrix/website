@@ -115,12 +115,12 @@ const Head = styled.h5`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: ${({ selected }) => (selected ? '#55bc8a' : '#141f29')};
+  color: ${({ selected }) => (selected ? '#8454CD' : '#141f29')};
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 
   &:hover {
-    color: #55bc8a;
+    color: #8454CD;
   }
 
   &:first-of-type {

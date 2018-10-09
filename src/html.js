@@ -1,4 +1,5 @@
 import React from 'react'
+import fav from './favicon.ico'
 
 let stylesStr
 if (process.env.NODE_ENV === `production`) {
@@ -31,6 +32,7 @@ module.exports = class HTML extends React.Component {
           />
           {this.props.headComponents}
           {css}
+          <link rel="icon" href={fav} />
           <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"
@@ -39,13 +41,13 @@ module.exports = class HTML extends React.Component {
             type="text/javascript"
             src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"
           />
-        </head>
-        <body {...this.props.bodyAttributes}>
+          </head>
+          <body {...this.props.bodyAttributes}>
           {this.props.preBodyComponents}
           <div
-            key={`body`}
-            id="___gatsby"
-            dangerouslySetInnerHTML={{ __html: this.props.body }}
+          key={`body`}
+          id="___gatsby"
+          dangerouslySetInnerHTML={{ __html: this.props.body }}
           />
           {this.props.postBodyComponents}
           <script src="/smooth-scroll.polyfills.min.js"></script>

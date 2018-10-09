@@ -48,17 +48,15 @@ OpenPitrix 部署成功后，可以使用以下的管理员默认的用户名和
 |-----|-----|-----|
 | 管理员	| admin@op.com 	| passw0rd | 
 
-> 说明：若以 Kubernetes 模式部署 OpenPitrix，则密码将生成在 `kubernetes/iam-config/admin-password.txt` 文件中。
 
 3. 查看 Api Gateway 服务
 
 ```
-$ kubectl get service openpitrix-api-gateway -n openpitrix-system
-NAME                     TYPE       CLUSTER-IP    EXTERNAL-IP    PORT(S)          AGE
-openpitrix-api-gateway   NodePort   10.96.66.66   <none>         9100:30441/TCP   5m
+$ docker container ls | grep openpitrix-api-gateway
+d3b0a453df30    9de90f80eae9   "api-gateway"   6 days ago   Up 6 days    0.0.0.0:9100->9100/tcp   openpitrix-api-gateway
 ```
 
-同样，查看 OpenPitrix API 界面，可通过公网 IP 和端口转发的方式，如 [http://139.198.121.143:30441/swagger-ui/](http://139.198.121.143:30441/swagger-ui/) 。
+同样，查看 OpenPitrix API 界面，可通过公网 IP 和端口转发的方式，如 [http://139.198.121.143:9100/swagger-ui/](http://139.198.121.143:9100/swagger-ui/) 。
 
 ![swagger 页面](/swagger-kubernetes.png)
 

@@ -2,27 +2,18 @@
 title: "部署 WordPress 到 QingCloud"
 ---
 
-WordPress 是使用 PHP 语言开发的博客平台，用户可以在支持 PHP 和 MySQL 数据库的服务器上架设属于自己的网站，也可以把 WordPress 当作一个内容管理系统（CMS）来使用。本指南以开发者角色为例，引导用户通过 OpenPitrix 控制台上传并部署一个后端为 MySQL 数据库的 WordPress 博客网站到您的 QingCloud 环境中去，帮助您快速上手 OpenPitrix。
+[WordPress](https://wordpress.org/)  是使用 PHP 语言开发的博客平台，用户可以在支持 PHP 和 MySQL 数据库的服务器上架设属于自己的网站，也可以把 WordPress 当作一个内容管理系统（CMS）来使用。本指南仅以普通用户角色为例，引导用户通过 OpenPitrix 控制台上传并部署一个后端为 MySQL 数据库的 WordPress 博客网站到您的 QingCloud 环境中去，帮助您快速上手 OpenPitrix。
 
 ## 前提条件
 
 正式开始前，需要准备好以下资源：
+
+ - 已有 Wordpress 应用上架商店，若没有请参考 [快速入门之开发者](../ISV-quick-start) 将应用提交管理员审核后发布到商店。
  
- - 已有 OpenPitrix 开发者账号，开发者账号由管理员提供，参见 [用户管理](../user-management/#创建用户)。
+ - 已有 OpenPitrix 普通用户账号，普通用户账号由管理员提供，参见 [用户管理](../user-management/#创建用户)。
  
  - 已有 [QingCloud 云平台](https://console.qingcloud.com/) 的账号，本示例以 QingCloud 云平台作为运行环境。
 
- - 已创建 QingStor 对象存储，详见 [基于 QingStor 创建对象存储](../repo-guide/#基于青云-qingstor-对象存储)。
-
-## 创建仓库
-
-1、以开发者角色登录 OpenPitrix，在菜单栏选择 **仓库**，然后点击 **创建**，填写仓库的配置信息，点击确认，详见 [仓库管理](../repo-management)。创建完成后，对象存储中存储的应用配置包会被自动索引成为可部署的应用。
-
-![](/create-repo-vmbased.png)
-
-创建仓库完成后，点击进去查看详情，可以发现里面的应用已经被自动导入。注意，如果后续仓库内的应用有更新，可以通过 **触发索引** 操作更新。
-
-![](/trigger-indexer-vmbased.png)
 
 ## 创建环境
 
@@ -67,46 +58,30 @@ WordPress 是使用 PHP 语言开发的博客平台，用户可以在支持 PHP 
 
 > 若准备将应用部署到 AWS 运行环境，参见 [部署 Wordpress 到 AWS](../aws-quick-start.md)。
 
-## 上传应用
-
-### 第一步：准备应用配置包
-
-为方便您快速熟悉 OpenPitrix，本示例准备了一个基于 [OpenPitrix 开发规范](../openpitrix-specification) 的 [WordPress](https://wordpress.org) 的应用配置包，且已准备好 Wordpress 与 MySQL 镜像并上传到了 Docker 镜像仓库，点击 [下载 Wordpress 应用配置包]()；
-
-### 第二步：上传应用
-
-1、开发者登录 OpenPitrix 控制台，选择左边菜单栏 **我的应用**，然后点击 **“+”** 或点击 **创建**。
-
-![创建应用](/overview-page.png)
-
-2、选择刚刚创建的应用仓库 ”test-repo-qingstor“，点击 **下一步**。
-![选择仓库](/select-repo.png)
-
-3、从本地上传应用配置包，注意，配置文件中应用的名字（package.json 的 name 字段值）不能与应用仓库中已有应用的名字重复，否则将无法上传。
-
-![上传应用配置包](/upload-package.png)
-
-4、若配置包符合开发规范，则提示上传成功。配置包上传成功后，开发者和管理员可部署和测试应用，或在 **我的应用** 中查看。
-
-![上传成功](/upload-success.png)
 
 ## 部署应用
 
-### 第一步：填写部署信息
+### 第一步：查看应用
 
-点击 **部署 & 测试** 进入部署详情页，填写应用部署的基本信息，选择之前创建的运行环境，本示例 MySQL 和 Wordpress 节点设置选择默认的最低参数，选择创建的子网，完成部署。
+点击 **商店**，找到开发者发布的 Wordpress 应用，点击 **部署** 进入部署详情页。
 
-![](/deploy-cluster-qingcloud.png)
+![查看应用](/view-wordpress.png)
 
-### 第二步：查看部署情况
+### 第二步：填写部署信息
+
+填写应用部署的基本信息，选择之前创建的运行环境，本示例 MySQL 和 Wordpress 节点设置选择默认的最低参数，选择创建的子网，完成部署。
+
+![填写部署信息](/deploy-cluster-qingcloud.png)
+
+### 第三步：查看部署情况
 
 左边菜单栏选择 **集群**，可以查看刚刚部署应用的集群实例，应用部署后将创建 frontgate 和 Wordpress 两个集群。其中 frontgate 包含 proxy 和 etcd，负责元数据存储以及 OpenPitrix 框架同应用实例主机进行通信等功能，由系统自动创建。Wordpress 集群包含 MySQL 和 Wordpress 两个角色的节点，部署成功后，将会在 QingCloud 运行环境创建 3 台主机。
 
-![](/cluster-detail-qingcloud.png)
+![查看部署情况](/cluster-detail-qingcloud.png)
 
-### 第三步：访问 Wordpress
+### 第四步：访问 Wordpress
 
-可以在[青云 QingCloud 控制台](https://console.qingcloud.com/pek3a/instances/)上查看创建的主机状态以及 IP 情况。待创建成功后可以通过 [VPC 端口转发](https://docs.qingcloud.com/product/network/vpc.html#%E5%8A%9F%E8%83%BD%E7%AE%A1%E7%90%86) （Wordpress 默认端口为 80）并在防火墙放行对应的端口，即可在浏览器通过公网 IP 和转发的端口如 [http://139.198.177.98:8000](http://139.198.177.98:8000) 来访问 Wordpress。
+可以在 [青云 QingCloud 控制台](https://console.qingcloud.com/pek3a/instances/) 上查看创建的主机状态以及 IP 情况。待创建成功后可以通过 [VPC 端口转发](https://docs.qingcloud.com/product/network/vpc.html#%E5%8A%9F%E8%83%BD%E7%AE%A1%E7%90%86) （Wordpress 默认端口为 80）并在防火墙放行对应的端口，即可在浏览器通过公网 IP 和转发的端口如 [http://139.198.177.98:8000](http://139.198.177.98:8000) 来访问 Wordpress。
 
 ![Wordpress 主页](/wordpress-page.png)
 

@@ -78,10 +78,10 @@ $ kubernetes/scripts/deploy-k8s.sh -n openpitrix-system -b -d -s -m
 $ kubectl get service openpitrix-pilot-service -n openpitrix-system
 root@i-tjwio1m2:/opt/openpitrix-v0.1.9-kubernetes/kubernetes# kubectl get service openpitrix-pilot-service -n openpitrix-system
 NAME                       TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)                         AGE
-openpitrix-pilot-service   NodePort   10.96.224.102   <none>        9110:31866/TCP,9114:30119/TCP   5m
+openpitrix-pilot-service   NodePort   10.96.224.102   <none>        9110:31866/TCP, 9114:30119/TCP   5m
 ```
 
-3. 修改 etcd 中配置，同时修改 Pilot 的 IP 和 PORT，即修改 `${IP}` 和 `{PORT}` 为实际环境中的节点 IP 和端口号。IP 可以是任意 Kubernetes 节点的 IP，PORT 是上步的结果，比如是 30119 ：
+3. 修改 etcd 中配置，同时修改 Pilot 的 IP 和 PORT，即修改 `${IP}` 和 `{PORT}` 为实际环境中的节点 IP 和端口号。IP 是集群所在 VPC 的公网 IP（Pilot 服务需要暴露给外部访问），PORT 是上步的结果，比如是 30119 ：
 
 ```
 $ kubernetes/scripts/put-global-config.sh -i ${IP} -p {PORT}
@@ -118,9 +118,9 @@ NAME                     TYPE       CLUSTER-IP    EXTERNAL-IP    PORT(S)        
 openpitrix-api-gateway   NodePort   10.96.66.66   <none>         9100:30441/TCP   5m
 ```
 
-您可以通过浏览器，使用集群中任一节点的 IP 地址和上面命令结果的端口号访问 OpenPitrix API 界面，如：[http://139.198.121.143:30441/swagger-ui](http://139.198.121.143:30441/swagger-ui)。
+您可以通过浏览器，使用集群中任一节点的 IP 地址和上面命令结果的端口号（30441）访问 OpenPitrix API 界面，如：[http://139.198.121.143:30441/swagger-ui/](http://139.198.121.143:30441/swagger-ui)。
 
-![swagger 页面](/swagger-kubernetes.png)
+![swagger 页面](/swaggerUI-kubernetes.png)
     
 ## 升级
 

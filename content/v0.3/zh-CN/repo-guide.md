@@ -58,11 +58,11 @@ title: "仓库管理"
 
 - 可见性：即该仓库设置为公有还是私有仓库。所有用户都能使用公有仓库，即所有用户都可以上传应用配置包，而私有仓库仅属于创建者。
 
-- 运行环境提供商：可以多选，其中 Kubernetes 与其他 Vm-based 环境应用配置包格式不同，若选择 QingCloud 和 AWS，意味着当前仓库中的应用既可以部署到 QingCloud，也可以部署到 AWS。若选择 Kubernetes 则表示当前仓库的应用只能部署到 Kubernetes 环境。
+- 运行环境提供商：可以多选，其中 Kubernetes 与 QingCloud 和 AWS 环境的应用配置包格式不同，若选择 QingCloud 和 AWS，意味着当前仓库仅支持上传基于 [OpenPitrix 应用开发规范](../openpitrix-specification) 的应用，既可以部署到 QingCloud，也可以部署到 AWS。若选择 Kubernetes 则表示当前仓库仅支持上传基于 [Helm Chart 应用开发规范](../helm-specification) 的应用配置包，且只能部署到 Kubernetes 环境。
 
 - 运行环境选择器：填写运行环境的标签键值对，将会选择具有所填标签的运行环境匹配该仓库。例如，当运行环境选择器设置为 “env=testing” 时，只有标签也是 “env=testing” 运行环境的才能部署该仓库中的应用。
 
-- URL 选择 S3 协议，然后填写 `s3://s3.sh1a.qingstor.com/my-openpitrix`，这只是一个示例仓库，URL 填写实际的对象存储地址。Access Key ID 和 Secret Access Key 请参考 [获取 Access Key](https://docs.qingcloud.com/qingstor/api/common/signature.html#%E8%8E%B7%E5%8F%96-access-key)，填写后点击 `Validate` 按钮可以检查配置是否有效。以下分别说明每种协议的场景：
+- URL： 选择 S3 协议，然后填写 `s3://s3.sh1a.qingstor.com/my-openpitrix`，这只是一个示例仓库，URL 填写实际的对象存储地址。Access Key ID 和 Secret Access Key 请参考 [获取 Access Key](https://docs.qingcloud.com/qingstor/api/common/signature.html#%E8%8E%B7%E5%8F%96-access-key)，填写后点击 `Validate` 按钮可以检查配置是否有效。以下分别说明每种协议的场景：
    
    - S3：可读可写，支持获取该应用仓库中的应用，支持部署到运行环境，且支持在 OpenPitrix 中上传应用到该仓库。参数形式为 `s3://s3.<region>.qingstor.com/<bucket_name>`。
    - HTTP：可读，不可写，仅支持获取该应用仓库（对象存储）中的应用，支持部署到运行环境，但不支持在 OpenPitrix 中上传应用。
@@ -104,7 +104,7 @@ title: "仓库管理"
 
 - 可见性：即该仓库设置为公有还是私有仓库。所有用户都能使用公有仓库，即所有用户都可以上传应用配置包，而私有仓库仅属于创建者。
 
-- 运行环境提供商：可以多选，其中 Kubernetes 与其他 Vm-based 环境应用配置包格式不同，这里可以选择 QingCloud 和 AWS，意味着当前仓库中的应用既可以部署到 QingCloud，也可以部署到 AWS。若选择 Kubernetes 则表示当前仓库的应用只能部署到 Kubernetes 环境。
+- 运行环境提供商：可以多选，其中 Kubernetes 与 QingCloud 和 AWS 环境的应用配置包格式不同，若选择 QingCloud 和 AWS，意味着当前仓库仅支持上传基于 [OpenPitrix 应用开发规范](../openpitrix-specification) 的应用，既可以部署到 QingCloud，也可以部署到 AWS。若选择 Kubernetes 则表示当前仓库仅支持上传基于 [Helm Chart 应用开发规范](../helm-specification) 的应用配置包，且只能部署到 Kubernetes 环境。
 
 - 运行环境选择器：填写运行环境的标签键值对，将会选择具有所填标签的运行环境匹配该仓库。例如，当运行环境选择器设置为 “env=testing” 时，只有标签也是 “env=testing” 运行环境的才能部署该仓库中的应用。
 

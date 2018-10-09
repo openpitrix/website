@@ -49,7 +49,7 @@ const Link = styled.a`
   }
 
   &:hover {
-    color: #55bc8a;
+    color: #8454CD;
   }
 `
 

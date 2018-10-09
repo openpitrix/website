@@ -7,7 +7,7 @@ export function getScrollTop() {
 
 export function formatAnchor(str) {
   return str
-    .replace(/:/g, '')
+    .replace(/[:|.]/g, '')
     .split(' ')
     .join('-')
     .toLowerCase()

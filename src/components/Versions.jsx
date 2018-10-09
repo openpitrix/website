@@ -25,7 +25,6 @@ class VersionComponent extends Component {
   render() {
     const { versions, current } = this.props;
     const { extended } = this.state;
-    console.log(versions);
     return (
       <VersionsWrapper>
         <div className="version-text">

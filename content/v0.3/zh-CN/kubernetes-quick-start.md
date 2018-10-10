@@ -23,7 +23,7 @@ WordPress 是使用 PHP 语言开发的博客平台，用户可以把 WordPress 
 - 云环境提供商：选择 Kubernetes，意味着当前仓库中的应用可以部署到 Kubernetes。
 - URL：选择 HTTP，填写 http://kubernetes-charts.storage.googleapis.com ，这只是一个 helm 官方的仓库。
 
-> 若国内无法访问，可使用青云 QingCloud 提供的：https://helm-chart-repo.pek3a.qingstor.com/kubernetes-charts/
+> 若由于网络原因无法访问，可使用青云 QingCloud 提供的：https://helm-chart-repo.pek3a.qingstor.com/kubernetes-charts/
 
 创建好的仓库，点击进去查看，可以发现里面的应用已经被自动导入，如果后续仓库内的应用有更新，可以通过 **触发索引** 操作更新
 

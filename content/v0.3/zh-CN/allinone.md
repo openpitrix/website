@@ -29,13 +29,14 @@ $ make compose-up
 
 ## 第四步: 验证
 
-1. 查看服务情况，确保 OpenPitrix 相关的镜像都已经成功创建：
+1. 查看容器暴露的端口，确保 OpenPitrix 相关的镜像都已经成功创建：
 
 ```bash
-$ docker ps
+$ docker container ls | grep dashboard
+07d9b0e2b5bf   openpitrix/dashboard   "npm run prod:serve"   22 hours ago   Up 22 hours    0.0.0.0:8000->8000/tcp    openpitrix-dashboard
 ```
 
-2. 可通过公网 IP 和端口转发的方式访问查看 OpenPitrix 主页，如 [http://139.198.121.143:8000](http://139.198.121.143:8000) 。
+2. 以上显示 dashboard 对外暴露的是 8000 端口，因此可通过公网 IP 和端口访问查看 OpenPitrix 主页，如 [http://139.198.121.143:8000](http://139.198.121.143:8000) 。
 
 > 若公网 IP 有防火墙，请在防火墙添加规则放行对应的端口，外部才能够访问。
 

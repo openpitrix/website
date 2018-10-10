@@ -6,10 +6,6 @@ title: "Kubernetes 模式"
 
 [Kubernetes](https://kubernetes.io/) 环境可以选用以下三种之一:
 
-* **已有的物理机搭建或虚拟机搭建的 Kubernetes 环境**
-
-> 注：Kubernetes 版本 >= Kubernetes 1.7.4，并需要安装 [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) 工具。
-
 * **[KubeSphere](https://kubesphere.io) 容器管理平台**
 
 KubeSphere 是在目前主流容器调度平台 [Kubernetes](https://kubernetes.io) 之上构建的 **企业级分布式多租户容器管理平台**，为用户提供简单易用的操作界面以及向导式操作方式，KubeSphere 提供了在生产环境集群部署的全栈化容器部署与管理平台，且 KubeSphere 提供一键部署的方式，提供在 Kubernetes 中最优的存储和网络解决方案，帮助用户快速部署环境。
@@ -20,6 +16,10 @@ KubeSphere 是在目前主流容器调度平台 [Kubernetes](https://kubernetes.
 
 > 注：网络插件请选用 calico 或 hostnic。
 
+* **已有的物理机搭建或虚拟机搭建的 Kubernetes 环境**
+
+> 注：Kubernetes 版本 >= Kubernetes 1.7.4，并需要安装 [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) 工具。
+
 ## 第二步: 准备 OpenPitrix 安装包
 
 1. 下载 OpenPitrix 安装包并解压，此命令会自动下载最新版本的 OpenPitrix 在 Kubernetes 运行环境上的安装包：
@@ -28,10 +28,10 @@ KubeSphere 是在目前主流容器调度平台 [Kubernetes](https://kubernetes.
 $ curl -L https://git.io/GetOpenPitrix | sh -
 ``` 
 
-2. 进入解压完成后的文件夹，以 `openpitrix-v0.2.3-kubernetes.tar.gz` 为例：
+2. 进入解压完成后的文件夹，以 `openpitrix-v0.2.3-kubernetes.tar.gz` 为例，执行命令时应替换为实际的下载版本号：
 
 ```bash
-$ cd openpitrix-v0.2.3-kubernetes.tar.gz/
+$ cd openpitrix-v0.2.3-kubernetes/
 ```
 
 ## 第三步: 安装 OpenPitrix
@@ -64,7 +64,7 @@ deploy-k8s.sh [-n NAMESPACE] [-v VERSION] COMMAND
 
 ### 需要管理 VM-based 平台
 
-如果需要管理 Kubernetes 运行环境和 VM-based 运行环境，则参考如下步骤部署：
+如果需要同时管理 Kubernetes 运行环境和 VM-based 运行环境，则参考如下步骤部署：
 
 1. 执行安装脚本，升级基础服务，启动 Dashboard 服务，启动 Pilot 服务：
 
@@ -72,7 +72,7 @@ deploy-k8s.sh [-n NAMESPACE] [-v VERSION] COMMAND
 $ kubernetes/scripts/deploy-k8s.sh -n openpitrix-system -b -d -s -m
 ```
 
-2. 查看 Pilot 服务，Pilot 用于接受来自集群服务的指令和信息的组件，如创建集群等，并可以传递指令给 Frontgate，它还接收来自 Frontgate 上传上来的信息。这里看到 Pilot 服务的 9114 端口对应的 NodePort 是 30119：
+2. 查看 Pilot 服务，Pilot 用于接受来自集群服务的指令和信息的组件，如创建集群等，并可以传递指令给 Frontgate，它还接收来自 Frontgate 上传上来的信息。以下可以看到两个端口，依次是 https 和 http 协议的端口，Pilot 服务 http 协议的 9114 端口对应的端口是 30119：
 
 ```bash
 $ kubectl get service openpitrix-pilot-service -n openpitrix-system
@@ -81,7 +81,7 @@ NAME                       TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)     
 openpitrix-pilot-service   NodePort   10.96.224.102   <none>        9110:31866/TCP, 9114:30119/TCP   5m
 ```
 
-3. 修改 etcd 中配置，同时修改 Pilot 的 IP 和 PORT，即修改 `${IP}` 和 `{PORT}` 为实际环境中的节点 IP 和端口号。IP 是集群所在 VPC 的公网 IP（Pilot 服务需要暴露给外部访问），PORT 是上步的结果，比如是 30119 ：
+3. 执行以下命令修改 etcd 中配置，同时修改 Pilot 的 IP 和 PORT，即修改 `${IP}` 和 `{PORT}` 为实际环境中的节点 IP 和端口号。IP 是集群所在 VPC 的公网 IP（Pilot 服务需要暴露给外部访问），PORT 是上步的结果，比如是 30119 ：
 
 ```
 $ kubernetes/scripts/put-global-config.sh -i ${IP} -p {PORT}

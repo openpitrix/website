@@ -25,12 +25,17 @@ $ cd openpitrix-repo
 $ op create test
 ```
 
-根据[开发规范](../openpitrix-specification)编辑 test 目录下文件，编辑好后保存
+根据 [开发规范](../openpitrix-specification) 编辑 test 目录下文件，编辑好后保存
 
 ## 四. 打包应用
 
 ```bash
 $ op package test
+Successfully packaged app and saved it to: /openpitrix-repo/test-0.1.0.tgz
+
+$ ls
+test  test-0.1.0.tgz
+
 ```
 
 ## 五. 准备仓库地址

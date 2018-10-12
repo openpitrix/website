@@ -10,6 +10,7 @@ import Headings from '../components/Headings'
 import TableOfContents from '../components/TableOfContents/index'
 
 import { ReactComponent as Logo } from '../assets/op-logo.svg'
+import last from 'lodash/last';
 
 import './markdown.css'
 import './b16-tomorrow-dark.css'
@@ -34,6 +35,7 @@ export default class MarkdownTemplate extends React.Component {
     //     debug: false,
     //   })
     // }
+    this.checkLocalHref();
     document.addEventListener('click', this.handleClick)
 
     if (this.markdownRef && !this.scroll && typeof SmoothScroll !== 'undefined') {
@@ -58,6 +60,16 @@ export default class MarkdownTemplate extends React.Component {
         element && element.scrollIntoView()
       }
     }, 100)
+  }
+
+  checkLocalHref() {
+    let { href } = location
+    if (last(href) !== '/') {
+      if (href.includes('#') && !href.includes('/#')) {
+        href = href.split('#').join('/#');
+      }
+      location.replace(`${href}/`)
+    }
   }
 
   getChildContext() {

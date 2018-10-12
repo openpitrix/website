@@ -72,7 +72,7 @@ deploy-k8s.sh [-n NAMESPACE] [-v VERSION] COMMAND
 $ kubernetes/scripts/deploy-k8s.sh -n openpitrix-system -b -d -s -m
 ```
 
-2. 查看 Pilot 服务，Pilot 用于接受来自集群服务的指令和信息的组件，如创建集群等，并可以传递指令给 Frontgate，它还接收来自 Frontgate 上传上来的信息。以下可以看到两个端口，依次是 https 和 http 协议的端口，Pilot 服务 http 协议的 9114 端口对应的端口是 30119：
+2. 查看 Pilot 服务，Pilot 用于接受来自集群服务的指令和信息的组件，如创建集群等，并可以传递指令给 Frontgate，它还接收来自 Frontgate 上传上来的信息。以下可以看到两个端口，依次是 https 和 http 协议的端口，Pilot 服务 http 协议的 9114 端口对应的端口是 30119，因此 Pilot 服务的端口需要暴露给外部访问（可能需要端口转发和防火墙放行该端口）：
 
 ```bash
 $ kubectl get service openpitrix-pilot-service -n openpitrix-system
@@ -81,7 +81,7 @@ NAME                       TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)     
 openpitrix-pilot-service   NodePort   10.96.224.102   <none>        9110:31866/TCP, 9114:30119/TCP   5m
 ```
 
-3. 执行以下命令修改 etcd 中配置，同时修改 Pilot 的 IP 和 PORT，即修改 `${IP}` 和 `{PORT}` 为实际环境中的节点 IP 和端口号。IP 是集群所在 VPC 的公网 IP（Pilot 服务需要暴露给外部访问），PORT 是上步的结果，比如是 30119 ：
+3. 执行以下命令修改 etcd 中配置，同时修改 Pilot 的 IP 和 PORT，即修改 `${IP}` 和 `{PORT}` 为实际环境中的节点 IP 和端口号。IP 是集群所在 VPC 的公网 IP，PORT 是上步的结果，比如是 30119 ：
 
 ```
 $ kubernetes/scripts/put-global-config.sh -i ${IP} -p {PORT}

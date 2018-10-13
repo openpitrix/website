@@ -151,9 +151,6 @@
             },
             {
               "entry": "./v0.3/zh-CN/helm-specification.md"
-            },
-            {
-              "entry": "./v0.3/zh-CN/helm-app-develop.md"
             }
           ]
         },

@@ -2,7 +2,7 @@
 title: "应用开发快速入门"
 ---
 
-Nginx 是大家熟知的代理和负载均衡软件，比起 Traefik 来说功能更加强大，OpenPitrix 支持将 Nginx 以 Helm Chart 的形式上传部署到平台中，本篇文档就以 Nginx 的 Helm Chart 文件为例，介绍 Chart 的基本规则。
+OpenPitrix 支持将应用以 Helm Chart 的形式上传部署到平台中，而 Nginx 是大家熟知的代理和负载均衡软件，比起 Traefik 来说功能更加强大，本篇文档就以 Nginx 的 Helm Chart 文件为例，介绍 Chart 的基本规则，演示如何通过 Helm Chart 应用开发规范准备一个应用并上传部署到 OpenPitrix 平台。
 
 ## 准备 Helm 客户端工具
 
@@ -46,7 +46,21 @@ nginx/
 2 directories, 7 files
 ```
 
+Chart.yaml 是用于描述 Chart 的基本信息，包括名称、API 和应用版本等，其中 appVersion 字段与 version 字段无关。这是一种指定应用程序版本的方法详见 [Chart.yaml 文件](../helm-specification/#chartyaml-文件)。
+
 **Chart.yaml 文件示例：**
+
+```yaml
+apiVersion: v1
+appVersion: "1.0"
+description: A Helm chart for Kubernetes
+name: nginx
+version: 0.1.0
+```
+
+包含在 chart 内的默认 values 文件必须命名 values.yaml，可以为 chart 及其任何依赖项提供值。通过 values.yaml 文件提供的值可以从.Values模板中的对象访问。在部署 Helm Chart 类型的应用到 Kuberntes 运行环境时，支持在 UI 界面可以对 values.yaml 进行编辑配置。
+
+**values.yaml：**
 
 ```yaml
 # Default values for test.
@@ -98,17 +112,6 @@ tolerations: []
 
 affinity: {}
 
-```
-
-
-**values.yaml：**
-
-```yaml
-apiVersion: v1
-appVersion: "1.0"
-description: A Helm chart for Kubernetes
-name: nginx
-version: 0.1.0
 ```
 
 可根据 [Helm 应用开发规范](../helm-specification) 编辑 nginx 目录下文件，编辑好后保存。

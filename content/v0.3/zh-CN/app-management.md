@@ -35,7 +35,7 @@ title: "应用管理"
 
 - [部署 Wordpress 到 QingCloud](../qingcloud-quick-start)
 - [部署 Wordpress 到 AWS](../aws-quick-start)
-- [部署 Wordpress 到 Kubernetes](../kubernetes-quick-start)
+- [部署 Nginx 到 Kubernetes](../kubernetes-quick-start)
 
 ## 应用版本管理
 

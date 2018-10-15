@@ -286,10 +286,6 @@ const ToCContainer = styled.div`
 
 const MarkdownBody = styled.div`
   padding: 120px 40px;
-
-  @media only screen and (max-width: 768px) {
-  padding: 24px 24px;
-  }
 `
 
 const MarkdownWrapper = styled.div`

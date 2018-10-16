@@ -40,7 +40,7 @@ OpenPitrix 管理的多云环境可以是 VM-based 的云平台，如 QingCloud�
 
 ### 无需管理 VM-based 平台
 
-如果只需要管理 Kubernetes 运行环境，可参考如下执行安装脚本，升级基础服务，启动 Dashboard 服务：
+如果只需要管理 Kubernetes 运行环境，参考如下执行安装脚本，升级基础服务，启动 Dashboard 服务。如果需要同时管理 Kubernetes 和 VM-based 运行环境，请跳过此步，参考 [需要管理 VM-based 平台](../kubernetes/#需要管理-vm-based-平台)。
 
 ```bash
 $ kubernetes/scripts/deploy-k8s.sh -n openpitrix-system -b -d -s
@@ -60,16 +60,17 @@ deploy-k8s.sh [-n NAMESPACE] [-v VERSION] COMMAND
 > -  -m          ： 将要部署 Pilot 服务，用来管理多云环境。
 > -  -d          ： 将要执行数据库初始化或升级操作。
 > -  -s          ： 将要部署图形界面 Dashboard 服务。
+> -  -a          ： 将要部署以上所有的模块和服务
 
 
 ### 需要管理 VM-based 平台
 
-如果需要同时管理 Kubernetes 运行环境和 VM-based 运行环境，则参考如下步骤部署：
+如果需要同时管理 Kubernetes 和 VM-based 运行环境，则参考如下步骤部署：
 
 1. 执行安装脚本，升级基础服务，启动 Dashboard 服务，启动 Pilot 服务：
 
 ```
-$ kubernetes/scripts/deploy-k8s.sh -n openpitrix-system -b -d -s -m
+$ kubernetes/scripts/deploy-k8s.sh -n openpitrix-system -a
 ```
 
 2. 查看 Pilot 服务，Pilot 用于接受来自集群服务的指令和信息的组件，如创建集群等，并可以传递指令给 Frontgate，它还接收来自 Frontgate 上传上来的信息。以下可以看到两个端口，依次是 https 和 http 协议的端口，Pilot 服务 http 协议的 9114 端口对应的端口是 30119，因此 Pilot 服务的端口需要暴露给外部访问（可能需要端口转发和防火墙放行该端口）：
@@ -108,7 +109,7 @@ OpenPitrix 部署成功后，点击右上角 **登录**，可使用以下的管�
 
 | 角色 |	用户名 |	密码 |
 |-----|-----|-----|
-| 管理员	| admin@op.com 	| 将生成在 `kubernetes/iam-config/admin-password.txt` 文件中 | 
+| 管理员	| admin@op.com 	| 将生成在 `kubernetes/iam-config/admin-password.txt` 文件中，建议您登陆后修改初始密码 | 
 
 2. 查看 Api Gateway 服务
 
@@ -139,5 +140,5 @@ $ kubernetes/scripts/deploy-k8s.sh -n openpitrix-system -b -d -s
 执行脚本，升级基础服务，升级 Dashboard 服务，升级 Pilot 服务：
 
 ```
-$ kubernetes/scripts/deploy-k8s.sh -n openpitrix-system -b -d -s -m
+$ kubernetes/scripts/deploy-k8s.sh -n openpitrix-system -a
 ```

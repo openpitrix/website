@@ -8,7 +8,7 @@ title: "Kubernetes 模式"
 
 * **[KubeSphere](https://kubesphere.io) 容器管理平台**
 
-KubeSphere 是在目前主流容器调度平台 [Kubernetes](https://kubernetes.io) 之上构建的 **企业级分布式多租户容器管理平台**，为用户提供简单易用的操作界面以及向导式操作方式，KubeSphere 提供了在生产环境集群部署的全栈化容器部署与管理平台，且 KubeSphere 提供一键部署的方式，提供在 Kubernetes 中最优的存储和网络解决方案，帮助用户快速部署环境。
+KubeSphere 是在目前主流容器调度平台 [Kubernetes](https://kubernetes.io) 之上构建的 **企业级分布式多租户容器管理平台**，为用户提供简单易用的操作界面以及向导式操作方式，KubeSphere 提供了在生产环境集群部署的全栈化容器部署与管理平台，且 KubeSphere 提供一键部署的方式，提供在 Kubernetes 中最优的存储和网络解决方案，帮助用户快速部署环境，参见 [KubeSphere 安装指南](https://docs.kubesphere.io/express/zh-CN/KubeSphere-Installer-Guide/)。
 
 * **[Kubernetes on QingCloud AppCenter](https://docs.qingcloud.com/product/container/k8s)**
 

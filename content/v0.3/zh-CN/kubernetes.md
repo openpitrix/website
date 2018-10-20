@@ -28,10 +28,10 @@ KubeSphere 是在目前主流容器调度平台 [Kubernetes](https://kubernetes.
 $ curl -L https://git.io/GetOpenPitrix | sh -
 ``` 
 
-2. 进入解压完成后的文件夹，以 `openpitrix-v0.2.3-kubernetes.tar.gz` 为例，执行命令时应替换为实际的下载版本号：
+2. 进入解压完成后的文件夹，执行命令时应替换 “${version}” 为实际的下载版本号：
 
 ```bash
-$ cd openpitrix-v0.2.3-kubernetes/
+$ cd openpitrix-${version}-kubernetes/
 ```
 
 ## 第三步: 安装 OpenPitrix
@@ -43,7 +43,7 @@ OpenPitrix 管理的多云环境可以是 VM-based 的云平台，如 QingCloud�
 如果只需要管理 Kubernetes 运行环境，参考如下执行安装脚本，升级基础服务，启动 Dashboard 服务。如果需要同时管理 Kubernetes 和 VM-based 运行环境，请跳过此步，参考 [需要管理 VM-based 平台](../kubernetes/#需要管理-vm-based-平台)。
 
 ```bash
-$ kubernetes/scripts/deploy-k8s.sh -n openpitrix-system -b -d -s
+$ kubernetes/scripts/deploy-k8s.sh -n openpitrix-system -b -d -s -o
 ```
 
 deploy-k8s.sh 用法说明: 
@@ -56,11 +56,12 @@ deploy-k8s.sh [-n NAMESPACE] [-v VERSION] COMMAND
 > -  -v VERSION  ： 将要部署的版本，默认是最新的稳定版。
 > -  -r REQUESTS ： 部署的 container 资源 requests 大小，默认是100。
 > -  -l LIMITS   ： 部署的 container 资源 limits 大小，默认是500。
-> -  -b          ： 将要部署基础模块，包括数据库，etcd，OpenPitrix 基础服务。
+> -  -b          ： 将要部署基础模块和服务。
 > -  -m          ： 将要部署 Pilot 服务，用来管理多云环境。
 > -  -d          ： 将要执行数据库初始化或升级操作。
 > -  -s          ： 将要部署图形界面 Dashboard 服务。
-> -  -a          ： 将要部署以上所有的模块和服务
+> -  -o          ： 将要部署存储服务，包括 etcd 和 MySQL。
+> -  -a          ： 将要部署以上所有的模块和服务。
 
 
 ### 需要管理 VM-based 平台

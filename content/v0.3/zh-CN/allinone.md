@@ -4,22 +4,37 @@ title: "All-in-One 模式"
 
 ## 第一步: 准备环境
 
+### 主机环境
+
+您可以参考以下节点规格准备一台符合要求的主机节点开始 `all-in-one` 模式的部署。
+
+| 操作系统 | 最小配置 | 推荐配置 |
+| --- | --- | --- |
+| Ubuntu 16.04 LTS 64bit | CPU：8 核 <br/> 内存：12 G <br/> 磁盘：40 G | CPU：16 核 <br/> 内存：32 G <br/> 磁盘：100 G |
+| CentOS 7.4 64bit | CPU：8 核 <br/> 内存：12 G <br/> 磁盘：40 G | CPU：16 核 <br/> 内存：32 G <br/> 磁盘：100 G |
+
+### 软件环境
+
 `All-in-One` 模式需要依赖以下软件，请预先在主机中安装符合以下版本要求的软件:
 
 | 软件需求 | 最低版本 |
 | --- | --- |
 | [Docker](https://docs.docker.com/install/) | 18.03.0-ce |
 | [Docker-Compose](https://docs.docker.com/compose/install/) | 1.21.0 |
-| [Git](https://git-scm.com/downloads) | 1.9.1 |
+| [Git](https://git-scm.com/downloads) | 1.8.3 |
 | [Make](https://www.gnu.org/software/make/) | 3.81 |
 
 ## 第二步: 准备 OpenPitrix 源码文件
+
+将 GitHub 上的代码仓库克隆到本地。
 
 ```bash
 $ git clone https://github.com/openpitrix/openpitrix
 ```
 
 ## 第三步: 部署 OpenPitrix
+
+进入 openpitrix 目录，编译项目。
 
 ```bash
 $ cd openpitrix

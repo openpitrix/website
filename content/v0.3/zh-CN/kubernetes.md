@@ -4,7 +4,22 @@ title: "Kubernetes 模式"
 
 ## 第一步: 准备环境
 
+### 主机环境
+
+您可以参考以下节点规格 准备 `至少 1 台` 符合要求的主机节点开始 `Kubernetes 模式` 的部署。
+
+| 操作系统 | 最小配置 | 推荐配置 |
+| --- | --- | --- |
+| ubuntu 16.04 LTS 64bit | CPU：8 核 <br/> 内存：12 G <br/> 磁盘：40 G | CPU：16 核 <br/> 内存：32 G <br/> 磁盘：100 G |
+| CentOS 7.4 64bit | CPU：8 核 <br/> 内存：12 G <br/> 磁盘：40 G | CPU：16 核 <br/> 内存：32 G <br/> 磁盘：100 G |
+
+### 软件环境
+
 [Kubernetes](https://kubernetes.io/) 环境可以选用以下三种之一:
+
+> 注意：
+> 1. Kubernetes 版本 >= Kubernetes 1.7.4，并需要安装 [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) 工具。
+> 2. Kubernetes 集群需已安装配置好存储服务端，并创建了相应的存储类型，支持在集群中创建 PVC。可执行 `kubectl get sc` 查看存储类型。
 
 * **[KubeSphere](https://kubesphere.io) 容器管理平台**
 
@@ -12,13 +27,12 @@ KubeSphere 是在目前主流容器调度平台 [Kubernetes](https://kubernetes.
 
 * **[Kubernetes on QingCloud AppCenter](https://docs.qingcloud.com/product/container/k8s)**
 
-青云 QingCloud 提供的支持一键部署的 Kubernetes 集群环境，同时集成了 Kubesphere 容器管理平台。
+青云 QingCloud 提供的支持一键部署的 Kubernetes 集群环境，同时集成了 KubeSphere 容器管理平台。
 
-> 注：网络插件请选用 calico 或 hostnic。
+> 注：网络插件请选用 Calico 或 Hostnic。
 
 * **已有的物理机搭建或虚拟机搭建的 Kubernetes 环境**
 
-> 注：Kubernetes 版本 >= Kubernetes 1.7.4，并需要安装 [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) 工具。
 
 ## 第二步: 准备 OpenPitrix 安装包
 
@@ -133,7 +147,7 @@ openpitrix-api-gateway   NodePort   10.96.66.66   <none>         9100:30441/TCP 
 执行脚本，升级基础服务，升级 Dashboard 服务：
 
 ```bash
-$ kubernetes/scripts/deploy-k8s.sh -n openpitrix-system -b -d -s
+$ kubernetes/scripts/deploy-k8s.sh -n openpitrix-system -b -d -s -o
 ```
 
 ###  需要管理 VM-based 平台

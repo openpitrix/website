@@ -13,8 +13,7 @@ title: "如何实现新的 Provider Plugin"
 ## 实现 ProviderInterface 中所有函数
 
 * pkg/plugins/ 目录下创建一个以该 Provider Plugin 名称命名的文件夹。
-* 创建 provider.go 实现 pkg/plugins/plugin.go 中 ProviderInterface 的所有函数。
-> 如果实现 vmbased 类型的 Provider Plugin，provider.go 的实现可参考 pkg/plugins/aws/provider.go 或者 pkg/plugins/qingcloud/provider.go。
+* 创建 provider.go 实现 “pkg/plugins/plugin.go” 中 ProviderInterface 的所有函数。如果实现 VM-Based 类型的 Provider Plugin，provider.go 的实现可参考 “pkg/plugins/aws/provider.go” 或者 “pkg/plugins/qingcloud/provider.go”。
 
 ```
 type ProviderInterface interface {
@@ -44,9 +43,9 @@ type ProviderInterface interface {
 ```
 
 ## 实现 ProviderHandlerInterface 中所有函数 [可选]
-> 如果实现 vmbased 类型的 Provider Plugin，需要完成此步，应用实例的所有生命周期会自动按照 FrameInterface 中定义的方式操作。
+> 如果实现 VM-Based 类型的 Provider Plugin，需要完成此步，应用实例的所有生命周期会自动按照 FrameInterface 中定义的方式操作。
 
-* 创建 provider_handler.go 实现 pkg/plugins/vmbased/handler_interface.go 中 ProviderHandlerInterface 的所有函数。
+* 创建 provider_handler.go 实现 “pkg/plugins/vmbased/handler_interface.go” 中 ProviderHandlerInterface 的所有函数。
 
 ```
 type ProviderHandlerInterface interface {
@@ -107,7 +106,7 @@ type ProviderHandlerInterface interface {
 
 ## 配置中增加该 Provider Plugin 支持
 
-* pkg/plugins/plugin.go 中 init 函数部分注册该 Provider Plugin
+* “pkg/plugins/plugin.go” 中 init 函数部分注册该 Provider Plugin。
 
 ```
 func init() {

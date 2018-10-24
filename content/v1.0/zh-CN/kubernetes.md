@@ -92,14 +92,42 @@ $ kubernetes/scripts/put-global-config.sh -i ${IP} -p {PORT}
 
 ## 第四步: 验证
 
-1. 查看 Dashboard 服务
+1. 查看 Pods 的状态，如下图所示表示 Pods 状态正常。
+```
+$ kubectl get pods -n openpitrix-system
+NAME                                                      READY     STATUS      RESTARTS   AGE
+openpitrix-api-gateway-deployment-99fc6b46f-qj885         1/1       Running     0          12m
+openpitrix-app-db-ctrl-job-2rd22                          0/1       Completed   0          12m
+openpitrix-app-manager-deployment-577dc77dd-ksp6s         1/1       Running     0          12m
+openpitrix-category-manager-deployment-799c45c777-r7qpm   1/1       Running     0          12m
+openpitrix-cluster-db-ctrl-job-vsczz                      0/1       Completed   1          12m
+openpitrix-cluster-manager-deployment-5c776bcfd9-spvmt    1/1       Running     0          12m
+openpitrix-dashboard-deployment-7477795dd6-fb5d2          1/1       Running     0          12m
+openpitrix-db-deployment-68b6dcf746-7f2kn                 1/1       Running     0          12m
+openpitrix-db-init-job-7gc8c                              0/1       Completed   0          12m
+openpitrix-etcd-deployment-68c98bfff8-x8pgp               1/1       Running     0          12m
+openpitrix-iam-db-ctrl-job-pk6zm                          0/1       Completed   0          12m
+openpitrix-iam-service-deployment-7b8c65dcfb-bhxcg        1/1       Running     2          12m
+openpitrix-job-db-ctrl-job-4mv26                          0/1       Completed   0          12m
+openpitrix-job-manager-deployment-54c5595f8d-kpcg2        1/1       Running     0          12m
+openpitrix-minio-deployment-57bff9dd9-l8djn               1/1       Running     0          12m
+openpitrix-repo-db-ctrl-job-kgghr                         0/1       Completed   0          12m
+openpitrix-repo-indexer-deployment-6885f6597c-j6l89       1/1       Running     0          12m
+openpitrix-repo-manager-deployment-79cbd56746-5n697       1/1       Running     0          12m
+openpitrix-runtime-db-ctrl-job-8m9kv                      0/1       Completed   0          12m
+openpitrix-runtime-manager-deployment-6c674966bd-4kz8g    1/1       Running     0          12m
+openpitrix-task-db-ctrl-job-cxlwt                         0/1       Completed   0          12m
+openpitrix-task-manager-deployment-867ccb7559-8ldpd       1/1       Running     0          12m
+```
+
+2. 查看 Dashboard 服务
 ```
 $ kubectl get service openpitrix-dashboard -n openpitrix-system
 NAME                   TYPE       CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
 openpitrix-dashboard   NodePort   10.96.41.130   <none>        80:31879/TCP   5m
 ```
 
-    您可以通过浏览器，使用集群中任一节点的 IP 地址和上面命令结果的端口号访问 Dashboard 服务，如：http://139.198.121.143:31879，即可进入 OpenPitrix 主页面。
+    您可以通过浏览器，使用集群中任一节点的 IP 地址和端口号即 <NodeIP>:<NodePort> 访问 Dashboard，如 http://192.168.100.10:31879。也可以通过公网 IP 并将端口转发后访问控制台，如：http://139.198.121.143:31879，即可进入 OpenPitrix 主页面。
 
     ![](/dashboard-kubernetes.png)
 
@@ -112,13 +140,13 @@ openpitrix-dashboard   NodePort   10.96.41.130   <none>        80:31879/TCP   5m
 | 普通用户 | normal| passw0rd | 
 
 
-2. 查看 Api Gateway 服务
+3. 查看 Api Gateway 服务
 ```
 $ kubectl get service openpitrix-api-gateway -n openpitrix-system
 NAME                     TYPE       CLUSTER-IP    EXTERNAL-IP    PORT(S)          AGE
 openpitrix-api-gateway   NodePort   10.96.66.66   <none>         9100:30441/TCP   5m
 ```
 
-    您可以通过浏览器，使用集群中任一节点的 IP 地址和上面命令结果的端口号访问 OpenPitrix API 界面，如：http://139.198.121.143:30441/swagger-ui/。
+    同上，您也可以通过浏览器访问 OpenPitrix API 界面，如：http://139.198.121.143:30441/swagger-ui/。
 
     ![](/swagger-kubernetes.png)

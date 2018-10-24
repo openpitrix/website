@@ -1,5 +1,5 @@
 .md-body {
-  font-family: Proxima Nova, PingFangSC,Arial, sans-serif;
+  font-family:  "Roboto", "PingFang SC", "Lantinghei SC", "Helvetica Neue", Helvetica, Arial, "Microsoft YaHei", 微软雅黑, STHeitiSC-Light, simsun, 宋体, "WenQuanYi Zen Hei", "WenQuanYi Micro Hei", sans-serif;
   font-size: 0.875rem;
   line-height: 2;
   word-wrap: break-word;
@@ -29,7 +29,7 @@
 .md-body a {
   font-size: inherit;
   font-weight: bold;
-  color: #55bc8a;
+  color: #8454CD;
   text-decoration: underline;
 
 }
@@ -63,27 +63,21 @@
 
 .md-body blockquote {
   font-size: 0.875rem;
+  font-weight: normal;
   line-height: 1.4;
-  color: #657d95;
-  background: #fff;
+  color: #1E6EEB;
+  background: #E3F2FF;
   padding: 16px;
-  border-left: 8px solid #55bc8a;
-  border-radius: 4px;
+  border-radius: 2px;
 }
 
 .md-body blockquote > p {
-  font-size: 0.875rem;
-  font-weight: bold;
   line-height: 2;
-  color: #303e5a;
   
 }
 .md-body blockquote li+li{
   margin: 0;
   margin-bottom: 0.725rem;
-}
-.md-body blockquote ul li:last-child{
-  margin-bottom: 0;
 }
 .md-body blockquote>:first-child {
   margin-top: 0
@@ -138,7 +132,7 @@
   line-height: 1;
   padding-left: 1rem;
   margin-bottom: 2rem; 
-  border-left: 8px solid #55bc8a; 
+  border-left: 8px solid #8454CD; 
 }
 
 .md-body h2 {
@@ -217,7 +211,7 @@
 
 .md-body table th {
   font-weight: 600;
-  border-radius: 3px;
+  border-radius: 2px;
   background-color: #ecf0f2;
   border: solid 1px #cfd9df;
   text-align: left;
@@ -245,8 +239,8 @@
   width: 100%;
   /*box-sizing: content-box;*/
   background-color: #fff;
-  border-radius: 5px;
-  border: 1px solid #cfd9df;
+  box-shadow: 0 4px 8px 0 rgba(35,35,36,0.04), 0 1px 4px 0 rgba(73,33,173,0.06);
+  border-radius: 2px;
   padding: 8px;
   margin-top: 0.725rem;
 }
@@ -354,12 +348,13 @@
 }
 
 .md-body code,.md-body tt {
-  padding: 0.2em 0.4em;
-  font-size: inherit;
-  color: #369a6a;
+  padding: 4px !important;
+  font-size: 0.8rem;
+  font-family: RobotoMono-Regular;
+  color: #6430BD;
   font-weight: normal;
-  background-color: rgba(85, 188, 138, 0.2);
-  border-radius: 3px;
+  background-color: #EFE6F8;
+  border-radius: 1px;
 }
 
 .md-body code br,.md-body tt br {
@@ -377,7 +372,7 @@
 .md-body pre>code {
   display: inline-block;
   white-space: pre;
-  font-family: Monaco;
+  font-family: RobotoMono-Regular;
   font-size: 0.875rem;
   line-height: 1.7;
   color: #ffffff;
@@ -398,9 +393,9 @@
   overflow: auto;
   font-size: 85%;
   line-height: 1.45;
-  border-radius: 5px;
-  background-color: #242e42;
-  border: solid 1px #242e42;
+  border-radius: 2px;
+  color: #fff;
+  background-color: #161c36;
 }
 
 .md-body .csv-data td,.md-body .csv-data th {
@@ -427,4 +422,16 @@
   font-weight: 600;
   background: #f6f8fa;
   border-top: 0
+}
+
+.op-footer {
+  padding: 24px;
+}
+.op-footer .logo {
+  width: 114px;
+  height: 16px;
+}
+.op-footer .copy {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
 }

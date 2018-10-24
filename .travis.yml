@@ -17,5 +17,10 @@ install:
   - yarn
 
 script:
-  - yarn build
   - docker build -t openpitrix/docs.openpitrix.io .
+
+deploy:
+  provider: script
+  script: bash docker_push
+  on:
+    branch: master

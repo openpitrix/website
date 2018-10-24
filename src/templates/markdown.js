@@ -3,9 +3,14 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 
-// import Header from '../components/Header'
+import Header from '../components/Header'
 import Versions from '../components/Versions'
+import Footer from '../components/Footer'
+import Headings from '../components/Headings'
 import TableOfContents from '../components/TableOfContents/index'
+
+import { ReactComponent as Logo } from '../assets/op-logo.svg'
+import last from 'lodash/last';
 
 import './markdown.css'
 import './b16-tomorrow-dark.css'
@@ -17,11 +22,11 @@ export default class MarkdownTemplate extends React.Component {
 
   state = {
     isExpand: false,
+    prev: {},
+    next: {},
   }
 
   componentDidMount() {
-    this.scrollToHash()
-
     // if (typeof docsearch === 'function') {
     //   docsearch({
     //     apiKey: '221332a85783d16a5b930969fe4a934a',
@@ -30,8 +35,17 @@ export default class MarkdownTemplate extends React.Component {
     //     debug: false,
     //   })
     // }
-
+    this.checkLocalHref();
     document.addEventListener('click', this.handleClick)
+
+    if (this.markdownRef && !this.scroll && typeof SmoothScroll !== 'undefined') {
+      this.scroll = new SmoothScroll('a[href*="#"]', {
+        offset: 100,
+      })
+    }
+
+    this.scrollToHash()
+    this.getPrevAndNext()
   }
 
   componentWillUnmount() {
@@ -48,6 +62,16 @@ export default class MarkdownTemplate extends React.Component {
     }, 100)
   }
 
+  checkLocalHref() {
+    let { href } = location
+    if (last(href) !== '/') {
+      if (href.includes('#') && !href.includes('/#')) {
+        href = href.split('#').join('/#');
+      }
+      location.replace(`${href}/`)
+    }
+  }
+
   getChildContext() {
     return {
       location: this.props.location,
@@ -60,10 +84,74 @@ export default class MarkdownTemplate extends React.Component {
     }))
   }
 
+  isCurrentLink = link => {
+    let ret = false
+
+    if (link.classList) {
+      ret = link.classList.contains('selected-link')
+    } else {
+      ret = new RegExp('(^| )selected-link( |$)', 'gi').test(link.className)
+    }
+
+    return ret
+  }
+
+  getPrevAndNext = () => {
+    const prevOrNext = (links, currentIndex, isPrev) => {
+      if (isPrev && currentIndex === 0) {
+        return null;
+      }
+      if (!isPrev && currentIndex === links.length - 1) {
+        return null;
+      }
+
+      const index = isPrev ? currentIndex - 1 : currentIndex + 1;
+      const link = links[index];
+      if (link.querySelectorAll('svg').length > 0) {
+        return link;
+      }
+
+      return isPrev ?
+             prevOrNext(links, currentIndex - 1, isPrev) :
+             prevOrNext(links, currentIndex + 1, isPrev);
+
+    }
+    if (this.tocRef) {
+      const linkDoms = this.tocRef.querySelectorAll('a[href]')
+      const prev = {}
+      const next = {}
+
+      linkDoms.forEach((link, index) => {
+        if (this.isCurrentLink(link)) {
+          const prevLink = prevOrNext(linkDoms, index, true);
+          if (prevLink) {
+            prev.text = prevLink.text
+            prev.href = prevLink.pathname
+          }
+
+          const nextLink = prevOrNext(linkDoms, index, false);
+          if (linkDoms[index + 1]) {
+            next.text = nextLink.text
+            next.href = nextLink.pathname
+          }
+
+          this.setState({ prev, next })
+          return
+        }
+      })
+    }
+  }
+
   handleClick = e => {
     if (this.markdownRef && this.markdownRef.contains(e.target)) {
       this.setState({ isExpand: false })
     }
+  }
+
+  handleHeadClick = head => {
+    this.scroll.animateScroll(document.querySelector(head), null, {
+      offset: 100,
+    })
   }
 
   render() {
@@ -74,6 +162,11 @@ export default class MarkdownTemplate extends React.Component {
     if (!post.id) {
       post.id = slug
     }
+
+    const {
+      prev,
+      next,
+    } = this.state
 
     return (
       <div>
@@ -88,29 +181,52 @@ export default class MarkdownTemplate extends React.Component {
               versions={this.props.data.versions}
               current={postNode.fields.version}
             />
-            <ToCContainer>
+            <ToCContainer
+              innerRef={ref => {
+                  this.tocRef = ref
+              }}
+            >
               <TableOfContents
                 chapters={
                   this.props.data.tableOfContents.edges[0].node.chapters
                 }
               />
             </ToCContainer>
+            <footer className="op-footer">
+              <Logo className="logo"/>
+              <div className="copy">
+                Openpitrix Technology © 2018
+              </div>
+            </footer>
           </NavContainer>
           <MainContainer isExpand={this.state.isExpand}>
-            {/*<Header*/}
-              {/*location={this.props.location}*/}
-              {/*isExpand={this.state.isExpand}*/}
-              {/*toggleExpand={this.handleExpand}*/}
-            {/*/>*/}
-            <MarkdownBody
-              className="md-body"
-              innerRef={ref => {
-                this.markdownRef = ref
-              }}
-            >
-              <h1>{post.title}</h1>
-              <div dangerouslySetInnerHTML={{ __html: postNode.html }} />
-            </MarkdownBody>
+            <MarkdownWrapper>
+              <Header
+                location={this.props.location}
+                isExpand={this.state.isExpand}
+                toggleExpand={this.handleExpand}
+              />
+              <MarkdownBody
+                className="md-body"
+                innerRef={ref => {
+                  this.markdownRef = ref
+                }}
+              >
+                <h1>{post.title}</h1>
+                <div dangerouslySetInnerHTML={{ __html: postNode.html }} />
+              </MarkdownBody>
+              <FooterWrapper>
+                <Footer prev={prev} next={next} />
+              </FooterWrapper>
+            </MarkdownWrapper>
+            <HeadingsWrapper>
+              <Headings
+                title={postNode.frontmatter.title}
+                headings={postNode.headings}
+                current={this.props.location.hash}
+                onHeadClick={this.handleHeadClick}
+              />
+            </HeadingsWrapper>
           </MainContainer>
         </BodyGrid>
       </div>
@@ -128,7 +244,7 @@ const NavContainer = styled.div`
   left: 0;
   width: 280px;
   height: 100vh;
-  background-color: #242e42;
+  background-image: linear-gradient(0deg, #8454CD 0%, #854FB9 32%, #484999 100%);
   box-shadow: 4px 0 8px 0 rgba(101, 125, 149, 0.2);
   transition: left 0.2s ease-in-out;
   overflow-y: auto;
@@ -136,9 +252,9 @@ const NavContainer = styled.div`
   z-index: 2;
 
   @media only screen and (max-width: 768px) {
-    left: ${({ isExpand }) => {
-      return isExpand ? 0 : '-290px'
-    }};
+  left: ${({ isExpand }) => {
+  return isExpand ? 0 : '-290px'
+  }};
   }
 `
 
@@ -146,32 +262,57 @@ const MainContainer = styled.div`
   margin-left: 280px;
 
   & > div {
-    margin: auto;
+  margin: auto;
   }
 
   & > h1 {
-    color: #303e5a;
+  color: #303e5a;
   }
 
   @media only screen and (max-width: 768px) {
-    width: 100vw;
-    margin-left: ${({ isExpand }) => {
-      return isExpand ? '280px' : '0'
-    }};
-    transition: margin-left 0.2s ease-in-out;
+  width: 100vw;
+  margin-left: ${({ isExpand }) => {
+  return isExpand ? '280px' : '0'
+  }};
+  transition: margin-left 0.2s ease-in-out;
   }
 `
 
 const ToCContainer = styled.div`
-  padding: 40px 0;
+  padding: 10px 0;
+  min-height: calc(100vh - 220px);
 `
 
-const MarkdownBody = styled.div`
-  padding: 40px 40px;
 
-  @media only screen and (max-width: 768px) {
-    padding: 24px 24px;
+const MarkdownBody = styled.div`
+  padding: 120px 40px;
+`
+
+const MarkdownWrapper = styled.div`
+  padding-right: 280px;
+
+  @media only screen and (max-width: 1280px) {
+  padding-right: 0;
   }
+`
+
+const HeadingsWrapper = styled.div`
+  position: fixed;
+  top: 120px;
+  right: 20px;
+  height: calc(100vh - 120px);
+  overflow-y: auto;
+  box-shadow: -1px 0 0 0 #d5dee7;
+
+  @media only screen and (max-width: 1280px) {
+  display: none;
+  }
+`
+
+const FooterWrapper = styled.div`
+  max-width: 1217px;
+  padding: 0 30px;
+  margin: 0 auto;
 `
 
 /* eslint no-undef: "off" */
@@ -201,6 +342,10 @@ export const pageQuery = graphql`
       }
       fields {
         version
+      }
+      headings {
+        value
+        depth
       }
     }
     versions: allMarkdownRemark {

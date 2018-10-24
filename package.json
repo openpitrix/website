@@ -20,6 +20,7 @@
     "gatsby-source-filesystem": "^1.5.39",
     "gatsby-transformer-json": "^1.0.20",
     "gatsby-transformer-remark": "^1.7.44",
+    "lodash": "^4.17.11",
     "prismjs": "^1.15.0",
     "promise-polyfill": "^8.0.0",
     "react-helmet": "^5.2.0",

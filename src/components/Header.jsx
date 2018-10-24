@@ -44,10 +44,12 @@ class Header extends React.Component {
           <span className="v-line" />
           <span className="v-line" />
         </div>
-        <a href="//openpitrix.io" target="_blank"><Logo2 className="header-logo"/></a>
-        <SearchWrapper>
-          <Search />
-        </SearchWrapper>
+        <a href="/">
+          <Logo2 className="header-logo"/>
+        </a>
+        {/* <SearchWrapper>
+            <Search />
+            </SearchWrapper> */}
       </HeaderWrapper>
     );
   }

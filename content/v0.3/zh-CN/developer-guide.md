@@ -28,5 +28,3 @@ OpenPitrix 目前支持两种开发规范：
 
 [Helm Chart 开发模板规范](../helm-specification) 解释了 Chart 格式，提供使用 Helm 构建 Chart 的基本指导。
 
-[Helm Chart 应用开发流程](../helm-app-develop) 描述了准备一个 Helm Chart 应用的基本流程。
-

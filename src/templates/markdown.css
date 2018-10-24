@@ -62,7 +62,7 @@
 }
 
 .md-body blockquote {
-  font-size: 0.625rem;
+  font-size: 0.875rem;
   font-weight: normal;
   line-height: 1.4;
   color: #1E6EEB;
@@ -348,8 +348,8 @@
 }
 
 .md-body code,.md-body tt {
-  padding: 4px 6px 4px 12px !important;
-  font-size: 0.625rem;
+  padding: 4px !important;
+  font-size: 0.8rem;
   font-family: RobotoMono-Regular;
   color: #6430BD;
   font-weight: normal;

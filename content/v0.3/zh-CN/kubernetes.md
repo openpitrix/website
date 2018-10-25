@@ -97,10 +97,10 @@ NAME                       TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)     
 openpitrix-pilot-service   NodePort   10.96.224.102   <none>        9110:31866/TCP, 9114:30119/TCP   5m
 ```
 
-3. 执行以下命令修改 etcd 中配置，同时修改 Pilot 的 IP 和 PORT，即修改 `${IP}` 和 `{PORT}` 为实际环境中的节点 IP 和端口号。IP 是集群所在 VPC 的公网 IP，PORT 是上步的结果，比如是 30119 ：
+3. 执行以下命令修改 etcd 中配置，同时修改 Pilot 的 IP 和 PORT。由于 Pilot 是需要公网访问，所以需要保证在外网能访问上述的 Pilot 服务，然后通过下面的命令修改 `${EIP}` 和 `{PORT}`，即外网通过 `${EIP}:${PORT}` 访问 (如通过端口转发的方式) 到集群任意一节点的 Pilot 服务的 NodePort，如上述 30119：
 
 ```
-$ kubernetes/scripts/put-global-config.sh -i ${IP} -p {PORT}
+$ kubernetes/scripts/put-global-config.sh -n openpitrix-system -i ${EIP} -p {PORT}
 ```
 
 ## 第四步: 验证

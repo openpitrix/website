@@ -4,7 +4,7 @@ title: "仓库管理"
 
 ## 简介
 
-在 OpenPitrix 中，部署的每个应用程序都是基础软件包存储库，如果要将 OpenPitrix 用于多云应用程序管理，则需要先创建存储库。应用程序管理器可以将包存储到 http / https 服务器或 S3对象存储。OpenPitrix 应用仓库是独立于 OpenPitrix 的外部存储，可以是青云 QingCloud 的 QingStor 对象存储，也可以是 AWS 对象存储，后续将支持 GitHub 和 Google 作为存储，里面存储的内容是开发者开发好的应用的配置包以及索引文件。注册好仓库后，对象存储中存储的应用配置包会被自动索引成为可部署的应用。对于用户而言，仅管理员和开发者拥有仓库管理的权限，能够在平台中添加和管理仓库。
+在 OpenPitrix 中，部署的每个应用程序都是基础软件包存储库，如果要将 OpenPitrix 用于多云应用程序管理，则需要先创建存储库。应用程序管理器可以将包存储到 http / https 服务器或 S3对象存储。OpenPitrix 应用仓库是独立于 OpenPitrix 的外部存储，可以是 QingCloud 的 QingStor 对象存储，也可以是 AWS 对象存储，后续将支持 GitHub 和 Google 作为存储，里面存储的内容是开发者开发好的应用的配置包以及索引文件。注册好仓库后，对象存储中存储的应用配置包会被自动索引成为可部署的应用。对于用户而言，仅管理员和开发者拥有仓库管理的权限，能够在平台中添加和管理仓库。
 
 ## 查看仓库
 在 OpenPitrix 菜单栏选择 **仓库** 即可查看应用仓库的列表，包括公共仓库和私有仓库，显示运行环境提供商和仓库中的应用数目。
@@ -13,13 +13,13 @@ title: "仓库管理"
 
 ## 创建仓库
 
-### 基于青云 QingStor 对象存储
+### 基于 QingStor 对象存储
 
-#### 第一步：登录青云控制台
+#### 第一步：登录 QingCloud 控制台
 
-首先登录 [青云 QingCloud 控制台](https://console.qingcloud.com/)，目前青云 QingCloud 支持在北京3区-A、北京3区、上海1区-A 使用对象存储，可以通过左上角切换可用区，比如切换到上海1区-A。
+首先登录 [QingCloud 控制台](https://console.qingcloud.com/)，目前 QingCloud 支持在北京3区-A、北京3区、上海1区-A 使用对象存储，可以通过左上角切换可用区，比如切换到上海1区-A。
 
-![青云console](/qingcloud-zone.png)
+![qingcloud console](/qingcloud-zone.png)
 
 #### 第二步：创建 Bucket 
 

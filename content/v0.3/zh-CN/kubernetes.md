@@ -27,7 +27,7 @@ KubeSphere 是在目前主流容器调度平台 [Kubernetes](https://kubernetes.
 
 * **[Kubernetes on QingCloud AppCenter](https://docs.qingcloud.com/product/container/k8s)**
 
-青云 QingCloud 提供的支持一键部署的 Kubernetes 集群环境，同时集成了 KubeSphere 容器管理平台。
+QingCloud 提供的支持一键部署的 Kubernetes 集群环境，同时集成了 KubeSphere 容器管理平台。
 
 > 注：网络插件请选用 Calico 或 Hostnic。
 

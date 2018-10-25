@@ -52,7 +52,7 @@ keys = [
 ]
 ```
 
-> 说明：toml 文件中, src 代表模版文件名，dest 即应用的配置文件，这个配置文件会根据 src 模版刷新 dest 内容，keys 即进程 confd 监控青云 metadata service 关于该节点所在集群信息的更新，有变化则更新，如果模版中需要用到某个 key 的信息，则需要监听这个 key，也可以直接监听根目录”/”。reload_cmd 则是配置文件被刷新后的操作，脚本开发者自行提供脚本，如果不需要触发动作可以去掉 reload_cmd 这一行。toml 文件里可加上权限控制 比如 uid，gid，mode 等。
+> 说明：toml 文件中, src 代表模版文件名，dest 即应用的配置文件，这个配置文件会根据 src 模版刷新 dest 内容，keys 即进程 confd 监控 QingCloud metadata service 关于该节点所在集群信息的更新，有变化则更新，如果模版中需要用到某个 key 的信息，则需要监听这个 key，也可以直接监听根目录”/”。reload_cmd 则是配置文件被刷新后的操作，脚本开发者自行提供脚本，如果不需要触发动作可以去掉 reload_cmd 这一行。toml 文件里可加上权限控制 比如 uid，gid，mode 等。
 
 
 **templates/mysql_hostname.tmpl**

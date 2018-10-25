@@ -350,7 +350,7 @@ vxnet|创建应用时所在网络ID
 | filesystem|数据盘文件系统类型。如果 image 是基于 Linux 操作系统，目前支持 ext4 和 xfs，默认为 ext4。|
 
 - passphraseless　<br />
-  生成密钥信息，即提供此类节点能无密码登录其它节点的可能性，但青云调度系统只负责把此信息注册到 metadata service 中，开发者自行去获取密钥配置主机。目前支持 ssh-dsa, ssh-rsa，非必填项。
+  生成密钥信息，即提供此类节点能无密码登录其它节点的可能性，但 QingCloud 调度系统只负责把此信息注册到 metadata service 中，开发者自行去获取密钥配置主机。目前支持 ssh-dsa, ssh-rsa，非必填项。
 - services　<br />
   应用本身服务的初始化、启停等指令，OpenPitrix 调度系统会发送这些命令到指定节点执行，非必填项。
 - init　<br />

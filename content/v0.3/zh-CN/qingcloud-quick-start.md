@@ -36,19 +36,19 @@ title: "部署 WordPress 到 QingCloud"
 若要将商店的应用部署到 QingCloud 运行环境，则需依赖平台的网络资源，需提前创建好资源，应用部署到运行环境后将在  QingCloud 平台自动创建集群。
 
 ### 第一步：创建 VPC
-在 QingCloud 可以预配置出一个专属的大型网络 - VPC 网络，登录 [QingCloud 控制台](https://console.qingcloud.com)，创建 VPC，详见 [青云官方文档](https://docs.qingcloud.com/product/network/vpc)。
+在 QingCloud 可以预配置出一个专属的大型网络 - VPC 网络，登录 [QingCloud 控制台](https://console.qingcloud.com)，创建 VPC，详见 [QingCloud 官方文档](https://docs.qingcloud.com/product/network/vpc)。
 
 ![创建 VPC](/create-vpc.png)
 
 ### 第二步：创建私有网络
 
-私有网络用于主机之间互联，它类似物理世界中使用交换机组成的局域网。不同用户的私有网络之间是完全隔离的。私有网络可以作为子网加入到 VPC 网络中。在控制台创建私有网络，并加入 VPC，详见 [青云官方文档](https://docs.qingcloud.com/product/network/vpc.html#%E5%8A%9F%E8%83%BD%E7%AE%A1%E7%90%86)。
+私有网络用于主机之间互联，它类似物理世界中使用交换机组成的局域网。不同用户的私有网络之间是完全隔离的。私有网络可以作为子网加入到 VPC 网络中。在控制台创建私有网络，并加入 VPC，详见 [QingCloud 官方文档](https://docs.qingcloud.com/product/network/vpc.html#%E5%8A%9F%E8%83%BD%E7%AE%A1%E7%90%86)。
 
 ![创建私有网络](/create-vxnet.png)
 
 ### 第三步：申请公网 IP
 
-1、公网 IP 是在互联网上合法的静态 IP 地址。申请公网 IP，然后将公网 IP 绑定到 VPC。详见 [青云官方文档](https://docs.qingcloud.com/product/network/eip)。
+1、公网 IP 是在互联网上合法的静态 IP 地址。申请公网 IP，然后将公网 IP 绑定到 VPC。详见 [QingCloud 官方文档](https://docs.qingcloud.com/product/network/eip)。
 
 ![申请公网 IP](/create-EIP.png)
 
@@ -81,7 +81,7 @@ title: "部署 WordPress 到 QingCloud"
 
 ### 第四步：访问 Wordpress
 
-可以在 [青云 QingCloud 控制台](https://console.qingcloud.com/pek3a/instances/) 上查看创建的主机状态以及 IP 情况。待创建成功后可以通过 [VPC 端口转发](https://docs.qingcloud.com/product/network/vpc.html#%E5%8A%9F%E8%83%BD%E7%AE%A1%E7%90%86) （Wordpress 默认端口为 80）并在防火墙放行对应的端口，即可在浏览器通过公网 IP 和转发的端口如 [http://139.198.177.98:8000](http://139.198.177.98:8000) 来访问 Wordpress。
+可以在 [QingCloud 控制台](https://console.qingcloud.com/pek3a/instances/) 上查看创建的主机状态以及 IP 情况。待创建成功后可以通过 [VPC 端口转发](https://docs.qingcloud.com/product/network/vpc.html#%E5%8A%9F%E8%83%BD%E7%AE%A1%E7%90%86) （Wordpress 默认端口为 80）并在防火墙放行对应的端口，即可在浏览器通过公网 IP 和转发的端口如 [http://139.198.177.98:8000](http://139.198.177.98:8000) 来访问 Wordpress。
 
 ![Wordpress 主页](/wordpress-page.png)
 

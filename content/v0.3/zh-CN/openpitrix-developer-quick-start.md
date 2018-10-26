@@ -10,14 +10,15 @@ WordPress 后端存储需要依赖数据库，实例使用的 MySQL 数据库，
 
 ### 第一步：制作 mysql 镜像
 
-由于需要实现配置变更，不能直接使用已有的 docker 镜像，需要进行一些改造，Docker 镜像默认启动的进程不能是应用本身的进程，而应该是 drone，由 drone 启动服务，并实现配置变更。
+由于需要实现配置变更及管理组件的自动升级，不能直接使用已有的 docker 镜像，需要进行一些改造，Docker 镜像默认启动的进程不能是应用本身的进程，而应该是 [supervisor](http://supervisord.org/)，由 supervisor 来启动 drone 服务。
 
-1、将 drone 和 [nsenter](http://www.man7.org/linux/man-pages/man1/nsenter.1.html) 添加到镜像。
+1、将 drone 和 [nsenter](http://www.man7.org/linux/man-pages/man1/nsenter.1.html) 添加到镜像，然后安装 supervisor 并进行适当的配置。
     
 * drone 是 OpenPitrix 的 Agent 服务，与 OpenPitrix 调度系统进行交互。
 * nsenter 用来在 Docker 内进入 Host 执行一些指令，比如挂载硬盘、ssh 免密登录等。
+* supervisor 用来为 drone 的自动升级提供支持服务。
 
-可在制作 Docker 镜像时从 `openpitrix/openpitrix:metadata` 镜像中拷贝获取这两个可执行文件：
+可在制作 Docker 镜像时从 `openpitrix/openpitrix:metadata` 镜像中拷贝获取 drone 和 nsenter 这两个可执行文件以及 supervisor 相关的启动脚本：
 
 **Dockerfile**
 
@@ -26,8 +27,22 @@ FROM mysql:5.6
 
 COPY --from=openpitrix/openpitrix:metadata /usr/local/bin/drone /usr/local/bin/
 COPY --from=openpitrix/openpitrix:metadata /usr/bin/nsenter /usr/bin/
+
+RUN apt-get update && apt-get install -y supervisor
+COPY --from=openpitrix/openpitrix:metadata /etc/supervisor.d/drone.ini /etc/supervisor/conf.d/drone.conf
+COPY --from=openpitrix/openpitrix:metadata /usr/local/bin/start-drone.sh /usr/local/bin/start-drone.sh
+
+COPY start-supervisord.sh /usr/local/bin/
+ENTRYPOINT ["start-supervisord.sh"]
 ```
 
+其中 start-supervisord.sh 的内容如下：
+
+```sh
+#!/bin/sh
+
+exec supervisord -n
+```
 
 2、制作 MySQL 镜像并上传到镜像仓库，请预先准备好 Docker 镜像仓库（ ${registry} 替换为您实际的镜像仓库的名字）。
 
@@ -62,20 +77,27 @@ keys = [
 ```
 说明：tmpl 模版文件决定应用配置文件内容。drone 读取 metadata service 并刷新这些变量的值，如此例 range 这一行是读取 Mysql 节点的 IP 信息。了解更多参见 [libconfd](https://github.com/openpitrix/libconfd)。
 
-2、新建目录，并将上一步准备的两个模板文件拷贝到 `/etc/confd/` 目录下。然后，可在制作 Docker 镜像时从 `openpitrix/openpitrix:metadata` 镜像中拷贝获取 drone 和 nsenter 可执行文件：
+2、新建目录，并将上一步准备的两个模板文件拷贝到 `/etc/confd/` 目录下。然后，可在制作 Docker 镜像时从 `openpitrix/openpitrix:metadata` 镜像中拷贝获取 drone 和 nsenter 可执行文件以及 supervisor 相关的启动脚本：
 
 **Dockerfile**
 
 ```dockerfile
 FROM wordpress
 
+COPY --from=openpitrix/openpitrix:metadata /usr/local/bin/drone /usr/local/bin/
+COPY --from=openpitrix/openpitrix:metadata /usr/bin/nsenter /usr/bin/
+
+RUN apt-get update && apt-get install -y supervisor
+COPY --from=openpitrix/openpitrix:metadata /etc/supervisor.d/drone.ini /etc/supervisor/conf.d/drone.conf
+COPY --from=openpitrix/openpitrix:metadata /usr/local/bin/start-drone.sh /usr/local/bin/start-drone.sh
+
+COPY start-supervisord.sh /usr/local/bin/
+ENTRYPOINT ["start-supervisord.sh"]
+
 RUN mkdir -p /etc/confd/conf.d/
 RUN mkdir -p /etc/confd/templates/
 COPY conf.d/* /etc/confd/conf.d/
 COPY templates/* /etc/confd/templates/
-
-COPY --from=openpitrix/openpitrix:metadata /usr/local/bin/drone /usr/local/bin/
-COPY --from=openpitrix/openpitrix:metadata /usr/bin/nsenter /usr/bin/nsenter
 ```
 
 3、制作 Wordpress 镜像并上传到镜像仓库，请预先准备好 Docker 镜像仓库（ ${registry} 替换为您实际的镜像仓库的名字）。

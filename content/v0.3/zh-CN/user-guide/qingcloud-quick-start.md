@@ -56,7 +56,7 @@ title: "部署 WordPress 到 QingCloud"
 
 ![绑定VPC](/bound-vpc.png)
 
-> 若准备将应用部署到 AWS 运行环境，参见 [部署 Wordpress 到 AWS](../aws-quick-start.md)。
+> 若准备将应用部署到 AWS 运行环境，参见 [部署 Wordpress 到 AWS](../user-guide/aws-quick-start.md)。
 
 
 ## 部署应用
@@ -85,4 +85,4 @@ title: "部署 WordPress 到 QingCloud"
 
 ![Wordpress 主页](/wordpress-page.png)
 
-> 应用部署成功后，若需要管理部署的集群如停用或删除集群，参考 [集群管理](../cluster-management.md)。
+> 应用部署成功后，若需要管理部署的集群如停用或删除集群，参考 [集群管理](../user-guide/cluster-management.md)。

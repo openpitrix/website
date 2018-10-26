@@ -7,19 +7,19 @@
       "chapters": [
         {
           "title": "产品概述",
-          "entry": "./v0.3/zh-CN/basic.md"
+          "entry": "./v0.3/zh-CN/introduction/basic.md"
         },
         {
           "title": "产品功能",
-          "entry": "./v0.3/zh-CN/openpitrix-feature.md"
+          "entry": "./v0.3/zh-CN/introduction/openpitrix-feature.md"
         },
         {
           "title": "应用场景",
-          "entry": "./v0.3/zh-CN/openpitrix-scenarios.md"
+          "entry": "./v0.3/zh-CN/introduction/openpitrix-scenarios.md"
         },
         {
           "title": "视频演示",
-          "entry": "./v0.3/zh-CN/video.md"
+          "entry": "./v0.3/zh-CN/introduction/video.md"
         }
       ]
     },
@@ -29,15 +29,15 @@
       "chapters": [
         {
           "title": "部署 OpenPitrix",
-          "entry": "./v0.3/zh-CN/openpitrix-install-guide.md"
+          "entry": "./v0.3/zh-CN/installation/openpitrix-install-guide.md"
         },
         {
           "title": "All-in-One 模式",
-          "entry": "./v0.3/zh-CN/allinone.md"
+          "entry": "./v0.3/zh-CN/installation/allinone.md"
         },
         {
           "title": "Kubernetes 模式",
-          "entry": "./v0.3/zh-CN/kubernetes.md"
+          "entry": "./v0.3/zh-CN/installation/kubernetes.md"
         }
       ]
     },
@@ -47,19 +47,19 @@
       "chapters": [
         {
       "title": "入门必读",    
-      "entry": "./v0.3/zh-CN/user-quick-start.md"
+      "entry": "./v0.3/zh-CN/getting-start/user-quick-start.md"
         },
         {
       "title": "开发者",    
-      "entry": "./v0.3/zh-CN/ISV-quick-start.md"
+      "entry": "./v0.3/zh-CN/getting-start/ISV-quick-start.md"
         },
         {
       "title": "管理员",    
-      "entry": "./v0.3/zh-CN/admin-quick-start.md"    
+      "entry": "./v0.3/zh-CN/getting-start/admin-quick-start.md"    
         },
         {
       "title": "普通用户",    
-      "entry": "./v0.3/zh-CN/normal-user-quick-start.md"    
+      "entry": "./v0.3/zh-CN/getting-start/normal-user-quick-start.md"    
         }
                   ]
     },
@@ -69,55 +69,55 @@
       "chapters": [
         {
           "title": "基本概念",
-          "entry": "./v0.3/zh-CN/user-guide.md"
+          "entry": "./v0.3/zh-CN/user-guide/user-guide.md"
         },
         {
           "title": "总览",
-          "entry": "./v0.3/zh-CN/dashboard-management.md"
+          "entry": "./v0.3/zh-CN/user-guide/dashboard-management.md"
         },
         {
           "title": "部署应用",
           "entries": [
             {
-              "entry": "./v0.3/zh-CN/qingcloud-quick-start.md"
+              "entry": "./v0.3/zh-CN/user-guide/qingcloud-quick-start.md"
             },
             {
-              "entry": "./v0.3/zh-CN/aws-quick-start.md"
+              "entry": "./v0.3/zh-CN/user-guide/aws-quick-start.md"
             },
             {
-              "entry": "./v0.3/zh-CN/kubernetes-quick-start.md"
+              "entry": "./v0.3/zh-CN/user-guide/kubernetes-quick-start.md"
             }
           ]
         },
         {
           "title": "运行环境管理",
-          "entry": "./v0.3/zh-CN/runtime-management.md"
+          "entry": "./v0.3/zh-CN/user-guide/runtime-management.md"
         },
         {
           "title": "集群管理",
-          "entry": "./v0.3/zh-CN/cluster-management.md"
+          "entry": "./v0.3/zh-CN/user-guide/cluster-management.md"
         },
         {
           "title": "仓库管理",
-          "entry": "./v0.3/zh-CN/repo-guide.md"
+          "entry": "./v0.3/zh-CN/user-guide/repo-guide.md"
         },
         {
           "title": "商店管理",
            "entries": [
             {
-          "entry": "./v0.3/zh-CN/store-management.md"
+          "entry": "./v0.3/zh-CN/user-guide/store-management.md"
             },
             {
-          "entry": "./v0.3/zh-CN/category-management.md"
+          "entry": "./v0.3/zh-CN/user-guide/category-management.md"
             },
             {
-          "entry": "./v0.3/zh-CN/app-management.md"
+          "entry": "./v0.3/zh-CN/user-guide/app-management.md"
             }
           ]
         },
         {
           "title": "用户管理",
-          "entry": "./v0.3/zh-CN/user-management.md"
+          "entry": "./v0.3/zh-CN/user-guide/user-management.md"
         }
       ]
     },
@@ -127,19 +127,19 @@
       "chapters": [
         {
           "title": "基本概念",
-          "entry": "./v0.3/zh-CN/developer-guide.md"
+          "entry": "./v0.3/zh-CN/developer-guide/developer-guide.md"
         },
         {
           "title": "OpenPitrix 规范及应用开发",
           "entries": [
             {
-              "entry": "./v0.3/zh-CN/openpitrix-developer-quick-start.md"
+              "entry": "./v0.3/zh-CN/developer-guide/openpitrix-developer-quick-start.md"
             },
             {
-              "entry": "./v0.3/zh-CN/openpitrix-specification.md"
+              "entry": "./v0.3/zh-CN/developer-guide/openpitrix-specification.md"
             },
             {
-              "entry": "./v0.3/zh-CN/openpitrix-app-develop.md"
+              "entry": "./v0.3/zh-CN/developer-guide/openpitrix-app-develop.md"
             }
           ]
         },
@@ -147,16 +147,16 @@
           "title": "Helm 规范及应用开发",
           "entries": [
             {
-              "entry": "./v0.3/zh-CN/helm-developer-quick-start.md"
+              "entry": "./v0.3/zh-CN/developer-guide/helm-developer-quick-start.md"
             },
             {
-              "entry": "./v0.3/zh-CN/helm-specification.md"
+              "entry": "./v0.3/zh-CN/developer-guide/helm-specification.md"
             }
           ]
         },
         {
           "title": "实现新的 Provider Plugin",
-          "entry": "./v0.3/zh-CN/implementing_a_new_plugin.md"
+          "entry": "./v0.3/zh-CN/developer-guide/implementing_a_new_plugin.md"
         }
       ]
     },

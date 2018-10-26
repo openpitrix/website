@@ -8,10 +8,6 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
 
     const parts = slug.split('/').filter(p => !!p)
 
-    if (parts.length !== 3) {
-      throw new Error(`Unexpected node path of length !== 3: ${slug}`)
-    }
-
     const [version, language] = parts
 
     createNodeField({ node, name: `slug`, value: slug, })

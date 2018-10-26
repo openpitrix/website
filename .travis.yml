@@ -16,7 +16,7 @@ cache:
 install:
   - yarn
 
-script:
+before_deploy:
   - docker build -t openpitrix/docs.openpitrix.io .
 
 deploy:
@@ -24,3 +24,4 @@ deploy:
   script: bash docker_push
   on:
     branch: master
+    repo: openpitrix/docs.openpitrix.io

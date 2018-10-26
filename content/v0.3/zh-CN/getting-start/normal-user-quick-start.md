@@ -48,7 +48,7 @@ title: "普通用户"
 
 ![绑定VPC](/bound-vpc.png)
 
-> 若准备将应用部署到 AWS 运行环境，参见 [部署 Wordpress 到 AWS](../aws-quick-start.md)。
+> 若准备将应用部署到 AWS 运行环境，参见 [部署 Wordpress 到 AWS](../user-guide/aws-quick-start.md)。
 
 
 ## 部署应用
@@ -77,6 +77,6 @@ title: "普通用户"
 
 ![Wordpress 主页](/wordpress-page.png)
 
-> 第一次部署由于需要从公网上下载必要的系统镜像，通常创建时间会比较长，应用部署成功后，这些镜像会缓存在 frontgate，以后再创建其它集群就从缓存中拉取系统镜像。若需要管理部署的集群如停用或删除集群，参考 [集群管理](../cluster-management.md)。
+> 第一次部署由于需要从公网上下载必要的系统镜像，通常创建时间会比较长，应用部署成功后，这些镜像会缓存在 frontgate，以后再创建其它集群就从缓存中拉取系统镜像。若需要管理部署的集群如停用或删除集群，参考 [集群管理](../user-guide/cluster-management.md)。
 
 至此，您已经基本了解了 OpenPitrix 平台对应用的生命周期的管理和其中三个角色的基本工作流程，建议您进一步熟悉和使用 OpenPitrix 平台，[用户指南](../user-guide) 和 [开发指南](../developer-guide) 提供更详细的文档说明，若在实际使用时遇到问题，参见 [常见问题](../faq) 或联系我们技术团队为您解答。

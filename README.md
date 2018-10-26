@@ -22,9 +22,11 @@ Tree of repo:
 ├── content                                         // documents directory
 │   ├── v0.3                                        // documents version
 │   │   ├── en                                      // documents language 
-│   │   │   └── openpitrix-install-guide.md         // document
+│   │   │   └── installation                        // documents module
+|   |   |       └── openpitrix-install-guide.md     // document
 │   │   └── zh-CN
-│   │       └── openpitrix-install-guide.md 
+│   │       └── installation
+|   |           └── openpitrix-install-guide.md 
 │   ├── toc_v0.3_en.json                            // table of contents, define the page navigation
 │   └── toc_v0.3_zh-CN.json
 ├── src
@@ -72,7 +74,7 @@ navigation file example
   "chapters": [
     {
       "title": "简介",
-      "entry": "./v0.3/zh-CN/basic.md"
+      "entry": "./v0.3/zh-CN/introduction/basic.md"
     },
     {
       "title": "安装指南",
@@ -81,13 +83,13 @@ navigation file example
           "title": "部署模式",
           "entries": [
             {
-              "entry": "./v0.3/zh-CN/openpitrix-install-guide.md"
+              "entry": "./v0.3/zh-CN/installation/openpitrix-install-guide.md"
             },
             {
-              "entry": "./v0.3/zh-CN/allinone.md"
+              "entry": "./v0.3/zh-CN/installation/allinone.md"
             },
             {
-              "entry": "./v0.3/zh-CN/kubernetes.md"
+              "entry": "./v0.3/zh-CN/installation/kubernetes.md"
             }
           ]
         }

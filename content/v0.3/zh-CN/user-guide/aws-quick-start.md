@@ -76,4 +76,4 @@ title: "部署 WordPress 到 AWS"
 
 ![Wordpress 主页](/wordpress-aws.png)
 
-> 应用部署成功后，若需要管理部署的集群如停用或删除集群，参考 [集群管理](../cluster-management.md)。
+> 应用部署成功后，若需要管理部署的集群如停用或删除集群，参考 [集群管理](../user-guide/cluster-management.md)。

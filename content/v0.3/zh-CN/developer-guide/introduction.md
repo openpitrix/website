@@ -1,10 +1,8 @@
 ---
-title: "开发指南"
+title: "简介"
 ---
 
-## 支持规范
-
-OpenPitrix 目前支持两种开发规范：
+OpenPitrix 要求开发者按照一定的应用打包规范上传应用，目前支持两种开发规范：
 
 * [OpenPitrix 开发规范](../openpitrix-specification)
 * [Helm Chart 开发规范](../helm-specification)
@@ -13,7 +11,7 @@ OpenPitrix 目前支持两种开发规范：
 
 沿用的 [QingCloud AppCenter 开发规范](https://docs.qingcloud.com/appcenter/docs/specifications/specifications.html)，并做了升级和优化，采用该规范开发的应用，可以部署到基于 VM 的云运行时环境中，如 AWS、QingCloud 等。
 
-[OpenPitrix 开发快速入门](../openpitrix-developer-quick-start) 提供了一个 Wordpress 示例，指导用户制作镜像，给出配置文件的模板，帮助用户熟悉 OpenPitrix 应用开发的流程。
+[OpenPitrix 开发入门](../openpitrix-developer-guide) 提供了一个 Wordpress 示例，指导用户制作镜像，给出配置文件的模板，帮助用户熟悉 OpenPitrix 应用开发的流程。
 
 [OpenPitrix 应用开发规范](../openpitrix-specification) 解释了 OpenPitrix 应用配置文件的格式和规范，提供配置的基本指导。
 

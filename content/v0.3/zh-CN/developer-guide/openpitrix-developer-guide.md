@@ -1,5 +1,5 @@
 ---
-title: "应用开发快速入门"
+title: "应用开发入门"
 ---
 
 OpenPitrix 为开发者提供便捷的开发方式，基于 OpenPitrix 开发规范，通过以下开发示例即可开发一个 Wordpress 应用，支持上传到平台并部署到基于 VM 的云运行时环境，帮助开发者熟悉 OpenPitrix 应用开发的规范和流程。

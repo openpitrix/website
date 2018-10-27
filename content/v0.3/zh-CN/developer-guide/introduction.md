@@ -15,14 +15,14 @@ OpenPitrix 要求开发者按照一定的应用打包规范上传应用，目前
 
 [OpenPitrix 应用开发规范](../openpitrix-specification) 解释了 OpenPitrix 应用配置文件的格式和规范，提供配置的基本指导。
 
-[OpenPitrix 应用开发流程](../openpitrix-app-develop) 描述了准备一个 OpenPitrix 应用的基本流程。
+[OpenPitrix 应用开发流程](../packaging-openpitrix-app) 描述了准备一个 OpenPitrix 应用的基本流程。
 
 
 ### Helm Chart 开发规范
 
 [Helm](https://helm.sh) 是 Kubernetes 的应用包管理器，Helm 使用一种称为 Chart 的包装格式，Chart 是描述相关的一组 Kubernetes 资源的文件集合。Chart 通过创建特定目录树的文件，将它们打包到版本化的压缩包。采用 [Helm Chart](https://dochelm.sh) 规范开发的应用，可以部署到 Kubernetes 环境中。
 
-[Helm Chart 开发快速入门](../helm-developer-quick-start) 提供一个应用示例，帮助用户熟悉 Helm Chart 的基本步骤。
+[Helm Chart 开发入门](../helm-developer-guide) 提供一个应用示例，帮助用户熟悉 Helm Chart 的基本步骤。
 
 [Helm Chart 开发模板规范](../helm-specification) 解释了 Chart 格式，提供使用 Helm 构建 Chart 的基本指导。
 

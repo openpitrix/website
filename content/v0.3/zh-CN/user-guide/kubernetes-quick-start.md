@@ -10,7 +10,7 @@ title: "部署 Nginx 到 Kubernetes"
  
  - 已有 OpenPitrix 普通用户账号，普通用户由管理员提供，参见 [用户管理](../user-management/#创建用户)。
 
- - 已有 Nginx 应用上架应用商店，若没有请参考 [Helm Chart 开发快速入门](../helm-developer-quick-start) 准备 Nginx 应用配置包并提交。
+ - 已有 Nginx 应用上架应用商店，若没有请参考 [Helm Chart 开发入门](../../developer-guide/helm-developer-guide) 准备 Nginx 应用配置包并提交。
  
  - 已有 Kubernetes 集群环境，本示例以 KubeSphere 作为运行环境，需要提前准备好 KubeSphere 集群，参见 [KubeSphere 安装指南](../https://docs.kubesphere.io/express/zh-CN/KubeSphere-Installer-Guide/)。
 

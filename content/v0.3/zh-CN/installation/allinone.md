@@ -57,7 +57,7 @@ $ docker container ls | grep dashboard
 
 ![OpenPitrix 主页](/dashboard.png)
 
-OpenPitrix 部署成功后，可以使用以下的管理员默认的用户名和密码登录 OpenPitrix 控制台体验，参见 [用户管理](../user-management) 创建开发者和普通用户的角色，[快速入门](../user-quick-start) 将帮助您快速上手 OpenPitrix。
+OpenPitrix 部署成功后，可以使用以下的管理员默认的用户名和密码登录 OpenPitrix 控制台体验，参见 [用户管理](../../user-guide/user-management) 创建开发者和普通用户的角色，[快速入门](../../getting-start/user-quick-start) 将帮助您快速上手 OpenPitrix。
 
 
 | 角色 |	用户名 |	密码 |

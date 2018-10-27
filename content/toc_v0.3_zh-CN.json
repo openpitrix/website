@@ -11,7 +11,7 @@
         },
         {
           "title": "产品功能",
-          "entry": "./v0.3/zh-CN/introduction/openpitrix-feature.md"
+          "entry": "./v0.3/zh-CN/introduction/openpitrix-features.md"
         },
         {
           "title": "应用场景",
@@ -68,11 +68,11 @@
       "describe": "指导用户如何使用平台提供的基本功能。",
       "chapters": [
         {
-          "title": "基本概念",
-          "entry": "./v0.3/zh-CN/user-guide/user-guide.md"
+          "title": "简介",
+          "entry": "./v0.3/zh-CN/user-guide/introduction.md"
         },
         {
-          "title": "总览",
+          "title": "总览页",
           "entry": "./v0.3/zh-CN/user-guide/dashboard-management.md"
         },
         {

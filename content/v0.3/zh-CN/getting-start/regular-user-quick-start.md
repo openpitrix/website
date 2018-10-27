@@ -48,7 +48,7 @@ title: "普通用户"
 
 ![绑定VPC](/bound-vpc.png)
 
-> 若准备将应用部署到 AWS 运行环境，参见 [部署 Wordpress 到 AWS](../user-guide/aws-quick-start.md)。
+> 若准备将应用部署到 AWS 运行环境，参见 [部署 Wordpress 到 AWS](../user-guide/deploying-app-on-aws.md)。
 
 
 ## 部署应用

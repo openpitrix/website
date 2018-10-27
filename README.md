@@ -23,10 +23,10 @@ Tree of repo:
 │   ├── v0.3                                        // documents version
 │   │   ├── en                                      // documents language 
 │   │   │   └── installation                        // documents module
-|   |   |       └── openpitrix-install-guide.md     // document
+|   |   |       └── installation-guide.md     // document
 │   │   └── zh-CN
 │   │       └── installation
-|   |           └── openpitrix-install-guide.md 
+|   |           └── installation-guide.md 
 │   ├── toc_v0.3_en.json                            // table of contents, define the page navigation
 │   └── toc_v0.3_zh-CN.json
 ├── src
@@ -83,7 +83,7 @@ navigation file example
           "title": "部署模式",
           "entries": [
             {
-              "entry": "./v0.3/zh-CN/installation/openpitrix-install-guide.md"
+              "entry": "./v0.3/zh-CN/installation/installation-guide.md"
             },
             {
               "entry": "./v0.3/zh-CN/installation/allinone.md"

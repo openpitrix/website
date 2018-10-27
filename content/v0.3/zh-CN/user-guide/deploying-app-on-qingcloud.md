@@ -8,7 +8,7 @@ title: "部署 WordPress 到 QingCloud"
 
 正式开始前，需要准备好以下资源：
 
- - 已有 Wordpress 应用上架商店，若没有请参考 [快速入门之开发者](../../getting-start/ISV-quick-start) 将应用提交管理员审核后发布到商店。
+ - 已有 Wordpress 应用上架商店，若没有请参考 [快速入门之开发者](../../getting-start/developer-quick-start) 将应用提交管理员审核后发布到商店。
  
  - 已有 OpenPitrix 普通用户账号，普通用户账号由管理员提供，参见 [用户管理](../user-management/#创建用户)。
  
@@ -56,7 +56,7 @@ title: "部署 WordPress 到 QingCloud"
 
 ![绑定VPC](/bound-vpc.png)
 
-> 若准备将应用部署到 AWS 运行环境，参见 [部署 Wordpress 到 AWS](../aws-quick-start.md)。
+> 若准备将应用部署到 AWS 运行环境，参见 [部署 Wordpress 到 AWS](../deploying-app-on-aws.md)。
 
 
 ## 部署应用

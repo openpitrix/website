@@ -12,7 +12,7 @@ title: "应用管理"
 
 ![创建应用](/overview-page.png)
 
-2、选择预先创建好的应用仓库，若还未创建应用仓库，请参考 [仓库管理 - 创建仓库](../../user-guide/repo-guide/#创建仓库) 来创建。完成后点击 **下一步**。
+2、选择预先创建好的应用仓库，若还未创建应用仓库，请参考 [仓库管理 - 创建仓库](../../user-guide/repo-management/#创建仓库) 来创建。完成后点击 **下一步**。
 
 ![选择仓库](/select-repo.png)
 
@@ -33,9 +33,9 @@ title: "应用管理"
 
 平台的所有用户均可部署应用到运行环境中，在应用列表或商店中点击应用进入应用详情，点击 **部署** 即可。注意，部署依赖 QingCloud、AWS、Kubernetes 这类运行环境，所以在部署前需要创建运行环境并申请相关的资源。以下准备了三个示例将应用分别部署到 QingCloud、AWS 和 Kubernetes 环境中：
 
-- [部署 Wordpress 到 QingCloud](../../user-guide/qingcloud-quick-start)
-- [部署 Wordpress 到 AWS](../../user-guide/aws-quick-start)
-- [部署 Nginx 到 Kubernetes](../../user-guide/kubernetes-quick-start)
+- [部署 Wordpress 到 QingCloud](../../user-guide/deploying-app-on-qingcloud)
+- [部署 Wordpress 到 AWS](../../user-guide/deploying-app-on-aws)
+- [部署 Nginx 到 Kubernetes](../../user-guide/deploying-app-on-k8s)
 
 ## 应用版本管理
 

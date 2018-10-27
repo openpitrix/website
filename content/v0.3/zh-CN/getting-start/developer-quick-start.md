@@ -2,11 +2,11 @@
 title: "开发者"
 ---
 
-如果您开发基于 OpenPitrix 平台的应用，那么本篇文档可以帮助您快速开始相关的基础功能操作，主要描述了开发者创建仓库、创建应用和上传应用、提交审核、发布应用等工作流程，流程中的相关文档链接页涵盖了更详细的内容介绍。完成本篇操作后建议您继续阅读 [管理员](../admin-quick-start) 和 [普通用户](../normal-user-quick-start) 的快速入门。
+如果您开发基于 OpenPitrix 平台的应用，那么本篇文档可以帮助您快速开始相关的基础功能操作，主要描述了开发者创建仓库、创建应用和上传应用、提交审核、发布应用等工作流程，流程中的相关文档链接页涵盖了更详细的内容介绍。完成本篇操作后建议您继续阅读 [管理员](../admin-quick-start) 和 [普通用户](../regular-user-quick-start) 的快速入门。
 
 ## 创建仓库
 
-应用仓库目前支持创建基于 QingStor 和 基于 S3 协议如 AWS 的对象存储，以及基于 HTTP/S 协议的仓库 (只读，详情见下文)，对象存储用来存放配置包和索引文件。以创建基于 QingStor 对象存储的仓库为例，若创建基于 AWS S3 对象存储及仓库管理参见 [仓库管理](../../user-guide/repo-guide)。
+应用仓库目前支持创建基于 QingStor 和 基于 S3 协议如 AWS 的对象存储，以及基于 HTTP/S 协议的仓库 (只读，详情见下文)，对象存储用来存放配置包和索引文件。以创建基于 QingStor 对象存储的仓库为例，若创建基于 AWS S3 对象存储及仓库管理参见 [仓库管理](../../user-guide/repo-management)。
 
 ### 第一步：登录 QingCloud 控制台
 
@@ -46,7 +46,7 @@ title: "开发者"
 
 1、以开发者的身份登录 OpenPitrix 控制台，在菜单栏李选择 **仓库**，然后点击 **创建仓库**。
 
-2、填写配置信息。创建完成后，对象存储中存储的应用配置包会被自动索引成为可部署的应用，关于各项配置的更多解释参见 [创建仓库](../repo-guide/#第四步：创建仓库)。
+2、填写配置信息。创建完成后，对象存储中存储的应用配置包会被自动索引成为可部署的应用，关于各项配置的更多解释参见 [创建仓库](../../user-guide/repo-management/#第四步：创建仓库)。
 
 - 运行环境服务商：可以多选，此处勾选 QingCloud 和 AWS (后续会提供更多的服务商支持)。其中 Kubernetes 与 QingCloud 和 AWS 环境的应用配置包格式不同，若选择 QingCloud 和 AWS，意味着当前仓库仅支持上传基于 [OpenPitrix 应用开发规范](../../developer-guide/openpitrix-specification) 的应用，既可以部署到 QingCloud，也可以部署到 AWS。若选择 Kubernetes 则表示当前仓库仅支持上传基于 [Helm Chart 应用开发规范](../../developer-guide/helm-specification) 的应用配置包，且只能部署到 Kubernetes 环境。
 
@@ -64,7 +64,7 @@ title: "开发者"
 
 为方便您快速熟悉 OpenPitrix，本示例准备了一个基于 [OpenPitrix 开发规范](../../developer-guide/openpitrix-specification) 的 [WordPress](https://wordpress.org) 的应用配置包，且已准备好 Wordpress 与 MySQL 镜像并上传到了 Docker 镜像仓库，点击 [下载 Wordpress 应用配置包](https://openpitrix.anybox.qingcloud.com/s/9iNpm77Z2RAOQFUQBSv1luQEHvWTEGdY)，选择 VM Package 文件夹下的 `Wordpress-0.1.0.tgz` 配置包。
 
-> 同样，也可参考 [OpenPitrix 规范及应用开发 - 准备 Wordpress 配置文件](../openpitrix-developer-guide/#准备应用配置包) 的三个必须的配置文件，然后获取 [OpenPitrix 客户端工具](../openpitrix-developer-guide/#准备-openpitrix-客户端工具) 将配置文件打包 (默认为 `.tgz` 格式)，即可生成一个 Wordpress 应用配置包。注意，基于 OpenPitrix 开发规范准备的应用可以部署到 QingCloud、AWS 这类云运行时环境 (Runtime)，若要部署到 Kubernetes 运行环境则需要基于 [Helm Chart 开发规范](../helm-specification) 来准备应用配置包，或下载 Helm Chart Package 文件夹下的 [wordpress-0.3.0.tar](https://openpitrix.anybox.qingcloud.com/s/9iNpm77Z2RAOQFUQBSv1luQEHvWTEGdY)。参见 [部署 Wordpress 到 Kubernetes](../../user-guide/kubernetes-quick-start)。
+> 同样，也可参考 [OpenPitrix 规范及应用开发 - 准备 Wordpress 配置文件](../openpitrix-developer-guide/#准备应用配置包) 的三个必须的配置文件，然后获取 [OpenPitrix 客户端工具](../openpitrix-developer-guide/#准备-openpitrix-客户端工具) 将配置文件打包 (默认为 `.tgz` 格式)，即可生成一个 Wordpress 应用配置包。注意，基于 OpenPitrix 开发规范准备的应用可以部署到 QingCloud、AWS 这类云运行时环境 (Runtime)，若要部署到 Kubernetes 运行环境则需要基于 [Helm Chart 开发规范](../helm-specification) 来准备应用配置包，或下载 Helm Chart Package 文件夹下的 [wordpress-0.3.0.tar](https://openpitrix.anybox.qingcloud.com/s/9iNpm77Z2RAOQFUQBSv1luQEHvWTEGdY)。参见 [部署 Wordpress 到 Kubernetes](../../user-guide/deploying-app-on-k8s)。
 
 ### 第二步：上传应用
 
@@ -79,7 +79,7 @@ title: "开发者"
 
 ![上传应用配置包](/upload-package.png)
 
-4、若配置包符合开发规范，则提示上传成功。配置包上传成功后，开发者和管理员可部署和测试应用，或在 **我的应用** 中查看。如果测试自己的应用需要先创建运行环境，请参考 [普通用户](../normal-user-quick-start) **创建运行环境** 章节。
+4、若配置包符合开发规范，则提示上传成功。配置包上传成功后，开发者和管理员可部署和测试应用，或在 **我的应用** 中查看。如果测试自己的应用需要先创建运行环境，请参考 [普通用户](../regular-user-quick-start) **创建运行环境** 章节。
 
 ![上传成功](/upload-success.png)
 
@@ -103,4 +103,4 @@ title: "开发者"
 
 ![应用详情页](/zk-details.png)
 
-至此，您已经基本了解了开发者在 OpenPitrix 平台上传和发布应用的基本工作流程，若需要对当前的应用版本做升级，可创建新的应用版本，参见 [应用版本管理](../../user-guide/app-management/#应用版本管理)。建议您继续阅读快速入门之 [管理员](../admin-quick-start) 和 [普通用户](../normal-user-quick-start)。
+至此，您已经基本了解了开发者在 OpenPitrix 平台上传和发布应用的基本工作流程，若需要对当前的应用版本做升级，可创建新的应用版本，参见 [应用版本管理](../../user-guide/app-management/#应用版本管理)。建议您继续阅读快速入门之 [管理员](../admin-quick-start) 和 [普通用户](../regular-user-quick-start)。

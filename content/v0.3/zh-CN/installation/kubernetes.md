@@ -148,7 +148,7 @@ openpitrix-dashboard   NodePort   10.96.41.130   <none>        80:31879/TCP   5m
 
 > 若公网 IP 有防火墙，请在防火墙添加规则放行对应的端口，外部才能够访问。
 
-OpenPitrix 部署成功后，点击右上角 **登录**，可使用以下的管理员默认的用户名和密码登录 OpenPitrix 控制台体验，参见 [用户管理](../../user-guide/user-management) 创建开发者和普通用户的角色，[快速入门](../../getting-guide/user-quick-start) 将帮助您快速上手 OpenPitrix。
+OpenPitrix 部署成功后，点击右上角 **登录**，可使用以下的管理员默认的用户名和密码登录 OpenPitrix 控制台体验，参见 [用户管理](../../user-guide/user-management) 创建开发者和普通用户的角色，[快速入门](../../getting-guide/introduction) 将帮助您快速上手 OpenPitrix。
 
 
 | 角色 |	用户名 |	密码 |

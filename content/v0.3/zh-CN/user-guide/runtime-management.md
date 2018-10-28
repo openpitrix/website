@@ -22,7 +22,7 @@ title: "运行环境管理"
 
 - 名称：为您的运行环境起一个简洁明了的名称，便于用户浏览和搜索。
 - 提供商：云环境提供商（Provider）目前支持 QingCloud、AWS 和 Kubernetes，将会支持更多的提供商。若选择 QingCloud 或 AWS 这类公有云提供商则需填写 URL、密钥并选择区域，若选择 Kubernetes 则需要填写证书和命名空间。
-- URL：填写公有云的 API server 地址，比如  QingCloud ：[https://api.qingcloud.com](https://api.qingcloud.com)。若选择 AWS，URL 则填写 AWS 公有云某个 region 的 API server 地址，比如：[https://ec2.us-east-2.amazonaws.com](https://ec2.us-east-2.amazonaws.com)。
+- URL：填写公有云的 API server 地址，比如  QingCloud ：`https://api.qingcloud.com`。若选择 AWS，URL 则填写 AWS 公有云某个 region 的 API server 地址，比如：[https://ec2.us-east-2.amazonaws.com](https://ec2.us-east-2.amazonaws.com)。
 - 密钥：Access Key ID 和 Secret Access Key。若选择 QingCloud，填写 QingCloud 平台上生成的 [API 秘钥](https://console.qingcloud.com/access_keys/)。若选择 AWS，在 Access Key ID 和 Secret Access Key 填写 AWS 平台上生成的 [API 秘钥](https://console.aws.amazon.com/iam/home?region=us-east-2#security_credential)，参见 [AWS 官方文档](https://docs.aws.amazon.com/zh_cn/general/latest/gr/managing-aws-access-keys.html)。
 - 区域：是云平台上的可用区，决定集群和资源将部署在云平台的哪个区域。填写正确的 URL 及 API 秘钥信息后，即可从下拉列表中选择。 
 - 证书：填写 Kubernetes 环境下 `~/.kube/config` 或 `/etc/kubernetes/admin.conf` 中内容。

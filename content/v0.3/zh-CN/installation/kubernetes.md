@@ -17,9 +17,9 @@ title: "Kubernetes 模式"
 
 [Kubernetes](https://kubernetes.io/) 环境可以选用以下三种之一:
 
-> 注意：
+> 注意，Kubernetes 环境需满足以下前提条件：
 > 1. Kubernetes 版本 >= Kubernetes 1.7.4，并需要安装 [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) 工具。
-> 2. Kubernetes 集群需已安装配置好存储服务端，并创建了相应的存储类型，支持在集群中创建 PVC。可执行 `kubectl get sc` 查看存储类型。
+> 2. Kubernetes 集群需已安装配置好存储服务端，并创建了相应的存储类型，支持在集群中创建 PVC，可执行 `kubectl get sc` 查看存储类型。
 
 * **[KubeSphere](https://kubesphere.io) 容器管理平台**
 
@@ -107,7 +107,8 @@ $ kubernetes/scripts/put-global-config.sh -n openpitrix-system -i ${EIP} -p {POR
 ## 第四步: 验证
 
 1. 查看 Pods 的状态，如下图所示表示 Pods 状态正常。
- ```
+
+```bash
  $ kubectl get pods -n openpitrix-system
  NAME                                                      READY     STATUS      RESTARTS   AGE
  openpitrix-api-gateway-deployment-99fc6b46f-qj885         1/1       Running     0          12m
@@ -136,13 +137,13 @@ $ kubernetes/scripts/put-global-config.sh -n openpitrix-system -i ${EIP} -p {POR
 
 2. 查看 Dashboard 服务
 
-```
+```bash
 $ kubectl get service openpitrix-dashboard -n openpitrix-system
 NAME                   TYPE       CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
 openpitrix-dashboard   NodePort   10.96.41.130   <none>        80:31879/TCP   5m
 ```
 
-您可以通过浏览器，使用集群中任一节点的 IP 地址和端口号即 <NodeIP>:<NodePort> 访问 Dashboard，如 http://192.168.100.10:31879。也可以通过公网 IP 并将端口转发后访问控制台，如：http://139.198.121.143:31879，即可进入 OpenPitrix 主页面。
+您可以通过浏览器，使用集群中任一节点的 IP 地址和端口号即 <NodeIP>:<NodePort> 访问 Dashboard，如 `http://192.168.100.10:31879`。也可以通过公网 IP 并将端口转发后访问控制台，如：`http://139.198.121.143:31879`，即可进入 OpenPitrix 主页面。
 
 ![OpenPitrix 主页](/dashboard-kubernetes.png)
 
@@ -163,7 +164,7 @@ NAME                     TYPE       CLUSTER-IP    EXTERNAL-IP    PORT(S)        
 openpitrix-api-gateway   NodePort   10.96.66.66   <none>         9100:30441/TCP   5m
 ```
 
-同上，您也可以通过浏览器访问 OpenPitrix API 界面，如：[http://139.198.121.143:30441/swagger-ui/](http://139.198.121.143:30441/swagger-ui)。
+同上，您也可以通过浏览器访问 OpenPitrix API 界面，如：`http://139.198.121.143:30441/swagger-ui/`。
 
 ![swagger 页面](/swaggerUI-kubernetes.png)
     
@@ -183,6 +184,6 @@ $ kubernetes/scripts/deploy-k8s.sh -n openpitrix-system -b -d -s -u
 
 执行脚本，升级基础服务，升级 Dashboard 服务，升级 Pilot 服务：
 
-```
+```bash
 $ kubernetes/scripts/deploy-k8s.sh -n openpitrix-system -a
 ```

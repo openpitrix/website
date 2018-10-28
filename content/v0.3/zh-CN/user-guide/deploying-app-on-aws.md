@@ -65,15 +65,15 @@ title: "部署 WordPress 到 AWS"
 
 ![AWS 部署实例](/cluster-detail-aws.png)
 
-部署成功后，将会在 AWS 运行环境创建 3 台主机，可以在 [AWS 控制台](https://us-east-2.console.aws.amazon.com/ec2/v2/home?region=us-east-2#Instances:sort=launchTime) 上查看主机状态以及 IP 情况。
+部署成功后，将会在 AWS 运行环境创建 3 台主机，可以在 [AWS 控制台](https://us-east-2.console.aws.amazon.com/ec2/v2/home?region=us-east-2#Instances:sort=launchTime) 上查看主机状态以及 EIP 情况。
 
 ![AWS 主机列表](/AWS-node-details.png)
 
 
 ### 第四步：访问 Wordpress
 
-在 **已购应用** 下的节点 IP 列中，第一行比如 172.31.24.221 是子网内的 IP 地址，第二行比如 18.224.23.222 是公网 IP 地址，可供直接访问。待创建成功后，即可在浏览器通过公网 IP  [http://18.224.23.222](http://18.224.23.222) 来访问 Wordpress。
+在 **已购应用** 下的节点 IP 列中，第一行比如 172.31.24.221 是子网内的 IP 地址，第二行比如 18.224.23.222 是公网 IP 地址，可供直接访问。待创建成功后，即可在浏览器通过公网 IP  `http://18.224.23.222` 来访问 Wordpress。
 
 ![Wordpress 主页](/wordpress-aws.png)
 
-> 应用部署成功后，若需要管理部署的集群如停用或删除集群，参考 [集群管理](../user-guide/cluster-management.md)。
+> 应用部署成功后，若需要管理部署的集群如停用或删除集群，参考 [集群管理](../cluster-management)。

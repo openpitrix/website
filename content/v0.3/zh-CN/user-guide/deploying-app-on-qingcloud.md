@@ -56,7 +56,7 @@ title: "部署 WordPress 到 QingCloud"
 
 ![绑定VPC](/bound-vpc.png)
 
-> 若准备将应用部署到 AWS 运行环境，参见 [部署 Wordpress 到 AWS](../deploying-app-on-aws.md)。
+> 若准备将应用部署到 AWS 运行环境，参见 [部署 Wordpress 到 AWS](../deploying-app-on-aws)。
 
 
 ## 部署应用

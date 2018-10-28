@@ -310,5 +310,5 @@ $ ls
 Wordpress  Wordpress-0.1.0.tgz
 ```
 
-打包后，可以看到将生成一个 Wordpress-0.1.0.tgz 配置包，然后将该配置包上传到 OpenPitrix 平台，参见 [开发者 - 上传应用](../ISV-quick-start/#第二步：上传应用)。
+打包后，可以看到将生成一个 Wordpress-0.1.0.tgz 配置包，然后将该配置包上传到 OpenPitrix 平台，参见 [开发者 - 上传应用](../../getting-start/developer-quick-start/#第二步：上传应用)。
 

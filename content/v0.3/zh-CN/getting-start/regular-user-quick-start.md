@@ -7,14 +7,14 @@ title: "普通用户"
 ## 创建运行环境
 ### 第一步：登录 OpenPitrix
 
-以普通用户的身份登录，点击 **我的环境**，然后点击 **”+“** 创建运行环境。因为基于 OpenPitrix 开发规范准备的应用可以部署到 QingCloud、AWS 这类云运行时环境(Runtime)，以创建 QingCloud 运行环境为例，如需创建 AWS 或 Kubernetes 运行环境则参考 [运行环境管理](../runtime-management/#创建运行环境)。
+以普通用户的身份登录，点击 **我的环境**，然后点击 **”+“** 创建运行环境。因为基于 OpenPitrix 开发规范准备的应用可以部署到 QingCloud、AWS 这类云运行时环境(Runtime)，以创建 QingCloud 运行环境为例，如需创建 AWS 或 Kubernetes 运行环境则参考 [运行环境管理](../../user-guide/runtime-management/#创建运行环境)。
 
 ### 第二步：填写配置信息
 
 填写运行环境的配置信息，完成后点击 **确定**。
 
 - 名称：为您的运行环境起一个简洁明了的名称，便于浏览和搜索。
-- 提供商：选择 QingCloud (若应用配置包是基于 [Helm Chart 开发规范](../helm-specification) 则选择 Kubernetes 运行环境)。
+- 提供商：选择 QingCloud (若应用配置包是基于 [Helm Chart 开发规范](../../developer-guide/helm-specification) 则选择 Kubernetes 运行环境)。
 - URL：填写公有云的 API server 地址，比如  QingCloud ：[https://api.qingcloud.com](https://api.qingcloud.com)。
 - 密钥：Access Key ID 和 Secret Access Key，填写 QingCloud 平台上生成的 [API 秘钥](https://console.qingcloud.com/access_keys/)。填写后点击 **验证** 检查连接是否正确。
 - 区域：是云平台上的可用区，决定集群和资源将部署在云平台的哪个区域。填写正确的 URL 及 API 秘钥信息后，即可从下拉列表中选择。
@@ -48,7 +48,7 @@ title: "普通用户"
 
 ![绑定VPC](/bound-vpc.png)
 
-> 若准备将应用部署到 AWS 运行环境，参见 [部署 Wordpress 到 AWS](../user-guide/aws-quick-start.md)。
+> 若准备将应用部署到 AWS 运行环境，参见 [部署 Wordpress 到 AWS](../user-guide/deploying-app-on-aws.md)。
 
 
 ## 部署应用
@@ -77,6 +77,6 @@ title: "普通用户"
 
 ![Wordpress 主页](/wordpress-page.png)
 
-> 第一次部署由于需要从公网上下载必要的系统镜像，通常创建时间会比较长，应用部署成功后，这些镜像会缓存在 frontgate，以后再创建其它集群就从缓存中拉取系统镜像。若需要管理部署的集群如停用或删除集群，参考 [集群管理](../user-guide/cluster-management.md)。
+> 第一次部署由于需要从公网上下载必要的系统镜像，通常创建时间会比较长，应用部署成功后，这些镜像会缓存在 frontgate，以后再创建其它集群就从缓存中拉取系统镜像。若需要管理部署的集群如停用或删除集群，参考 [集群管理](../../user-guide/cluster-management.md)。
 
-至此，您已经基本了解了 OpenPitrix 平台对应用的生命周期的管理和其中三个角色的基本工作流程，建议您进一步熟悉和使用 OpenPitrix 平台，[用户指南](../user-guide) 和 [开发指南](../developer-guide) 提供更详细的文档说明，若在实际使用时遇到问题，参见 [常见问题](../faq) 或联系我们技术团队为您解答。
+至此，您已经基本了解了 OpenPitrix 平台对应用的生命周期的管理和其中三个角色的基本工作流程，建议您进一步熟悉和使用 OpenPitrix 平台，[用户指南](../../user-guide) 和 [开发指南](../../developer-guide) 提供更详细的文档说明，若在实际使用时遇到问题，参见 [常见问题](../../faq) 或联系我们技术团队为您解答。

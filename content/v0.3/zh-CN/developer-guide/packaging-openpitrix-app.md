@@ -47,9 +47,9 @@ test  test-0.1.0.tgz
 
 至此，应用配置包就已经准备完毕，接下来需要创建仓库和上传应用。
 
-仓库可以是 QingCloud 或 AWS 的对象存储，创建仓库可参考 [仓库管理](../repo-guide)。
+仓库可以是 QingCloud 或 AWS 的对象存储，创建仓库可参考 [仓库管理](../../user-guide/repo-management)。
 
-仓库创建完成即可上传应用到平台进一步测试和部署应用，可参考 [开发者 - 上传应用](../ISV-quick-start/#第二步：上传应用)。
+仓库创建完成即可上传应用到平台进一步测试和部署应用，可参考 [开发者 - 上传应用](../../getting-start/developer-quick-start/#第二步：上传应用)。
 
 
 

@@ -11,7 +11,7 @@
         },
         {
           "title": "产品功能",
-          "entry": "./v0.3/zh-CN/introduction/openpitrix-feature.md"
+          "entry": "./v0.3/zh-CN/introduction/openpitrix-features.md"
         },
         {
           "title": "应用场景",
@@ -29,7 +29,7 @@
       "chapters": [
         {
           "title": "部署 OpenPitrix",
-          "entry": "./v0.3/zh-CN/installation/openpitrix-install-guide.md"
+          "entry": "./v0.3/zh-CN/installation/installation-guide.md"
         },
         {
           "title": "All-in-One 模式",
@@ -47,11 +47,11 @@
       "chapters": [
         {
       "title": "入门必读",    
-      "entry": "./v0.3/zh-CN/getting-start/user-quick-start.md"
+      "entry": "./v0.3/zh-CN/getting-start/introduction.md"
         },
         {
       "title": "开发者",    
-      "entry": "./v0.3/zh-CN/getting-start/ISV-quick-start.md"
+      "entry": "./v0.3/zh-CN/getting-start/developer-quick-start.md"
         },
         {
       "title": "管理员",    
@@ -59,7 +59,7 @@
         },
         {
       "title": "普通用户",    
-      "entry": "./v0.3/zh-CN/getting-start/normal-user-quick-start.md"    
+      "entry": "./v0.3/zh-CN/getting-start/regular-user-quick-start.md"    
         }
                   ]
     },
@@ -68,24 +68,24 @@
       "describe": "指导用户如何使用平台提供的基本功能。",
       "chapters": [
         {
-          "title": "基本概念",
-          "entry": "./v0.3/zh-CN/user-guide/user-guide.md"
+          "title": "简介",
+          "entry": "./v0.3/zh-CN/user-guide/introduction.md"
         },
         {
-          "title": "总览",
-          "entry": "./v0.3/zh-CN/user-guide/dashboard-management.md"
+          "title": "总览页",
+          "entry": "./v0.3/zh-CN/user-guide/dashboard.md"
         },
         {
           "title": "部署应用",
           "entries": [
             {
-              "entry": "./v0.3/zh-CN/user-guide/qingcloud-quick-start.md"
+              "entry": "./v0.3/zh-CN/user-guide/deploying-app-on-qingcloud.md"
             },
             {
-              "entry": "./v0.3/zh-CN/user-guide/aws-quick-start.md"
+              "entry": "./v0.3/zh-CN/user-guide/deploying-app-on-aws.md"
             },
             {
-              "entry": "./v0.3/zh-CN/user-guide/kubernetes-quick-start.md"
+              "entry": "./v0.3/zh-CN/user-guide/deploying-app-on-k8s.md"
             }
           ]
         },
@@ -99,7 +99,7 @@
         },
         {
           "title": "仓库管理",
-          "entry": "./v0.3/zh-CN/user-guide/repo-guide.md"
+          "entry": "./v0.3/zh-CN/user-guide/repo-management.md"
         },
         {
           "title": "商店管理",
@@ -156,7 +156,7 @@
         },
         {
           "title": "实现新的 Provider Plugin",
-          "entry": "./v0.3/zh-CN/developer-guide/implementing_a_new_plugin.md"
+          "entry": "./v0.3/zh-CN/developer-guide/implementing-new-plugin.md"
         }
       ]
     },

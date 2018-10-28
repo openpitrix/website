@@ -15,10 +15,10 @@ title: "管理员"
 
 管理员可对上传的应用部署和测试，若点击右下角 **通过**，开发者即可将应用发布到应用商店，若点击 **拒绝** 则开发者需要调整后重新提交审核。
 
-> 同时，为了更好地管理应用，OpenPitrix 为管理员提供应用的分类管理功能，这样普通用户可以在应用商店中可根据分类来查看各类应用，如 Database，BigData，Container 等等，新创建的应用默认在 “未分类” 下。仅管理员能够创建应用分类，并将应用添加到分类中。参见 [分类管理](../category-management) 将应用添加到新建的分类中。
+> 同时，为了更好地管理应用，OpenPitrix 为管理员提供应用的分类管理功能，这样普通用户可以在应用商店中可根据分类来查看各类应用，如 Database，BigData，Container 等等，新创建的应用默认在 “未分类” 下。仅管理员能够创建应用分类，并将应用添加到分类中。参见 [分类管理](../../user-guide/category-management) 将应用添加到新建的分类中。
 
 ![审核详情页面](/app-review-page.png)
 
-> 管理员有权限下架应用，参见 [应用管理 - 下架应用](../app-management/#下架应用)。
+> 管理员有权限下架应用，参见 [应用管理 - 下架应用](../../user-guide/app-management/#下架应用)。
 
-管理员通过应用审核之后，开发者即可 [发布应用](../ISV-quick-start/#发布应用) 到应用商店，普通用户可在应用商店浏览应用和部署应用到多云的运行环境，如 Kubernetes、QingCloud、AWS 等运行环境，参考下一篇快速入门之 [普通用户](../normal-user-quick-start)。
+管理员通过应用审核之后，开发者即可 [发布应用](../../gettting-start/developer-quick-start/#发布应用) 到应用商店，普通用户可在应用商店浏览应用和部署应用到多云的运行环境，如 Kubernetes、QingCloud、AWS 等运行环境，参考下一篇快速入门之 [普通用户](../../getting-start/regular-user-quick-start)。

@@ -58,7 +58,7 @@ title: "仓库管理"
 
 - 可见性：即该仓库设置为公有还是私有仓库。所有用户都能使用公有仓库，即所有用户都可以上传应用配置包，而私有仓库仅属于创建者。
 
-- 运行环境提供商：可以多选，其中 Kubernetes 与 QingCloud 和 AWS 环境的应用配置包格式不同，若选择 QingCloud 和 AWS，意味着当前仓库仅支持上传基于 [OpenPitrix 应用开发规范](../openpitrix-specification) 的应用，既可以部署到 QingCloud，也可以部署到 AWS。若选择 Kubernetes 则表示当前仓库仅支持上传基于 [Helm Chart 应用开发规范](../helm-specification) 的应用配置包，且只能部署到 Kubernetes 环境。
+- 运行环境提供商：可以多选，其中 Kubernetes 与 QingCloud 和 AWS 环境的应用配置包格式不同，若选择 QingCloud 和 AWS，意味着当前仓库仅支持上传基于 [OpenPitrix 应用开发规范](../../developer-guide/openpitrix-specification) 的应用，既可以部署到 QingCloud，也可以部署到 AWS。若选择 Kubernetes 则表示当前仓库仅支持上传基于 [Helm Chart 应用开发规范](../../developer-guide/helm-specification) 的应用配置包，且只能部署到 Kubernetes 环境。
 
 - 运行环境选择器：填写运行环境的标签键值对，将会选择具有所填标签的运行环境匹配该仓库。例如，当运行环境选择器设置为 “env=testing” 时，只有标签也是 “env=testing” 运行环境的才能部署该仓库中的应用。
 
@@ -104,7 +104,7 @@ title: "仓库管理"
 
 - 可见性：即该仓库设置为公有还是私有仓库。所有用户都能使用公有仓库，即所有用户都可以上传应用配置包，而私有仓库仅属于创建者。
 
-- 运行环境提供商：可以多选，其中 Kubernetes 与 QingCloud 和 AWS 环境的应用配置包格式不同，若选择 QingCloud 和 AWS，意味着当前仓库仅支持上传基于 [OpenPitrix 应用开发规范](../openpitrix-specification) 的应用，既可以部署到 QingCloud，也可以部署到 AWS。若选择 Kubernetes 则表示当前仓库仅支持上传基于 [Helm Chart 应用开发规范](../helm-specification) 的应用配置包，且只能部署到 Kubernetes 环境。
+- 运行环境提供商：可以多选，其中 Kubernetes 与 QingCloud 和 AWS 环境的应用配置包格式不同，若选择 QingCloud 和 AWS，意味着当前仓库仅支持上传基于 [OpenPitrix 应用开发规范](../../developer-guide/openpitrix-specification) 的应用，既可以部署到 QingCloud，也可以部署到 AWS。若选择 Kubernetes 则表示当前仓库仅支持上传基于 [Helm Chart 应用开发规范](../../developer-guide/helm-specification) 的应用配置包，且只能部署到 Kubernetes 环境。
 
 - 运行环境选择器：填写运行环境的标签键值对，将会选择具有所填标签的运行环境匹配该仓库。例如，当运行环境选择器设置为 “env=testing” 时，只有标签也是 “env=testing” 运行环境的才能部署该仓库中的应用。
 

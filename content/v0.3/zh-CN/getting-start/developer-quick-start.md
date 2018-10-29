@@ -52,10 +52,10 @@ OpenPitrix 旨在帮助软件开发者以极低的学习成本快速部署自己
 
 - URL：若需要在 OpenPitrix 上传应用到仓库，则该仓库需要基于 S3 协议的对象存储。由于 QingStor 兼容 S3 协议，只需请求地址满足 S3 风格 `s3://s3.<region>.qingstor.com/<bucket_name>` 即可使用 AWS S3 接口访问 QingStor 服务。因此选择 S3 协议，然后填写 `s3://s3.sh1a.qingstor.com/my-openpitrix`，这只是一个示例仓库，URL 填写实际的对象存储地址。Access Key ID 和 Secret Access Key 请参考 [获取 Access Key](https://docs.qingcloud.com/qingstor/api/common/signature.html#%E8%8E%B7%E5%8F%96-access-key)，填写后点击 `Validate` 按钮可以检查配置是否有效。以下分别说明每种协议的场景：
    
-   - S3：参数形式为 `s3://s3.<region>.qingstor.com/<bucket_name>`。可读可写，支持获取该应用仓库中的应用，支持将其中的应用部署到运行环境，在 OpenPitrix 创建这类协议的仓库支持上传应用。
-   - HTTP/HTTPS：可读，不可写，仅支持获取该应用仓库（对象存储）中的应用，不支持在 OpenPitrix 支持部署其中的应用到运行环境。比如：`http://openpitrix.pek3a.qingstor.com/package/`，如果该示例对象存储中包含三个应用配置包，创建后将自动导入到平台中。
+   - S3：参数形式为 `s3://s3.<region>.qingstor.com/<bucket_name>`。可读可写，支持获取该应用仓库中的应用并能够部署到运行环境，这类协议的仓库支持在 OpenPitrix 中上传应用。
+   - HTTP/HTTPS：可读，不可写，仅支持获取该应用仓库中的应用并能够部署到运行环境，但不支持在 OpenPitrix 上传应用到这类仓库。
 
-> 注意：若添加 HTTP 或 HTTPS 协议的仓库，在对象存储 QingStor 中需要预先上传索引文件 `index.yaml`，该文件由 [OpenPitrix 客户端工具](../../developer-guide/packaging-openpitrix-app/#准备-openpitrix-客户端工具) 或 [Helm 客户端工具](../developer-guide/helm-developer-guide/#准备-helm-客户端工具) 生成。如果是在 QingStor 中上传的应用配置包，其应用将自动同步到 OpenPitrix 的仓库中。
+> 注意：若添加 HTTP 或 HTTPS 协议的仓库，在对象存储中需要预先上传索引文件 `index.yaml`，该文件由 [OpenPitrix 客户端工具](../../developer-guide/packaging-openpitrix-app/#准备-openpitrix-客户端工具) 或 [Helm 客户端工具](../../developer-guide/helm-developer-guide/#准备-helm-客户端工具) 生成。若添加 S3 协议的仓库，在上传应用到仓库时将自动在对象存储中生成索引文件。如果是在 QingStor 中上传的应用配置包，其应用将自动同步到 OpenPitrix 的仓库中。
 
 ![创建应用仓库](/create-repo-vmbased.png)
 

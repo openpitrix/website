@@ -2,8 +2,6 @@
 title: "部署 OpenPitrix"
 ---
 
-OpenPitrix 旨在帮助软件开发者以极低的学习成本快速部署自己的应用到多云的运行环境中并提供一站式的平台方便管理用户的资源和环境。同样，部署 OpenPitrix 对于用户而言也是非常简单和快速的，并支持升级。
-
 OpenPitrix 支持 **`all-in-one`** 和 **`Kubernetes`** 两种部署模式。
 
 ### All-in-One 模式

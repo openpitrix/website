@@ -67,7 +67,7 @@ title: "仓库管理"
    - S3：参数形式为 `s3://s3.<region>.qingstor.com/<bucket_name>`。可读可写，支持获取该应用仓库中的应用，支持将其中的应用部署到运行环境，在 OpenPitrix 创建这类协议的仓库支持上传应用。
    - HTTP/HTTPS：可读，不可写，仅支持获取该应用仓库（对象存储）中的应用，不支持在 OpenPitrix 支持部署其中的应用到运行环境。比如：`http://openpitrix.pek3a.qingstor.com/package/`，如果该示例对象存储中包含三个应用配置包，创建后将自动导入到平台中。
 
-> 注意：若添加 HTTP 或 HTTPS 协议的仓库，在对象存储 QingStor 中需要预先上传索引文件 `index.yaml`，该文件由 [OpenPitrix 客户端工具](../../developer-guide/packaging-openpitrix-app/#准备-openpitrix-客户端工具) 生成。如果是在 QingStor 中上传的应用配置包，其应用将自动同步到 OpenPitrix 的仓库中。
+> 注意：若添加 HTTP 或 HTTPS 协议的仓库，在对象存储 QingStor 中需要预先上传索引文件 `index.yaml`，该文件由 [OpenPitrix 客户端工具](../../developer-guide/packaging-openpitrix-app/#准备-openpitrix-客户端工具) 或 [Helm 客户端工具](../developer-guide/helm-developer-guide/#准备-helm-客户端工具) 生成。如果是在 QingStor 中上传的应用配置包，其应用将自动同步到 OpenPitrix 的仓库中。
 
 - 描述：简单介绍应用仓库的主要特性，让用户进一步了解该应用仓库；
 
@@ -111,9 +111,10 @@ title: "仓库管理"
 
 - URL：注册 OpenPitrix 仓库时所需要的 `URL`。根据上图中的示例，则 URL 为 `s3://s3.us-east-2.amazonaws.com/my-openpitrix`。创建仓库时，请选择 URL 类型为 `S3` ，然后填入相应的 `Access Key ID` 和 `Secret Access Key`，获取方式请参考 [官方文档](https://docs.aws.amazon.com/zh_cn/general/latest/gr/managing-aws-access-keys.html)，填写后点击 `Validate` 按钮可以检查配置是否有效。以下分别说明每种协议的场景。
 
-   - S3：可读可写，支持获取该应用仓库中的应用并部署到运行环境，在 OpenPitrix 创建这类协议的仓库支持上传应用；参数形式为 `s3://s3.<region>.amazonaws.com/<bucket_name>`。
-   - HTTP：可读，不可写，仅支持获取该应用仓库中的应用并部署到运行环境，支持部署到运行环境，但不支持上传应用。
-   - HTTPS：可读，不可写，仅支持获取该应用仓库中的应用并部署到运行环境，支持部署到运行环境，但不支持上传应用。
+   - S3：可读可写，支持获取该应用仓库中的应用并部署到运行环境，这类协议的仓库支持在 OpenPitrix 中上传应用；参数形式为 `s3://s3.<region>.amazonaws.com/<bucket_name>`。
+   - HTTP/HTTPS：可读，不可写，仅支持获取该应用仓库中的应用并部署到运行环境，支持部署到运行环境，但不支持在 OpenPitrix 上传应用到这类仓库。
+
+> 注意：若添加 HTTP 或 HTTPS 协议的仓库，在对象存储中需要预先上传索引文件 `index.yaml`，该文件由 [OpenPitrix 客户端工具](../../developer-guide/packaging-openpitrix-app/#准备-openpitrix-客户端工具) 或 [Helm 客户端工具](../developer-guide/helm-developer-guide/#准备-helm-客户端工具) 生成。如果是在对象存储中上传的应用配置包，其应用将自动同步到 OpenPitrix 的仓库中。
 
 - 描述：简单介绍应用仓库的主要特性，让用户进一步了解该应用仓库；
 

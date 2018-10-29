@@ -67,7 +67,7 @@ OpenPitrix 部署成功后，可以使用以下的管理员默认的用户名和
 
 3. 查看 Api Gateway 服务
 
-```
+```bash
 $ docker container ls | grep openpitrix-api-gateway
 d3b0a453df30    9de90f80eae9   "api-gateway"   6 days ago   Up 6 days    0.0.0.0:9100->9100/tcp   openpitrix-api-gateway
 ```

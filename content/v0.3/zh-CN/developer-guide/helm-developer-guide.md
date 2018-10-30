@@ -116,6 +116,17 @@ affinity: {}
 
 可根据 [Helm 应用开发规范](../helm-specification) 编辑 nginx 目录下文件，编辑好后保存。
 
+### 生成索引文件（可选）
+
+在 OpenPitrix 中，若添加 HTTP 或 HTTPS 协议的仓库，则需要预先在对象存储中上传索引文件 `index.yaml`，该文件由 Helm 客户端工具生成。若添加 S3 协议的仓库，在上传应用到仓库时将自动在对象存储中生成索引文件。在 nginx 上一级目录执行以下命令生成索引文件：
+
+```bash
+$ helm repo index .
+$ ls
+index.yaml  nginx
+
+```
+
 ## 打包应用
 
 回到 nginx 上级目录，执行打包命令，将生成一个 tgz 格式的压缩文件，即 nginx 应用配置包：

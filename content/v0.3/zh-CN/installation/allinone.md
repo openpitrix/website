@@ -51,7 +51,7 @@ $ docker container ls | grep dashboard
 07d9b0e2b5bf   openpitrix/dashboard   "npm run prod:serve"   22 hours ago   Up 22 hours    0.0.0.0:8000->8000/tcp    openpitrix-dashboard
 ```
 
-2. 以上显示 dashboard 对外暴露的是 8000 端口，因此可通过公网 IP 和端口访问查看 OpenPitrix 主页，如 [http://139.198.121.143:8000](http://139.198.121.143:8000) 。
+2. 以上显示 dashboard 对外暴露的是 8000 端口，因此可通过公网 IP 和端口访问查看 OpenPitrix 主页，如 `http://139.198.121.143:8000`。
 
 > 若公网 IP 有防火墙，请在防火墙添加规则放行对应的端口，外部才能够访问。
 
@@ -67,12 +67,12 @@ OpenPitrix 部署成功后，可以使用以下的管理员默认的用户名和
 
 3. 查看 Api Gateway 服务
 
-```
+```bash
 $ docker container ls | grep openpitrix-api-gateway
 d3b0a453df30    9de90f80eae9   "api-gateway"   6 days ago   Up 6 days    0.0.0.0:9100->9100/tcp   openpitrix-api-gateway
 ```
 
-同样，查看 OpenPitrix API 界面，可通过公网 IP 和端口转发的方式，如 [http://139.198.121.143:9100/swagger-ui/](http://139.198.121.143:9100/swagger-ui/) 。
+同样，查看 OpenPitrix API 界面，可通过公网 IP 和端口转发的方式，如 `http://139.198.121.143:9100/swagger-ui/`。
 
 ![swagger 页面](/swagger-kubernetes.png)
 

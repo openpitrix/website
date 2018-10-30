@@ -25,7 +25,7 @@ title: "部署 WordPress 到 QingCloud"
 
 - 名称：为您的运行环境起一个简洁明了的名称，便于用户浏览和搜索。
 - 提供商：选择 QingCloud。
-- URL：填写 QingCloud 的 API server 地址：[https://api.qingcloud.com](https://api.qingcloud.com)。
+- URL：填写 QingCloud 的 API server 地址：`https://api.qingcloud.com`。
 - 密钥：Access Key ID 和 Secret Access Key 填写 QingCloud 平台上生成的 [API 秘钥](https://console.qingcloud.com/access_keys/)。
 - 区域：是云平台上的可用区，决定集群和资源将部署在云平台的哪个区域。填写正确的 URL 及 API 秘钥信息后，即可从下拉列表中选择。 
 - 描述：简单介绍运行环境的主要特性，让用户进一步了解该运行环境。

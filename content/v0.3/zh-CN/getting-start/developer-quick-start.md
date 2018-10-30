@@ -50,10 +50,12 @@ OpenPitrix 旨在帮助软件开发者以极低的学习成本快速部署自己
 
 - 运行环境服务商：可以多选，此处勾选 QingCloud 和 AWS (后续会提供更多的服务商支持)。其中 Kubernetes 与 QingCloud 和 AWS 环境的应用配置包格式不同，若选择 QingCloud 和 AWS，意味着当前仓库仅支持上传基于 [OpenPitrix 应用开发规范](../../developer-guide/openpitrix-specification) 的应用，既可以部署到 QingCloud，也可以部署到 AWS。若选择 Kubernetes 则表示当前仓库仅支持上传基于 [Helm Chart 应用开发规范](../../developer-guide/helm-specification) 的应用配置包，且只能部署到 Kubernetes 环境。
 
-- URL：选择 S3 协议，然后填写 `s3://s3.sh1a.qingstor.com/my-openpitrix`，这只是一个示例仓库，URL 填写实际的对象存储地址。Access Key ID 和 Secret Access Key 请参考 [获取 Access Key](https://docs.qingcloud.com/qingstor/api/common/signature.html#%E8%8E%B7%E5%8F%96-access-key)，填写后点击 `Validate` 按钮可以检查配置是否有效。以下分别说明每种协议的场景：
+- URL：若需要在 OpenPitrix 上传应用到仓库，则该仓库需要基于 S3 协议的对象存储。由于 QingStor 兼容 S3 协议，只需请求地址满足 S3 风格 `s3://s3.<region>.qingstor.com/<bucket_name>` 即可使用 AWS S3 接口访问 QingStor 服务。因此选择 S3 协议，然后填写 `s3://s3.sh1a.qingstor.com/my-openpitrix`，这只是一个示例仓库，URL 填写实际的对象存储地址。Access Key ID 和 Secret Access Key 请参考 [获取 Access Key](https://docs.qingcloud.com/qingstor/api/common/signature.html#%E8%8E%B7%E5%8F%96-access-key)，填写后点击 `Validate` 按钮可以检查配置是否有效。以下分别说明每种协议的场景：
    
-   - S3：可读可写，支持获取该应用仓库中的应用，支持部署到运行环境，且支持在 OpenPitrix 中上传应用到该仓库。参数形式为 `s3://s3.<region>.qingstor.com/<bucket_name>`。
-   - HTTP/S：可读，不可写，仅支持获取该应用仓库（对象存储）中的应用，支持部署到运行环境，但不支持在 OpenPitrix 中上传应用。
+   - S3：参数形式为 `s3://s3.<region>.qingstor.com/<bucket_name>`。可读可写，支持获取该应用仓库中的应用并能够部署到运行环境，这类协议的仓库支持在 OpenPitrix 中上传应用。
+   - HTTP/HTTPS：可读，不可写，仅支持获取该应用仓库中的应用并能够部署到运行环境，但不支持在 OpenPitrix 上传应用到这类仓库。
+
+> 注意：若添加 HTTP 或 HTTPS 协议的仓库，在对象存储中需要预先上传索引文件 `index.yaml`，该文件由 [OpenPitrix 客户端工具](../../developer-guide/packaging-openpitrix-app/#准备-openpitrix-客户端工具) 或 [Helm 客户端工具](../../developer-guide/helm-developer-guide/#准备-helm-客户端工具) 生成。若添加 S3 协议的仓库，在上传应用到仓库时将自动在对象存储中生成索引文件。如果是在 QingStor 中上传的应用配置包，其应用将自动同步到 OpenPitrix 的仓库中。
 
 ![创建应用仓库](/create-repo-vmbased.png)
 
@@ -65,6 +67,7 @@ OpenPitrix 旨在帮助软件开发者以极低的学习成本快速部署自己
 为方便您快速熟悉 OpenPitrix，本示例准备了一个基于 [OpenPitrix 开发规范](../../developer-guide/openpitrix-specification) 的 [WordPress](https://wordpress.org) 的应用配置包，且已准备好 Wordpress 与 MySQL 镜像并上传到了 Docker 镜像仓库，点击 [下载 Wordpress 应用配置包](https://openpitrix.anybox.qingcloud.com/s/9iNpm77Z2RAOQFUQBSv1luQEHvWTEGdY)，选择 VM Package 文件夹下的 `Wordpress-0.1.0.tgz` 配置包。
 
 > 同样，也可参考 [OpenPitrix 规范及应用开发 - 准备 Wordpress 配置文件](../../developer-guide/openpitrix-developer-guide/#准备应用配置包) 的三个必须的配置文件，然后获取 [OpenPitrix 客户端工具](../../developer-guide/packaging-openpitrix-app/#准备-openpitrix-客户端工具) 将配置文件打包 (默认为 `.tgz` 格式)，即可生成一个 Wordpress 应用配置包。注意，基于 OpenPitrix 开发规范准备的应用可以部署到 QingCloud、AWS 这类云运行时环境 (Runtime)，若要部署到 Kubernetes 运行环境则需要基于 [Helm Chart 开发规范](../../developer-guide/helm-specification) 来准备应用配置包，或下载 Helm Chart Package 文件夹下的 [wordpress-0.3.0.tar](https://openpitrix.anybox.qingcloud.com/s/9iNpm77Z2RAOQFUQBSv1luQEHvWTEGdY)。参见 [部署 Wordpress 到 Kubernetes](../../user-guide/deploying-app-on-k8s)。
+
 
 ### 第二步：上传应用
 

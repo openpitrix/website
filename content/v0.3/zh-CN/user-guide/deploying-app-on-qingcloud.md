@@ -81,7 +81,7 @@ title: "部署 WordPress 到 QingCloud"
 
 ### 第四步：访问 Wordpress
 
-可以在 [QingCloud 控制台](https://console.qingcloud.com/pek3a/instances/) 上查看创建的主机状态以及 IP 情况。待创建成功后可以通过 [VPC 端口转发](https://docs.qingcloud.com/product/network/vpc.html#%E5%8A%9F%E8%83%BD%E7%AE%A1%E7%90%86) （Wordpress 默认端口为 80）并在防火墙放行对应的端口，即可在浏览器通过公网 IP 和转发的端口如 [http://139.198.177.98:8000](http://139.198.177.98:8000) 来访问 Wordpress。
+可以在 [QingCloud 控制台](https://console.qingcloud.com/pek3a/instances/) 上查看创建的主机状态以及 IP 情况。待创建成功后可以通过 [VPC 端口转发](https://docs.qingcloud.com/product/network/vpc.html#%E5%8A%9F%E8%83%BD%E7%AE%A1%E7%90%86) （Wordpress 默认端口为 80）并在防火墙放行对应的端口，即可在浏览器通过公网 IP 和转发的端口如 `http://139.198.177.98:8000` 来访问 Wordpress。
 
 ![Wordpress 主页](/wordpress-page.png)
 

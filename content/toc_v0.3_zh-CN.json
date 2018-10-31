@@ -153,14 +153,24 @@
               "entry": "./v0.3/zh-CN/developer-guide/helm-specification.md"
             }
           ]
-        },
-        {
-          "title": "实现新的 Provider Plugin",
-          "entry": "./v0.3/zh-CN/developer-guide/implementing-new-plugin.md"
         }
       ]
     },
-   {
+    {
+          "title": "贡献指南",
+          "entries": [
+            {
+              "entry": "./v0.3/zh-CN/contribution/contribution-guide.md"
+            },
+            {
+              "entry": "./v0.3/zh-CN/contribution/set-up-env.md"
+            },
+            {
+              "entry": "./v0.3/zh-CN/contribution/implementing-new-plugin.md"
+            }
+          ]
+    },
+    {
       "title": "常见问题",
       "describe": "总结实际应用场景中可能遇到的问题并给出通用解决方案。",
       "entry": "./v0.3/zh-CN/faq.md"

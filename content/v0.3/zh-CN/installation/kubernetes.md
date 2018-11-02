@@ -6,12 +6,13 @@ title: "Kubernetes 模式"
 
 ### 主机环境
 
-您可以参考以下节点规格 准备 `至少 1 台` 符合要求的主机节点开始 `Kubernetes 模式` 的部署。
+Kubernetes 模式需要准备 `至少 1 台` 满足最小资源要求的主机节点并准备好相应的 Kubernetes 存储服务端。
 
-| 操作系统 | 最小配置 | 推荐配置 |
-| --- | --- | --- |
-| ubuntu 16.04 LTS 64bit | CPU：8 核 <br/> 内存：12 G <br/> 磁盘：40 G | CPU：16 核 <br/> 内存：32 G <br/> 磁盘：100 G |
-| CentOS 7.4 64bit | CPU：8 核 <br/> 内存：12 G <br/> 磁盘：40 G | CPU：16 核 <br/> 内存：32 G <br/> 磁盘：100 G |
+**最小配置**
+
+|   CPU  |  Memory |  磁盘  |
+|--------|---------|-------|
+|  2 核  |    2 G  |  60 G |
 
 ### 软件环境
 
@@ -23,7 +24,7 @@ title: "Kubernetes 模式"
 
 * **[KubeSphere](https://kubesphere.io) 容器管理平台**
 
-KubeSphere 是在目前主流容器调度平台 [Kubernetes](https://kubernetes.io) 之上构建的 **企业级分布式多租户容器管理平台**，为用户提供简单易用的操作界面以及向导式操作方式，KubeSphere 提供了在生产环境集群部署的全栈化容器部署与管理平台，且 KubeSphere 提供一键部署的方式，提供在 Kubernetes 中最优的存储和网络解决方案，帮助用户快速部署环境，参见 [KubeSphere 安装指南](https://docs.kubesphere.io/express/zh-CN/KubeSphere-Installer-Guide/)。
+KubeSphere 是在目前主流容器调度平台 [Kubernetes](https://kubernetes.io) 之上构建的 **企业级分布式多租户容器管理平台**，为用户提供简单易用的操作界面以及向导式操作方式，KubeSphere 提供了在生产环境集群部署的全栈化容器部署与管理平台，且 KubeSphere 提供一键部署的方式，提供在 Kubernetes 中最优的存储和网络解决方案，帮助用户快速部署环境，详见 [KubeSphere 安装指南](https://docs.kubesphere.io/express/zh-CN/KubeSphere-Installer-Guide/)。
 
 * **[Kubernetes on QingCloud AppCenter](https://docs.qingcloud.com/product/container/k8s)**
 
@@ -186,4 +187,12 @@ $ kubernetes/scripts/deploy-k8s.sh -n openpitrix-system -b -d -s -u
 
 ```bash
 $ kubernetes/scripts/deploy-k8s.sh -n openpitrix-system -a
+```
+
+## 清理环境
+
+执行 clean.sh 脚本，停止并删除 OpenPitrix 所有服务，删除 openpitrix-system 的 namespace。
+
+```bash
+$ kubernetes/scripts/clean.sh -n openpitrix-system 
 ```

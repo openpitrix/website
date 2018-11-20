@@ -11,3 +11,7 @@ OpenPitrix 支持 **`all-in-one`** 和 **`Kubernetes`** 两种部署模式。
 ### Kubernetes 模式
 
 [Kubernetes](../kubernetes) 模式是将 OpenPitrix 部署到 Kubernetes 集群环境中，部署完成后 OpenPitrix 可作为基于 Kubernetes 的一个应用管理系统，提供应用的全生命周期管理。
+
+### Helm-Chart 模式
+
+Helm-Chart 模式是将 OpenPitrix 以 Helm Chart 的方式通过 Helm 客户端部署。

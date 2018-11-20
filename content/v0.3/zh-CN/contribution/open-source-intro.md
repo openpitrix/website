@@ -1,5 +1,5 @@
 ---
-title: "OpenPitrix 贡献说明"
+title: "OpenPitrix 开源指南"
 ---
 
 开源 (Open Source) 在软件开发领域是一个非常时髦的词汇，同时也是一种文化，而开源对整个软件开发的影响自然也是不言而喻，想象一下如果没有开源社区，全球互联网的发展不会如此的迅猛，设想如果没有 Linux、MySQL、Kubernetes 这些开源项目和社区，那么当今互联网的技术栈不会如此丰富和完善。我们在全球众多的开源社区可以看到无数的贡献者为开源项目和社区贡献自己的力量，推动技术的进步，开源正在改变世界。为什么要参与开源项目？如何为开源做贡献？ [Open Source Guides](https://ocselected.github.io/open-source-guide/how-to-contribute/#what-it-means-to-contribute) 已经给出了很好的回答。
@@ -31,13 +31,13 @@ OpenPitrix 从一开始就是以开源的方式来进行，并且在 2017 年的
 - [安装指南](../../installation/installation-guide)：将 OpenPitrix 部署到自己的环境中开始试用和功能体验
 - [快速入门](../../getting-start)：引导新用户快速上手 OpenPitrix 
 - [用户指南](../../user-guide/introduction) ：熟悉 OpenPitrix 的使用详情
-- [项目设计](https://github.com/openpitrix/openpitrix/blob/master/docs/design/README.md)：设计的基本思路就是解耦应用程序的仓库和运行时环境，应用程序可以通过匹配运行时环境的标签和应用来源的仓库选择器来运行。
+- [项目设计](https://github.com/openpitrix/openpitrix/blob/master/docs/design/README.md)
 
 ### 发现可以参与的事情
 
 对 OpenPitrix 有基本的了解之后，若希望寻找一个入手点，着手开始写代码和参与贡献，可以在 **OpenPitrix 可贡献功能列表** 中查看前端和后端开放贡献的功能，该列表详细描述了其功能背景，个人评估后可以申请领取对应的任务。这些功能都是我们评估过相对容易上手的事情，可以以此作为切入点。
 
-如果在 **可贡献功能列表** 中没有找到自己短期内能够为其贡献的功能，那么建议参与到文档的建设贡献中，随着项目的发展，标准化的文档会变得愈加重要，文档能够帮助社区内新成员和用户更好地了解产品使用和开发，我们非常重视文档的撰写，文档包括中文和英文，也欢迎社区成员和用户加入贡献文档。比如在参考文档时发现了 broken link 或是错别字，或者认为某些功能缺少帮助文档，都可以是一次参与项目贡献的契机。
+如果在 **可贡献功能列表** 中没有找到自己短期内能够为其贡献的功能，那么建议参与到文档的建设贡献中，随着项目的发展，标准化的文档会变得愈加重要，文档能够帮助社区内新成员和用户更好地了解产品使用和开发，我们非常重视文档的撰写，也欢迎社区成员和用户加入贡献文档。比如在参考文档时发现了 broken link 或是错别字，或者认为某些功能缺少帮助文档，都可以是一次参与项目贡献的契机。
 
 当你已经对 OpenPitrix 非常熟悉了，那么可以尝试从 [Roadmap](https://github.com/openpitrix/openpitrix/blob/master/docs/Roadmap-zh.md) 上找到感兴趣的事项，和我们讨论一下如何参与。
 
@@ -51,7 +51,7 @@ OpenPitrix 从一开始就是以开源的方式来进行，并且在 2017 年的
 
 ### 提交 GitHub Issue
 
-在开源项目中，所有的交流都应该是公开的。OpenPitrix 使用 [GitHub Issues](https://github.com/openpitrix/openpitrix/issues) 来记录 bugs 和 feature requests，无论是遇到 bug、讨论具体某一功能如何做、提一些建议、产品使用中的疑惑，都可以来提 issue，或者是在开发过程中遇到了问题，也可以在相关的 issue 中进行讨论，包括方案的设计、具体实现过程中遇到的问题等等。若对项目有任何问题，欢迎提交 [GitHub Issues](https://github.com/openpitrix/openpitrix/issues)，项目的开发者也将定期的关注 issue 动态。
+在开源项目中，所有的交流都应该是公开的。OpenPitrix 使用 [GitHub Issues](https://github.com/openpitrix/openpitrix/issues) 来记录 bugs 和 feature requests，无论是遇到 bug、讨论具体某一功能如何做、提一些建议、产品使用中的疑惑，都可以来提 issue，或者是在开发过程中遇到了问题，也可以在相关的 issue 中进行讨论，包括方案的设计、具体实现过程中遇到的问题等等。若对项目有任何问题，欢迎提交 [GitHub Issues](https://github.com/openpitrix/openpitrix/issues)。
 
 #### 有效沟通
 
@@ -59,13 +59,8 @@ OpenPitrix 从一开始就是以开源的方式来进行，并且在 2017 年的
 
 - 检查你的问题是否已经存在，重复的问题会浪费大家的时间，所以请先搜索打开和已经关闭的问题，来确认你的问题是否已经提交过了。
 - 清楚描述你的问题，建议按照社区的 issue 模板来描述问题以及上下文，方便开发者快速定位和复现你的问题。
-- 给 issue 打上 tag，并注明是哪个模块，如 Bug, Enhancement, Design。
-- 如果发现 Bug 或使用中遇到问题，请在 issue 贴出详细的系统环境介绍，例如使用什么版本的浏览器，什么版本的库，什么版本的操作系统等其他你运行环境的介绍，或是 go 版本。
-- 详细的错误输出或者日志，如果你在 issue 中附带错误日志或代码，请使用代码标识符号来标记你的代码块，并使用 markdown 格式，以便更好的显示。
-
-**Issue template**
-
-![模板](/issue-template.png)
+- 详细的系统环境介绍 例如使用什么版本的浏览器，什么版本的库，什么版本的操作系统等其他你运行环境的介绍，或是 go 版本。
+- 详细的错误输出或者日志，如果你在 issue 中附带错误日志或代码，请使用 **"```"** 来标记你的代码块，并使用 markdown 格式，以便更好的显示。
 
 ### 提交 PR
 
@@ -79,5 +74,3 @@ OpenPitrix 从一开始就是以开源的方式来进行，并且在 2017 年的
 - 在 PR 中描述清楚你的问题或提交的功能，方便其他人能够测试或复现。
 - 如果项目中包含业务逻辑修改，每一次提交应确保经过了测试 (文档除外)，在 CI 中会包含测试覆盖率的检测，如果测试覆盖率下降，那么是不可以合并到 master 的。
 - 保持良好和规范的代码风格，使开发者 review 起来更容易，被合并的几率也更大，其他人将来更容易理解和维护。
-
-如果新提交了一个 PR，项目开发者可能会围绕你的更改进行讨论。提交者可能会被要求对自己的 PR 进行一些更改，如果是这样，请按开发者 review 后的要求和反馈修改并重新推送，只有被 approve 后的代码才可能 merge 到 OpenPitrix 的仓库。

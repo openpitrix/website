@@ -25,7 +25,7 @@ $ curl -L https://git.io/GetOpenPitrix | sh -
 进入解压完成后的文件夹，执行命令时应替换 “${version}” 为实际的下载版本号：
 
 ```bash
-$ cd openpitrix-${version}-kubernetes/
+$ cd openpitrix-${version}-kubernetes/kubernetes/helm/openpitrix
 ```
 
 ## 第三步: 安装 OpenPitrix
@@ -38,7 +38,6 @@ OpenPitrix 管理的多云环境可以是 VM-based 的云平台，如 QingCloud�
 
 
 ```bash
-$ cd kubernetes/helm/openpitrix
 
 $ helm install . -n openpitrix --namespace openpitrix-system
 ```
@@ -55,7 +54,6 @@ $ helm install . -n openpitrix --namespace openpitrix-system
 1、安装openpitrix
 
 ```bash
-$ cd kubernetes/helm/openpitrix
 
 $ helm install . -n openpitrix --namespace openpitrix-system
 ```

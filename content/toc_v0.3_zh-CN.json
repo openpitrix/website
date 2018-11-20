@@ -38,6 +38,10 @@
         {
           "title": "Kubernetes 模式",
           "entry": "./v0.3/zh-CN/installation/kubernetes.md"
+        },
+        {
+          "title": "Helm Chart 模式",
+          "entry": "./v0.3/zh-CN/installation/helm-chart.md"
         }
       ]
     },

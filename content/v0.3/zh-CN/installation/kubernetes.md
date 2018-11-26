@@ -16,24 +16,7 @@ Kubernetes 模式需要准备 `至少 1 台` 满足最小资源要求的主机�
 
 ### 软件环境
 
-[Kubernetes](https://kubernetes.io/) 环境可以选用以下三种之一:
-
-> 注意，Kubernetes 环境需满足以下前提条件：
-> 1. Kubernetes 版本 >= Kubernetes 1.7.4，并需要安装 [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) 工具。
-> 2. Kubernetes 集群需已安装配置好存储服务端，并创建了相应的存储类型，支持在集群中创建 PVC，可执行 `kubectl get sc` 查看存储类型。
-
-* **[KubeSphere](https://kubesphere.io) 容器管理平台**
-
-KubeSphere 是在目前主流容器调度平台 [Kubernetes](https://kubernetes.io) 之上构建的 **企业级分布式多租户容器管理平台**，为用户提供简单易用的操作界面以及向导式操作方式，KubeSphere 提供了在生产环境集群部署的全栈化容器部署与管理平台，且 KubeSphere 提供一键部署的方式，提供在 Kubernetes 中最优的存储和网络解决方案，帮助用户快速部署环境，详见 [KubeSphere 安装指南](https://docs.kubesphere.io/express/zh-CN/KubeSphere-Installer-Guide/)。
-
-* **[Kubernetes on QingCloud AppCenter](https://docs.qingcloud.com/product/container/k8s)**
-
-QingCloud 提供的支持一键部署的 Kubernetes 集群环境，同时集成了 KubeSphere 容器管理平台。
-
-> 注：网络插件请选用 Calico 或 Hostnic。
-
-* **已有的物理机搭建或虚拟机搭建的 Kubernetes 环境**
-
+Kubernetes 模式需提前准备好 Kubernetes 环境且安装配置了存储服务端，并创建了相应的存储类型，详见 [部署 OpenPitrix - 前提条件](../installation-guide/#前提条件)。
 
 ## 第二步: 准备 OpenPitrix 安装包
 
@@ -144,7 +127,7 @@ NAME                   TYPE       CLUSTER-IP     EXTERNAL-IP   PORT(S)        AG
 openpitrix-dashboard   NodePort   10.96.41.130   <none>        80:31879/TCP   5m
 ```
 
-您可以通过浏览器，使用集群中任一节点的 IP 地址和端口号即 <NodeIP>:<NodePort> 访问 Dashboard，如 `http://192.168.100.10:31879`。也可以通过公网 IP 并将端口转发后访问控制台，如：`http://139.198.121.143:31879`，即可进入 OpenPitrix 主页面。
+您可以通过浏览器，使用集群中任一节点的 IP 地址和端口号即 `<NodeIP>:<NodePort>` 可在集群内部访问 Dashboard，如 `http://192.168.100.10:31879`。也可以通过公网 IP (EIP) 并将端口转发后访问控制台，如：`http://139.198.121.143:31879`，即可进入 OpenPitrix 主页面。
 
 ![OpenPitrix 主页](/dashboard-kubernetes.png)
 

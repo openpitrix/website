@@ -26,12 +26,13 @@ OpenPitrix 从一开始就是以开源的方式来进行，并且在 2017 年的
 
 参与一个开源项目的第一步一定是需要了解它，特别是对 OpenPitrix 这样一个大型的开源项目，快速熟悉起来并非一件易事，因此在这里列出一些相关文档，帮助社区成员从架构设计、功能使用到工程实现细节都能有所了解。最高效地熟悉 OpenPitrix 的方式还是使用它，在某些场景下遇到了问题或者是想到了新的 feature，亦或者发现了产品在某个环境中的 Bug，社区成员每一个提出来的问题都很宝贵，我们都会尽可能快的评估和回复。
 
-可以去跟踪代码，找到相关的代码逻辑，在这个过程中很容易对相关模块有了解，不少 Contributor 可能都是这样完成了第一次贡献。
+可以去跟踪代码，找到相关的代码逻辑，在这个过程中很容易对相关模块有了解，不少 Contributor 可能都是这样完成了第一次贡献，参考以下资料帮助您更好地了解 OpenPitrix。
 
 - [安装指南](../../installation/installation-guide)：将 OpenPitrix 部署到自己的环境中开始试用和功能体验
 - [快速入门](../../getting-start)：引导新用户快速上手 OpenPitrix 
 - [用户指南](../../user-guide/introduction) ：熟悉 OpenPitrix 的使用详情
 - [项目设计](https://github.com/openpitrix/openpitrix/blob/master/docs/design/README.md)：设计的基本思路就是解耦应用程序的仓库和运行时环境，应用程序可以通过匹配运行时环境的标签和应用来源的仓库选择器来运行。
+- [Dashboard 贡献指南](https://github.com/openpitrix/dashboard/blob/master/CONTRIBUTING.md)：如何为用户控制台的 repo 提交贡献。
 
 ### 发现可以参与的事情
 

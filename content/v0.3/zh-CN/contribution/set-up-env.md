@@ -77,9 +77,27 @@ d3b0a453df30    9de90f80eae9   "api-gateway"   6 days ago   Up 6 days    0.0.0.0
 
 ![swagger 页面](/swagger-kubernetes.png)
 
-## 升级
+## 修改前端代码
 
-更新代码后，可使用以下命令升级环境：
+### 第一步：Clone 源代码
+
+执行以下命令，克隆 Dashboard 最新的源代码。
+
+```bash
+git clone https://github.com/openpitrix/dashboard.git
+```
+
+### 第二步：构建 Docker 镜像
+
+修改代码完成开发后，执行以下命令构建 Docker 镜像。
+
+```bash
+docker build -t openpitrix/dashboard .
+```
+
+### 第三步：升级
+
+更新代码后，在 openpitrix/openpitrix 项目下，可使用 make 命令升级环境：
 
 ```bash
 $ make compose-update

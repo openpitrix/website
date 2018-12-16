@@ -38,7 +38,7 @@ $ wget  https://github.com/openpitrix/openpitrix/releases/download/v0.3.1/openpi
 2. 解压安装包：
 
 ```bash
-$ tar -zxvf openpitrix-v0.3.1-docker-compose.tar.gz
+$ tar -zxf openpitrix-v0.3.1-docker-compose.tar.gz
 ```
 
 ## 第三步: 部署 OpenPitrix

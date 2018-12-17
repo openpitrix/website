@@ -66,7 +66,7 @@ class HomePage extends Component {
           <LogoGray className="logo"/>
           <div className="l-right">
             <GatsbyLink
-              to={`/v0.3/zh-CN/basic/#应用场景`}
+              to={`/v0.3/zh-CN/basic/`}
             >
               OpenPitrix Documentation
             </GatsbyLink>

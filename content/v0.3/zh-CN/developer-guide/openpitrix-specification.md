@@ -89,21 +89,21 @@ title: "开发模板规范"
             "description": "The name of the application",
             "type": "string",
             "default": "",
-            "required": "no"
+            "required": false
         }, {
             "key": "description",
             "label": "Description",
             "description": "The description of the application",
             "type": "string",
             "default": "",
-            "required": "no"
+            "required": false
         }, {
             "key": "vxnet",
             "label": "VxNet",
             "description": "The vxnet that the application will join",
             "type": "string",
             "default": "",
-            "required": "yes"
+            "required": true
         }, {***
             "key": "role_name",
             "description": "role-based node properties",
@@ -116,7 +116,7 @@ title: "开发模板规范"
                 "type": "integer",
                 "default": 1,
                 "range": [1, 2, 4, 8, 16],
-                "required": "yes"
+                "required": true
             }, {
                 "key": "memory",
                 "label": "Memory",
@@ -124,7 +124,7 @@ title: "开发模板规范"
                 "type": "integer",
                 "default": 2048,
                 "range": [2048, 8192, 16384, 32768, 49152],
-                "required": "yes"
+                "required": true
             }, {
                 "key": "count",
                 "label": "Count",
@@ -133,7 +133,7 @@ title: "开发模板规范"
                 "default": 3,
                 "max": 100,
                 "min": 1,
-                "required": "yes"
+                "required": true
             }, {
                 "key": "volume_size",
                 "label": "Volume Size",
@@ -143,7 +143,7 @@ title: "开发模板规范"
                 "min": 10,
                 "max": 1000,
                 "step": 10,
-                "required": "yes"
+                "required": true
             }]
         }]
     }, {
@@ -160,7 +160,7 @@ title: "开发模板规范"
             "separator": ",",
             "range": ["value1", "value11", "value111"],
             "multichoice": true,
-            "required": "yes"
+            "required": true
         }, {***
             "key": "role_name",
             "description": "The role configuration properties of the application",
@@ -173,7 +173,7 @@ title: "开发模板规范"
                 "changeable": true,
                 "default": "value1",
                 "range": ["value1", "value11"],
-                "required": "yes"
+                "required": true
             }]
         }]
     }, {
@@ -189,7 +189,7 @@ title: "开发模板规范"
             "separator": ",",
             "range": ["value1", "value11", "value111"],
             "multichoice": true,
-            "required": "yes"
+            "required": true
         }, {***
             "key": "role_name",
             "description": "Custom service the role (role_name) configuration properties",
@@ -202,7 +202,7 @@ title: "开发模板规范"
                 "pattern": "^value.+",
                 "default": "value1",
                 "range": ["value1", "value11"],
-                "required": "yes"
+                "required": true
             }]
         }]
     }]
@@ -226,7 +226,7 @@ max|若配置项 type 为 integer 或 number(浮点数)，指定该项的最大�
 step|若配置项是 volume_size，指定硬盘每次调整的最小步长单位。在每个主机挂多块盘时，通常需要指定该项。
 pattern|正则表达式，可用该值规范填写内容。
 required|是否为必填项
-default|该项的默认取值，若 required 设为 "no"，default 值必须提供。
+default|该项的默认取值，若 required 设为 false，default 值必须提供。
 
 一些系统预留(即必须提供)的项含义如下：
 

@@ -74,7 +74,7 @@ class HomePage extends Component {
   }
 }
 
-export default HomePage
+export default HomePage;
 
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`

@@ -8,7 +8,8 @@ import Helmet from 'react-helmet'
 
 import './index.css'
 
-const Layout = ({ children, data }) => (
+const Layout = ({ children, data }) => {
+  return(
   <div>
     <Helmet
       title={data.site.siteMetadata.title}
@@ -18,8 +19,8 @@ const Layout = ({ children, data }) => (
       ]}
     />
     {children()}
-  </div>
-)
+  </div>)
+}
 
 Layout.propTypes = {
   children: PropTypes.func,

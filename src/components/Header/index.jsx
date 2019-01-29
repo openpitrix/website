@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { ReactComponent as Logo } from '../../assets/op-logo.svg';
 import { ReactComponent as LogoBlank } from '../../assets/op-logo-blank.svg';
+import { ReactComponent as Github } from '../../assets/github.svg';
+import { getScrollTop } from '../../utils';
 
 import { Style } from './styled';
 
@@ -14,27 +15,51 @@ const headerLinks = [
 ];
 
 export default class Header extends React.Component {
-  static propTypes = {
-    isDarkBg: PropTypes.bool,
-  }
-
-  static defaultProps = {
+  state = {
     isDarkBg: false,
   }
 
+  static propTypes = {
+    isBlankBg: PropTypes.bool,
+    maxTop: PropTypes.number
+  }
+
+  static defaultProps = {
+    isBlankBg: false,
+    maxTop: 0
+  }
+
+  async componentDidMount() {
+    const { maxTop } = this.props;
+
+    if(maxTop > 0) {
+      window.onscroll = this.handleScroll;
+    }
+
+  }
+
+  handleScroll = () => {
+    const { maxTop } = this.props;
+    const { isDarkBg } = this.state;
+    const scrollTop = getScrollTop();
+
+    if (scrollTop >= maxTop && !isDarkBg) {
+      this.setState({ isDarkBg: true });
+    } else if (scrollTop < maxTop && isDarkBg) {
+      this.setState({ isDarkBg: false });
+    }
+  }
+
   render() {
-    const { isDarkBg } = this.props
+    const blankBg = this.props.isBlankBg ? 'blankHeader' : '';
+    const darkBg = this.state.isDarkBg ? 'darkHeader' : '';
 
     return (
-      <Style isDarkBg>
-        <div className={isDarkBg ? 'header-dark' : 'header'}>
+      <Style>
+        <div className={`header ${blankBg} ${darkBg}`}>
           <div className="wrapper">
-            <a href="/">
-              {isDarkBg ? (
-                <LogoBlank className="header-logo" />
-              ) : (
-                <Logo className="header-logo" />
-              )}
+            <a className="logo" href="/">
+              <LogoBlank />
             </a>
 
             <div className="links">
@@ -47,6 +72,13 @@ export default class Header extends React.Component {
                   {item.name}
                 </a>
               ))}
+            </div>
+
+            <div className="otherLinks">
+              <a href="#">Demo</a>
+              <a href="https://github.com/openpitrix/openpitrix" target="_blank">
+                <Github className="github"/> Github
+              </a>
             </div>
           </div>
         </div>

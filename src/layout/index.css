@@ -605,7 +605,7 @@ pre tt:after {
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent; 
+  background: transparent;
 }
 
 .ReactModal__Overlay {
@@ -646,4 +646,8 @@ mark {
 
 .header-shadow {
   box-shadow: 0 4px 8px 0 rgba(9, 18, 26, 0.1);
+}
+
+:root{
+  --main-bg-color: #000;
 }

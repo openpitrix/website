@@ -196,7 +196,7 @@ export default class MarkdownTemplate extends React.Component {
               </MarkdownBody>
 
               <FooterWrapper>
-                <Footer prev={prev} next={next} />
+                <DocFooter prev={prev} next={next} />
               </FooterWrapper>
 
             </MarkdownWrapper>

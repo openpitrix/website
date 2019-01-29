@@ -4,6 +4,7 @@
     {
       "title": "产品介绍",
       "describe": "通过直观的视频资料与简单的介绍帮助您了解 OpenPitrix。",
+      "icon": "../../assets/key.svg",
       "chapters": [
         {
           "title": "产品概述",
@@ -26,6 +27,7 @@
     {
       "title": "安装指南",
       "describe": "指导用户如何快速安装 OpenPitrix，并对平台做简单设置，投入使用。",
+      "icon": "../../assets/key.svg",
       "chapters": [
         {
           "title": "部署 OpenPitrix",
@@ -48,28 +50,30 @@
     {
       "title": "快速入门",
       "describe": "安装完成后，通过关键功能和流程的介绍引导用户快速入门。",
+      "icon": "../../assets/key.svg",
       "chapters": [
         {
-      "title": "入门必读",    
-      "entry": "./v0.3/zh-CN/getting-start/introduction.md"
+          "title": "入门必读",
+          "entry": "./v0.3/zh-CN/getting-start/introduction.md"
         },
         {
-      "title": "开发者",    
-      "entry": "./v0.3/zh-CN/getting-start/developer-quick-start.md"
+          "title": "开发者",
+          "entry": "./v0.3/zh-CN/getting-start/developer-quick-start.md"
         },
         {
-      "title": "管理员",    
-      "entry": "./v0.3/zh-CN/getting-start/admin-quick-start.md"    
+          "title": "管理员",
+          "entry": "./v0.3/zh-CN/getting-start/admin-quick-start.md"
         },
         {
-      "title": "普通用户",    
-      "entry": "./v0.3/zh-CN/getting-start/regular-user-quick-start.md"    
+          "title": "普通用户",
+          "entry": "./v0.3/zh-CN/getting-start/regular-user-quick-start.md"
         }
-                  ]
+      ]
     },
     {
       "title": "用户指南",
       "describe": "指导用户如何使用平台提供的基本功能。",
+      "icon": "../../assets/key.svg",
       "chapters": [
         {
           "title": "简介",
@@ -107,15 +111,15 @@
         },
         {
           "title": "商店管理",
-           "entries": [
+          "entries": [
             {
-          "entry": "./v0.3/zh-CN/user-guide/store-management.md"
+              "entry": "./v0.3/zh-CN/user-guide/store-management.md"
             },
             {
-          "entry": "./v0.3/zh-CN/user-guide/category-management.md"
+              "entry": "./v0.3/zh-CN/user-guide/category-management.md"
             },
             {
-          "entry": "./v0.3/zh-CN/user-guide/app-management.md"
+              "entry": "./v0.3/zh-CN/user-guide/app-management.md"
             }
           ]
         },
@@ -128,6 +132,7 @@
     {
       "title": "开发指南",
       "describe": "全面介绍应用的完整生命周期，以及不同平台的应用开发规范。",
+      "icon": "../../assets/key.svg",
       "chapters": [
         {
           "title": "简介",
@@ -137,12 +142,15 @@
           "title": "OpenPitrix 规范及应用开发",
           "entries": [
             {
+              "title": "OpenPitrix 贡献说明",
               "entry": "./v0.3/zh-CN/developer-guide/openpitrix-developer-guide.md"
             },
             {
+              "title": "如何搭开发环境",
               "entry": "./v0.3/zh-CN/developer-guide/openpitrix-specification.md"
             },
             {
+              "title": "如何实现新的 Provider Plugin",
               "entry": "./v0.3/zh-CN/developer-guide/packaging-openpitrix-app.md"
             }
           ]
@@ -161,23 +169,30 @@
       ]
     },
     {
-          "title": "贡献指南",
-          "entries": [
-            {
-              "entry": "./v0.3/zh-CN/contribution/contribution-guide.md"
-            },
-            {
-              "entry": "./v0.3/zh-CN/contribution/set-up-env.md"
-            },
-            {
-              "entry": "./v0.3/zh-CN/contribution/implementing-new-plugin.md"
-            }
-          ]
+      "title": "贡献指南",
+      "describe": "引导社区成员如何为 OpenPitrix 开始你的第一个贡献。",
+      "icon": "../../assets/key.svg",
+      "chapters": [
+        {
+          "title": "OpenPitrix 贡献说明",
+          "entry": "./v0.3/zh-CN/contribution/contribution-guide.md"
+        },
+        {
+          "title": "如何搭开发环境",
+          "entry": "./v0.3/zh-CN/contribution/set-up-env.md"
+        },
+        {
+          "title": "如何实现新的 Provider Plugin",
+          "entry": "./v0.3/zh-CN/contribution/implementing-new-plugin.md"
+        }
+      ]
     },
     {
       "title": "常见问题",
       "describe": "总结实际应用场景中可能遇到的问题并给出通用解决方案。",
-      "entry": "./v0.3/zh-CN/faq.md"
-    }  
+      "icon": "../../assets/key.svg",
+      "entry": "./v0.3/zh-CN/faq.md",
+      "chapters": []
+    }
   ]
 }

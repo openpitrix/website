@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 import Header from '../components/Header'
 import Versions from '../components/Versions'
-import Footer from '../components/Footer'
+import DocFooter from '../components/DocFooter'
 import Headings from '../components/Headings'
 import TableOfContents from '../components/TableOfContents/index'
 
@@ -159,6 +159,7 @@ export default class MarkdownTemplate extends React.Component {
     const postNode = this.props.data.postBySlug
 
     const post = postNode.frontmatter
+
     if (!post.id) {
       post.id = slug
     }
@@ -216,7 +217,7 @@ export default class MarkdownTemplate extends React.Component {
                 <div dangerouslySetInnerHTML={{ __html: postNode.html }} />
               </MarkdownBody>
               <FooterWrapper>
-                <Footer prev={prev} next={next} />
+                <DocFooter prev={prev} next={next} />
               </FooterWrapper>
             </MarkdownWrapper>
             <HeadingsWrapper>

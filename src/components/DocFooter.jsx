@@ -5,7 +5,7 @@ import isEmpty from 'lodash/isEmpty'
 import { ReactComponent as Previous } from '../assets/previous.svg'
 import { ReactComponent as Next } from '../assets/next.svg'
 
-class Footer extends React.Component {
+class DocFooter extends React.Component {
   render() {
     const { prev, next } = this.props
 
@@ -60,4 +60,4 @@ const FooterText = styled.p`
   text-align: center;
 `
 
-export default Footer
+export default DocFooter

@@ -1,5 +1,12 @@
-import React from 'react'
+import React from 'react';
 
-const IndexPage = () => <div />
+import Layout from 'layout';
 
-export default IndexPage
+const Index=props=> {
+
+  return (
+    <Layout/>
+  )
+}
+
+export default Index;

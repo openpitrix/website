@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import GatsbyLink from 'gatsby-link'
 
-import { ReactComponent as DocsIcon } from '../assets/docs.svg'
-import { ReactComponent as OpenPitrix } from '../assets/openpitrix.svg'
-import { ReactComponent as Arrow } from '../assets/arrow-solid.svg'
+import {ReactComponent as DocsIcon} from 'assets/docs.svg'
+import {ReactComponent as OpenPitrix} from 'assets/openpitrix.svg'
+import {ReactComponent as Arrow} from 'assets/arrow-solid.svg'
 
 class VersionComponent extends Component {
   constructor(props) {

@@ -4,7 +4,7 @@ import GatsbyLink from 'gatsby-link'
 import styled from 'styled-components'
 import classnames from 'classnames'
 
-import { ReactComponent as Arrow } from '../../assets/arrow.svg'
+import {ReactComponent as Arrow} from 'assets/arrow.svg'
 
 const Link = ({ to, ...rest }, { location }) => {
   const selected = location.pathname + decodeURIComponent(location.hash) === to

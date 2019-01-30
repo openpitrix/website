@@ -1,6 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: 'OpenPitrix Documents',
+    title: 'OpenPitrix',
+    keywords: 'openpitrix.io, openpitrix documents, docs',
+    description: 'openpitrix official site'
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -35,7 +37,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-svgr',
       options: {
-        icon: true,
+        include: /assets/
       },
     },
     {

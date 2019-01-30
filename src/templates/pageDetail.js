@@ -1,15 +1,16 @@
+/* eslint-disable no-restricted-globals */
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 
-import Header from '../components/Header'
-import Versions from '../components/Versions'
-import Footer from '../components/Footer'
-import Headings from '../components/Headings'
-import TableOfContents from '../components/TableOfContents/index'
+import Header from 'components/Header'
+import Versions from 'components/Versions'
+import Footer from 'components/Footer'
+import Headings from 'components/Headings'
+import TableOfContents from 'components/TableOfContents/index'
 
-import { ReactComponent as Logo } from '../assets/op-logo.svg'
+import { ReactComponent as Logo } from 'assets/op-logo.svg'
 import last from 'lodash/last';
 
 import './markdown.css'
@@ -175,6 +176,7 @@ export default class MarkdownTemplate extends React.Component {
             this.props.data.site.siteMetadata.title
           }`}</title>
         </Helmet>
+
         <BodyGrid>
           <NavContainer isExpand={this.state.isExpand}>
             <Versions
@@ -195,10 +197,11 @@ export default class MarkdownTemplate extends React.Component {
             <footer className="op-footer">
               <Logo className="logo"/>
               <div className="copy">
-                Openpitrix Technology © 2018
+                Openpitrix Technology © 2019
               </div>
             </footer>
           </NavContainer>
+
           <MainContainer isExpand={this.state.isExpand}>
             <MarkdownWrapper>
               <Header
@@ -228,7 +231,9 @@ export default class MarkdownTemplate extends React.Component {
               />
             </HeadingsWrapper>
           </MainContainer>
+
         </BodyGrid>
+
       </div>
     )
   }
@@ -250,12 +255,6 @@ const NavContainer = styled.div`
   overflow-y: auto;
   color: #fff;
   z-index: 2;
-
-  @media only screen and (max-width: 768px) {
-  left: ${({ isExpand }) => {
-  return isExpand ? 0 : '-290px'
-  }};
-  }
 `
 
 const MainContainer = styled.div`

@@ -1,8 +1,19 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
-exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
-  const { createNodeField } = boundActionCreators
+exports.onCreateWebpackConfig = ({ stage, actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      modules: [
+        path.resolve(__dirname, "src"),
+        "node_modules"
+      ],
+    },
+  })
+}
+
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions
   if (node.internal.type === `MarkdownRemark`) {
     const slug = createFilePath({ node, getNode, basePath: `content` })
 
@@ -16,8 +27,8 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
   }
 }
 
-exports.createPages = ({ graphql, boundActionCreators }) => {
-  const { createPage, createRedirect } = boundActionCreators
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions
   return new Promise(resolve => {
     graphql(`
       {
@@ -33,19 +44,18 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           }
         }
       }
-    `).then(({ data: { pages: { edges } } }) => {
-      createRedirect({
-        fromPath: `/`,
-        isPermanent: true,
-        redirectInBrowser: true,
-        toPath: 'home'
-      })
+    `).then(res => {
+      if(res.errors){
+        throw res.errors;
+      }
+
+      const {edges}=res.data.pages;
 
       edges.forEach(({ node }) => {
         const { version, language, slug } = node.fields
         createPage({
           path: slug,
-          component: path.resolve(`./src/templates/markdown.js`),
+          component: path.resolve(`./src/templates/pageDetail.js`),
           context: {
             slug: slug,
             version: version,

@@ -1,39 +1,39 @@
 {
-  "name": "docs.openpitrix.io",
-  "description": "OpenPitrix Documents",
+  "name": "openpitrix.io",
+  "description": "OpenPitrix Official site",
   "version": "1.0.0",
   "dependencies": {
+    "@svgr/webpack": "^4.1.0",
     "classnames": "^2.2.6",
-    "es6-shim": "^0.35.3",
-    "gatsby": "^1.9.247",
-    "gatsby-link": "^1.6.40",
-    "gatsby-plugin-catch-links": "^1.0.24",
-    "gatsby-plugin-no-sourcemaps": "^1.0.5",
-    "gatsby-plugin-nprogress": "^1.0.14",
-    "gatsby-plugin-react-helmet": "^2.0.10",
-    "gatsby-plugin-styled-components": "^2.0.11",
-    "gatsby-plugin-svgr": "^1.0.1",
-    "gatsby-remark-autolink-headers": "^1.4.19",
-    "gatsby-remark-copy-linked-files": "^1.5.37",
-    "gatsby-remark-prismjs": "^2.0.5",
-    "gatsby-remark-responsive-iframe": "^1.4.20",
-    "gatsby-source-filesystem": "^1.5.39",
-    "gatsby-transformer-json": "^1.0.20",
-    "gatsby-transformer-remark": "^1.7.44",
+    "es6-shim": "^0.35.4",
+    "gatsby": "^2.0.103",
+    "gatsby-link": "^2.0.9",
+    "gatsby-plugin-catch-links": "^2.0.9",
+    "gatsby-plugin-no-sourcemaps": "^2.0.1",
+    "gatsby-plugin-nprogress": "^2.0.7",
+    "gatsby-plugin-react-helmet": "^3.0.5",
+    "gatsby-plugin-styled-components": "^3.0.4",
+    "gatsby-plugin-svgr": "^2.0.1",
+    "gatsby-remark-autolink-headers": "^2.0.12",
+    "gatsby-remark-copy-linked-files": "^2.0.8",
+    "gatsby-remark-prismjs": "^3.2.2",
+    "gatsby-remark-responsive-iframe": "^2.0.8",
+    "gatsby-source-filesystem": "^2.0.18",
+    "gatsby-transformer-json": "^2.1.7",
+    "gatsby-transformer-remark": "^2.2.1",
     "lodash": "^4.17.11",
     "prismjs": "^1.15.0",
-    "promise-polyfill": "^8.0.0",
+    "promise-polyfill": "^8.1.0",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
     "react-helmet": "^5.2.0",
-    "styled-components": "^3.3.3"
+    "styled-components": "^4.1.3"
   },
   "keywords": [
     "openpitrix",
-    "kubesphere",
-    "iaas",
-    "paas",
-    "docker",
-    "kubernetes",
-    "k8s"
+    "openpitrix.io",
+    "landing page",
+    "gatsby"
   ],
   "license": "Apache-2.0",
   "scripts": {
@@ -46,10 +46,10 @@
     "pub-docker": "npm run docker && docker push openpitrix/docs.openpitrix.io"
   },
   "devDependencies": {
-    "prettier": "^1.12.0"
+    "prettier": "^1.16.1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/openpitrix/openpitrix.github.io"
+    "url": "https://github.com/openpitrix/docs.openpitrix.io"
   }
 }

@@ -8,7 +8,7 @@ export const Style = styled.div`
 }
 
 .bannerWord {
-  padding-top: 180px;v
+  padding-top: 180px;
   min-height: 400px;
   width: 1200px;
   margin: 0 auto;
@@ -60,8 +60,10 @@ export const Style = styled.div`
       width: 40px;
       height: 40px;
       margin-bottom: 16px;
+      
   
-      svg {
+      img {
+        margin-bottom: 12px;
         width: 40px;
         height: 40px;
       }
@@ -94,11 +96,33 @@ export const Style = styled.div`
     margin: 220px auto 84px;
     
     .title {
-      font-size: 24px;
-      font-weight: 500;
-      color: ${v.N500};
+      margin-bottom: 32px;
       text-align: center;
+      
+      .word {
+        margin-top: 12px;
+        font-size: 24px;
+        font-weight: 500;
+        color: ${v.N500};
+      }
+      
+      .selectedIcon {
+        margin: 0;
+        width: 48px;
+        height: 48px;
+      }
     }
+  }
+}
+
+.markdown {
+  p {
+    font-size: 16px;
+    line-height: 32px;
+    color: ${v.N300};
+  }
+  a {
+    color: ${v.P75};
   }
 }
 `

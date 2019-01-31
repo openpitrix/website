@@ -2,13 +2,35 @@ import styled from 'styled-components'
 
 export const Style = styled.div`
 .topBanner {
-  height: 650px;
+  width: 100%;
   background-image: radial-gradient(circle at 0 0, #8454cd, #343945);
 
   .wrapper {
-    width: 1200px;
+    position: relative;
+    max-width: 1200px;
+    width:100%
     margin: 0 auto;
+    height: 650px;
   }
+  
+   img {
+      position: absolute;
+      &.imgRight {
+        right: 0;
+        top: 0;
+      }
+      
+      &.imgTop {
+        right: 30%;
+        top: 0;
+        transform: rotate(180deg);
+      }
+     
+      &.imgBottom {
+        bottom: -24px;
+        left: 0;
+      }
+    }
 
   .title {
     padding-top: 214px;
@@ -76,9 +98,14 @@ export const Style = styled.div`
     margin-top: 100px;
     width: 538px;
     height: 454px;
+    
     svg {
       width: 538px;
       height: 454px;
+    }
+    
+    &.left {
+      float: right;
     }
   }
 

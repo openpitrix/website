@@ -1,0 +1,33 @@
+{
+  "id": "blog-zh-CN",
+  "chapters": [
+    {
+      "title": "2018",
+      "chapters": [
+        {
+          "title": "March",
+          "entries": [
+            {
+              "title": "OpenPitrix Insight",
+              "entry": "./blog/zh-CN/openpitrix-insight.md"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "2017",
+      "chapters": [
+        {
+          "title": "December",
+          "entries": [
+            {
+              "title": "Why use slack for our daily communications?",
+              "entry": "./blog/zh-CN/introduce-slack.md"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

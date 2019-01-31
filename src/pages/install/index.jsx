@@ -2,27 +2,29 @@ import React, { Component } from 'react'
 
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
-import { ReactComponent as InstallAll } from '../../assets/install/all.svg'
 
 import { Style } from './styled'
 
 const installs = [
   {
-    icon: InstallAll,
+    icon: "/images/install/all.svg",
+    iconActive: "/images/install/all-active.svg",
     title: 'All-in-One 模式',
     type: 'all',
     description:
       'All-in-One 模式，即单节点部署，需要预先安装 Docker 、 Docker-Compose 、 Make 等依赖软件。',
   },
   {
-    icon: '',
+    icon: "/images/install/kubernetes.svg",
+    iconActive: "/images/install/kubernetes-active.svg",
     title: 'Kubernetes 模式',
     type: 'kubernetes',
     description:
       '部署到 Kubernetes 集群环境中， OpenPitrix 可作为基于 Kubernetes 的一个应用管理系统。',
   },
   {
-    icon: '',
+    icon: "/images/install/helm.svg",
+    iconActive: "/images/install/helm-active.svg",
     title: 'Helm-Chart 模式',
     type: 'helm',
     description:
@@ -40,10 +42,12 @@ class Install extends Component {
   }
 
   renderCard(item) {
+    const { activeType } = this.state
+
     return (
       <div className="card" onClick={() => this.selectInstall(item.type)}>
         <div className="icon">
-          <InstallAll />
+          <img src={item.type === activeType ? item.iconActive : item.icon} />
         </div>
         <div className="title">{item.title}</div>
         <div className="description">{item.description}</div>
@@ -52,9 +56,10 @@ class Install extends Component {
   }
 
   render() {
-    const { activeType } = this.state;
-    const showData = _.get(this.props, `data.${activeType}`, {});
-    const title = _.get(showData,  'frontmatter.title', '');
+    const { activeType } = this.state
+    const showData = _.get(this.props, `data.${activeType}`, {})
+    const title = _.get(showData, 'frontmatter.title', '')
+    const install = _.find(installs, {type: activeType}) || {};
 
     return (
       <Style>
@@ -81,7 +86,10 @@ class Install extends Component {
         <div className="installContent">
           {showData.html && (
             <div className="markdown">
-              <div className='title'>{title}</div>
+              <div className="title">
+                <img  className="selectedIcon" src={install.icon} />
+                <div className="word">{title}</div>
+              </div>
               <div dangerouslySetInnerHTML={{ __html: showData.html }} />
             </div>
           )}
@@ -95,7 +103,6 @@ class Install extends Component {
 
 export default Install
 
-/* eslint no-undef: "off" */
 export const pageQuery = graphql`
   query queryAll {
     all: markdownRemark(

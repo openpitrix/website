@@ -10,7 +10,8 @@ export const Style = styled.div`
   
   .wrapper {
     margin: 0 auto;
-    width: 1200px;
+    max-width: 1200px;
+    width:100%
     height: 72px;
   }
 

@@ -6,7 +6,8 @@ export const Style = styled.div`
   
   .wrapper {
     box-sizing: border-box;
-    width: 1200px;
+    max-width: 1200px;
+    width:100%
     height: 72px;
     padding: 28px 0;
     margin: 0 auto;
@@ -34,7 +35,8 @@ export const Style = styled.div`
   
  .links {
   display: flex;
-  width: 1200px;
+  max-width: 1200px;
+  width:100%
   margin: 0 auto;
   padding: 76px 0 62px;
 

@@ -20,21 +20,23 @@ const getChildLink = item => {
   return link
 }
 
-class HomePage extends Component {
+export default class Document extends Component {
   renderCard(document) {
-    const chapters = _.get(document, 'chapters', []);
-    const link = getChildLink(document);
+    const chapters = _.get(document, 'chapters', [])
+    const link = getChildLink(document)
 
     return (
       <div className="card">
         <div className="title">
-          <GatsbyLink to={link}>
-            {document.title}
-          </GatsbyLink>
+          <GatsbyLink to={link}>{document.title}</GatsbyLink>
         </div>
         <div className="describe">{document.describe}</div>
         {chapters.map(item => (
-          <GatsbyLink className="tagLink" key={`${item.title} link`} to={getChildLink(item)}>
+          <GatsbyLink
+            className="tagLink"
+            key={`${item.title} link`}
+            to={getChildLink(item)}
+          >
             {item.title}
           </GatsbyLink>
         ))}
@@ -52,7 +54,7 @@ class HomePage extends Component {
 
         <Style>
           <DocBanner />
-          <div className="download"></div>
+          <div className="download" />
           <div className="documents">
             {chapters.map(item => (
               <div className="cardOuter" key={item.title}>
@@ -74,9 +76,6 @@ class HomePage extends Component {
   }
 }
 
-export default HomePage;
-
-/* eslint no-undef: "off" */
 export const pageQuery = graphql`
   query documentQuery {
     menus: allContentJson(filter: { id: { eq: "v0.3-zh-CN" } }) {

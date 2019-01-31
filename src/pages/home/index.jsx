@@ -12,8 +12,8 @@ export default class Home extends Component {
   renderBannerWord(banner) {
     return (
       <div className="homeBanner">
-        <div className="image">
-          <BannerImage />
+        <div className={`image ${banner.position}`}>
+          <img src={banner.image}/>
         </div>
         <div className={`words ${banner.position}`}>
           <div className="name">{banner.name}</div>
@@ -44,7 +44,11 @@ export default class Home extends Component {
             </div>
 
             <button>获取社区版 →</button>
+
+            <img src='/images/home/banner-top-top.svg' className="imgTop"/>
+            <img src='/images/home/banner-top-bottom.svg' className="imgBottom"/>
           </div>
+          <img src='/images/home/banner-top-right.svg' className="imgRight"/>
         </div>
 
         {banners.map(banner => (

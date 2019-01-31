@@ -4,7 +4,6 @@
     {
       "title": "产品介绍",
       "describe": "通过直观的视频资料与简单的介绍帮助您了解 OpenPitrix。",
-      "icon": "../../assets/key.svg",
       "chapters": [
         {
           "title": "产品概述",
@@ -27,7 +26,6 @@
     {
       "title": "安装指南",
       "describe": "指导用户如何快速安装 OpenPitrix，并对平台做简单设置，投入使用。",
-      "icon": "../../assets/key.svg",
       "chapters": [
         {
           "title": "部署 OpenPitrix",
@@ -50,7 +48,6 @@
     {
       "title": "快速入门",
       "describe": "安装完成后，通过关键功能和流程的介绍引导用户快速入门。",
-      "icon": "../../assets/key.svg",
       "chapters": [
         {
           "title": "入门必读",
@@ -73,7 +70,6 @@
     {
       "title": "用户指南",
       "describe": "指导用户如何使用平台提供的基本功能。",
-      "icon": "../../assets/key.svg",
       "chapters": [
         {
           "title": "简介",
@@ -132,7 +128,6 @@
     {
       "title": "开发指南",
       "describe": "全面介绍应用的完整生命周期，以及不同平台的应用开发规范。",
-      "icon": "../../assets/key.svg",
       "chapters": [
         {
           "title": "简介",
@@ -171,7 +166,6 @@
     {
       "title": "贡献指南",
       "describe": "引导社区成员如何为 OpenPitrix 开始你的第一个贡献。",
-      "icon": "../../assets/key.svg",
       "chapters": [
         {
           "title": "OpenPitrix 贡献说明",
@@ -190,7 +184,6 @@
     {
       "title": "常见问题",
       "describe": "总结实际应用场景中可能遇到的问题并给出通用解决方案。",
-      "icon": "../../assets/key.svg",
       "entry": "./v0.3/zh-CN/faq.md",
       "chapters": []
     }

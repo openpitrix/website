@@ -5,7 +5,7 @@ export default [
     titlePrefix: '轻松',
     description: 'OpenPitrix 中的运行环境可以是基于做任意类型任意平台。针对不同的运行环境提供商，OpenPitrix 会提供相应的 ProviderPlugin 插件，调用相应的 API 来管理运行在其上的应用。有效降低运维成本。',
     link: '#',
-    image: '',
+    image: '/images/home/banner-top.png',
     position: 'right',
   },
   {
@@ -14,7 +14,7 @@ export default [
     titlePrefix: '提高',
     description: 'OpenPitrix 将支持传统应用和日益流行的应用类型，并支持多种应用打包规范，系统将自动识别您部署的应用类型并选择相应的插件去创建应用集群。',
     link: '#',
-    image: '',
+    image: '/images/home/banner-develop.svg',
     position: 'left',
   },
   {
@@ -23,7 +23,7 @@ export default [
     titlePrefix: '从开',
     description: "OpenPitrix 着眼于应用的全生命周期管理，提供应用打包上传、应用审核、测试部署、应用发布、应用的版本控制、应用升级、扩容、应用更新和应用下架等功能，通过一站式应用管理简化交付过程。",
     link: '#',
-    image: '',
+    image: '/images/home/banner-manage.svg',
     position: 'right',
   },
   {
@@ -32,7 +32,7 @@ export default [
     titlePrefix: '多维',
     description: "任何基于 OpenPitrix 开发的应用， 都可以在任何基于 OpenPitrix 的应用商店交易，用户可以部署商店的应用到任何云运行环境，平台提供计量计费、工单管理、查看报表等丰富的运营管理功能。",
     link: '#',
-    image: '',
+    image: '/images/home/banner-operation.svg',
     position: 'left',
   },
 ]

@@ -20,11 +20,13 @@ export default class Header extends React.Component {
   }
 
   static propTypes = {
+    hasBg: PropTypes.bool,
     isBlankBg: PropTypes.bool,
     maxTop: PropTypes.number
   }
 
   static defaultProps = {
+    hasBg: false,
     isBlankBg: false,
     maxTop: 0
   }
@@ -51,8 +53,9 @@ export default class Header extends React.Component {
   }
 
   render() {
-    const blankBg = this.props.isBlankBg ? 'blankHeader' : '';
-    const darkBg = this.state.isDarkBg ? 'darkHeader' : '';
+    const { isBlankBg , hasBg } = this.props;
+    const blankBg = isBlankBg ? 'blankHeader' : '';
+    const darkBg = this.state.isDarkBg || hasBg ? 'darkHeader' : '';
 
     return (
       <Style>

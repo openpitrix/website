@@ -15,6 +15,7 @@ const headerLinks = [
 
 export default class Header extends React.Component {
   state = {
+    showMenus: false,
     isDarkBg: false,
   }
 
@@ -50,8 +51,61 @@ export default class Header extends React.Component {
     }
   }
 
+  changeMeuns = () => {
+    const showMenus = this.state.showMenus
+
+    this.setState({ showMenus: !showMenus })
+  }
+
+  renderMenus() {
+    return (
+      <div className={styles.meuns}>
+        <img
+          onClick={this.changeMeuns}
+          className={styles.close}
+          src="/images/close.svg"
+        />
+        <ul>
+          {headerLinks.map(item => (
+            <li>
+              <a
+                onClick={this.changeMeuns}
+                key={item.name}
+                href={item.link}
+                className={classnames({
+                  [styles.active]: location.pathname === item.active,
+                })}
+              >
+                {item.name}
+              </a>
+            </li>
+          ))}
+
+          <li className={styles.demo}>
+            <a onClick={this.changeMeuns} href="#" target="_blank">
+              Demo
+            </a>
+          </li>
+          <li className={styles.github}>
+            <a
+              onClick={this.changeMeuns}
+              href="https://github.com/openpitrix/openpitrix"
+              target="_blank"
+            >
+              <label className={styles.githubIcon}>
+                <img src="/images/github.svg" />
+              </label>
+              Github
+            </a>
+          </li>
+        </ul>
+      </div>
+    )
+  }
+
   render() {
     const { isBlankBg, hasBg } = this.props
+    const { showMenus } = this.state
 
     return (
       <div
@@ -62,6 +116,7 @@ export default class Header extends React.Component {
       >
         <div className={styles.wrapper}>
           <a className={styles.logo} href="/">
+            <label className={styles.border}></label>
             <img src="/images/op-logo-blank.svg" />
           </a>
 
@@ -88,7 +143,14 @@ export default class Header extends React.Component {
               Github
             </a>
           </div>
+          <img
+            onClick={this.changeMeuns}
+            className={styles.menuIcon}
+            src="/images/menu.svg"
+          />
         </div>
+
+        {showMenus && this.renderMenus()}
       </div>
     )
   }

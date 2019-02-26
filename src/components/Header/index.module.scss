@@ -1,46 +1,58 @@
-@import '../../css/variables';
+@import '../../scss/variables';
 
 .header {
   position: fixed;
   top: 0;
   z-index: 2;
-  width: 100%;
-  height: 72px;
+  width: 100vw;
+  height: $header-height;
 
   &.blankHeader {
-    background-color:#343945;
+    background-color: $N500;
+
     .links {
       float: right;
       a {
-        color: #8c96ad;
+        color: $N75;
       }
       a:hover, a.active {
-        color: #fff;
+        color: $N0;
       }
     }
   }
 
   &.darkHeader {
-    background-image: radial-gradient(circle at 0 0, #8454cd,  #343945);
+    opacity: 1;
+    opacity: 0.89;
+    background-color: $N500;
   }
 
   .wrapper {
     margin: 0 auto;
+    padding: 0 $page-padding;
     max-width: 1200px;
-    width:100%;
-    height: 72px;
+    width: 100vw;
+    // height: $header-height;
   }
 
   .logo {
     float: left;
+    position: relative;
     display: block;
-    margin: 26px 0;
-    width: 149px;
-    height: 20px;
+    padding: 26px 0;
+
+    .border {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 100%;
+      background-color: $Y300 ;
+      border-radius: 0 4px 0 4px;
+    }
 
     img {
       height: 20px;
-      width: 100%;
     }
   }
 
@@ -95,6 +107,111 @@
       height: 16px;
       margin-right: 4px;
       margin-top: 2px;
+    }
+  }
+
+  .menuIcon {
+    float: right;
+    display: none;
+    margin-top: 16px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+  }
+
+  .meuns {
+    position: fixed;
+    top: 0;
+    z-index: 3;
+    width: 100%;
+    text-align: center;
+    background-color: rgba($N500, 0.95);
+    padding-top: 52px;
+
+    li {
+      margin-bottom: 38px;
+      height: 30px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid transparent;
+      a {
+        display: inline-block;
+        line-height: 20px;
+        padding-bottom: 8px;
+        opacity: 0.8;
+        font-size: 14px;
+        font-weight: 500;
+        color: $N0;
+        border-bottom: 2px solid transparent;
+
+        &.active {
+          opacity: 1;
+          border-color: $Y300;
+        }
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+
+      &.demo {
+        height: 26px;
+
+        a {
+          opacity: 1;
+          line-height: 16px;
+        }
+      }
+
+      &.github {
+        height: 34px;
+
+        a {
+          opacity: 1;
+          line-height: 24px;
+        }
+
+        .githubIcon {
+          float: left;
+          display: inline-block;
+          width: 16px;
+          height: 16px;
+          margin-right: 4px;
+          margin-top: 4px;
+        }
+      }
+
+    }
+
+    .close {
+      position: fixed;
+      top: 24px;
+      right: 24px;
+      z-index: 3;
+      cursor: pointer;
+    }
+  }
+}
+
+
+
+@media only screen and (max-width: $mobile-max-width) {
+  .header {
+    height: $mobile-header-height;
+
+    .logo {
+      padding: 20px 0;
+
+      img {
+        height: 16px;
+      }
+    }
+
+    .links, .otherLinks {
+      display: none;
+    }
+
+    .menuIcon {
+      display: inline-block;
     }
   }
 }

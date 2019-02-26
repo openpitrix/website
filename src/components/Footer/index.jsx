@@ -1,17 +1,16 @@
 import React from 'react';
 
-import { ReactComponent as LogoBlank } from '../../assets/op-logo-blank.svg';
-import links from './links';
+import links from './links.js';
 
-import { Style } from './styled';
+import styles from './index.module.scss'
 
 export default class Footer extends React.Component {
   renderLinks() {
     return (
-      <div className="links">
+      <div className={styles.links}>
         {links.map(link => (
-          <div className="module" key={link.title}>
-            <div className="title">{link.title}</div>
+          <div className={styles.module} key={link.title}>
+            <div className={styles.title}>{link.title}</div>
             <ul>
               {link.items.map(item => (
                 <li key={item.name}>
@@ -27,15 +26,15 @@ export default class Footer extends React.Component {
 
   render() {
     return (
-      <Style>
+      <div className={styles.footer}>
         {this.renderLinks()}
-        <div className="wrapper">
-          <a className="logo" href="/">
-            <LogoBlank />
+        <div className={styles.wrapper}>
+          <a className={styles.logo} href="/">
+            <img src="/images/op-logo-blank.svg" />
           </a>
-          <label className="copyright">Openpitrix Technology © 2019</label>
+          <label className={styles.copyright}>Openpitrix Technology © 2019</label>
         </div>
-      </Style>
+      </div>
     )
   }
 }

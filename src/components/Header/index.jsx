@@ -1,18 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
+import classnames from 'classnames'
 
-import { ReactComponent as LogoBlank } from '../../assets/op-logo-blank.svg';
-import { ReactComponent as Github } from '../../assets/github.svg';
-import { getScrollTop } from '../../utils';
+import { getScrollTop } from '../../utils'
 
-import { Style } from './styled';
+import styles from './index.module.scss'
 
 const headerLinks = [
-  { name: '首页', link: '/home', active: '/home' },
+  { name: '首页', link: '/', active: '/' },
   { name: '安装', link: '/install', active: '/install' },
   { name: '文档', link: '/document', active: '/document' },
   { name: '博客', link: '/blog', active: '/blog' },
-];
+]
 
 export default class Header extends React.Component {
   state = {
@@ -22,70 +21,75 @@ export default class Header extends React.Component {
   static propTypes = {
     hasBg: PropTypes.bool,
     isBlankBg: PropTypes.bool,
-    maxTop: PropTypes.number
+    maxTop: PropTypes.number,
   }
 
   static defaultProps = {
     hasBg: false,
     isBlankBg: false,
-    maxTop: 0
+    maxTop: 0,
   }
 
   async componentDidMount() {
-    const { maxTop } = this.props;
+    const { maxTop } = this.props
 
-    if(maxTop > 0) {
-      window.onscroll = this.handleScroll;
+    if (maxTop > 0) {
+      window.onscroll = this.handleScroll
     }
-
   }
 
   handleScroll = () => {
-    const { maxTop } = this.props;
-    const { isDarkBg } = this.state;
-    const scrollTop = getScrollTop();
+    const { maxTop } = this.props
+    const { isDarkBg } = this.state
+    const scrollTop = getScrollTop()
 
     if (scrollTop >= maxTop && !isDarkBg) {
-      this.setState({ isDarkBg: true });
+      this.setState({ isDarkBg: true })
     } else if (scrollTop < maxTop && isDarkBg) {
-      this.setState({ isDarkBg: false });
+      this.setState({ isDarkBg: false })
     }
   }
 
   render() {
-    const { isBlankBg , hasBg } = this.props;
-    const blankBg = isBlankBg ? 'blankHeader' : '';
-    const darkBg = this.state.isDarkBg || hasBg ? 'darkHeader' : '';
+    const { isBlankBg, hasBg } = this.props
 
     return (
-      <Style>
-        <div className={`header ${blankBg} ${darkBg}`}>
-          <div className="wrapper">
-            <a className="logo" href="/">
-              <LogoBlank />
-            </a>
+      <div
+        className={classnames(styles.header, {
+          [styles.blankHeader]: isBlankBg,
+          [styles.darkHeader]: this.state.isDarkBg || hasBg,
+        })}
+      >
+        <div className={styles.wrapper}>
+          <a className={styles.logo} href="/">
+            <img src="/images/op-logo-blank.svg" />
+          </a>
 
-            <div className="links">
-              {headerLinks.map(item => (
-                <a
-                  key={item.name}
-                  href={item.link}
-                  className={location.pathname === item.active ? 'active' : ''}
-                >
-                  {item.name}
-                </a>
-              ))}
-            </div>
-
-            <div className="otherLinks">
-              <a href="#">Demo</a>
-              <a href="https://github.com/openpitrix/openpitrix" target="_blank">
-                <Github className="github"/> Github
+          <div className={styles.links}>
+            {headerLinks.map(item => (
+              <a
+                key={item.name}
+                href={item.link}
+                className={classnames({
+                  [styles.active]: location.pathname === item.active,
+                })}
+              >
+                {item.name}
               </a>
-            </div>
+            ))}
+          </div>
+
+          <div className={styles.otherLinks}>
+            <a href="#">Demo</a>
+            <a href="https://github.com/openpitrix/openpitrix" target="_blank">
+              <label className={styles.github}>
+                <img src="/images/github.svg" />
+              </label>
+              Github
+            </a>
           </div>
         </div>
-      </Style>
+      </div>
     )
   }
 }

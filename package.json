@@ -11,6 +11,7 @@
     "gatsby-plugin-no-sourcemaps": "^1.0.5",
     "gatsby-plugin-nprogress": "^1.0.14",
     "gatsby-plugin-react-helmet": "^2.0.10",
+    "gatsby-plugin-sass": "1.0.26",
     "gatsby-plugin-styled-components": "^2.0.11",
     "gatsby-plugin-svgr": "^1.0.1",
     "gatsby-remark-autolink-headers": "^1.4.19",
@@ -21,9 +22,11 @@
     "gatsby-transformer-json": "^1.0.20",
     "gatsby-transformer-remark": "^1.7.44",
     "lodash": "^4.17.11",
+    "node-sass": "^4.11.0",
     "prismjs": "^1.15.0",
     "promise-polyfill": "^8.0.0",
     "react-helmet": "^5.2.0",
+    "react-modal": "^3.8.1",
     "styled-components": "^3.3.3"
   },
   "keywords": [
@@ -39,7 +42,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write 'src/**/*.js'",
+    "format": "prettier --write 'src/**/*.?(js|scss)'",
     "test": "echo \"no test specified\"",
     "docker": "docker build -t openpitrix/docs.openpitrix.io .",
     "start": "npm run docker && docker run --rm --name op-docs -p 3000:80 openpitrix/docs.openpitrix.io",

@@ -1,8 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: 'OpenPitrix Documents',
+    title: 'OpenPitrix',
   },
   plugins: [
+    'gatsby-plugin-sass',
     'gatsby-plugin-react-helmet',
     "gatsby-plugin-styled-components",
     {

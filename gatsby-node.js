@@ -34,12 +34,12 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         }
       }
     `).then(({ data: { pages: { edges } } }) => {
-      createRedirect({
+      /*createRedirect({
         fromPath: `/`,
         isPermanent: true,
         redirectInBrowser: true,
         toPath: 'home'
-      })
+      })*/
 
       edges.forEach(({ node }) => {
         const { version, language, slug } = node.fields

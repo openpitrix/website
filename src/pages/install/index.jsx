@@ -1,30 +1,31 @@
 import React, { Component } from 'react'
+import classnames from 'classnames'
 
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 
-import { Style } from './styled'
+import styles from './index.module.scss'
 
 const installs = [
   {
-    icon: "/images/install/all.svg",
-    iconActive: "/images/install/all-active.svg",
+    icon: '/images/install/all.svg',
+    iconActive: '/images/install/all-active.svg',
     title: 'All-in-One 模式',
     type: 'all',
     description:
       'All-in-One 模式，即单节点部署，需要预先安装 Docker 、 Docker-Compose 、 Make 等依赖软件。',
   },
   {
-    icon: "/images/install/kubernetes.svg",
-    iconActive: "/images/install/kubernetes-active.svg",
+    icon: '/images/install/kubernetes.svg',
+    iconActive: '/images/install/kubernetes-active.svg',
     title: 'Kubernetes 模式',
     type: 'kubernetes',
     description:
       '部署到 Kubernetes 集群环境中， OpenPitrix 可作为基于 Kubernetes 的一个应用管理系统。',
   },
   {
-    icon: "/images/install/helm.svg",
-    iconActive: "/images/install/helm-active.svg",
+    icon: '/images/install/helm.svg',
+    iconActive: '/images/install/helm-active.svg',
     title: 'Helm-Chart 模式',
     type: 'helm',
     description:
@@ -45,12 +46,15 @@ class Install extends Component {
     const { activeType } = this.state
 
     return (
-      <div className="card" onClick={() => this.selectInstall(item.type)}>
-        <div className="icon">
+      <div
+        className={styles.card}
+        onClick={() => this.selectInstall(item.type)}
+      >
+        <div className={styles.icon}>
           <img src={item.type === activeType ? item.iconActive : item.icon} />
         </div>
-        <div className="title">{item.title}</div>
-        <div className="description">{item.description}</div>
+        <div className={styles.title}>{item.title}</div>
+        <div className={styles.description}>{item.description}</div>
       </div>
     )
   }
@@ -59,36 +63,37 @@ class Install extends Component {
     const { activeType } = this.state
     const showData = _.get(this.props, `data.${activeType}`, {})
     const title = _.get(showData, 'frontmatter.title', '')
-    const install = _.find(installs, {type: activeType}) || {};
+    const install = _.find(installs, { type: activeType }) || {}
 
     return (
-      <Style>
+      <div>
         <Header maxTop={150} />
-        <div className="installBanner">
-          <div className="bannerWord">
+        <div className={styles.installBanner}>
+          <div className={styles.bannerWord}>
             <h2>OpenPitrix 安装</h2>
             <h5>
               OpenPitrix 支持 all-in-one 、 Kubernetes 和 Helm Chart
               三种部署模式。
             </h5>
-            {installs.map(item => {
-              const activeClass = item.type === activeType ? 'active' : ''
-
-              return (
-                <div className={`cardOuter ${activeClass}`} key={item.title}>
-                  {this.renderCard(item)}
-                </div>
-              )
-            })}
+            {installs.map(item => (
+              <div
+                className={classnames(styles.cardOuter, {
+                  [styles.active]: item.type === activeType,
+                })}
+                key={item.title}
+              >
+                {this.renderCard(item)}
+              </div>
+            ))}
           </div>
         </div>
 
-        <div className="installContent">
+        <div className={styles.installContent}>
           {showData.html && (
-            <div className="markdown">
-              <div className="title">
-                <img  className="selectedIcon" src={install.icon} />
-                <div className="word">{title}</div>
+            <div className={styles.markdown}>
+              <div className={styles.title}>
+                <img className={styles.selectedIcon} src={install.icon} />
+                <div className={styles.word}>{title}</div>
               </div>
               <div dangerouslySetInnerHTML={{ __html: showData.html }} />
             </div>
@@ -96,7 +101,7 @@ class Install extends Component {
         </div>
 
         <Footer />
-      </Style>
+      </div>
     )
   }
 }

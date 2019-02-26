@@ -1,7 +1,5 @@
-import styled from 'styled-components';
-import v from '../../css/variable';
+@import '../../css/variables';
 
-export const Style = styled.div`
 .installBanner {
   height: 428px;
   background-image: radial-gradient(circle at 49% 107%, #724eae, #343945);
@@ -14,7 +12,7 @@ export const Style = styled.div`
   margin: 0 auto;
   text-align: center;
   overflow: hidden;
-  
+
   h2 {
     margin-bottom: 32px;
     line-height: 52px;
@@ -22,7 +20,7 @@ export const Style = styled.div`
     font-weight: 500;
     color: #fff;
   }
-  
+
   h5 {
     margin-bottom: 70px;
     line-height: 30px;
@@ -30,7 +28,7 @@ export const Style = styled.div`
     font-weight: 500;
     color: #fff;
   }
-  
+
   .cardOuter {
     float: left;
     display: inline-block;
@@ -44,31 +42,31 @@ export const Style = styled.div`
     height: 200px;
     background-color: #fff;
     cursor: pointer;
-  
+
     &:last-child {
       margin-right: 0;
     }
-    
+
     &.active {
-       border-color: #f6a132;
+      border-color: #f6a132;
     }
   }
-  
+
   .card {
     .icon {
       display: inline-block;
       width: 40px;
       height: 40px;
       margin-bottom: 16px;
-      
-  
+
+
       img {
         margin-bottom: 12px;
         width: 40px;
         height: 40px;
       }
     }
-  
+
     .title {
       margin-bottom: 12px;
       line-height: 20px;
@@ -77,7 +75,7 @@ export const Style = styled.div`
       font-weight: 500;
       color: #343945;
     }
-  
+
     .description {
       height: 24px;
       opacity: 0.8;
@@ -94,18 +92,18 @@ export const Style = styled.div`
   .markdown {
     width: 788px;
     margin: 220px auto 84px;
-    
+
     .title {
       margin-bottom: 32px;
       text-align: center;
-      
+
       .word {
         margin-top: 12px;
         font-size: 24px;
         font-weight: 500;
-        color: ${v.N500};
+        color: $N500;
       }
-      
+
       .selectedIcon {
         margin: 0;
         width: 48px;
@@ -119,10 +117,9 @@ export const Style = styled.div`
   p {
     font-size: 16px;
     line-height: 32px;
-    color: ${v.N300};
+    color: $N300;
   }
   a {
-    color: ${v.P75};
+    color: $P75;
   }
 }
-`

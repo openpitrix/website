@@ -5,6 +5,7 @@ module.exports = {
     description: 'openpitrix official site'
   },
   plugins: [
+    'gatsby-plugin-sass',
     'gatsby-plugin-react-helmet',
     "gatsby-plugin-styled-components",
     {

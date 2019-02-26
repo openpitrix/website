@@ -53,7 +53,7 @@ export default [
     title: '资源',
     items: [
       {
-        name: '播客',
+        name: '博客',
         link: '#',
       },
       {

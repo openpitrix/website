@@ -69,22 +69,26 @@ class Install extends Component {
       <div>
         <Header maxTop={150} />
         <div className={styles.installBanner}>
-          <div className={styles.bannerWord}>
+          <div className={styles.wrapper}>
             <h2>OpenPitrix 安装</h2>
             <h5>
               OpenPitrix 支持 all-in-one 、 Kubernetes 和 Helm Chart
               三种部署模式。
             </h5>
-            {installs.map(item => (
-              <div
-                className={classnames(styles.cardOuter, {
-                  [styles.active]: item.type === activeType,
-                })}
-                key={item.title}
-              >
-                {this.renderCard(item)}
+            <div className={styles.typesOuter}>
+              <div className={styles.installTypes}>
+                {installs.map(item => (
+                  <div
+                    className={classnames(styles.cardOuter, {
+                      [styles.active]: item.type === activeType,
+                    })}
+                    key={item.title}
+                  >
+                    {this.renderCard(item)}
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
 

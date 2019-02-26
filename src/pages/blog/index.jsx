@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import Header from '../../components/Header'
+import Footer from '../../components/Footer'
 
 import { Style } from './styled'
 
@@ -13,7 +14,7 @@ export default class Blog extends Component {
     return (
       <Style>
         <Header hasBg />
-
+        <Footer />
       </Style>
     )
   }

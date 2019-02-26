@@ -1,94 +1,101 @@
-@import '../../css/variables';
+@import '../../scss/variables';
 
 .installBanner {
   height: 428px;
-  background-image: radial-gradient(circle at 49% 107%, #724eae, #343945);
-}
+  background-image: radial-gradient(circle at 49% 107%, #724eae, $N500);
 
-.bannerWord {
-  padding-top: 180px;
-  min-height: 400px;
-  width: 1200px;
-  margin: 0 auto;
-  text-align: center;
-  overflow: hidden;
+  .wrapper {
+    margin: 0 auto;
+    padding: 180px $page-padding 0;
+    min-height: 400px;
+    max-width: 1200px;
+    width: 100vw;
+    text-align: center;
+    overflow: hidden;
 
-  h2 {
-    margin-bottom: 32px;
-    line-height: 52px;
-    font-size: 40px;
-    font-weight: 500;
-    color: #fff;
-  }
-
-  h5 {
-    margin-bottom: 70px;
-    line-height: 30px;
-    font-size: 20px;
-    font-weight: 500;
-    color: #fff;
-  }
-
-  .cardOuter {
-    float: left;
-    display: inline-block;
-    box-sizing: border-box;
-    margin-right: 24px;
-    width: calc(33.33% - 17px);
-    padding: 32px 38px;
-    border-radius: 2px;
-    border: 2px solid transparent;
-    box-shadow: 0 1px 4px 0 rgba(73, 33, 173, 0.06), 0 4px 8px 0 rgba(35, 35, 36, 0.04);
-    height: 200px;
-    background-color: #fff;
-    cursor: pointer;
-
-    &:last-child {
-      margin-right: 0;
+    h2 {
+      margin-bottom: 32px;
+      line-height: 52px;
+      font-size: 40px;
+      font-weight: 500;
+      color: $N0;
     }
 
-    &.active {
-      border-color: #f6a132;
+    h5 {
+      margin-bottom: 70px;
+      line-height: 30px;
+      font-size: 20px;
+      font-weight: 500;
+      color: $N0;
     }
-  }
 
-  .card {
-    .icon {
+    .installTypes {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cardOuter {
       display: inline-block;
-      width: 40px;
-      height: 40px;
-      margin-bottom: 16px;
+      box-sizing: border-box;
+      margin-right: 24px;
+      padding: 32px 38px;
+      border-radius: 2px;
+      border: 2px solid transparent;
+      box-shadow: 0 1px 4px 0 rgba(73, 33, 173, 0.06),
+        0 4px 8px 0 rgba(35, 35, 36, 0.04);
+      min-height: 200px;
+      background-color: #fff;
+      cursor: pointer;
 
+      &:last-child {
+        margin-right: 0;
+      }
 
-      img {
-        margin-bottom: 12px;
-        width: 40px;
-        height: 40px;
+      &.active {
+        border-color: $Y300;
       }
     }
 
-    .title {
-      margin-bottom: 12px;
-      line-height: 20px;
-      opacity: 0.8;
-      font-size: 16px;
-      font-weight: 500;
-      color: #343945;
-    }
+    .card {
+      .icon {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        margin-bottom: 16px;
 
-    .description {
-      height: 24px;
-      opacity: 0.8;
-      font-size: 12px;
-      color: #78839e;
+        img {
+          margin-bottom: 12px;
+          width: 40px;
+          height: 40px;
+        }
+      }
+
+      .title {
+        margin-bottom: 12px;
+        line-height: 20px;
+        opacity: 0.8;
+        font-size: 16px;
+        font-weight: 500;
+        color: $N500;
+      }
+
+      .description {
+        line-height: 24px;
+        opacity: 0.8;
+        font-size: 12px;
+        color: $N100;
+      }
     }
   }
 }
 
 .installContent {
-  width: 100%;
-  min-height:220px;
-  background-color: #f9fafb;
+  padding: 0 $page-padding;
+  max-width: 1200px;
+  width: 100vw;
+  min-height: 220px;
+  background-color: $body-background;
   .markdown {
     width: 788px;
     margin: 220px auto 84px;
@@ -121,5 +128,49 @@
   }
   a {
     color: $P75;
+  }
+}
+
+@media only screen and (max-width: $mobile-max-width) {
+  .installBanner {
+    .wrapper {
+      padding: 146px $mobile-padding 0;
+      
+      h2 {
+        margin-bottom: 12px;
+      }
+
+      h5 {
+        margin-bottom: 78px;
+        line-height: 30px;
+      }
+
+      .typesOuter {
+        overflow-x: auto;
+        width: 100vw;
+      }
+
+      .installTypes {
+        display: inline-block;
+        width: calc((100vw - 60px) * 3);
+      }
+
+      .cardOuter {
+        float: left;
+        width: calc(100vw - 80px);
+      }
+    }
+  }
+
+  .installContent {
+    padding: 0 $mobile-padding;
+    max-width: 1200px;
+    width: 100vw;
+    min-height: 220px;
+    background-color: #f9fafb;
+
+    .markdown {
+      width: auto;
+    }
   }
 }

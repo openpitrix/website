@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import classnames from 'classnames'
 
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
@@ -8,7 +7,24 @@ import banners from './banners'
 
 import styles from './index.module.scss'
 
+const mobileWidth = 768
 export default class Home extends Component {
+  state = {
+    isMobile: document.body.clientWidth <= mobileWidth,
+  }
+
+  async componentDidMount() {
+    window.onresize = this.handleResize
+  }
+
+  handleResize = () => {
+    if (document.body.clientWidth <= mobileWidth) {
+      this.setState({ isMobile: true })
+    } else {
+      this.setState({ isMobile: false })
+    }
+  }
+
   renderModal() {
     return (
       <Modal visible className="getVersion">
@@ -24,20 +40,34 @@ export default class Home extends Component {
   }
 
   renderBannerWord(banner) {
+    const { isMobile } = this.state
+
     return (
-      <div className={styles.homeBanner}>
-        <div className={classnames(styles.image, [styles[banner.position]])}>
-          <img src={banner.image} />
-        </div>
-        <div className={classnames(styles.words, [styles[banner.position]])}>
+      <div className={styles.wrapper}>
+        {banner.position === 'left' && !isMobile && (
+          <div className={styles.image}>
+            <img src={banner.image} />
+          </div>
+        )}
+        <div className={styles.words}>
           <div className={styles.name}>{banner.name}</div>
           <div className={styles.title}>
             <label>{banner.titlePrefix}</label>
             {banner.title}
           </div>
+          {isMobile && (
+            <div className={styles.image}>
+              <img src={banner.image} />
+            </div>
+          )}
           <div className={styles.description}>{banner.description}</div>
           <label className={styles.button}>了解更多 →</label>
         </div>
+        {banner.position === 'right' && !isMobile && (
+          <div className={styles.image}>
+            <img src={banner.image} />
+          </div>
+        )}
       </div>
     )
   }
@@ -46,13 +76,13 @@ export default class Home extends Component {
     return (
       <div>
         <div className={styles.topBanner}>
-          <Header maxTop={150} />
+          <Header maxTop={80} />
           <div className={styles.wrapper}>
             <div className={styles.title}>
               <label className={styles.logo}>
-                <img  src='/images/op-logo-blank.svg'/>
+                <img src="/images/op-logo-blank.svg" />
               </label>
-              多云应用管理平台
+              <label className={styles.word}>多云应用管理平台</label>
             </div>
             <div className={styles.slogan}>
               Run <label>any application</label> at any scale on{' '}
@@ -77,7 +107,7 @@ export default class Home extends Component {
         </div>
 
         {banners.map(banner => (
-          <div className={styles.bannerOuter} key={banner.name}>
+          <div className={styles.homeBanner} key={banner.name}>
             {this.renderBannerWord(banner)}
           </div>
         ))}

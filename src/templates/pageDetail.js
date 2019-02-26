@@ -2,13 +2,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
+import {graphql} from 'gatsby';
 import styled from 'styled-components'
 
-import Header from 'components/Header'
+import Layout from 'layout';
+import {Nav as DocNav} from 'components/Doc'
 import Versions from 'components/Versions'
 import Footer from 'components/Footer'
 import Headings from 'components/Headings'
-import TableOfContents from 'components/TableOfContents/index'
+import TableOfContents from 'components/TableOfContents'
 
 import { ReactComponent as Logo } from 'assets/op-logo.svg'
 import last from 'lodash/last';
@@ -39,11 +41,11 @@ export default class MarkdownTemplate extends React.Component {
     this.checkLocalHref();
     document.addEventListener('click', this.handleClick)
 
-    if (this.markdownRef && !this.scroll && typeof SmoothScroll !== 'undefined') {
-      this.scroll = new SmoothScroll('a[href*="#"]', {
-        offset: 100,
-      })
-    }
+    // if (this.markdownRef && !this.scroll && typeof SmoothScroll !== 'undefined') {
+    //   this.scroll = new SmoothScroll('a[href*="#"]', {
+    //     offset: 100,
+    //   })
+    // }
 
     this.scrollToHash()
     this.getPrevAndNext()
@@ -156,7 +158,7 @@ export default class MarkdownTemplate extends React.Component {
   }
 
   render() {
-    const { slug } = this.props.pathContext
+    const { slug } = this.props.pageContext
     const postNode = this.props.data.postBySlug
 
     const post = postNode.frontmatter
@@ -170,7 +172,7 @@ export default class MarkdownTemplate extends React.Component {
     } = this.state
 
     return (
-      <div>
+      <Layout>
         <Helmet>
           <title>{`${post.title} | ${
             this.props.data.site.siteMetadata.title
@@ -178,37 +180,29 @@ export default class MarkdownTemplate extends React.Component {
         </Helmet>
 
         <BodyGrid>
-          <NavContainer isExpand={this.state.isExpand}>
-            <Versions
-              versions={this.props.data.versions}
-              current={postNode.fields.version}
-            />
-            <ToCContainer
-              innerRef={ref => {
-                  this.tocRef = ref
-              }}
-            >
-              <TableOfContents
-                chapters={
-                  this.props.data.tableOfContents.edges[0].node.chapters
-                }
-              />
-            </ToCContainer>
-            <footer className="op-footer">
-              <Logo className="logo"/>
-              <div className="copy">
-                Openpitrix Technology © 2019
-              </div>
-            </footer>
-          </NavContainer>
+
+          <DocNav/>
+
+          {/*<NavContainer isExpand={this.state.isExpand}>*/}
+            {/*<Versions*/}
+              {/*versions={this.props.data.versions}*/}
+              {/*current={postNode.fields.version}*/}
+            {/*/>*/}
+            {/*<ToCContainer*/}
+              {/*innerRef={ref => {*/}
+                  {/*this.tocRef = ref*/}
+              {/*}}*/}
+            {/*>*/}
+              {/*<TableOfContents*/}
+                {/*chapters={*/}
+                  {/*this.props.data.tableOfContents.edges[0].node.chapters*/}
+                {/*}*/}
+              {/*/>*/}
+            {/*</ToCContainer>*/}
+          {/*</NavContainer>*/}
 
           <MainContainer isExpand={this.state.isExpand}>
             <MarkdownWrapper>
-              <Header
-                location={this.props.location}
-                isExpand={this.state.isExpand}
-                toggleExpand={this.handleExpand}
-              />
               <MarkdownBody
                 className="md-body"
                 innerRef={ref => {
@@ -222,6 +216,7 @@ export default class MarkdownTemplate extends React.Component {
                 <Footer prev={prev} next={next} />
               </FooterWrapper>
             </MarkdownWrapper>
+
             <HeadingsWrapper>
               <Headings
                 title={postNode.frontmatter.title}
@@ -234,89 +229,13 @@ export default class MarkdownTemplate extends React.Component {
 
         </BodyGrid>
 
-      </div>
+      </Layout>
     )
   }
 }
 
-const BodyGrid = styled.div`
-  overflow-x: hidden;
-`
-
-const NavContainer = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 280px;
-  height: 100vh;
-  background-image: linear-gradient(0deg, #8454CD 0%, #854FB9 32%, #484999 100%);
-  box-shadow: 4px 0 8px 0 rgba(101, 125, 149, 0.2);
-  transition: left 0.2s ease-in-out;
-  overflow-y: auto;
-  color: #fff;
-  z-index: 2;
-`
-
-const MainContainer = styled.div`
-  margin-left: 280px;
-
-  & > div {
-  margin: auto;
-  }
-
-  & > h1 {
-  color: #303e5a;
-  }
-
-  @media only screen and (max-width: 768px) {
-  width: 100vw;
-  margin-left: ${({ isExpand }) => {
-  return isExpand ? '280px' : '0'
-  }};
-  transition: margin-left 0.2s ease-in-out;
-  }
-`
-
-const ToCContainer = styled.div`
-  padding: 10px 0;
-  min-height: calc(100vh - 220px);
-`
-
-
-const MarkdownBody = styled.div`
-  padding: 120px 40px;
-`
-
-const MarkdownWrapper = styled.div`
-  padding-right: 280px;
-
-  @media only screen and (max-width: 1280px) {
-  padding-right: 0;
-  }
-`
-
-const HeadingsWrapper = styled.div`
-  position: fixed;
-  top: 120px;
-  right: 20px;
-  height: calc(100vh - 120px);
-  overflow-y: auto;
-  box-shadow: -1px 0 0 0 #d5dee7;
-
-  @media only screen and (max-width: 1280px) {
-  display: none;
-  }
-`
-
-const FooterWrapper = styled.div`
-  max-width: 1217px;
-  padding: 0 30px;
-  margin: 0 auto;
-`
-
-/* eslint no-undef: "off" */
-export const pageQuery = graphql`
-  fragment ChildMarkdownRemark on MarkdownRemark {
+export const pageQuery=graphql`
+  fragment mdChild on MarkdownRemark {
     fields {
       slug
     }
@@ -328,6 +247,7 @@ export const pageQuery = graphql`
       depth
     }
   }
+  
   query MarkdownBySlug($slug: String!, $id: String!, $version: String!) {
     site {
       siteMetadata {
@@ -368,14 +288,14 @@ export const pageQuery = graphql`
             entry {
               id
               childMarkdownRemark {
-                ...ChildMarkdownRemark
+                ...mdChild
               }
             }
             entries {
               entry {
                 id
                 childMarkdownRemark {
-                  ...ChildMarkdownRemark
+                  ...mdChild
                 }
               }
             }
@@ -384,14 +304,14 @@ export const pageQuery = graphql`
               entry {
                 id
                 childMarkdownRemark {
-                  ...ChildMarkdownRemark
+                  ...mdChild
                 }
               }
               entries {
                 entry {
                   id
                   childMarkdownRemark {
-                    ...ChildMarkdownRemark
+                    ...mdChild
                   }
                 }
               }
@@ -401,4 +321,79 @@ export const pageQuery = graphql`
       }
     }
   }
+`
+
+const BodyGrid = styled.div`
+  overflow-x: hidden;
+`
+
+const NavContainer = styled.div`
+  position: fixed;
+  top: 72px;
+  left: 0;
+  width: 256px;
+  height: 100vh;
+  // background-image: linear-gradient(0deg, #8454CD 0%, #854FB9 32%, #484999 100%);
+  box-shadow: 4px 0 8px 0 rgba(101, 125, 149, 0.2);
+  transition: left 0.2s ease-in-out;
+  overflow-y: auto;
+  color: #fff;
+  z-index: 2;
+`
+
+const MainContainer = styled.div`
+  margin-left: 280px;
+
+  & > div {
+  margin: auto;
+  }
+
+  & > h1 {
+  color: #303e5a;
+  }
+
+  @media only screen and (max-width: 768px) {
+  width: 100vw;
+  margin-left: ${({ isExpand }) => {
+    return isExpand ? '280px' : '0'
+  }};
+  transition: margin-left 0.2s ease-in-out;
+  }
+`
+
+const ToCContainer = styled.div`
+  padding: 10px 0;
+  min-height: calc(100vh - 220px);
+`
+
+
+const MarkdownBody = styled.div`
+  padding: 120px 40px;
+`
+
+const MarkdownWrapper = styled.div`
+  padding-right: 280px;
+
+  @media only screen and (max-width: 1280px) {
+  padding-right: 0;
+  }
+`
+
+const HeadingsWrapper = styled.div`
+  position: fixed;
+  top: 120px;
+  right: 20px;
+  height: calc(100vh - 120px);
+  overflow-y: auto;
+  box-shadow: -1px 0 0 0 #d5dee7;
+
+  @media only screen and (max-width: 1280px) {
+  display: none;
+  }
+`
+
+const FooterWrapper = styled.div`
+  max-width: 1217px;
+  padding: 0 30px;
+  margin: 0 auto;
 `

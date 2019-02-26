@@ -4,9 +4,13 @@ import GatsbyLink from 'gatsby-link'
 import styled from 'styled-components'
 import classnames from 'classnames'
 
-import {ReactComponent as Arrow} from 'assets/arrow.svg'
+import {ReactComponent as Arrow} from 'assets/arrow-black.svg'
+import {ReactComponent as IconHome} from 'assets/home.svg'
 
 const Link = ({ to, ...rest }, { location }) => {
+  if(!location){
+    location = window.location;
+  }
   const selected = location.pathname + decodeURIComponent(location.hash) === to
 
   return (
@@ -32,7 +36,10 @@ class LinkWithHeadings extends React.Component {
   }
 
   componentDidMount() {
-    const { location } = this.context
+    let { location } = this.context
+    if(!location){
+      location=window.location
+    }
     const { fields } = this.props.entry.childMarkdownRemark
 
     this.setState({
@@ -47,8 +54,8 @@ class LinkWithHeadings extends React.Component {
   }
 
   render() {
-    const { entry, level, title } = this.props
-    const { headings, fields, frontmatter } = entry.childMarkdownRemark
+    const { entry, level, title, idKey } = this.props
+    const { headings, fields, frontmatter={} } = entry.childMarkdownRemark
     const { open } = this.state
 
     let heads = []
@@ -60,8 +67,8 @@ class LinkWithHeadings extends React.Component {
     return (
       <div>
         <Link to={fields.slug}>
-          <Title level={level} onClick={this.handleClick}>
-            <Arrow className={classnames({ 'arrow-open': open })} />
+          <Title level={level} onClick={this.handleClick} active={open}>
+            {idKey === 'doc-home-entry' ? <IconHome className='no-rotate' /> : <Arrow className={classnames({ 'arrow-open': open })} />}
             {title || frontmatter.title}
           </Title>
         </Link>
@@ -117,13 +124,15 @@ class ChapterList extends React.Component {
   constructor(props, context) {
     super(props)
 
+    let pathname = (context.location || window.location).pathname;
+
     let open = false
     if (props.entries) {
       const slugs = props.entries.map(
         ({ entry }) => entry.childMarkdownRemark.fields.slug
       )
 
-      open = slugs.includes(context.location.pathname)
+      open = slugs.includes(pathname)
     } else if (props.chapters) {
       const slugs = []
       props.chapters.forEach(chapter => {
@@ -137,7 +146,7 @@ class ChapterList extends React.Component {
           )
         }
       })
-      open = slugs.includes(context.location.pathname)
+      open = slugs.includes(pathname)
     }
 
     this.state = { open }
@@ -152,7 +161,7 @@ class ChapterList extends React.Component {
   }
 
   render() {
-    const { chapters, entry, entries, title, level = 0 } = this.props
+    const { chapters, entry, entries, title, idKey, level = 0 } = this.props
     const { open } = this.state
 
     return (
@@ -160,9 +169,9 @@ class ChapterList extends React.Component {
         {title && (
           <ListItem key={`${title}${level}`}>
             {entry ? (
-              <LinkWithHeadings entry={entry} level={level} title={title} />
+              <LinkWithHeadings {...{entry, level, title, idKey}} />
             ) : (
-              <Title level={level} onClick={this.handleClick}>
+              <Title level={level} onClick={this.handleClick} active={open}>
                 <Arrow className={classnames({ 'arrow-open': open })} />
                 {title}
               </Title>
@@ -173,10 +182,9 @@ class ChapterList extends React.Component {
           {entries && <Links entries={entries} level={level + 1} />}
         </ListItem>
         <ListItem className={classnames('list-toggle', { 'list-open': open })}>
-          {chapters &&
-            chapters.map((chapter, index) => (
-              <ChapterList {...chapter} level={level + 1} key={`${index}`} />
-            ))}
+          {chapters && chapters.map((chapter, index) => (
+            <ChapterList {...chapter} level={level + 1} key={`${index}`} />
+          ))}
         </ListItem>
       </StyledList>
     )
@@ -198,7 +206,8 @@ const ListItem = styled.li`
   margin: 0;
 
   .selected-link > h5 {
-    background-color: rgb(255,255,255, 0.1);
+    color: #6d35c3;
+    // background-color: rgb(255,255,255, 0.1);
   }
 
   &.list-toggle > ol > li {
@@ -217,7 +226,7 @@ const Title = styled.h5`
   font-weight: normal;
   line-height: 1.67;
   text-align: left;
-  color: #ffffff;
+  color: #576075;
   padding: 8px 20px;
   padding-left: ${({ level }) => {
     switch (level % 4) {
@@ -235,6 +244,9 @@ const Title = styled.h5`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: ${({active})=> {
+    return active ? '#6d35c3' : 'none'
+  }}
 
   &:hover {
     background-color: rgb(255,255,255,0.2);
@@ -250,6 +262,9 @@ const Title = styled.h5`
     transition: all 0.2s ease;
 
     &.arrow-open {
+      transform: rotate(0);
+    }
+    &.no-rotate {
       transform: rotate(0);
     }
   }

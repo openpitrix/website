@@ -8,7 +8,17 @@ import Wrapper from './wrapper';
 
 const NavLink = ({to, children}) => (
   <li>
-    <Link to={to} activeClassName='active'>{children}</Link>
+    <Link
+      to={to}
+      getProps={({isPartiallyCurrent, location})=> {
+        if(to === '/'){
+          return location.pathname === to ? {className: 'active'} : null;
+        }
+        return isPartiallyCurrent ? {className: 'active'} : null
+      }}
+    >
+      {children}
+    </Link>
   </li>
 )
 
@@ -68,7 +78,7 @@ class Header extends React.Component {
             <NavLink to='/'>首页</NavLink>
             <NavLink to='/install'>安装</NavLink>
             <NavLink to='/docs'>文档</NavLink>
-            <NavLink to='/blog'>博客</NavLink>
+            <NavLink to='#'>博客</NavLink>
           </ul>
           <ul className='right-links'>
             <NavLink to='#'>Demo</NavLink>

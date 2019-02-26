@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Search from 'components/Search';
+import {ReactComponent as BannerPic} from 'assets/doc-banner-pic.svg';
 
 const Banner=styled.div`
   width: calc(100vw - 256px);
@@ -12,41 +13,48 @@ const Banner=styled.div`
   top: 72px;
   margin-bottom: 64px;
   
-  .text {
-    position: relative;
-    justify-content: center;
-    display: flex;
+  .wrap {
+    margin-left: auto;
+    margin-right: auto;
+    width: 920px;
     height: 100%;
-    align-items: center;
-    top: -36px;
     
-    font-family: Roboto;
-    font-size: 32px;
-    font-weight: 500;
-    line-height: 1.25;
-    text-align: center;
-    color: white;
-  }
-  
-  .search {
-    position: absolute;
-    right: inherit;
-    top: 194px;
-    left: 50%;
-    margin-left: -175px;
-    
-    input {
+    .text {
+      position: relative;
+      top: 114px;
+      font-family: Roboto;
+      font-size: 32px;
+      font-weight: 500;
+      line-height: 1.25;
       color: white;
     }
-  }
+    
+    .search {
+      position: relative;
+      left: 0;
+      input {
+        color: white;
+      }
+    }
+    .bannerPic {
+      svg {
+        float: right;
+      }
+    }
+  }  
 `;
 
 export default class DocBanner extends React.Component {
   render() {
     return (
       <Banner>
-        <div className="text">欢迎使用 OpenPitrix 文档</div>
-        <Search className="search" />
+        <div className="wrap">
+          <div className="text">欢迎使用 OpenPitrix 文档</div>
+          <div className="bannerPic">
+            <BannerPic/>
+          </div>
+          <Search className="search" />
+        </div>
       </Banner>
     )
   }

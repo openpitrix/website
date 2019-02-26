@@ -1,14 +1,21 @@
 import React from 'react'
+import classnames from 'classnames'
 import styled from 'styled-components'
 
 import {ReactComponent as SearchIcon} from 'assets/search.svg'
 
 class Search extends React.Component {
+  static defaultProps={
+    placeholder: '请输入关键字进行搜索'
+  }
+
   render() {
+    const {className, placeholder}=this.props;
+
     return (
-      <SearchWrapper className="search">
+      <SearchWrapper className={classnames("search", className)}>
         <SearchIcon />
-        <input type="text" placeholder="请输入关键字进行搜索" />
+        <input type="text" placeholder={placeholder} />
       </SearchWrapper>
     );
   }

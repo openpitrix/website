@@ -1,12 +1,10 @@
 import React, { Component } from "react"
 import GatsbyLink from 'gatsby-link'
 import get from 'lodash/get';
-import {graphql} from 'gatsby';
+import styled from 'styled-components';
 
-import {ReactComponent as LogoGray} from 'assets/op-logo-gray.svg'
 import {Banner, Nav} from 'components/Doc';
 import Layout from 'layout';
-import Wrapper from './wrapper';
 
 const getChildLink = (item) => {
   let link = '';
@@ -29,6 +27,7 @@ export default class Docs extends Component {
         <Wrapper>
           <Banner/>
           <Nav/>
+
           <div className="body">
             <div className="main-body">
               {
@@ -65,15 +64,7 @@ export default class Docs extends Component {
           </div>
 
           <footer>
-            <LogoGray className="logo"/>
-            <div className="l-right">
-              <GatsbyLink
-                to={`/v0.3/zh-CN/basic/`}
-              >
-                OpenPitrix Documentation
-              </GatsbyLink>
-              OpenPitrix © 2019
-            </div>
+            Openpitrix Technology © 2019
           </footer>
 
         </Wrapper>
@@ -82,9 +73,90 @@ export default class Docs extends Component {
   }
 }
 
-/* eslint no-undef: "off" */
-export const queryAllDocs = graphql`
-  query homeQuery {
+const Wrapper = styled.div`
+.body {
+  min-height: calc(100vh - 324px);
+  max-width: calc(100vw - 256px);
+  position: relative;
+  left: 256px;
+}
+.main-body {
+  display: flex;
+  color: #8454cd;
+  flex-flow: row wrap;
+  font-size: 16px;
+  padding-top: 64px;
+  position: relative;
+  width: 920px;
+  margin-left: auto;
+  margin-right: auto;
+  
+  a {
+    display: block;
+    color: #8454cd;
+    & + a{
+      margin-top: 16px;
+    }
+  }
+  span {
+    display: block;
+    font-size: 12px;
+    width: 80%;
+    color: #78839e;
+    margin: 11px 0 24px;
+  }
+  
+  > div {
+    width: 100%;
+    margin-bottom: 64px;
+  }
+}
+
+footer {
+  margin: 16px auto;
+  text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .main-body {
+    // padding: 64px 24.0972222%;
+    > div {
+      width: 50%;
+      margin-bottom: 64px;
+    }
+    span {
+      width: 65%;
+    }
+  }
+  footer {
+    margin-left: 256px;
+  }
+}
+// @media only screen and (min-width: 1280px) {
+//   .main-body {
+//     > div {
+//     width: 33.3%;
+//     margin-bottom: 64px;
+//     }
+//   }
+// }
+`
+
+export const pageQuery=graphql`
+  fragment ChildMarkdownRemark on MarkdownRemark {
+    fields {
+      slug
+    }
+    frontmatter {
+      title
+    }
+    headings {
+      value
+      depth
+    }
+  }
+
+  query {
     menus: allContentJson(filter: { id: { eq: "v0.3-zh-CN" } }) {
       edges {
         node {
@@ -128,4 +200,4 @@ export const queryAllDocs = graphql`
       }
     }
   }
-`;
+`

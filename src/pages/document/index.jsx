@@ -50,7 +50,7 @@ export default class Document extends Component {
 
     return (
       <div>
-        <Header isDarkBg />
+        <Header isBlankBg />
 
         <Style>
           <DocBanner />

@@ -1,0 +1,86 @@
+@import '../../scss/variables';
+
+.mailModal {
+  .content {
+    float: left;
+    max-width: 380px;
+    width: calc(60% - 24px);
+  }
+
+  .title {
+    margin-bottom: 16px;
+    width: calc(100vw - 40px);
+    line-height: 28px;
+    font-size: 24px;
+    font-weight: 500;
+    // color: #020508;
+    color: $N500;
+  }
+
+  .description {
+    margin-bottom: 32px;
+    margin-right: 24px;
+    line-height: 24px;
+    font-size: 12px;
+    color: $N100;
+
+    >a {
+      font-family: 'Roboto';
+      font-weight: 500;
+      color: $P100;
+    }
+  }
+
+  button {
+    width: 144px;
+    height: 48px;
+    line-height: 48px;
+    border-radius: 2px;
+    background-color: $P100;
+    font-family: 'PingFangSC';
+    font-size: 16px;
+    color: $N0;
+    border: 0 none;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+
+    img {
+      vertical-align: top;
+      margin: 12px 8px 12px 0;
+    }
+  }
+
+  .mailBg {
+    float: right;
+    max-width: 247px;
+    width: 40%;
+  }
+}
+
+@media only screen and (max-width: $mobile-max-width) {
+  .mailModal {
+    .content {
+      float: none;
+      max-width: 100%;
+      width: 100%;
+    }
+
+    .mailBg {
+      float: none;
+      max-width: 80%;
+      width: 60%;
+      margin: 0 20% 30px;
+    }
+
+    .description {
+      margin-bottom: 8px;
+    }
+
+    button {
+      position: static;
+      width: 100%;
+      margin-bottom: 8px;
+    }
+  }
+}

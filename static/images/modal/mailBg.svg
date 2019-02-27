@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="247" height="225" viewBox="0 0 247 225">
+    <defs>
+        <linearGradient id="a" x1="50%" x2="50%" y1="-80.528%" y2="97.315%">
+            <stop offset="0%" stop-color="#F7B236"/>
+            <stop offset="100%" stop-color="#FCD966" stop-opacity="0"/>
+        </linearGradient>
+        <path id="c" d="M19.832 24.3h207.336v183.6H19.832z"/>
+        <filter id="b" width="112.1%" height="113.6%" x="-6%" y="-4.6%" filterUnits="objectBoundingBox">
+            <feOffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2"/>
+            <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0.28627451 0 0 0 0 0.129411765 0 0 0 0 0.678431373 0 0 0 0.06 0"/>
+            <feOffset dy="4" in="SourceAlpha" result="shadowOffsetOuter2"/>
+            <feGaussianBlur in="shadowOffsetOuter2" result="shadowBlurOuter2" stdDeviation="3.5"/>
+            <feColorMatrix in="shadowBlurOuter2" result="shadowMatrixOuter2" values="0 0 0 0 0.137254902 0 0 0 0 0.137254902 0 0 0 0 0.141176471 0 0 0 0.04 0"/>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"/>
+                <feMergeNode in="shadowMatrixOuter2"/>
+            </feMerge>
+        </filter>
+        <linearGradient id="d" x1="53.107%" x2="50%" y1="460.329%" y2="-89.098%">
+            <stop offset="0%" stop-color="#F7B236"/>
+            <stop offset="100%" stop-color="#FCD966" stop-opacity="0"/>
+        </linearGradient>
+        <linearGradient id="e" x1="50%" x2="50%" y1="-489.556%" y2="100%">
+            <stop offset="0%" stop-color="#343945"/>
+            <stop offset="100%" stop-color="#343945" stop-opacity="0"/>
+        </linearGradient>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <path fill="url(#a)" fill-rule="nonzero" d="M.516 66.963L122.184.221a1.8 1.8 0 0 1 1.731 0l121.667 66.742h.723v155.7a1.8 1.8 0 0 1-1.8 1.8H2.006a1.8 1.8 0 0 1-1.8-1.8V67.246H0l.206-.113v-.17h.31z"/>
+        <g>
+            <use fill="#000" filter="url(#b)" xlink:href="#c"/>
+            <use fill="#FFF" xlink:href="#c"/>
+        </g>
+        <path fill="#EFF0F5" fill-rule="nonzero" d="M42.369 123.3h126.204v12.6H42.369zM42.369 142.2h70.314v12.6H42.369z"/>
+        <path fill="url(#d)" fill-rule="nonzero" d="M0 66.908l243.557 154.18a1.8 1.8 0 0 1-.963 3.32H1.8a1.8 1.8 0 0 1-1.8-1.8v-155.7z"/>
+        <path fill="url(#d)" fill-rule="nonzero" d="M2.742 66.908l242.677 154.18a1.8 1.8 0 0 1-.965 3.32H4.542a1.8 1.8 0 0 1-1.8-1.8v-155.7z" transform="matrix(-1 0 0 1 248.998 0)"/>
+        <path fill="#343945" fill-rule="nonzero" d="M42.369 46.8h43.27v12.6h-43.27z"/>
+        <path fill="#EFF0F5" fill-rule="nonzero" d="M42.369 69.3h126.204v12.6H42.369zM42.369 88.2h70.314v12.6H42.369z"/>
+        <path fill="url(#e)" fill-rule="nonzero" d="M0 146.583h246.099l-122.085 77.5a1.8 1.8 0 0 1-1.93 0L0 146.583z" transform="matrix(1 0 0 -1 0 370.946)"/>
+    </g>
+</svg>

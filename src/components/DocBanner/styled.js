@@ -2,21 +2,21 @@ import styled from 'styled-components'
 
 export const Style = styled.div`
   width: 100%;
-  height: 286px;
-  background-color:#343945;
-  text-align: center;
+  height: 412px;
+  background-image: radial-gradient(circle at 46% 0, #8454cd, #343945);
   
  .title {
-    padding: 72px 0 54px;
+    padding: 186px 0 24px 202px;
     font-size: 40px;
     font-weight: 500;
     color: #fff;
+    margin: 0;
   }
   
  .search {
     position: relative;
-    margin: 0 auto;
-    width: 780px;
+    margin-left: 202px;
+    width: 460px;
     height: 48px;
   
    input {

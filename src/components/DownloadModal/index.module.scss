@@ -1,0 +1,129 @@
+@import '../../scss/variables';
+
+.downloadModal {
+  .content {
+    float: left;
+    max-width: 380px;
+    width: calc(60% - 24px);
+  }
+
+  .title {
+    margin-bottom: 16px;
+    line-height: 28px;
+    font-size: 24px;
+    font-weight: 500;
+    // color: #020508;
+    color: $N500;
+  }
+
+  .description {
+    margin-bottom: 32px;
+    margin-right: 24px;
+    line-height: 24px;
+    font-size: 12px;
+    color: $N100;
+
+    >a {
+      font-family: 'Roboto';
+      font-weight: 500;
+      color: $P100;
+    }
+  }
+
+  .button {
+    position: relative;
+
+    input {
+      box-sizing: border-box;
+      padding: 16px 132px 16px 20px;
+      width: 100%;
+      height: 48px;
+      border-radius: 2px;
+      border: 1px solid $N10;
+      font-size: 14px;
+      line-height: 16px;
+      font-family: 'Roboto';
+      color: $N65;
+
+      &:focus {
+        border-color: $N30;
+        outline: none;
+        color: $N300;
+      }
+    }
+
+    button {
+      position: absolute;
+      right: 0;
+      top: 0;
+      padding: 0;
+      width: 112px;
+      height: 48px;
+      line-height: 48px;
+      border-radius: 2px;
+      background-color: $P100;
+      font-family: 'PingFangSC';
+      font-size: 16px;
+      color: $N0;
+      border: 0 none;
+      text-align: center;
+      cursor: pointer;
+      outline: none;
+
+      img {
+        vertical-align: top;
+        margin: 12px 8px 12px 0;
+      }
+
+    }
+  }
+
+  .error {
+    margin-top: 8px;
+    height: 20px;
+    font-size: 12px;
+    color: $R100;
+    line-height: 20px;
+  }
+
+  .downloadBg {
+    float: right;
+    max-width: 267px;
+    width: 40%;
+  }
+}
+
+@media only screen and (max-width: $mobile-max-width) {
+  .downloadModal {
+    .content {
+      float: none;
+      max-width: 100%;
+      width: 100%;
+    }
+
+    .downloadBg {
+      float: none;
+      max-width: 80%;
+      width: 60%;
+      margin: 0 20% 30px;
+    }
+
+    .description {
+      margin-bottom: 8px;
+    }
+
+    .button {
+      input {
+        margin-bottom: 10px;
+        padding: 16px 20px;
+        width: 100%;
+        text-align: center;
+      }
+
+      button {
+        position: static;
+        width: 100%;
+      }
+    }
+  }
+}

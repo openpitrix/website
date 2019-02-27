@@ -67,7 +67,7 @@ export default class Header extends React.Component {
         />
         <ul>
           {headerLinks.map(item => (
-            <li>
+            <li key={item.name}>
               <a
                 onClick={this.changeMeuns}
                 key={item.name}
@@ -106,18 +106,20 @@ export default class Header extends React.Component {
   render() {
     const { isBlankBg, hasBg } = this.props
     const { showMenus } = this.state
+    const isDarkBg = !isBlankBg && (this.state.isDarkBg || hasBg)
+    const logoSrc = isBlankBg ? '/images/op-logo.svg' : '/images/op-logo-blank.svg'
 
     return (
       <div
         className={classnames(styles.header, {
           [styles.blankHeader]: isBlankBg,
-          [styles.darkHeader]: this.state.isDarkBg || hasBg,
+          [styles.darkHeader]: isDarkBg,
         })}
       >
         <div className={styles.wrapper}>
           <a className={styles.logo} href="/">
-            <label className={styles.border}></label>
-            <img src="/images/op-logo-blank.svg" />
+            {!isBlankBg && <label className={styles.border} />}
+            <img src={logoSrc} />
           </a>
 
           <div className={styles.links}>

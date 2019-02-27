@@ -31,7 +31,7 @@
   @media only screen and (max-width: 858px) {
     .imgRight {
       width: 30vw;
-      right: -5.8vw;
+      //right: -5.8vw;
     }
   }
 
@@ -79,6 +79,7 @@
     font-size: 30px;
     font-weight: 500;
     color: $N0;
+    font-family: "Futura";
 
     > label {
       display: inline-block;
@@ -103,7 +104,11 @@
     cursor: pointer;
 
     &:hover {
-      background-color: rgba(250, 191, 58, 0.08);
+      background-color: rgba($Y100, 0.08);
+    }
+
+    &:active {
+      background-color: rgba($Y100, 0.12);
     }
   }
 }
@@ -185,8 +190,11 @@
     background-color: transparent;
 
     &:hover {
-      background-color: #6d35c3;
-      color: #fff;
+      background-color: rgba($P75, 0.08);
+    }
+
+    &:active {
+      background-color: rgba($P75, 0.12);
     }
   }
 
@@ -261,9 +269,14 @@
         color: #fabf3a;
         background-color: transparent;
         cursor: pointer;
+        outline: none;
 
         &:hover {
           background-color: rgba($Y100, 0.08);
+        }
+
+        &:active {
+          background-color: rgba($Y100, 0.12);
         }
       }
 
@@ -301,7 +314,7 @@
 
         .arrowRight {
           margin-left: 25px;
-          margin-right: 48px;
+         // margin-right: 48px;
         }
 
         .currentNumber {

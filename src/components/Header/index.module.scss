@@ -1,5 +1,9 @@
 @import '../../scss/variables';
-
+:global {
+  body {
+    font-family: "PingFang SC", "Roboto", "Lantinghei SC", "Helvetica Neue", Helvetica, Arial, "Microsoft YaHei", 微软雅黑, STHeitiSC-Light, simsun, 宋体, "WenQuanYi Zen Hei", "WenQuanYi Micro Hei", sans-serif;
+  }
+}
 .header {
   position: fixed;
   top: 0;
@@ -8,23 +12,28 @@
   height: $header-height;
 
   &.blankHeader {
-    background-color: $N500;
+    background-color: #fff;
+    box-shadow: inset 0 -1px 0 0 $N10;
 
     .links {
-      float: right;
       a {
-        color: $N75;
+        color: $N65;
       }
+
       a:hover, a.active {
-        color: $N0;
+        color: #000000;
+      }
+    }
+
+    .otherLinks {
+      a {
+        color: $N500;
       }
     }
   }
 
   &.darkHeader {
-    opacity: 1;
-    opacity: 0.89;
-    background-color: $N500;
+    background-color: rgba($N500, 0.89);
   }
 
   .wrapper {
@@ -40,6 +49,7 @@
     position: relative;
     display: block;
     padding: 26px 0;
+    margin-right: 56px;
 
     .border {
       position: absolute;
@@ -59,7 +69,6 @@
   .links {
     float: left;
     margin: 26px 0;
-    margin-left: 56px;
 
     a {
       display: inline-block;
@@ -84,19 +93,29 @@
   }
 
   .otherLinks {
+    font-family: "Roboto";
     float: right;
-    margin: 26px 0;
+    margin: 16px 0;
 
     a {
       display: inline-block;
-      margin-right: 48px;
+      margin-right: 8px;
+      padding: 10px 20px;
       line-height: 20px;
       font-size: 14px;
       font-weight: 500;
       color: #fff;
+      border-radius: 2px;
 
       &:last-child {
         margin-right: 0;
+      }
+
+      &:hover {
+        background-color: rgba($N0, 0.08);
+      }
+      &:active {
+        background-color: rgba($N0, 0.12);
       }
     }
 

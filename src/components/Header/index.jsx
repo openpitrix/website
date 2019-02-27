@@ -22,12 +22,14 @@ export default class Header extends React.Component {
   static propTypes = {
     hasBg: PropTypes.bool,
     isBlankBg: PropTypes.bool,
+    hasLightBg: PropTypes.bool,
     maxTop: PropTypes.number,
   }
 
   static defaultProps = {
     hasBg: false,
     isBlankBg: false,
+    hasLightBg: false,
     maxTop: 0,
   }
 
@@ -104,7 +106,7 @@ export default class Header extends React.Component {
   }
 
   render() {
-    const { isBlankBg, hasBg } = this.props
+    const { isBlankBg, hasBg, hasLightBg } = this.props
     const { showMenus } = this.state
     const isDarkBg = !isBlankBg && (this.state.isDarkBg || hasBg)
     const logoSrc = isBlankBg ? '/images/op-logo.svg' : '/images/op-logo-blank.svg'
@@ -114,6 +116,7 @@ export default class Header extends React.Component {
         className={classnames(styles.header, {
           [styles.blankHeader]: isBlankBg,
           [styles.darkHeader]: isDarkBg,
+          [styles.lightHeader]: hasLightBg,
         })}
       >
         <div className={styles.wrapper}>

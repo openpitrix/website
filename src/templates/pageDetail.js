@@ -6,8 +6,7 @@ import {graphql} from 'gatsby';
 import styled from 'styled-components'
 
 import Layout from 'layout';
-import {Nav as DocNav} from 'components/Doc'
-import Footer from 'components/Footer'
+import {Nav as DocNav, Header, Footer} from 'components/Doc'
 import Headings from 'components/Headings'
 
 import last from 'lodash/last';
@@ -179,8 +178,9 @@ export default class MarkdownTemplate extends React.Component {
           }`}</title>
         </Helmet>
 
-        <BodyGrid>
+        <Header/>
 
+        <BodyGrid>
           <DocNav/>
 
           <MainContainer isExpand={this.state.isExpand}>
@@ -196,7 +196,7 @@ export default class MarkdownTemplate extends React.Component {
               </MarkdownBody>
 
               <FooterWrapper>
-                <DocFooter prev={prev} next={next} />
+                <Footer prev={prev} next={next} />
               </FooterWrapper>
 
             </MarkdownWrapper>

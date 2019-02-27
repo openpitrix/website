@@ -17,6 +17,10 @@ export default styled.div`
     left: ${({ isExpand }) => {
       return isExpand ? '280px' : 0
     }};
+    
+    .nav-links, .right-links {
+      display: none !important;
+    }
   }
   
   .items {
@@ -61,6 +65,13 @@ export default styled.div`
             border-bottom: 2px solid #f6a132;
             padding-bottom: 8px;
           }  
+        }
+        
+        &.github-icon {
+          svg {
+            vertical-align: middle;
+            margin-right: 4px
+          }
         }
       }
     }

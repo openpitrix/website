@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import classnames from 'classnames'
+import get from 'lodash/get'
+import find from 'lodash/find'
 
-import Header from '../../components/Header'
-import Footer from '../../components/Footer'
+import Header from 'components/Header'
+import Footer from 'components/Footer'
 
 import styles from './index.module.scss'
 
@@ -61,9 +63,9 @@ class Install extends Component {
 
   render() {
     const { activeType } = this.state
-    const showData = _.get(this.props, `data.${activeType}`, {})
-    const title = _.get(showData, 'frontmatter.title', '')
-    const install = _.find(installs, { type: activeType }) || {}
+    const showData = get(this.props, `data.${activeType}`, {})
+    const title = get(showData, 'frontmatter.title', '')
+    const install = find(installs, { type: activeType }) || {}
 
     return (
       <div>
@@ -115,7 +117,7 @@ export default Install
 export const pageQuery = graphql`
   query queryAll {
     all: markdownRemark(
-      fields: { slug: { eq: "/v0.3/zh-CN/installation/allinone/" } }
+      fields: { slug: { eq: "/docs/v0.3/zh-CN/installation/allinone/" } }
     ) {
       html
       frontmatter {
@@ -130,7 +132,7 @@ export const pageQuery = graphql`
       }
     }
     kubernetes: markdownRemark(
-      fields: { slug: { eq: "/v0.3/zh-CN/installation/kubernetes/" } }
+      fields: { slug: { eq: "/docs/v0.3/zh-CN/installation/kubernetes/" } }
     ) {
       html
       frontmatter {
@@ -145,7 +147,7 @@ export const pageQuery = graphql`
       }
     }
     helm: markdownRemark(
-      fields: { slug: { eq: "/v0.3/zh-CN/installation/helm-chart/" } }
+      fields: { slug: { eq: "/docs/v0.3/zh-CN/installation/helm-chart/" } }
     ) {
       html
       frontmatter {

@@ -1,14 +1,15 @@
 import React, { Component } from 'react'
 
-import Header from '../../components/Header'
-import Footer from '../../components/Footer'
-import DownloadModal from '../../components/DownloadModal'
-import MailModal from '../../components/MailModal'
+import Header from 'components/Header'
+import Footer from 'components/Footer'
+import DownloadModal from 'components/DownloadModal'
+import MailModal from 'components/MailModal'
 import banners from './banners'
 
 import styles from './index.module.scss'
 
 const mobileWidth = 768
+
 export default class Home extends Component {
   state = {
     isDownloadOpen: false,
@@ -16,8 +17,12 @@ export default class Home extends Component {
     isMobile: document.body.clientWidth <= mobileWidth,
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     window.onresize = this.handleResize
+  }
+
+  componentWillUnmount() {
+    window.onresize=null
   }
 
   handleResize = () => {

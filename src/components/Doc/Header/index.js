@@ -3,6 +3,7 @@ import {Link} from 'gatsby';
 
 import { getScrollTop } from 'utils'
 import {ReactComponent as Logo} from 'assets/logo2.svg'
+import {ReactComponent as IconGithub} from 'assets/github.svg'
 
 import Wrapper from './wrapper';
 
@@ -74,6 +75,7 @@ class Header extends React.Component {
               <Logo />
             </Link>
           </div>
+
           <ul className="nav-links">
             <NavLink to='/'>首页</NavLink>
             <NavLink to='/install'>安装</NavLink>
@@ -82,8 +84,11 @@ class Header extends React.Component {
           </ul>
           <ul className='right-links'>
             <NavLink to='#'>Demo</NavLink>
-            <li>
-              <a href="https://github.com/openpitrix/openpitrix">GitHub</a>
+            <li className="github-icon">
+              <a href="https://github.com/openpitrix/openpitrix" target="_blank">
+                <IconGithub/>
+                GitHub
+              </a>
             </li>
           </ul>
         </div>

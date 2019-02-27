@@ -1,7 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet';
 
-import Header from 'components/Header'
 import {StaticQuery, graphql} from 'gatsby';
 
 import './index.css'
@@ -18,7 +17,6 @@ const Layout = ({ children, data }) => {
           { name: 'keywords', content: keywords },
         ]}
       />
-      <Header/>
       {children}
     </>
   )

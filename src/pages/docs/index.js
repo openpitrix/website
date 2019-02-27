@@ -3,7 +3,7 @@ import GatsbyLink from 'gatsby-link'
 import get from 'lodash/get';
 import styled from 'styled-components';
 
-import {Banner, Nav} from 'components/Doc';
+import {Banner, Nav, Header} from 'components/Doc';
 import Layout from 'layout';
 
 const getChildLink = (item) => {
@@ -24,6 +24,7 @@ export default class Docs extends Component {
 
     return (
       <Layout>
+        <Header/>
         <Wrapper>
           <Banner/>
           <Nav/>
@@ -130,6 +131,12 @@ footer {
     margin-left: 256px;
   }
 }
+@media only screen and (max-width: 768px) {
+  .main-body {
+    width: auto;
+  }
+}
+
 // @media only screen and (min-width: 1280px) {
 //   .main-body {
 //     > div {

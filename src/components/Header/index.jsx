@@ -9,16 +9,11 @@ import styles from './index.module.scss'
 const headerLinks = [
   { name: '首页', link: '/', active: '/' },
   { name: '安装', link: '/install', active: '/install' },
-  { name: '文档', link: '/document', active: '/document' },
+  { name: '文档', link: '/docs', active: '/docs' },
   { name: '博客', link: '/blog', active: '/blog' },
 ]
 
 export default class Header extends React.Component {
-  state = {
-    showMenus: false,
-    isDarkBg: false,
-  }
-
   static propTypes = {
     hasBg: PropTypes.bool,
     isBlankBg: PropTypes.bool,
@@ -33,12 +28,21 @@ export default class Header extends React.Component {
     maxTop: 0,
   }
 
-  async componentDidMount() {
+  state = {
+    showMenus: false,
+    isDarkBg: false,
+  }
+
+  componentDidMount() {
     const { maxTop } = this.props
 
     if (maxTop > 0) {
       window.onscroll = this.handleScroll
     }
+  }
+
+  componentWillUnmount() {
+    window.onscroll=null;
   }
 
   handleScroll = () => {

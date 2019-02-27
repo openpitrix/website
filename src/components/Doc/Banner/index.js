@@ -4,12 +4,26 @@ import styled from 'styled-components';
 import Search from 'components/Search';
 import {ReactComponent as BannerPic} from 'assets/doc-banner-pic.svg';
 
+export default class DocBanner extends React.Component {
+  render() {
+    return (
+      <Banner>
+        <div className="wrap">
+          <div className="text">欢迎使用 OpenPitrix 文档</div>
+          <div className="bannerPic">
+            <BannerPic/>
+          </div>
+          <Search className="search" />
+        </div>
+      </Banner>
+    )
+  }
+}
+
 const Banner=styled.div`
-  width: calc(100vw - 256px);
   background-image: radial-gradient(circle at 46% 0, #8454cd, #343945);
   height: 340px;
   position: relative;
-  left: 256px;
   top: 72px;
   margin-bottom: 64px;
   
@@ -42,20 +56,13 @@ const Banner=styled.div`
       }
     }
   }  
-`;
-
-export default class DocBanner extends React.Component {
-  render() {
-    return (
-      <Banner>
-        <div className="wrap">
-          <div className="text">欢迎使用 OpenPitrix 文档</div>
-          <div className="bannerPic">
-            <BannerPic/>
-          </div>
-          <Search className="search" />
-        </div>
-      </Banner>
-    )
-  }
+  
+@media only screen and (min-width: 768px) {
+  width: calc(100vw - 256px);
+  left: 256px;
 }
+
+@media only screen and (max-width: 768px) {
+  width: 100%;
+}
+`;

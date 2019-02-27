@@ -31,8 +31,7 @@ export default class Docs extends Component {
           <div className="body">
             <div className="main-body">
               {
-                menus.edges[0].node.chapters.map((item, index) => {
-                  const { entry, chapters } = item;
+                menus.edges[0].node.chapters.map(item => {
                   const link = getChildLink(item);
                   const children = item.chapters || item.entries;
 
@@ -43,7 +42,6 @@ export default class Docs extends Component {
                       {
                         children && children.map((child) => {
                           let childLink = getChildLink(child);
-                          let childMarkdownRemark = null;
                           let { title } = child;
                           if (!title) {
                             title = get(child, 'entry.childMarkdownRemark.frontmatter.title');

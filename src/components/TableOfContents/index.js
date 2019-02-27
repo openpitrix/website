@@ -1,3 +1,4 @@
+/* eslint-disable no-undef, no-restricted-globals */
 import React from 'react'
 import styled from 'styled-components'
 import {graphql, StaticQuery} from 'gatsby';
@@ -7,9 +8,14 @@ import find from 'lodash/find';
 import ChapterList from './chapter'
 
 class TableOfContents extends React.Component {
+  componentWillMount() {
+    const urlParts=location.pathname.split('/').filter(Boolean)
+    this.slugId=`${urlParts[1]}-${urlParts[2]}`
+  }
+
   render() {
     const { toc } = this.props.data
-    const chapters=get(toc, 'edges[0].node.chapters', [])
+    const chapters = get(find(toc.edges, ({node})=> node.id === this.slugId), 'node.chapters', [])
 
     if(!find(chapters, {idKey: 'doc-home-entry'})){
       chapters.unshift({
@@ -27,7 +33,7 @@ class TableOfContents extends React.Component {
     }
 
     return (
-      <TOCWrapper>
+      <TOCWrapper id="toc-wrap">
         {chapters.map((chapter, index) => (
           <ChapterList {...chapter} key={index} />
         ))}
@@ -43,7 +49,7 @@ const query=graphql`
     }
   }
   query {
-    toc: allContentJson(filter: { id: { eq: "v0.3-zh-CN" } }) {
+    toc: allContentJson {
       edges {
         node {
           id

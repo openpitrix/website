@@ -52,6 +52,9 @@ const StyledSearch=styled(Search)`
     input {
       background-color: white;
       border-radius: 16px;
+      font-size: 14px;
+      font-weight: normal;
+      
       &:hover {
         border: solid 1px #8454cd;
       }

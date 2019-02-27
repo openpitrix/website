@@ -128,11 +128,10 @@
 }
 
 .md-body h1 {
-  font-size: 2rem;
-  line-height: 1;
-  padding-left: 1rem;
-  margin-bottom: 2rem; 
-  border-left: 8px solid #8454CD; 
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.43;
+  color: #343945;
 }
 
 .md-body h2 {

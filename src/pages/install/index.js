@@ -2,11 +2,10 @@ import React from 'react';
 
 import Layout from 'layout';
 
-const Index=props=> {
-
+const Install=()=> {
   return (
     <Layout/>
   )
 }
 
-export default Index;
+export default Install;

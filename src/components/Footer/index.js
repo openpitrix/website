@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import isEmpty from 'lodash/isEmpty'
 
-import { ReactComponent as Previous } from '../assets/previous.svg'
-import { ReactComponent as Next } from '../assets/next.svg'
+import {ReactComponent as Previous} from 'assets/previous.svg'
+import {ReactComponent as Next} from 'assets/next.svg'
 
 class Footer extends React.Component {
   render() {
@@ -39,13 +39,13 @@ const Link = styled.a`
   float: ${({ right }) => (right ? 'right' : 'none')};
   line-height: 2;
   font-size: 14px;
-  color: #5d6b79;
+  color: #474e5d;
 
   & > svg {
     width: 20px;
     height: 20px;
     margin: ${({ right }) => (right ? '0 0 0 12px' : '0 12px 0 0')};
-    vertical-align: text-bottom;
+    vertical-align: bottom;
   }
 
   &:hover {

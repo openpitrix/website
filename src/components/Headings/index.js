@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import Link from 'gatsby-link'
 
-import { formatAnchor } from '../utils/index'
+import { formatAnchor } from 'utils'
 
 export default class Headings extends React.Component {
   static propTypes = {
@@ -50,9 +49,9 @@ export default class Headings extends React.Component {
       <Wrapper>
         <Title>{title}</Title>
         <div>
-          {headings.map(({ value, depth }) => (
+          {headings.map(({ value, depth }, idx) => (
             <Head
-              key={`${depth}-${value}`}
+              key={`${depth}-${value}-${idx}`}
               level={depth - 2}
               data-anchor={`#${formatAnchor(value)}`}
               selected={`#${formatAnchor(value)}` === current}
@@ -69,7 +68,7 @@ export default class Headings extends React.Component {
 
 const Wrapper = styled.div`
   width: 260px;
-  padding: 76px 0;
+  padding: 32px 0;
 `
 
 const Title = styled.h5`
@@ -115,7 +114,7 @@ const Head = styled.h5`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: ${({ selected }) => (selected ? '#8454CD' : '#141f29')};
+  color: ${({ selected }) => (selected ? '#8454CD' : '#576075')};
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 

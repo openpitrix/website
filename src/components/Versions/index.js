@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { graphql, StaticQuery, navigate } from 'gatsby'
-import * as compareVersions from 'compare-versions'
+import {sortVersions} from 'utils'
 
 import Select from 'components/Select';
 
@@ -13,14 +13,14 @@ class Versions extends Component {
   }
 
   handleChangeVersion=version=> {
-    // watch out trailing slash
+    // todo: default entry
     const docEntry=`/docs/${version}/zh-CN/user-guide/introduction/`;
     navigate(docEntry);
   }
 
   render() {
     const { versions } = this.props.data
-    const sortedVersions=versions.group.map(ver=> ver.fieldValue).sort(compareVersions).reverse() // sort desc
+    const sortedVersions=sortVersions(versions)
     const latestVer=sortedVersions[0];
     const currentVersion=this.getCurrentVersion() || latestVer;
 

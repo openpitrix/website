@@ -4,13 +4,20 @@ import styled from 'styled-components'
 import {graphql, StaticQuery} from 'gatsby';
 import get from 'lodash/get';
 import find from 'lodash/find';
+import {sortVersions} from 'utils'
 
 import ChapterList from './chapter'
 
 class TableOfContents extends React.Component {
   componentWillMount() {
     const urlParts=location.pathname.split('/').filter(Boolean)
-    this.slugId=`${urlParts[1]}-${urlParts[2]}`
+    let [, version, lang = 'zh-CN']=[...urlParts]
+    if(!version){
+      const { versions } = this.props.data
+      version = sortVersions(versions)[0]
+    }
+
+    this.slugId=`${version}-${lang}`
   }
 
   render() {
@@ -49,6 +56,11 @@ const query=graphql`
     }
   }
   query {
+    versions: allMarkdownRemark {
+      group(field: fields___version) {
+        fieldValue
+      }
+    }
     toc: allContentJson {
       edges {
         node {

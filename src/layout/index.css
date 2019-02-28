@@ -1,5 +1,7 @@
 html {
-  font-family: "Roboto", "PingFang SC", "Lantinghei SC", "Helvetica Neue", Helvetica, Arial, "Microsoft YaHei", 微软雅黑, STHeitiSC-Light, simsun, 宋体, "WenQuanYi Zen Hei", "WenQuanYi Micro Hei", sans-serif;
+  font-family: 'Roboto', 'PingFang SC', 'Lantinghei SC', 'Helvetica Neue',
+    Helvetica, Arial, 'Microsoft YaHei', 微软雅黑, STHeitiSC-Light, simsun, 宋体,
+    'WenQuanYi Zen Hei', 'WenQuanYi Micro Hei', sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   overflow: visible;
@@ -62,7 +64,7 @@ dfn {
 }
 h1 {
   font-size: 2em;
-  margin: .67em 0;
+  margin: 0.67em 0;
 }
 mark {
   background-color: #ff0;
@@ -79,10 +81,10 @@ sup {
   vertical-align: baseline;
 }
 sub {
-  bottom: -.25em;
+  bottom: -0.25em;
 }
 sup {
-  top: -.5em;
+  top: -0.5em;
 }
 img {
   border-style: none;
@@ -124,29 +126,29 @@ button,
 select {
   text-transform: none;
 }
-[type=reset],
-[type=submit],
+[type='reset'],
+[type='submit'],
 button,
-html [type=button] {
+html [type='button'] {
   -webkit-appearance: button;
 }
-[type=button]::-moz-focus-inner,
-[type=reset]::-moz-focus-inner,
-[type=submit]::-moz-focus-inner,
+[type='button']::-moz-focus-inner,
+[type='reset']::-moz-focus-inner,
+[type='submit']::-moz-focus-inner,
 button::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
-[type=button]:-moz-focusring,
-[type=reset]:-moz-focusring,
-[type=submit]:-moz-focusring,
+[type='button']:-moz-focusring,
+[type='reset']:-moz-focusring,
+[type='submit']:-moz-focusring,
 button:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 fieldset {
   border: 1px solid silver;
   margin: 0 2px;
-  padding: .35em .625em .75em;
+  padding: 0.35em 0.625em 0.75em;
 }
 legend {
   box-sizing: border-box;
@@ -159,26 +161,26 @@ legend {
 textarea {
   overflow: auto;
 }
-[type=checkbox],
-[type=radio] {
+[type='checkbox'],
+[type='radio'] {
   box-sizing: border-box;
   padding: 0;
 }
-[type=number]::-webkit-inner-spin-button,
-[type=number]::-webkit-outer-spin-button {
+[type='number']::-webkit-inner-spin-button,
+[type='number']::-webkit-outer-spin-button {
   height: auto;
 }
-[type=search] {
+[type='search'] {
   -webkit-appearance: textfield;
   outline-offset: -2px;
 }
-[type=search]::-webkit-search-cancel-button,
-[type=search]::-webkit-search-decoration {
+[type='search']::-webkit-search-cancel-button,
+[type='search']::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 ::-webkit-input-placeholder {
   color: inherit;
-  opacity: .54;
+  opacity: 0.54;
 }
 ::-webkit-file-upload-button {
   -webkit-appearance: button;
@@ -200,16 +202,18 @@ html {
 }
 body {
   font-size: 0.875rem;
-  background: #F9FAFB;
+  background: #f9fafb;
   color: #343945;
-  font-family: "Roboto", "PingFang SC", "Lantinghei SC", "Helvetica Neue", Helvetica, Arial, "Microsoft YaHei", 微软雅黑, STHeitiSC-Light, simsun, 宋体, "WenQuanYi Zen Hei", "WenQuanYi Micro Hei", sans-serif;
+  font-family: 'Roboto', 'PingFang SC', 'Lantinghei SC', 'Helvetica Neue',
+    Helvetica, Arial, 'Microsoft YaHei', 微软雅黑, STHeitiSC-Light, simsun, 宋体,
+    'WenQuanYi Zen Hei', 'WenQuanYi Micro Hei', sans-serif;
   font-weight: normal;
   word-wrap: break-word;
   font-kerning: normal;
-  -moz-font-feature-settings: "kern", "liga", "clig", "calt";
-  -ms-font-feature-settings: "kern", "liga", "clig", "calt";
-  -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
-  font-feature-settings: "kern", "liga", "clig", "calt";
+  -moz-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
+  -ms-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
+  -webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
+  font-feature-settings: 'kern', 'liga', 'clig', 'calt';
 }
 img {
   max-width: 100%;
@@ -555,10 +559,10 @@ td,
 th {
   text-align: left;
   border-bottom: 1px solid hsla(0, 0%, 0%, 0.12);
-  font-feature-settings: "tnum";
-  -moz-font-feature-settings: "tnum";
-  -ms-font-feature-settings: "tnum";
-  -webkit-font-feature-settings: "tnum";
+  font-feature-settings: 'tnum';
+  -moz-font-feature-settings: 'tnum';
+  -ms-font-feature-settings: 'tnum';
+  -webkit-font-feature-settings: 'tnum';
   padding-left: 0.96667rem;
   padding-right: 0.96667rem;
   padding-top: 0.725rem;
@@ -590,13 +594,13 @@ code:after,
 tt:before,
 tt:after {
   letter-spacing: -0.2em;
-  content: " ";
+  content: ' ';
 }
 pre code:before,
 pre code:after,
 pre tt:before,
 pre tt:after {
-  content: "";
+  content: '';
 }
 @media only screen and (max-width: 480px) {
   html {
@@ -609,7 +613,7 @@ pre tt:after {
 }
 
 .ReactModal__Overlay {
-  transition: opacity .15s linear;
+  transition: opacity 0.15s linear;
   opacity: 0;
 }
 
@@ -622,9 +626,9 @@ pre tt:after {
 }
 
 .ReactModal__Content {
-  transition: opacity .15s, transform .15s;
+  transition: opacity 0.15s, transform 0.15s;
   opacity: 0;
-  transform: scale(.9);
+  transform: scale(0.9);
   background-color: #fff;
   border-radius: 8px;
 }
@@ -636,7 +640,7 @@ pre tt:after {
 
 .ReactModal__Content--before-close {
   opacity: 0;
-  transform: scale(.9);
+  transform: scale(0.9);
 }
 
 mark {
@@ -648,6 +652,6 @@ mark {
   box-shadow: 0 4px 8px 0 rgba(9, 18, 26, 0.1);
 }
 
-:root{
+:root {
   --main-bg-color: #000;
 }

@@ -19,11 +19,11 @@ export default class MailModal extends React.Component {
   }
 
   onClose = () => {
-    this.props.onClose && this.props.onClose();
+    this.props.onClose && this.props.onClose()
   }
 
   onSubmit = () => {
-    this.props.onSubmit && this.props.onSubmit();
+    this.props.onSubmit && this.props.onSubmit()
   }
 
   render() {

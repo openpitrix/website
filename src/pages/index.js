@@ -1,12 +1,9 @@
-import React from 'react';
+import React from 'react'
 
 import Home from './home'
 
 const IndexPage = () => {
-  return (
-    <Home />
-  )
+  return <Home />
 }
 
 export default IndexPage
-

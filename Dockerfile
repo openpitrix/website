@@ -1,11 +1,11 @@
-FROM node:9-alpine as builder
+FROM openpitrix/dashboard-env-slim:v0.2.0 as builder
+MAINTAINER sunnyw <sunnywang@yunify.com>
+
+ARG SKIP_NODE_SASS_TESTS=true
 
 ENV PATH=$PATH:/app/node_modules/.bin
 
 WORKDIR /app
-
-# install deps for libvips
-#RUN apk add vips-dev fftw --update-cache --repository https://dl-3.alpinelinux.org/alpine/edge/testing/
 
 COPY package.json yarn.lock /tmp/
 

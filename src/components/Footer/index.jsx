@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 
-import links from './links.js';
+import links from './links.js'
 
 import styles from './index.module.scss'
 
@@ -14,7 +14,9 @@ export default class Footer extends React.Component {
             <ul>
               {link.items.map(item => (
                 <li key={item.name}>
-                  <a href={item.link} target="_blank">{item.name}</a>
+                  <a href={item.link} target="_blank">
+                    {item.name}
+                  </a>
                 </li>
               ))}
             </ul>
@@ -32,7 +34,9 @@ export default class Footer extends React.Component {
           <a className={styles.logo} href="/">
             <img src="/images/op-logo-blank.svg" />
           </a>
-          <label className={styles.copyright}>Openpitrix Technology © 2019</label>
+          <label className={styles.copyright}>
+            Openpitrix Technology © 2019
+          </label>
         </div>
       </div>
     )

@@ -59,5 +59,5 @@ export default {
   N45: '#bcc2d1',
   N30: '#d5dae5',
   N10: '#eff0f5',
-  N0: '#ffffff'
+  N0: '#ffffff',
 }

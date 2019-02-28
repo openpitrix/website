@@ -1,7 +1,9 @@
 @import '../../scss/variables';
 :global {
   body {
-    font-family: "PingFang SC", "Roboto", "Lantinghei SC", "Helvetica Neue", Helvetica, Arial, "Microsoft YaHei", 微软雅黑, STHeitiSC-Light, simsun, 宋体, "WenQuanYi Zen Hei", "WenQuanYi Micro Hei", sans-serif;
+    font-family: 'PingFang SC', 'Roboto', 'Lantinghei SC', 'Helvetica Neue',
+      Helvetica, Arial, 'Microsoft YaHei', 微软雅黑, STHeitiSC-Light, simsun,
+      宋体, 'WenQuanYi Zen Hei', 'WenQuanYi Micro Hei', sans-serif;
   }
 
   .markdown {
@@ -301,7 +303,7 @@
       outline: none;
       border-color: rgba(82, 168, 236, 0.8);
       box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1),
-      0 0 8px rgba(82, 168, 236, 0.6);
+        0 0 8px rgba(82, 168, 236, 0.6);
     }
     /* buttons */
     button {
@@ -312,7 +314,7 @@
       line-height: 18px;
       border-radius: 4px;
       box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2),
-      0 1px 2px rgba(0, 0, 0, 0.05);
+        0 1px 2px rgba(0, 0, 0, 0.05);
       background-color: #0064cd;
       background-repeat: repeat-x;
       background-image: linear-gradient(to top, #049cdb, #0064cd);
@@ -330,7 +332,7 @@
     }
     button:active {
       box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.15),
-      0 1px 2px rgba(0, 0, 0, 0.05);
+        0 1px 2px rgba(0, 0, 0, 0.05);
     }
     button::-moz-focus-inner {
       padding: 0;
@@ -427,7 +429,8 @@
         color: $N65;
       }
 
-      a:hover, a.active {
+      a:hover,
+      a.active {
         color: #000000;
       }
     }
@@ -446,7 +449,6 @@
   &.lightHeader {
     background-image: radial-gradient(circle at 49% 107%, $P75, $N500);
   }
-
 
   .wrapper {
     margin: 0 auto;
@@ -469,7 +471,7 @@
       left: 0;
       height: 4px;
       width: 100%;
-      background-color: $Y300 ;
+      background-color: $Y300;
       border-radius: 0 4px 0 4px;
     }
 
@@ -505,7 +507,7 @@
   }
 
   .otherLinks {
-    font-family: "Roboto";
+    font-family: 'Roboto';
     float: right;
     margin: 16px 0;
 
@@ -610,7 +612,6 @@
           margin-top: 4px;
         }
       }
-
     }
 
     .close {
@@ -622,8 +623,6 @@
     }
   }
 }
-
-
 
 @media only screen and (max-width: $mobile-max-width) {
   .header {
@@ -637,7 +636,8 @@
       }
     }
 
-    .links, .otherLinks {
+    .links,
+    .otherLinks {
       display: none;
     }
 
@@ -646,5 +646,3 @@
     }
   }
 }
-
-

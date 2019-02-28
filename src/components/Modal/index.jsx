@@ -20,7 +20,7 @@ export default class Modal extends React.Component {
   }
 
   onClose = () => {
-    this.props.onClose && this.props.onClose();
+    this.props.onClose && this.props.onClose()
   }
 
   render() {
@@ -43,7 +43,11 @@ export default class Modal extends React.Component {
       >
         <div className={styles.header}>
           {closable && (
-            <img onClick={this.onClose} src="/images/modal/close.svg" className={styles.close} />
+            <img
+              onClick={this.onClose}
+              src="/images/modal/close.svg"
+              className={styles.close}
+            />
           )}
         </div>
         <div className={styles.body}>{children}</div>

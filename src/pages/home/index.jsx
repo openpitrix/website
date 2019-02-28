@@ -4,7 +4,7 @@ import Header from 'components/Header'
 import Footer from 'components/Footer'
 import DownloadModal from 'components/DownloadModal'
 import MailModal from 'components/MailModal'
-import banners from './banners'
+import banners from 'config/banners'
 
 import styles from './index.module.scss'
 
@@ -22,7 +22,7 @@ export default class Home extends Component {
   }
 
   componentWillUnmount() {
-    window.onresize=null
+    window.onresize = null
   }
 
   handleResize = () => {

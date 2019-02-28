@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import isEmpty from 'lodash/isEmpty'
 
-import {ReactComponent as Previous} from 'assets/previous.svg'
-import {ReactComponent as Next} from 'assets/next.svg'
+import { ReactComponent as Previous } from 'assets/previous.svg'
+import { ReactComponent as Next } from 'assets/next.svg'
 
 class Footer extends React.Component {
   render() {
@@ -49,7 +49,7 @@ const Link = styled.a`
   }
 
   &:hover {
-    color: #8454CD;
+    color: #8454cd;
   }
 `
 

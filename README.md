@@ -1,6 +1,7 @@
-# Official website for [OpenPitrix](https://github.com/openpitrix/openpitrix).
+# Official website for [OpenPitrix](https://github.com/openpitrix/openpitrix)
 
-[![Build Status](https://travis-ci.org/openpitrix/docs.openpitrix.io.svg)](https://travis-ci.org/openpitrix/docs.openpitrix.io)
+[![Build Status](https://travis-ci.org/openpitrix/website.svg)](https://travis-ci.org/openpitrix/website)
+[![docker build](https://img.shields.io/docker/build/openpitrix/website.svg)](https://cloud.docker.com/u/openpitrix/repository/docker/openpitrix/website/tags)
 
 ## Develop
 
@@ -9,6 +10,13 @@ git clone https://github.com/openpitrix/website.git
 cd website
 yarn
 yarn dev
+```
+
+## Run
+
+```bash
+docker pull openpitrix/website
+docker run -d --rm -p 80:80 --name op-website openpitrix/website
 ```
 
 ## Contribute

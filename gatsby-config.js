@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'OpenPitrix',
-    keywords: 'openpitrix.io, openpitrix documents, docs',
+    keywords: 'openpitrix, openpitrix.io, official website, documents, docs, blog',
     description: 'openpitrix official site'
   },
   plugins: [
@@ -31,8 +31,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: `content`,
-        path: `${__dirname}/content/`,
+        name: `docs`,
+        path: `${__dirname}/docs/`,
       },
     },
     {

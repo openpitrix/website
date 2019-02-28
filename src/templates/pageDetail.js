@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-globals, no-undef */
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
@@ -48,7 +47,9 @@ export default class MarkdownTemplate extends React.Component {
     }
 
     this.scrollToHash()
-    this.getPrevAndNext()
+
+    // toc component may not rendered when exec this func
+    setTimeout(this.getPrevAndNext, 300)
   }
 
   componentWillUnmount() {

@@ -3,7 +3,7 @@ language: node_js
 sudo: false
 dist: trusty
 node_js:
-  - "9"
+  - "8"
 
 services:
   - docker
@@ -17,11 +17,11 @@ install:
   - yarn
 
 before_deploy:
-  - docker build -t openpitrix/docs.openpitrix.io .
+  - docker build -t openpitrix/website .
 
 deploy:
   provider: script
-  script: bash docker_push
+  script: bash docker_push.sh
   on:
     branch: master
-    repo: openpitrix/docs.openpitrix.io
+    repo: openpitrix/website

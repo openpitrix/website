@@ -71,7 +71,7 @@ const query = graphql`
         fieldValue
       }
     }
-    toc: allContentJson {
+    toc: allDocsJson {
       edges {
         node {
           id

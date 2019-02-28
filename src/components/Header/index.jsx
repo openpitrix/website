@@ -29,6 +29,7 @@ export default class Header extends React.Component {
   }
 
   state = {
+    currentPath: '/',
     showMenus: false,
     isDarkBg: false,
   }
@@ -39,6 +40,8 @@ export default class Header extends React.Component {
     if (maxTop > 0) {
       window.onscroll = this.handleScroll
     }
+
+    this.setState({ currentPath: location.pathname })
   }
 
   componentWillUnmount() {
@@ -64,6 +67,7 @@ export default class Header extends React.Component {
   }
 
   renderMenus() {
+    const { currentPath } = this.state
     return (
       <div className={styles.meuns}>
         <img
@@ -79,7 +83,7 @@ export default class Header extends React.Component {
                 key={item.name}
                 href={item.link}
                 className={classnames({
-                  [styles.active]: location.pathname === item.active,
+                  [styles.active]: currentPath === item.active,
                 })}
               >
                 {item.name}
@@ -111,7 +115,7 @@ export default class Header extends React.Component {
 
   render() {
     const { isBlankBg, hasBg, hasLightBg } = this.props
-    const { showMenus } = this.state
+    const { showMenus, currentPath } = this.state
     const isDarkBg = !isBlankBg && (this.state.isDarkBg || hasBg)
     const logoSrc = isBlankBg
       ? '/images/op-logo.svg'
@@ -140,7 +144,7 @@ export default class Header extends React.Component {
                 key={item.name}
                 href={item.link}
                 className={classnames({
-                  [styles.active]: location.pathname === item.active,
+                  [styles.active]: currentPath === item.active,
                 })}
               >
                 {item.name}

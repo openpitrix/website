@@ -460,13 +460,15 @@
     background-color: rgba($N500, 0.89);
   }
 
-  &.lightHeader {
-    background-image: radial-gradient(circle at 49% 107%, $P75, $N500);
+  &.docHeader {
+    .wrapper {
+      max-width: 100vw;
+    }
   }
 
   .wrapper {
     margin: 0 auto;
-    padding: 0 $page-padding;
+    padding: 0 $header-padding;
     max-width: 1200px;
     width: 100vw;
     // height: $header-height;
@@ -536,7 +538,7 @@
       border-radius: 2px;
 
       &:last-child {
-        margin-right: 0;
+        margin-right: -20px;
       }
 
       &:hover {

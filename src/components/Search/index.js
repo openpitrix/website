@@ -22,11 +22,8 @@ class Search extends React.Component {
 }
 
 const SearchWrapper = styled.div`
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 350px;
+  position: relative;
+  max-width: 460px;
   height: 36px;
 
   .algolia-autocomplete {
@@ -46,10 +43,9 @@ const SearchWrapper = styled.div`
     font-size: 0.875rem;
     font-weight: 600;
     line-height: 1.7;
-    color: #576075;
+    color: #fff;
     border-radius: 18px;
-    border: solid 1px #cfd9df;
-    background-color: transparent;
+    border: solid 1px #eff0f5;
     transition: all 0.2s ease;
 
     &::placeholder {
@@ -70,7 +66,6 @@ const SearchWrapper = styled.div`
     width: 14px;
     height: 14px;
     transform: translateY(-50%);
-    z-index: 2;
   }
 `
 

@@ -9,6 +9,10 @@ html {
 body {
   margin: 0;
 }
+* {
+  margin: 0;
+  padding: 0;
+}
 article,
 aside,
 details,
@@ -519,7 +523,7 @@ blockquote *:last-child {
   margin-bottom: 0;
 }
 li *:last-child {
-  margin-bottom: 0;
+  // margin-bottom: 0;
 }
 p *:last-child {
   margin-bottom: 0;

@@ -10,9 +10,6 @@ export default class DocBanner extends React.Component {
       <Banner>
         <div className="wrap">
           <div className="text">欢迎使用 OpenPitrix 文档</div>
-          <div className="bannerPic">
-            <BannerPic />
-          </div>
           <Search className="search" />
         </div>
       </Banner>
@@ -25,29 +22,36 @@ const Banner = styled.div`
   height: 340px;
   position: relative;
   top: 72px;
-  margin-bottom: 64px;
 
   .wrap {
+    background: url('/images/document/banner-pic.svg') no-repeat;
+    background-position: center right;
     margin-left: auto;
     margin-right: auto;
-    width: 920px;
+    padding: 0 24px;
+    max-width: 920px;
+    width: 100%;
     height: 100%;
 
     .text {
-      position: relative;
-      top: 114px;
-      font-family: Roboto;
+      padding: 114px 0 20px;
+      font-family: 'Roboto';
       font-size: 32px;
       font-weight: 500;
-      line-height: 1.25;
-      color: white;
+      line-height: 40px;
+      color: #fff;
     }
 
     .search {
-      position: relative;
-      left: 0;
       input {
-        color: white;
+        border-color: transparent;
+        background: rgba(255, 255, 255, 0.08);
+        opacity: 0.5;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.2);
+          opacity: 1;
+        }
       }
     }
     .bannerPic {
@@ -63,9 +67,15 @@ const Banner = styled.div`
   }
 
   @media only screen and (max-width: 768px) {
-    width: 100%;
+    height: 260px;
+    top: 56px;
+
     .wrap {
-      width: auto;
+      padding: 0 40px;
+      .text {
+        padding: 78px 0 20px;
+        font-size: 24px;
+      }
     }
   }
 `

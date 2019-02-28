@@ -169,6 +169,7 @@ const SelectWrap = styled.div`
       float: right;
       with: 16px;
       height: 16px;
+      margin-top: 4px;
     }
 
     .controlLabel {

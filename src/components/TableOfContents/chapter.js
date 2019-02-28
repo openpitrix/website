@@ -254,22 +254,32 @@ const ListItem = styled.li`
 
 const Title = styled.h5`
   position: relative;
-  font-size: 0.875rem;
   font-weight: normal;
-  line-height: 1.67;
+  line-height: 24px;
   text-align: left;
   color: #576075;
-  padding: 8px 20px;
+  opacity: ${({ active }) => {
+    return active ? 1 : 0.8
+  }};
+  cursor: pointer;
+  margin-bottom: ${({ level }) => {
+    switch (level % 4) {
+      case 0:
+        return '16px'
+      default:
+        return '12px'
+    }
+  }};
   padding-left: ${({ level }) => {
     switch (level % 4) {
       case 1:
-        return '44px'
+        return '24px'
       case 2:
-        return '66px'
+        return '48px'
       case 3:
-        return '88px'
+        return '72px'
       default:
-        return '20px'
+        return '0'
     }
   }};
   cursor: pointer;
@@ -287,9 +297,9 @@ const Title = styled.h5`
   & > svg {
     width: 16px;
     height: 16px;
-    margin-top: 1px;
+    margin-top: 4px;
     margin-right: 8px;
-    vertical-align: top;
+    vertical-align: sub;
     transform: rotate(-90deg);
     transition: all 0.2s ease;
 

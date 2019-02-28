@@ -116,6 +116,9 @@ export default class Header extends React.Component {
     const logoSrc = isBlankBg
       ? '/images/op-logo.svg'
       : '/images/op-logo-blank.svg'
+    const githubSrc = isBlankBg
+      ? '/images/github-dark.svg'
+      : '/images/github.svg'
 
     return (
       <div
@@ -149,7 +152,7 @@ export default class Header extends React.Component {
             <a href="#">Demo</a>
             <a href="https://github.com/openpitrix/openpitrix" target="_blank">
               <label className={styles.github}>
-                <img src="/images/github.svg" />
+                <img src={githubSrc} />
               </label>
               Github
             </a>

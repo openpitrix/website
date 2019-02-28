@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import classnames from 'classnames'
 
 import Header from 'components/Header'
 import Footer from 'components/Footer'
@@ -8,29 +9,10 @@ import banners from 'config/banners'
 
 import styles from './index.module.scss'
 
-const mobileWidth = 768
-
 export default class Home extends Component {
   state = {
     isDownloadOpen: false,
     isMailOpen: false,
-    isMobile: document.body.clientWidth <= mobileWidth,
-  }
-
-  componentDidMount() {
-    window.onresize = this.handleResize
-  }
-
-  componentWillUnmount() {
-    window.onresize = null
-  }
-
-  handleResize = () => {
-    if (document.body.clientWidth <= mobileWidth) {
-      this.setState({ isMobile: true })
-    } else {
-      this.setState({ isMobile: false })
-    }
   }
 
   openVersionModal = () => {
@@ -91,12 +73,10 @@ export default class Home extends Component {
   }
 
   renderBannerWord(banner) {
-    const { isMobile } = this.state
-
     return (
       <div className={styles.wrapper}>
-        {banner.position === 'left' && !isMobile && (
-          <div className={styles.image}>
+        {banner.position === 'left' && (
+          <div className={classnames(styles.image, 'webShow')}>
             <img src={banner.image} />
           </div>
         )}
@@ -106,16 +86,14 @@ export default class Home extends Component {
             <label>{banner.titlePrefix}</label>
             {banner.title}
           </div>
-          {isMobile && (
-            <div className={styles.image}>
-              <img src={banner.image} />
-            </div>
-          )}
+          <div className={classnames(styles.image,' mobileShow')}>
+            <img src={banner.image} />
+          </div>
           <div className={styles.description}>{banner.description}</div>
           <label className={styles.button}>了解更多 →</label>
         </div>
-        {banner.position === 'right' && !isMobile && (
-          <div className={styles.image}>
+        {banner.position === 'right' &&  (
+          <div className={classnames(styles.image, 'webShow')}>
             <img src={banner.image} />
           </div>
         )}
@@ -161,7 +139,7 @@ export default class Home extends Component {
   }
 
   render() {
-    const { isDownloadOpen, isMailOpen, isMobile } = this.state
+    const { isDownloadOpen, isMailOpen } = this.state
 
     return (
       <div>
@@ -176,13 +154,11 @@ export default class Home extends Component {
 
         <DownloadModal
           isOpen={isDownloadOpen}
-          isMobile={isMobile}
           onClose={this.closeModal}
           onSubmit={this.submitDownload}
         />
         <MailModal
           isOpen={isMailOpen}
-          isMobile={isMobile}
           onClose={this.closeModal}
           onSubmit={this.closeModal}
         />

@@ -1,27 +1,27 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
 import Search from 'components/Search'
 import Versions from 'components/Versions'
 import TableOfContents from 'components/TableOfContents'
 
 export default class DocNav extends React.Component {
-  state={
-    isExpand: false
+  state = {
+    isExpand: false,
   }
 
   render() {
     return (
       <Nav isExpand={this.state.isExpand}>
         <StyledSearch className="search" placeholder="请输入搜索内容" />
-        <Versions/>
-        <TableOfContents/>
+        <Versions />
+        <TableOfContents />
       </Nav>
     )
   }
 }
 
-const Nav=styled.div`
+const Nav = styled.div`
   width: 256px;
   height: calc(100vh);
   position: fixed;
@@ -31,15 +31,15 @@ const Nav=styled.div`
   box-shadow: inset -1px 0 0 0 #eff0f5;
   background-color: #f9fafb;
   transition: all 0.2s ease-in-out;
-  
-  @media only screen and (max-width: 768px) {
-  left: ${({ isExpand }) => {
-  return isExpand ? 0 : '-290px'
-}};
-  }
-`;
 
-const StyledSearch=styled(Search)`
+  @media only screen and (max-width: 768px) {
+    left: ${({ isExpand }) => {
+      return isExpand ? 0 : '-290px'
+    }};
+  }
+`
+
+const StyledSearch = styled(Search)`
   &.search {
     position: relative;
     top: 16px;
@@ -48,13 +48,13 @@ const StyledSearch=styled(Search)`
     right: 0;
     margin: 0 auto;
     border-radius: 16px;
-    
+
     input {
       background-color: white;
       border-radius: 16px;
       font-size: 14px;
       font-weight: normal;
-      
+
       &:hover {
         border: solid 1px #8454cd;
       }
@@ -62,9 +62,8 @@ const StyledSearch=styled(Search)`
         opacity: 0.5;
         font-family: PingFangSC san-serif;
         font-size: 12px;
-        color: #78839e;   
+        color: #78839e;
       }
     }
   }
 `
-

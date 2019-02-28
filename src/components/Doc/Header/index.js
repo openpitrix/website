@@ -1,21 +1,21 @@
 import React from 'react'
-import {Link} from 'gatsby';
+import { Link } from 'gatsby'
 
 import { getScrollTop } from 'utils'
-import {ReactComponent as Logo} from 'assets/logo2.svg'
-import {ReactComponent as IconGithub} from 'assets/github.svg'
+import { ReactComponent as Logo } from 'assets/logo2.svg'
+import { ReactComponent as IconGithub } from 'assets/github.svg'
 
-import Wrapper from './wrapper';
+import Wrapper from './wrapper'
 
-const NavLink = ({to, children}) => (
+const NavLink = ({ to, children }) => (
   <li>
     <Link
       to={to}
-      getProps={({isPartiallyCurrent, location})=> {
-        if(to === '/'){
-          return location.pathname === to ? {className: 'active'} : null;
+      getProps={({ isPartiallyCurrent, location }) => {
+        if (to === '/') {
+          return location.pathname === to ? { className: 'active' } : null
         }
-        return isPartiallyCurrent ? {className: 'active'} : null
+        return isPartiallyCurrent ? { className: 'active' } : null
       }}
     >
       {children}
@@ -24,8 +24,8 @@ const NavLink = ({to, children}) => (
 )
 
 class Header extends React.Component {
-  state={
-    isExpand: false
+  state = {
+    isExpand: false,
   }
 
   componentDidMount() {
@@ -49,10 +49,10 @@ class Header extends React.Component {
   }
 
   handleExpand = () => {
-    const {isExpand}=this.state;
+    const { isExpand } = this.state
     this.setState({
-      isExpand: !isExpand
-    });
+      isExpand: !isExpand,
+    })
   }
 
   render() {
@@ -69,32 +69,34 @@ class Header extends React.Component {
           <span className="line" />
         </div>
 
-        <div className='items'>
+        <div className="items">
           <div className="logo">
-            <Link to='/'>
+            <Link to="/">
               <Logo />
             </Link>
           </div>
 
           <ul className="nav-links">
-            <NavLink to='/'>首页</NavLink>
-            <NavLink to='/install'>安装</NavLink>
-            <NavLink to='/docs'>文档</NavLink>
-            <NavLink to='#'>博客</NavLink>
+            <NavLink to="/">首页</NavLink>
+            <NavLink to="/install">安装</NavLink>
+            <NavLink to="/docs">文档</NavLink>
+            <NavLink to="#">博客</NavLink>
           </ul>
-          <ul className='right-links'>
-            <NavLink to='#'>Demo</NavLink>
+          <ul className="right-links">
+            <NavLink to="#">Demo</NavLink>
             <li className="github-icon">
-              <a href="https://github.com/openpitrix/openpitrix" target="_blank">
-                <IconGithub/>
+              <a
+                href="https://github.com/openpitrix/openpitrix"
+                target="_blank"
+              >
+                <IconGithub />
                 GitHub
               </a>
             </li>
           </ul>
         </div>
-
       </Wrapper>
-    );
+    )
   }
 }
 

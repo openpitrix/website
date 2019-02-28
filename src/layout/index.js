@@ -1,12 +1,12 @@
 import React from 'react'
-import Helmet from 'react-helmet';
+import Helmet from 'react-helmet'
 
-import {StaticQuery, graphql} from 'gatsby';
+import { StaticQuery, graphql } from 'gatsby'
 
 import './index.css'
 
 const Layout = ({ children, data }) => {
-  const {title, keywords, description}=data.site.siteMetadata;
+  const { title, keywords, description } = data.site.siteMetadata
 
   return (
     <>
@@ -22,21 +22,19 @@ const Layout = ({ children, data }) => {
   )
 }
 
-export default props=> (
+export default props => (
   <StaticQuery
-    query={
-      graphql`
-  query SiteTitleQuery {
-    site {
-      siteMetadata {
-        title,
-        keywords,
-        description
+    query={graphql`
+      query SiteTitleQuery {
+        site {
+          siteMetadata {
+            title
+            keywords
+            description
+          }
+        }
       }
-    }
-  }
-`
-    }
-    render={data=> <Layout data={data} {...props} />}
+    `}
+    render={data => <Layout data={data} {...props} />}
   />
 )

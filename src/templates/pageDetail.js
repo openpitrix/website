@@ -2,14 +2,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import {graphql} from 'gatsby';
+import { graphql } from 'gatsby'
 import styled from 'styled-components'
 
-import Layout from 'layout';
-import {Nav as DocNav, Header, Footer} from 'components/Doc'
+import Layout from 'layout'
+import { Nav as DocNav, Header, Footer } from 'components/Doc'
 import Headings from 'components/Headings'
 
-import last from 'lodash/last';
+import last from 'lodash/last'
 
 import './markdown.css'
 import './b16-tomorrow-dark.css'
@@ -34,10 +34,14 @@ export default class MarkdownTemplate extends React.Component {
     //     debug: false,
     //   })
     // }
-    this.checkLocalHref();
+    this.checkLocalHref()
     document.addEventListener('click', this.handleClick)
 
-    if (this.markdownRef && !this.scroll && typeof SmoothScroll !== 'undefined') {
+    if (
+      this.markdownRef &&
+      !this.scroll &&
+      typeof SmoothScroll !== 'undefined'
+    ) {
       this.scroll = new SmoothScroll('a[href*="#"]', {
         offset: 100,
       })
@@ -65,7 +69,7 @@ export default class MarkdownTemplate extends React.Component {
     let { href } = location
     if (last(href) !== '/') {
       if (href.includes('#') && !href.includes('/#')) {
-        href = href.split('#').join('/#');
+        href = href.split('#').join('/#')
       }
       location.replace(`${href}/`)
     }
@@ -98,26 +102,25 @@ export default class MarkdownTemplate extends React.Component {
   getPrevAndNext = () => {
     const prevOrNext = (links, currentIndex, isPrev) => {
       if (isPrev && currentIndex === 0) {
-        return null;
+        return null
       }
       if (!isPrev && currentIndex === links.length - 1) {
-        return null;
+        return null
       }
 
-      const index = isPrev ? currentIndex - 1 : currentIndex + 1;
-      const link = links[index];
+      const index = isPrev ? currentIndex - 1 : currentIndex + 1
+      const link = links[index]
       if (link.querySelectorAll('svg').length > 0) {
-        return link;
+        return link
       }
 
-      return isPrev ?
-             prevOrNext(links, currentIndex - 1, isPrev) :
-             prevOrNext(links, currentIndex + 1, isPrev);
-
+      return isPrev
+        ? prevOrNext(links, currentIndex - 1, isPrev)
+        : prevOrNext(links, currentIndex + 1, isPrev)
     }
 
-    if(!this.tocRef){
-      this.tocRef=document.getElementById('toc-wrap');
+    if (!this.tocRef) {
+      this.tocRef = document.getElementById('toc-wrap')
     }
 
     const linkDoms = this.tocRef.querySelectorAll('a[href]')
@@ -126,13 +129,13 @@ export default class MarkdownTemplate extends React.Component {
 
     linkDoms.forEach((link, index) => {
       if (this.isCurrentLink(link)) {
-        const prevLink = prevOrNext(linkDoms, index, true);
+        const prevLink = prevOrNext(linkDoms, index, true)
         if (prevLink) {
           prev.text = prevLink.text
           prev.href = prevLink.pathname
         }
 
-        const nextLink = prevOrNext(linkDoms, index, false);
+        const nextLink = prevOrNext(linkDoms, index, false)
         if (linkDoms[index + 1]) {
           next.text = nextLink.text
           next.href = nextLink.pathname
@@ -158,17 +161,14 @@ export default class MarkdownTemplate extends React.Component {
 
   render() {
     const { slug } = this.props.pageContext
-    const {html, frontmatter, headings} = this.props.data.post
+    const { html, frontmatter, headings } = this.props.data.post
 
     // fixme
-    if(!frontmatter.id){
+    if (!frontmatter.id) {
       frontmatter.id = slug
     }
 
-    const {
-      prev,
-      next,
-    } = this.state
+    const { prev, next } = this.state
 
     return (
       <Layout>
@@ -178,10 +178,10 @@ export default class MarkdownTemplate extends React.Component {
           }`}</title>
         </Helmet>
 
-        <Header/>
+        <Header />
 
         <BodyGrid>
-          <DocNav/>
+          <DocNav />
 
           <MainContainer isExpand={this.state.isExpand}>
             <MarkdownWrapper>
@@ -198,7 +198,6 @@ export default class MarkdownTemplate extends React.Component {
               <FooterWrapper>
                 <Footer prev={prev} next={next} />
               </FooterWrapper>
-
             </MarkdownWrapper>
 
             <HeadingsWrapper>
@@ -209,17 +208,14 @@ export default class MarkdownTemplate extends React.Component {
                 onHeadClick={this.handleHeadClick}
               />
             </HeadingsWrapper>
-
           </MainContainer>
-
         </BodyGrid>
-
       </Layout>
     )
   }
 }
 
-export const pageQuery=graphql`
+export const pageQuery = graphql`
   fragment mdChild on MarkdownRemark {
     fields {
       slug
@@ -232,7 +228,7 @@ export const pageQuery=graphql`
       depth
     }
   }
-  
+
   query MarkdownBySlug($slug: String!, $version: String!) {
     site {
       siteMetadata {
@@ -271,19 +267,19 @@ const MainContainer = styled.div`
   margin-left: 280px;
 
   & > div {
-  margin: auto;
+    margin: auto;
   }
 
   & > h1 {
-  color: #303e5a;
+    color: #303e5a;
   }
 
   @media only screen and (max-width: 768px) {
-  width: 100vw;
-  margin-left: ${({ isExpand }) => {
-    return isExpand ? '280px' : '0'
-  }};
-  transition: margin-left 0.2s ease-in-out;
+    width: 100vw;
+    margin-left: ${({ isExpand }) => {
+      return isExpand ? '280px' : '0'
+    }};
+    transition: margin-left 0.2s ease-in-out;
   }
 `
 
@@ -296,7 +292,7 @@ const MarkdownWrapper = styled.div`
   padding-right: 280px;
 
   @media only screen and (max-width: 1280px) {
-  padding-right: 0;
+    padding-right: 0;
   }
 `
 
@@ -309,7 +305,7 @@ const HeadingsWrapper = styled.div`
   box-shadow: -1px 0 0 0 #d5dee7;
 
   @media only screen and (max-width: 1280px) {
-  display: none;
+    display: none;
   }
 `
 

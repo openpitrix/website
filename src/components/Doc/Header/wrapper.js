@@ -8,7 +8,7 @@ export default styled.div`
   height: 72px;
   // opacity: 0.92;
   background: white;
-  transition: left .2s cubic-bezier(0.79, 0.33, 0.14, 0.53);
+  transition: left 0.2s cubic-bezier(0.79, 0.33, 0.14, 0.53);
   z-index: 99;
 
   @media only screen and (max-width: 768px) {
@@ -17,26 +17,27 @@ export default styled.div`
     left: ${({ isExpand }) => {
       return isExpand ? '280px' : 0
     }};
-    
-    .nav-links, .right-links {
+
+    .nav-links,
+    .right-links {
       display: none !important;
     }
   }
-  
+
   .items {
     height: 100%;
     padding: 26px 32px;
     font-family: PingFangSC san-serif;
     font-size: 14px;
-    
+
     .logo {
       display: inline-block;
       float: left;
-      
+
       a {
         display: inline-block;
       }
-  
+
       @media only screen and (max-width: 768px) {
         position: absolute;
         top: 0;
@@ -46,17 +47,18 @@ export default styled.div`
         transform: translate(-50%, -50%);
       }
     }
-    
-    .nav-links, .right-links {
+
+    .nav-links,
+    .right-links {
       display: inline-block;
       float: left;
       margin-left: 80px;
       list-style-type: none;
-      
+
       li {
-        display: inline-block; 
+        display: inline-block;
         margin-right: 48px;
-        
+
         a {
           color: #a2a9be;
           &.active {
@@ -64,18 +66,18 @@ export default styled.div`
             font-weight: 500;
             border-bottom: 2px solid #f6a132;
             padding-bottom: 8px;
-          }  
+          }
         }
-        
+
         &.github-icon {
           svg {
             vertical-align: middle;
-            margin-right: 4px
+            margin-right: 4px;
           }
         }
       }
     }
-    
+
     .right-links {
       float: right;
       a {
@@ -93,16 +95,16 @@ export default styled.div`
       margin-left: 31px;
       cursor: pointer;
     }
-    
+
     .line {
       display: block;
       width: 20px;
       height: 3px;
       border-radius: 1.5px;
       background-color: #b6c2cd;
-    
+
       & + .line {
-        margin-top: 4px;      
+        margin-top: 4px;
       }
     }
   }

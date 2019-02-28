@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
-import Search from 'components/Search';
-import {ReactComponent as BannerPic} from 'assets/doc-banner-pic.svg';
+import Search from 'components/Search'
+import { ReactComponent as BannerPic } from 'assets/doc-banner-pic.svg'
 
 export default class DocBanner extends React.Component {
   render() {
@@ -11,7 +11,7 @@ export default class DocBanner extends React.Component {
         <div className="wrap">
           <div className="text">欢迎使用 OpenPitrix 文档</div>
           <div className="bannerPic">
-            <BannerPic/>
+            <BannerPic />
           </div>
           <Search className="search" />
         </div>
@@ -20,19 +20,19 @@ export default class DocBanner extends React.Component {
   }
 }
 
-const Banner=styled.div`
+const Banner = styled.div`
   background-image: radial-gradient(circle at 46% 0, #8454cd, #343945);
   height: 340px;
   position: relative;
   top: 72px;
   margin-bottom: 64px;
-  
+
   .wrap {
     margin-left: auto;
     margin-right: auto;
     width: 920px;
     height: 100%;
-    
+
     .text {
       position: relative;
       top: 114px;
@@ -42,7 +42,7 @@ const Banner=styled.div`
       line-height: 1.25;
       color: white;
     }
-    
+
     .search {
       position: relative;
       left: 0;
@@ -55,17 +55,17 @@ const Banner=styled.div`
         float: right;
       }
     }
-  }  
-  
-@media only screen and (min-width: 768px) {
-  width: calc(100vw - 256px);
-  left: 256px;
-}
-
-@media only screen and (max-width: 768px) {
-  width: 100%;
-  .wrap {
-    width: auto;
   }
-}
-`;
+
+  @media only screen and (min-width: 768px) {
+    width: calc(100vw - 256px);
+    left: 256px;
+  }
+
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+    .wrap {
+      width: auto;
+    }
+  }
+`

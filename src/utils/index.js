@@ -16,10 +16,10 @@ export function formatAnchor(str) {
 }
 
 // versions from graphql data
-export const sortVersions=(versions=[], desc=true)=> {
-  const res=versions.group.map(ver=> ver.fieldValue).sort(compareVersions)
-  if(desc){
+export const sortVersions = (versions = [], desc = true) => {
+  const res = versions.group.map(ver => ver.fieldValue).sort(compareVersions)
+  if (desc) {
     return res.slice().reverse()
   }
-  return res;
+  return res
 }

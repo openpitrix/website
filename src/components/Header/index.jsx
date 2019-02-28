@@ -42,7 +42,7 @@ export default class Header extends React.Component {
   }
 
   componentWillUnmount() {
-    window.onscroll=null;
+    window.onscroll = null
   }
 
   handleScroll = () => {
@@ -113,7 +113,9 @@ export default class Header extends React.Component {
     const { isBlankBg, hasBg, hasLightBg } = this.props
     const { showMenus } = this.state
     const isDarkBg = !isBlankBg && (this.state.isDarkBg || hasBg)
-    const logoSrc = isBlankBg ? '/images/op-logo.svg' : '/images/op-logo-blank.svg'
+    const logoSrc = isBlankBg
+      ? '/images/op-logo.svg'
+      : '/images/op-logo-blank.svg'
 
     return (
       <div

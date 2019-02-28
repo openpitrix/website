@@ -1,7 +1,7 @@
 {
   "name": "openpitrix.io",
   "description": "OpenPitrix Official site",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "dependencies": {
     "@svgr/webpack": "^4.1.0",
     "classnames": "^2.2.6",
@@ -46,7 +46,7 @@
   "scripts": {
     "build": "gatsby build",
     "dev": "DEBUG=app gatsby develop",
-    "format": "prettier --write 'src/**/*.(js|scss)'",
+    "format": "prettier --write 'src/**/*.{js,jsx,css,scss}'",
     "test": "echo \"no test specified\"",
     "docker": "docker build -t openpitrix/docs.openpitrix.io .",
     "start": "npm run docker && docker run --rm --name op-docs -p 3000:80 openpitrix/docs.openpitrix.io",

@@ -46,7 +46,7 @@ export default [
       {
         name: 'API 文档',
         link: '#',
-      }
+      },
     ],
   },
   {
@@ -63,7 +63,7 @@ export default [
       {
         name: 'Slack',
         link: '#',
-      }
+      },
     ],
   },
   {
@@ -80,7 +80,7 @@ export default [
       {
         name: '关于我们',
         link: '#',
-      }
+      },
     ],
   },
 ]

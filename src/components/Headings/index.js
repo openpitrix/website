@@ -119,7 +119,7 @@ const Head = styled.h5`
   transition: all 0.2s ease-in-out;
 
   &:hover {
-    color: #8454CD;
+    color: #8454cd;
   }
 
   &:first-of-type {

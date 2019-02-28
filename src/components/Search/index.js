@@ -2,22 +2,22 @@ import React from 'react'
 import classnames from 'classnames'
 import styled from 'styled-components'
 
-import {ReactComponent as SearchIcon} from 'assets/search.svg'
+import { ReactComponent as SearchIcon } from 'assets/search.svg'
 
 class Search extends React.Component {
-  static defaultProps={
-    placeholder: '请输入关键字进行搜索'
+  static defaultProps = {
+    placeholder: '请输入关键字进行搜索',
   }
 
   render() {
-    const {className, placeholder}=this.props;
+    const { className, placeholder } = this.props
 
     return (
-      <SearchWrapper className={classnames("search", className)}>
+      <SearchWrapper className={classnames('search', className)}>
         <SearchIcon />
         <input type="text" placeholder={placeholder} />
       </SearchWrapper>
-    );
+    )
   }
 }
 
@@ -28,7 +28,6 @@ const SearchWrapper = styled.div`
   transform: translateY(-50%);
   width: 350px;
   height: 36px;
-  
 
   .algolia-autocomplete {
     width: 100%;
@@ -51,7 +50,7 @@ const SearchWrapper = styled.div`
     border-radius: 18px;
     border: solid 1px #cfd9df;
     background-color: transparent;
-    transition: all .2s ease;
+    transition: all 0.2s ease;
 
     &::placeholder {
       color: white;

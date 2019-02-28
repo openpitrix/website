@@ -10,10 +10,10 @@
     margin: 0 auto;
     padding: 0 $page-padding;
     max-width: 1200px;
-    width:100vw;
+    width: 100vw;
     height: 650px;
 
-    >img {
+    > img {
       position: absolute;
       margin: 0;
     }
@@ -79,7 +79,7 @@
     font-size: 30px;
     font-weight: 500;
     color: $N0;
-    font-family: "Futura";
+    font-family: 'Futura';
 
     > label {
       display: inline-block;
@@ -133,7 +133,7 @@
     margin: 0 24px;
 
     img {
-     width: 43vw;
+      width: 43vw;
       // height: 454px;
     }
   }
@@ -217,9 +217,9 @@
     height: 568px;
     padding: 32px 24px 0;
     background-image: radial-gradient(
-                    circle at 0 0,
-                    $Y200,
-                    rgba(252, 217, 102, 0)
+      circle at 0 0,
+      $Y200,
+      rgba(252, 217, 102, 0)
     );
 
     .title {
@@ -315,7 +315,7 @@
 
         .arrowRight {
           margin-left: 25px;
-         // margin-right: 48px;
+          // margin-right: 48px;
         }
 
         .currentNumber {
@@ -351,7 +351,7 @@
       }
 
       .scene {
-        padding-bottom: calc((100vw - 250px)* 470/788 - 32px) ;
+        padding-bottom: calc((100vw - 250px) * 470 / 788 - 32px);
         padding-left: 30px;
         height: auto;
         background-size: calc(100vw - 80px - 48px) auto;
@@ -457,7 +457,7 @@
       }
 
       .scene {
-        padding-bottom: calc((100vw - 250px)* 470/788 - 32px) ;
+        padding-bottom: calc((100vw - 250px) * 470 / 788 - 32px);
         padding-left: 30px;
         height: auto;
         background-size: calc(100vw - 80px - 48px) auto;
@@ -496,7 +496,6 @@
           > label {
             width: calc(50% - 15px);
           }
-
 
           .arrowLeft {
             margin-left: calc(50vw - 150px);

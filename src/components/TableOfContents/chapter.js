@@ -4,26 +4,47 @@ import GatsbyLink from 'gatsby-link'
 import styled from 'styled-components'
 import classnames from 'classnames'
 
-import {ReactComponent as Arrow} from 'assets/arrow-black.svg'
-import {ReactComponent as IconHome} from 'assets/home.svg'
+import { ReactComponent as Arrow } from 'assets/arrow-black.svg'
+import { ReactComponent as IconHome } from 'assets/home.svg'
 
-const Link = ({ to, ...rest }, { location }) => {
-  if(!location){
-    location = window.location;
+class Link extends React.Component {
+  static contextTypes = {
+    location: PropTypes.object,
   }
-  const selected = location.pathname + decodeURIComponent(location.hash) === to
 
-  return (
-    <GatsbyLink
-      to={to}
-      {...rest}
-      className={classnames({ ['selected-link']: selected })}
-    />
-  )
-}
+  constructor(props, { location = {} }) {
+    super(props)
 
-Link.contextTypes = {
-  location: PropTypes.object,
+    this.state = {
+      pathname: location.pathname,
+      hash: location.hash,
+    }
+  }
+
+  componentDidMount() {
+    if (!this.state.pathname) {
+      let { pathname, hash } = window.location
+
+      this.setState({
+        pathname,
+        hash,
+      })
+    }
+  }
+
+  render() {
+    const { to, ...rest } = this.props
+    const { pathname, hash } = this.state
+    const selected = pathname + decodeURIComponent(hash) === to
+
+    return (
+      <GatsbyLink
+        to={to}
+        {...rest}
+        className={classnames({ ['selected-link']: selected })}
+      />
+    )
+  }
 }
 
 class LinkWithHeadings extends React.Component {
@@ -37,8 +58,8 @@ class LinkWithHeadings extends React.Component {
 
   componentDidMount() {
     let { location } = this.context
-    if(!location){
-      location=window.location
+    if (!location) {
+      location = window.location
     }
     const { fields } = this.props.entry.childMarkdownRemark
 
@@ -55,7 +76,7 @@ class LinkWithHeadings extends React.Component {
 
   render() {
     const { entry, level, title, idKey } = this.props
-    const { headings, fields, frontmatter={} } = entry.childMarkdownRemark
+    const { headings, fields, frontmatter = {} } = entry.childMarkdownRemark
     const { open } = this.state
 
     let heads = []
@@ -68,7 +89,11 @@ class LinkWithHeadings extends React.Component {
       <div>
         <Link to={fields.slug}>
           <Title level={level} onClick={this.handleClick} active={open}>
-            {idKey === 'doc-home-entry' ? <IconHome className='no-rotate' /> : <Arrow className={classnames({ 'arrow-open': open })} />}
+            {idKey === 'doc-home-entry' ? (
+              <IconHome className="no-rotate" />
+            ) : (
+              <Arrow className={classnames({ 'arrow-open': open })} />
+            )}
             {title || frontmatter.title}
           </Title>
         </Link>
@@ -124,7 +149,7 @@ class ChapterList extends React.Component {
   constructor(props, context) {
     super(props)
 
-    let pathname = (context.location || window.location).pathname;
+    let pathname = (context.location || {}).pathname
 
     let open = false
     if (props.entries) {
@@ -149,10 +174,16 @@ class ChapterList extends React.Component {
       open = slugs.includes(pathname)
     }
 
-    this.state = { open }
+    this.state = { open, pathname }
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    if (!this.state.pathname) {
+      this.setState({
+        pathname: window.location.pathname,
+      })
+    }
+  }
 
   handleClick = () => {
     this.setState(({ open }) => ({
@@ -169,7 +200,7 @@ class ChapterList extends React.Component {
         {title && (
           <ListItem key={`${title}${level}`}>
             {entry ? (
-              <LinkWithHeadings {...{entry, level, title, idKey}} />
+              <LinkWithHeadings {...{ entry, level, title, idKey }} />
             ) : (
               <Title level={level} onClick={this.handleClick} active={open}>
                 <Arrow className={classnames({ 'arrow-open': open })} />
@@ -182,9 +213,10 @@ class ChapterList extends React.Component {
           {entries && <Links entries={entries} level={level + 1} />}
         </ListItem>
         <ListItem className={classnames('list-toggle', { 'list-open': open })}>
-          {chapters && chapters.map((chapter, index) => (
-            <ChapterList {...chapter} level={level + 1} key={`${index}`} />
-          ))}
+          {chapters &&
+            chapters.map((chapter, index) => (
+              <ChapterList {...chapter} level={level + 1} key={`${index}`} />
+            ))}
         </ListItem>
       </StyledList>
     )
@@ -244,7 +276,7 @@ const Title = styled.h5`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: ${({active})=> {
+  color: ${({ active }) => {
     return active ? '#6d35c3' : 'none'
   }}
 

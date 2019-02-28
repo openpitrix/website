@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
-import {ReactComponent as IconCheck} from 'assets/check.svg';
+import { ReactComponent as IconCheck } from 'assets/check.svg'
 
 export default class Option extends React.Component {
   // static propTypes = {
@@ -12,26 +12,24 @@ export default class Option extends React.Component {
   // };
 
   static defaultProps = {
-    className: ''
-  };
+    className: '',
+  }
 
   render() {
-    const {
-      children, isSelected, ...rest
-    } = this.props;
+    const { children, isSelected, ...rest } = this.props
 
     return (
       <OptionWrap>
-        <div className='option' {...rest}>
+        <div className="option" {...rest}>
           {children}
           {isSelected && <IconCheck />}
         </div>
       </OptionWrap>
-    );
+    )
   }
 }
 
-const OptionWrap=styled.div` 
+const OptionWrap = styled.div`
   position: relative;
   box-sizing: border-box;
   padding: 8px 12px;
@@ -43,8 +41,8 @@ const OptionWrap=styled.div`
   &:hover {
     background-color: #eff0f5;
   }
-  
-  svg{
+
+  svg {
     position: absolute;
     right: 18px;
     width: 16px;

@@ -1,12 +1,12 @@
 import React from 'react';
 
-import Layout from 'layout';
+import Home from './home'
 
-const Index=props=> {
-
+const IndexPage = () => {
   return (
-    <Layout/>
+    <Home />
   )
 }
 
-export default Index;
+export default IndexPage
+

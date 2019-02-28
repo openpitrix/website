@@ -50,22 +50,22 @@
       "describe": "安装完成后，通过关键功能和流程的介绍引导用户快速入门。",
       "chapters": [
         {
-      "title": "入门必读",    
-      "entry": "./v0.3/zh-CN/getting-start/introduction.md"
+          "title": "入门必读",
+          "entry": "./v0.3/zh-CN/getting-start/introduction.md"
         },
         {
-      "title": "开发者",    
-      "entry": "./v0.3/zh-CN/getting-start/developer-quick-start.md"
+          "title": "开发者",
+          "entry": "./v0.3/zh-CN/getting-start/developer-quick-start.md"
         },
         {
-      "title": "管理员",    
-      "entry": "./v0.3/zh-CN/getting-start/admin-quick-start.md"    
+          "title": "管理员",
+          "entry": "./v0.3/zh-CN/getting-start/admin-quick-start.md"
         },
         {
-      "title": "普通用户",    
-      "entry": "./v0.3/zh-CN/getting-start/regular-user-quick-start.md"    
+          "title": "普通用户",
+          "entry": "./v0.3/zh-CN/getting-start/regular-user-quick-start.md"
         }
-                  ]
+      ]
     },
     {
       "title": "用户指南",
@@ -107,15 +107,15 @@
         },
         {
           "title": "商店管理",
-           "entries": [
+          "entries": [
             {
-          "entry": "./v0.3/zh-CN/user-guide/store-management.md"
+              "entry": "./v0.3/zh-CN/user-guide/store-management.md"
             },
             {
-          "entry": "./v0.3/zh-CN/user-guide/category-management.md"
+              "entry": "./v0.3/zh-CN/user-guide/category-management.md"
             },
             {
-          "entry": "./v0.3/zh-CN/user-guide/app-management.md"
+              "entry": "./v0.3/zh-CN/user-guide/app-management.md"
             }
           ]
         },
@@ -137,12 +137,15 @@
           "title": "OpenPitrix 规范及应用开发",
           "entries": [
             {
+              "title": "OpenPitrix 贡献说明",
               "entry": "./v0.3/zh-CN/developer-guide/openpitrix-developer-guide.md"
             },
             {
+              "title": "如何搭开发环境",
               "entry": "./v0.3/zh-CN/developer-guide/openpitrix-specification.md"
             },
             {
+              "title": "如何实现新的 Provider Plugin",
               "entry": "./v0.3/zh-CN/developer-guide/packaging-openpitrix-app.md"
             }
           ]
@@ -161,23 +164,28 @@
       ]
     },
     {
-          "title": "贡献指南",
-          "entries": [
-            {
-              "entry": "./v0.3/zh-CN/contribution/contribution-guide.md"
-            },
-            {
-              "entry": "./v0.3/zh-CN/contribution/set-up-env.md"
-            },
-            {
-              "entry": "./v0.3/zh-CN/contribution/implementing-new-plugin.md"
-            }
-          ]
+      "title": "贡献指南",
+      "describe": "引导社区成员如何为 OpenPitrix 开始你的第一个贡献。",
+      "chapters": [
+        {
+          "title": "OpenPitrix 贡献说明",
+          "entry": "./v0.3/zh-CN/contribution/contribution-guide.md"
+        },
+        {
+          "title": "如何搭开发环境",
+          "entry": "./v0.3/zh-CN/contribution/set-up-env.md"
+        },
+        {
+          "title": "如何实现新的 Provider Plugin",
+          "entry": "./v0.3/zh-CN/contribution/implementing-new-plugin.md"
+        }
+      ]
     },
     {
       "title": "常见问题",
       "describe": "总结实际应用场景中可能遇到的问题并给出通用解决方案。",
-      "entry": "./v0.3/zh-CN/faq.md"
-    }  
+      "entry": "./v0.3/zh-CN/faq.md",
+      "chapters": []
+    }
   ]
 }

@@ -1,0 +1,105 @@
+@import '../../scss/variables';
+
+.footer {
+  position: relative;
+  width: 100vw;
+  background-color: $N500;
+
+  .links {
+    display: flex;
+    margin: 0 auto;
+    padding: 76px $page-padding 62px;
+    max-width: 1200px;
+    width: 100vw;
+
+    .module {
+      flex: 1;
+
+      .title {
+        margin-bottom: 12px;
+        line-height: 24px;
+        font-size: 16px;
+        font-weight: 600;
+        color: $N0;
+      }
+
+      li {
+        margin-bottom: 12px;
+        line-height: 24px;
+        font-size: 14px;
+
+        a {
+          color: $N30;
+        }
+      }
+    }
+  }
+
+  .wrapper {
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 28px $page-padding;
+    max-width: 1200px;
+    width: 100vw;
+    height: $footer-height;
+
+    .logo {
+      float: left;
+      display: inline-block;
+      height: 16px;
+      width: 119px;
+
+      img {
+        height: 16px;
+        width: 100%;
+      }
+    }
+
+    .copyright {
+      float: right;
+      display: inline-block;
+      line-height: 26px;
+      font-size: 14px;
+      color: $N0;
+      opacity: 0.8;
+    }
+  }
+}
+
+@media only screen and (max-width: $mobile-max-width) {
+  .footer {
+    .links {
+      display: block;
+      padding: 76px $mobile-padding 36px;
+
+      .module {
+        margin-bottom: 48px;
+
+        li {
+          display: inline-block;
+          margin-right: 30px;
+        }
+      }
+    }
+
+    .wrapper {
+      box-sizing: border-box;
+      margin: 0 auto;
+      padding: 0 $mobile-padding 48px;
+      max-width: 1200px;
+      width: 100vw;
+      height: auto;
+
+      .logo {
+        float: none;
+        display: block;
+        margin-bottom: 24px;
+      }
+
+      .copyright {
+        float: none;
+        display: block;
+      }
+    }
+  }
+}

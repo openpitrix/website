@@ -1,0 +1,512 @@
+@import '../../scss/variables';
+
+.topBanner {
+  position: relative;
+  width: 100vw;
+  background-image: radial-gradient(circle at 0 0, #8454cd, #343945);
+
+  .wrapper {
+    position: relative;
+    margin: 0 auto;
+    padding: 0 $page-padding;
+    max-width: 1200px;
+    width:100vw;
+    height: 650px;
+
+    >img {
+      position: absolute;
+      margin: 0;
+    }
+  }
+
+  .imgRight {
+    position: absolute;
+    margin: 0;
+    right: 0;
+    bottom: 24px;
+
+    max-height: 650px;
+  }
+
+  @media only screen and (max-width: 858px) {
+    .imgRight {
+      width: 30vw;
+      //right: -5.8vw;
+    }
+  }
+
+  .imgTop {
+    right: 30vw;
+    top: 0;
+    width: 9.75vw;
+    transform: rotate(180deg);
+  }
+
+  .imgBottom {
+    bottom: 0px;
+    left: 24px;
+    width: 20vw;
+  }
+
+  .title {
+    padding-top: 214px;
+
+    .logo {
+      float: left;
+      display: inline-block;
+      margin-right: 4px;
+      margin-top: 9px;
+
+      img {
+        width: 238px;
+        height: 32px;
+      }
+    }
+
+    .word {
+      display: inline-block;
+      line-height: 50px;
+      font-size: 36px;
+      color: $N0;
+      font-weight: 200;
+    }
+  }
+
+  .slogan {
+    margin: 48px 0;
+    min-width: 772px;
+    line-height: 30px;
+    font-size: 30px;
+    font-weight: 500;
+    color: $N0;
+    font-family: "Futura";
+
+    > label {
+      display: inline-block;
+      padding: 8px 0 20px;
+      border-top: 2px solid $Y300;
+      border-bottom: 2px solid $Y300;
+    }
+  }
+
+  .button {
+    display: inline-block;
+    width: 148px;
+    height: 46px;
+    line-height: 46px;
+    border-radius: 3px;
+    text-align: center;
+    border: 1px solid #fabf3a;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fabf3a;
+    background-color: transparent;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba($Y100, 0.08);
+    }
+
+    &:active {
+      background-color: rgba($Y100, 0.12);
+    }
+  }
+}
+
+.homeBanner {
+  width: 100vw;
+  background-color: $body-background;
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 0 $page-padding;
+    max-width: 1200px;
+    width: 100vw;
+    height: $home-banner-height;
+  }
+
+  .image {
+    display: inline-block;
+    margin: 0 24px;
+
+    img {
+     width: 43vw;
+      // height: 454px;
+    }
+  }
+
+  .words {
+    float: right;
+    display: inline-block;
+    margin: 0 24px;
+    // transition: all 0.5s ease-in-out;
+    // transition-delay: 0.7s;
+    // transition-duration: 0.5s;
+  }
+
+  .name {
+    margin-bottom: 24px;
+    line-height: 22px;
+    font-size: 16px;
+    font-weight: 500;
+    color: $P100;
+  }
+
+  .title {
+    margin-bottom: 20px;
+    line-height: 40px;
+    font-size: 28px;
+    font-weight: 500;
+    color: $N500;
+
+    > label {
+      display: inline-block;
+      padding-top: 8px;
+      border-top: 2px solid $Y100;
+    }
+  }
+
+  .description {
+    margin-bottom: 20px;
+    width: 37vw;
+    line-height: 32px;
+    font-size: 16px;
+    color: $N300;
+  }
+
+  .button {
+    display: inline-block;
+    padding: 0 16px;
+    height: 44px;
+    line-height: 44px;
+    border-radius: 2px;
+    border: 1px solid;
+    text-align: center;
+    cursor: pointer;
+    color: #6d35c3;
+    background-color: transparent;
+
+    &:hover {
+      background-color: rgba($P75, 0.08);
+    }
+
+    &:active {
+      background-color: rgba($P75, 0.12);
+    }
+  }
+
+  @media only screen and (max-width: $page-content) {
+    .wrapper {
+      height: auto;
+      padding: 8vw $page-padding;
+    }
+  }
+}
+
+.sceneBanner {
+  width: 100vw;
+  margin-bottom: 200px;
+
+  .sceneContent {
+    box-sizing: border-box;
+    margin: 0 auto;
+    width: 835px;
+    height: 568px;
+    padding: 32px 24px 0;
+    background-image: radial-gradient(
+                    circle at 0 0,
+                    $Y200,
+                    rgba(252, 217, 102, 0)
+    );
+
+    .title {
+      margin-bottom: 32px;
+      line-height: 32px;
+      font-size: 24px;
+      font-weight: 500;
+      color: $N500;
+    }
+
+    .scene {
+      position: relative;
+      background-image: url('/images/home/scene-bg-1.svg');
+      padding-left: 52px;
+      height: 440px;
+
+      .currentImg {
+        position: absolute;
+        top: -8px;
+      }
+
+      .name {
+        padding-top: 132px;
+        margin-bottom: 20px;
+        line-height: 32px;
+        font-size: 24px;
+        font-weight: 500;
+        color: #fff;
+      }
+
+      .description {
+        margin-bottom: 20px;
+        //width: 500px;
+        line-height: 36px;
+        font-size: 16px;
+        color: $N30;
+      }
+
+      button {
+        width: 148px;
+        height: 46px;
+        border-radius: 3px;
+        text-align: center;
+        border: 1px solid $Y100;
+        font-size: 16px;
+        font-weight: 500;
+        color: #fabf3a;
+        background-color: transparent;
+        cursor: pointer;
+        outline: none;
+
+        &:hover {
+          background-color: rgba($Y100, 0.08);
+        }
+
+        &:active {
+          background-color: rgba($Y100, 0.12);
+        }
+      }
+
+      .number {
+        position: absolute;
+        right: -160px;
+        bottom: -50px;
+        width: 278px;
+        height: 84px;
+        background-color: $P75;
+        line-height: 40px;
+        font-size: 30px;
+        font-weight: 500;
+        color: $N0;
+
+        > label {
+          display: inline-block;
+          width: 128px;
+          height: 84px;
+          padding: 22px 0;
+          vertical-align: top;
+          cursor: pointer;
+        }
+
+        .arrowLeft,
+        .arrowRight {
+          vertical-align: top;
+          margin-top: 10px;
+          cursor: pointer;
+        }
+
+        .arrowLeft {
+          margin-left: 48px;
+          margin-right: 25px;
+        }
+
+        .arrowRight {
+          margin-left: 25px;
+         // margin-right: 48px;
+        }
+
+        .currentNumber {
+          position: relative;
+          width: 150px;
+          background-color: $P200;
+          font-size: 40px;
+
+          &::before {
+            content: '';
+            position: absolute;
+            top: -120px;
+            right: 0;
+            bottom: 0;
+            width: 20px;
+            background: $P75;
+            transform: perspective(0.5em) rotateX(8deg);
+            transform-origin: bottom right;
+          }
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: $page-content) {
+    .sceneContent {
+      margin: 0 40px;
+      width: calc(100vw - 80px);
+      height: auto;
+
+      .title {
+        margin-bottom: 20px;
+      }
+
+      .scene {
+        padding-bottom: calc((100vw - 250px)* 470/788 - 32px) ;
+        padding-left: 30px;
+        height: auto;
+        background-size: calc(100vw - 80px - 48px) auto;
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-color: $N500;
+        margin-bottom: 200px;
+
+        .number {
+          position: absolute;
+          right: -40px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $mobile-max-width) {
+  .topBanner {
+    .wrapper {
+      height: 460px;
+    }
+    .title {
+      padding-top: 128px;
+      .logo {
+        float: none;
+        margin: 0;
+
+        img {
+          display: block;
+          width: 179px;
+          height: 24px;
+          margin: 0;
+        }
+      }
+
+      .word {
+        display: block;
+        font-size: 24px;
+        font-weight: 100;
+      }
+    }
+
+    .slogan {
+      font-family: 'Futura';
+      margin: 20px 0 22px;
+      min-width: auto;
+      line-height: 40px;
+      font-size: 24px;
+
+      > label {
+        padding: 0px;
+        border: 0 none;
+      }
+    }
+  }
+
+  .homeBanner {
+    .wrapper {
+      display: block;
+      height: auto;
+      padding: 60px $page-padding;
+    }
+
+    .image {
+      img {
+        width: 80vw;
+      }
+    }
+    .words {
+      float: none;
+      margin: 0 16px;
+    }
+
+    .name {
+      margin-bottom: 12px;
+      line-height: 17px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .title {
+      margin-bottom: 12px;
+      font-size: 20px;
+    }
+
+    .description {
+      margin-bottom: 20px;
+      width: 80vw;
+      line-height: 28px;
+      font-size: 14px;
+    }
+  }
+
+  .sceneBanner {
+    .sceneContent {
+      margin: 0 40px;
+      width: calc(100vw - 80px);
+      height: auto;
+
+      .title {
+        margin-bottom: 20px;
+      }
+
+      .scene {
+        padding-bottom: calc((100vw - 250px)* 470/788 - 32px) ;
+        padding-left: 30px;
+        height: auto;
+        background-size: calc(100vw - 80px - 48px) auto;
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-color: $N500;
+        margin-bottom: 200px;
+
+        .currentImg {
+          position: absolute;
+          top: -4px;
+          width: 36px;
+        }
+
+        .name {
+          padding-top: 70px;
+          margin-bottom: 20px;
+          line-height: 25px;
+          font-size: 18px;
+        }
+
+        .description {
+          margin-right: 24px;
+          margin-bottom: 20px;
+          line-height: 28px;
+          font-size: 14px;
+        }
+
+        .number {
+          position: absolute;
+          right: 0;
+          bottom: -110px;
+          width: calc(100vw - 80px - 48px);
+          line-height: 40px;
+
+          > label {
+            width: calc(50% - 15px);
+          }
+
+
+          .arrowLeft {
+            margin-left: calc(50vw - 150px);
+          }
+
+          .currentNumber {
+            width: calc(50% + 15px);
+          }
+        }
+      }
+    }
+  }
+}

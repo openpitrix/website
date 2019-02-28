@@ -1,17 +1,14 @@
-# Documents for [OpenPitrix](https://github.com/openpitrix/openpitrix).
+# Official website for [OpenPitrix](https://github.com/openpitrix/openpitrix).
 
 [![Build Status](https://travis-ci.org/openpitrix/docs.openpitrix.io.svg)](https://travis-ci.org/openpitrix/docs.openpitrix.io)
 
 ## Develop
 
 ```shell
-git clone https://github.com/openpitrix/docs.openpitrix.io.git
-
-cd docs.openpitrix.io
-
+git clone https://github.com/openpitrix/website.git
+cd website
 yarn
-
-yarn develop
+yarn dev
 ```
 
 ## Contribute
@@ -19,11 +16,11 @@ yarn develop
 Tree of repo:
 
 ```bash
-├── content                                         // documents directory
-│   ├── v0.3                                        // documents version
-│   │   ├── en                                      // documents language 
-│   │   │   └── installation                        // documents module
-|   |   |       └── installation-guide.md     // document
+├── docs                                            // docs root directory
+│   ├── v0.3                                        // docs version
+│   │   ├── en                                      // docs language 
+│   │   │   └── installation                        // docs module
+|   |   |       └── installation-guide.md           // document
 │   │   └── zh-CN
 │   │       └── installation
 |   |           └── installation-guide.md 
@@ -38,22 +35,22 @@ If you want to edit the document, you can follow the ways below:
 
 ### Add new version
  
-1. Create a new directory called the new version name under the ``content`` directory
+1. Create a new directory called the new version name under the ``docs`` directory
 
 ```shell
-cd content && mkdir version-xxxx
+cd docs && mkdir version-xxxx
 ```
 
 2. Create subdirectories for each language you want to support
 
 ```shell
-cd content/version-xxxx && mkdir zh-CN en
+cd docs/version-xxxx && mkdir -p zh-CN en
 ```
 
-3. Create navigation files for each language of the new version under the ``content`` directory
+3. Create navigation files for each language of the new version under the ``docs`` directory
 
 ```shell
-cd content
+cd docs
 
 touch toc_version-xxx_en.json toc_version-xxx_zh-CN.json
 ```
@@ -104,6 +101,7 @@ navigation file example
 document example
 
 ```
+
 ---
   title: 'document title, will show in nav'
 ---
@@ -114,7 +112,7 @@ document example
 
   ![](/image.png) 
 
-  this path will request ``/static/image.png``
+  this path will request `/static/image.png`
 
   ## title 2
 
@@ -122,6 +120,11 @@ document example
     content 2.1
   
   ### title 3
+
+  `##` will be transformed to an anchor of the page, and will show in the nav.
 ```
 
-`##` will be transformed to an anchor of the page, and will show in the nav.
+
+## License
+
+Apache 2

@@ -1,27 +1,12 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
+import NavLink from 'components/NavLink'
 import { getScrollTop } from 'utils'
-import { ReactComponent as Logo } from 'assets/logo2.svg'
+import { ReactComponent as Logo } from 'assets/op-logo.svg'
 import { ReactComponent as IconGithub } from 'assets/github.svg'
 
 import Wrapper from './wrapper'
-
-const NavLink = ({ to, children }) => (
-  <li>
-    <Link
-      to={to}
-      getProps={({ isPartiallyCurrent, location }) => {
-        if (to === '/') {
-          return location.pathname === to ? { className: 'active' } : null
-        }
-        return isPartiallyCurrent ? { className: 'active' } : null
-      }}
-    >
-      {children}
-    </Link>
-  </li>
-)
 
 class Header extends React.Component {
   state = {
@@ -77,13 +62,13 @@ class Header extends React.Component {
           </div>
 
           <ul className="nav-links">
-            <NavLink to="/">首页</NavLink>
-            <NavLink to="/install">安装</NavLink>
-            <NavLink to="/docs">文档</NavLink>
-            <NavLink to="#">博客</NavLink>
+            <li><NavLink to="/">首页</NavLink></li>
+            <li><NavLink to="/install">安装</NavLink></li>
+            <li><NavLink to="/docs">文档</NavLink></li>
+            <li><NavLink to="#">博客</NavLink></li>
           </ul>
           <ul className="right-links">
-            <NavLink to="#">Demo</NavLink>
+            <li><NavLink to="#">Demo</NavLink></li>
             <li className="github-icon">
               <a
                 href="https://github.com/openpitrix/openpitrix"

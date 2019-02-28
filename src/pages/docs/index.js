@@ -3,7 +3,8 @@ import GatsbyLink from 'gatsby-link'
 import get from 'lodash/get'
 import styled from 'styled-components'
 
-import { Banner, Nav, Header } from 'components/Doc'
+import { Banner, Nav } from 'components/Doc'
+import Header from 'components/Header'
 import Layout from 'layout'
 
 const getChildLink = item => {
@@ -24,7 +25,7 @@ export default class Docs extends Component {
 
     return (
       <Layout>
-        <Header />
+        <Header isBlankBg />
         <Wrapper>
           <Banner />
           <Nav />

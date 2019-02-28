@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import classnames from 'classnames'
 
 import Modal from '../Modal'
 
@@ -13,14 +14,12 @@ export default class DownloadModal extends React.Component {
 
   static propTypes = {
     isOpen: PropTypes.bool,
-    isMobile: PropTypes.bool,
     onClose: PropTypes.func,
     onSubmit: PropTypes.func,
   }
 
   static defaultProps = {
     isOpen: false,
-    isMobile: false,
   }
 
   onClose = () => {
@@ -48,7 +47,7 @@ export default class DownloadModal extends React.Component {
   }
 
   render() {
-    const { isOpen, isMobile } = this.props
+    const { isOpen } = this.props
     const { mail, mailError } = this.state
 
     return (
@@ -61,12 +60,10 @@ export default class DownloadModal extends React.Component {
               <a href="#"> GitHub </a>
               或者 <a href="#">Slack</a> 与我们联系
             </div>
-            {isMobile && (
-              <img
-                className={styles.downloadBg}
-                src="/images/modal/downloadBg.svg"
-              />
-            )}
+            <img
+              className={classnames(styles.downloadBg, 'mobileShow')}
+              src="/images/modal/downloadBg.svg"
+            />
             <div className={styles.button}>
               <input
                 placeholder="name@example.com"
@@ -81,12 +78,10 @@ export default class DownloadModal extends React.Component {
             </div>
             <p className={styles.error}>{mailError}</p>
           </div>
-          {!isMobile && (
-            <img
-              className={styles.downloadBg}
-              src="/images/modal/downloadBg.svg"
-            />
-          )}
+          <img
+            className={classnames(styles.downloadBg,'webShow')}
+            src="/images/modal/downloadBg.svg"
+          />
         </div>
       </Modal>
     )

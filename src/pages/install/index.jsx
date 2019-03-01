@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import classnames from 'classnames'
+import {graphql} from 'gatsby'
 import get from 'lodash/get'
 import find from 'lodash/find'
 

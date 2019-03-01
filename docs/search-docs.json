@@ -1,0 +1,182 @@
+[
+  {
+    "id": "v0.3$$/docs/v0.3/zh-CN/faq/",
+    "title": "常见问题",
+    "body": "1、作为新手，如何从一个最简单的例子入手？ 我们提供了一个如何准备一个基于 OpenPitrix 应用开发规范的示例，建议从   WordPress 实战  入手，从零开始准备一个配置包并上传到 OpenPitrix 中，后续可参考  用户指南  熟悉应用的全生命周期管理。…"
+  },
+  {
+    "id": "v0.3$$/docs/v0.3/en/introduction/basic/",
+    "title": "OpenPitrix Introduction",
+    "body": ""
+  },
+  {
+    "id": "v0.3$$/docs/v0.3/zh-CN/developer-guide/helm-developer-guide/",
+    "title": "应用开发入门",
+    "body": "OpenPitrix 支持将应用以 Helm Chart 的形式上传部署到平台中，而 Nginx 是大家熟知的代理和负载均衡软件，比起 Traefik 来说功能更加强大，本篇文档就以 Nginx 的 Helm Chart 文件为例，介绍 Chart…"
+  },
+  {
+    "id": "v0.3$$/docs/v0.3/zh-CN/developer-guide/helm-specification/",
+    "title": "开发模板规范",
+    "body": "Helm Chart 是一种打包规范，将各种 Kubernetes 资源以配置文件的形式组织。更详细的介绍请参考  Chart 官网文档 Chart 文件结构 一个 Chart 包由以下几个配置文件组成： Chart.yaml 文件 Requirements.yaml…"
+  },
+  {
+    "id": "v0.3$$/docs/v0.3/zh-CN/developer-guide/introduction/",
+    "title": "简介",
+    "body": "OpenPitrix 要求开发者按照一定的应用打包规范上传应用，目前支持两种开发规范： OpenPitrix 开发规范 Helm Chart 开发规范 OpenPitrix 开发规范 沿用的  QingCloud AppCenter…"
+  },
+  {
+    "id": "v0.3$$/docs/v0.3/zh-CN/developer-guide/packaging-openpitrix-app/",
+    "title": "应用开发流程",
+    "body": "准备 OpenPitrix 客户端工具 以 v0.2.3 为例，以下命令中的版本号以实际最新的为准： 准备本地仓库 执行下列命令，在本地创建目录作为本地仓库。 创建应用 OpenPitrix 客户端工具将创建一个名为 test 的文件夹，生成 OpenPitrix…"
+  },
+  {
+    "id": "v0.3$$/docs/v0.3/zh-CN/contribution/implementing-new-plugin/",
+    "title": "如何实现新的 Provider Plugin",
+    "body": "截止到目前，OpenPitrix 支持以下几种 Provider Plugin： QingCloud AWS Kubernetes 如果您希望实现一个新的 Provider Plugin，可按照以下几步进行： 实现 ProviderInterface 中所有函数 pkg…"
+  },
+  {
+    "id": "v0.3$$/docs/v0.3/zh-CN/contribution/open-source-intro/",
+    "title": "OpenPitrix 开源指南",
+    "body": "开源 (Open Source) 在软件开发领域是一个非常时髦的词汇，同时也是一种文化，而开源对整个软件开发的影响自然也是不言而喻，想象一下如果没有开源社区，全球互联网的发展不会如此的迅猛，设想如果没有 Linux、MySQL、Kubernetes…"
+  },
+  {
+    "id": "v0.3$$/docs/v0.3/zh-CN/contribution/set-up-env/",
+    "title": "搭建开发环境",
+    "body": "本文档说明如何搭建本地开发环境以及如何运行项目和查看项目页面。 第一步: 准备环境 主机环境 主机应满足以下的最小资源要求： CPU Memory 磁盘 1 核 1 G 10 G…"
+  },
+  {
+    "id": "v0.3$$/docs/v0.3/zh-CN/getting-start/admin-quick-start/",
+    "title": "管理员",
+    "body": "如果您是使用 OpenPitrix…"
+  },
+  {
+    "id": "v0.3$$/docs/v0.3/zh-CN/getting-start/regular-user-quick-start/",
+    "title": "普通用户",
+    "body": "如果您是使用 OpenPitrix 平台的普通用户，那么本篇文档可以帮助您快速开始相关的基础功能操作。当开发者提交的应用通过管理员审核后，普通用户即可创建运行环境、准备 QingCloud…"
+  },
+  {
+    "id": "v0.3$$/docs/v0.3/zh-CN/installation/allinone/",
+    "title": "All-in-One 模式",
+    "body": "All-in-One 模式部署由  Docker-Compose  的方式启动运行项目，Compose 能够定义和运行多个 Docker 容器的应用，允许用户通过一个单独的 docker-compose.yml 模板文件（YAML…"
+  },
+  {
+    "id": "v0.3$$/docs/v0.3/zh-CN/getting-start/introduction/",
+    "title": "入门必读",
+    "body": "OpenPitrix 提供了应用创建、打包上传、应用审核、应用商店、测试部署、仓库管理、运行环境管理、集群管理、版本管理、应用分类等功能，对应用的生命周期有完整的管理机制。本示例中开发者可使用我们准备的示例应用配置包，或者参考  OpenPitrix 开发规范  或  Helm…"
+  },
+  {
+    "id": "v0.3$$/docs/v0.3/zh-CN/installation/installation-guide/",
+    "title": "部署 OpenPitrix",
+    "body": "OpenPitrix 支持   、   和   三种部署模式。 All-in-One 模式 All-in-One 模式  即单节点部署，需要预先安装 Docker、Docker-Compose、Make 等依赖软件，仅建议您用来测试或熟悉部署流程和了解 OpenPitrix…"
+  },
+  {
+    "id": "v0.3$$/docs/v0.3/zh-CN/installation/helm-chart/",
+    "title": "Helm Chart 模式",
+    "body": "第一步: 准备环境 主机环境 Kubernetes 模式需要准备   满足最小资源要求的主机节点并准备好相应的 Kubernetes 存储服务端。 最小配置 CPU Memory 磁盘 2 核 2 G 60 G 软件环境 需提前准备好  Kubernetes…"
+  },
+  {
+    "id": "v0.3$$/docs/v0.3/zh-CN/introduction/openpitrix-scenarios/",
+    "title": "应用场景",
+    "body": "OpenPitrix 典型的应用场景有： 某企业采用了多云的系统 (包括混合云)，要实现一站式的应用管理平台，从而实现应用的部署和管理。 云管平台 (CMP) 可以将开源的 OpenPitrix…"
+  },
+  {
+    "id": "v0.3$$/docs/v0.3/zh-CN/introduction/basic/",
+    "title": "产品概述",
+    "body": "OpenPitrix  是一款开源多云应用程序管理系统，用来在多云环境下打包、部署和管理不同类型的应用，包括传统应用、微服务应用以及 Serverless 应用等，其中云平台包括 AWS、Azure、Kubernetes、QingCloud、OpenStack、VMWare…"
+  },
+  {
+    "id": "v0.3$$/docs/v0.3/zh-CN/introduction/openpitrix-features/",
+    "title": "产品功能",
+    "body": "OpenPitrix 作为一款开源多云应用程序管理系统，支持将多种应用类型部署到多个云平台，并且它对云平台的支持是高度可扩展和插拔的。OpenPitrix…"
+  },
+  {
+    "id": "v0.3$$/docs/v0.3/zh-CN/introduction/video/",
+    "title": "演示视频",
+    "body": "本视频演示了 OpenPitrix 部署应用到多云的运行环境中，开始实践请参考  安装指南  和  快速入门 。"
+  },
+  {
+    "id": "v0.3$$/docs/v0.3/zh-CN/user-guide/app-management/",
+    "title": "应用管理",
+    "body": "应用为用户提供完整的业务功能，由一个或多个特定功能的组件组成（例如在 WordPress 博客网站中一个 PHP 的前端和 MySQL…"
+  },
+  {
+    "id": "v0.3$$/docs/v0.3/zh-CN/user-guide/category-management/",
+    "title": "分类管理",
+    "body": "简介 在 OpenPitrix中，分类用于对上架的应用进行分类，在应用商店中可根据分类来查看各类应用，如 Database，BigData，Container 等等。仅管理员能够创建应用分类，并将应用添加到分类中。值得一提的是，OpenPitrix…"
+  },
+  {
+    "id": "v0.3$$/docs/v0.3/zh-CN/user-guide/cluster-management/",
+    "title": "集群管理",
+    "body": "查看集群 每次基于应用部署之后都会生成一个集群实例，用户可在  商店  或  已购买  下查看用户使用自己应用完整的集群实例列表，并根据需要按照 “状态”进行过滤查询，根据集群名称或 ID…"
+  },
+  {
+    "id": "v0.3$$/docs/v0.3/zh-CN/user-guide/dashboard/",
+    "title": "总览",
+    "body": "…"
+  },
+  {
+    "id": "v0.3$$/docs/v0.3/zh-CN/user-guide/deploying-app-on-aws/",
+    "title": "部署 WordPress 到 AWS",
+    "body": "WordPress  是使用 PHP 语言开发的博客平台，用户可以在支持 PHP 和 MySQL 数据库的服务器上架设属于自己的网站，也可以把 WordPress 当作一个内容管理系统（CMS）来使用。本指南仅以普通用户角色为例，引导用户通过 OpenPitrix…"
+  },
+  {
+    "id": "v0.3$$/docs/v0.3/zh-CN/user-guide/deploying-app-on-qingcloud/",
+    "title": "部署 WordPress 到 QingCloud",
+    "body": "WordPress   是使用 PHP 语言开发的博客平台，用户可以在支持 PHP 和 MySQL 数据库的服务器上架设属于自己的网站，也可以把 WordPress 当作一个内容管理系统（CMS）来使用。本指南仅以普通用户角色为例，引导用户通过 OpenPitrix…"
+  },
+  {
+    "id": "v0.3$$/docs/v0.3/zh-CN/user-guide/introduction/",
+    "title": "简介",
+    "body": "OpenPitrix 旨在帮助用户快速创建应用并将其部署到多云的运行环境中，具备对应用生命周期的管理，用户指南将介绍控制台中各个模块的操作说明，通过 OpenPitrix…"
+  },
+  {
+    "id": "v0.3$$/docs/v0.3/zh-CN/user-guide/deploying-app-on-k8s/",
+    "title": "部署 Nginx 到 Kubernetes",
+    "body": " Nginx 是一个高性能的 HTTP 和反向代理服务器，同时也是一个 IMAP/POP3/SMTP 代理服务器。本指南以开发者角色为例，引导用户通过 OpenPitrix 控制台上传并部署 Nginx 到您的 Kubernetes 环境中去，帮助您快速上手 OpenPitrix…"
+  },
+  {
+    "id": "v0.3$$/docs/v0.3/zh-CN/user-guide/runtime-management/",
+    "title": "运行环境管理",
+    "body": "简介 运行环境即云的运行时环境，它可以是 AWS、GCE、QingCloud、Aliyun、Kubernetes、OpenStack、VMware 等，可以是公有云，也可以是私有云。通过创建运行环境可以让 OpenPitrix…"
+  },
+  {
+    "id": "v0.3$$/docs/v0.3/zh-CN/user-guide/store-management/",
+    "title": "应用商店",
+    "body": "…"
+  },
+  {
+    "id": "v0.3$$/docs/v0.3/zh-CN/developer-guide/openpitrix-developer-guide/",
+    "title": "应用开发入门",
+    "body": "基于 OpenPitrix 开发规范，平台旨在帮助软件开发者以极低的学习成本快速部署自己的传统应用到多云的运行环境中并提供一站式的平台方便管理用户的资源和环境，本文通过以下开发示例开发一个 Wordpress 应用，以及上传到平台并部署到基于 VM…"
+  },
+  {
+    "id": "v0.3$$/docs/v0.3/zh-CN/contribution/contribution-guide/",
+    "title": "OpenPitrix 贡献说明",
+    "body": "开源 (Open Source) 在软件开发领域是一个非常时髦的词汇，同时也是一种文化，而开源对整个软件开发的影响自然也是不言而喻，想象一下如果没有开源社区，全球互联网的发展不会如此的迅猛，设想如果没有 Linux、MySQL、Kubernetes…"
+  },
+  {
+    "id": "v0.3$$/docs/v0.3/zh-CN/getting-start/developer-quick-start/",
+    "title": "开发者",
+    "body": "OpenPitrix 旨在帮助软件开发者以极低的学习成本快速部署自己的应用到多云的运行环境中并提供一站式的平台方便管理用户的资源和环境，如果您开发基于 OpenPitrix…"
+  },
+  {
+    "id": "v0.3$$/docs/v0.3/zh-CN/installation/kubernetes/",
+    "title": "Kubernetes 模式",
+    "body": "第一步: 准备环境 主机环境 Kubernetes 模式需要准备   满足最小资源要求的主机节点并准备好相应的 Kubernetes 存储服务端。 最小配置 CPU Memory 磁盘 2 核 2 G 60 G 软件环境 Kubernetes…"
+  },
+  {
+    "id": "v0.3$$/docs/v0.3/zh-CN/user-guide/repo-management/",
+    "title": "仓库管理",
+    "body": "简介 在 OpenPitrix 中，部署的每个应用程序都是基础软件包存储库，如果要将 OpenPitrix 用于多云应用程序管理，则需要先创建存储库。应用程序管理器可以将包存储到 http / https 服务器或 S3对象存储。OpenPitrix…"
+  },
+  {
+    "id": "v0.3$$/docs/v0.3/zh-CN/user-guide/user-management/",
+    "title": "用户管理",
+    "body": "用户角色 用户管理主要提供了各级别用户对 OpenPitrix 平台资源的访问控制，可实现以细粒度对资源归属及权限控制的划分。 用户管理目前提供  管理员（Admin） 、 开发者（Developer）  和  普通用户（Normal User…"
+  },
+  {
+    "id": "v0.3$$/docs/v0.3/zh-CN/developer-guide/openpitrix-specification/",
+    "title": "开发模板规范",
+    "body": "OpenPitrix 开发包文件结构 开发者开发应用配置包需要包含以下几个文件： 文件名 说明 package.json 必须  Json 格式文件记录应用详情 config.json 必须  Json…"
+  }
+]

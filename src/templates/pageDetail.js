@@ -309,10 +309,10 @@ const MainContainer = styled.div`
 
 const MarkdownWrapper = styled.div`
   max-width: 1020px;
-  height: calc(100vh - 220px);
+  min-height: calc(100vh - 220px);
 
   @media only screen and (max-width: 768px) {
-    height: calc(100vh - 204px);
+    min-height: calc(100vh - 204px);
   }
 `
 
@@ -325,7 +325,7 @@ const HeadingsWrapper = styled.div`
   position: fixed;
   top: 72px;
   right: 20px;
-  height: calc(100vh - 120px);
+  min-height: calc(100vh - 120px);
   overflow-y: auto;
   box-shadow: -1px 0 0 0 #d5dee7;
 

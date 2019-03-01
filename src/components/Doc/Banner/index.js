@@ -76,6 +76,16 @@ const Banner = styled.div`
         padding: 78px 0 20px;
         font-size: 24px;
       }
+
+      .search {
+        input {
+          background: rgba(0, 0, 0, 0.2);
+
+        &:hover {
+          background: rgba(0, 0, 0, 0.4);
+        }
+      }
+    }
     }
   }
 `

@@ -1,8 +1,6 @@
 const path = require(`path`)
-const fs=require('fs')
-const debug=require('debug')('app')
+const debug=require('debug')('app');
 const { createFilePath } = require(`gatsby-source-filesystem`)
-const {genSearchDocs}=require('./search')
 
 exports.onCreateWebpackConfig = ({ stage, actions }) => {
   actions.setWebpackConfig({
@@ -34,8 +32,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
-
-  const genDocs = new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     graphql(`{
         pages: allMarkdownRemark {
           edges {
@@ -72,41 +69,4 @@ exports.createPages = ({ graphql, actions }) => {
       resolve()
     })
   })
-
-  const genSearchIndex = new Promise((resolve, reject)=> {
-    graphql(`{
-        searchIndex: allMarkdownRemark {
-          edges {
-            node {
-              fields {
-                slug
-                version
-              }
-              excerpt
-              frontmatter {
-                title
-              }
-            }
-          }
-        }
-      }
-    `).then(res=> {
-      if(res.errors){
-        reject(res.errors)
-      }
-
-      const rawData=res.data.searchIndex.edges || []
-      const searchDocs=genSearchDocs(rawData)
-      try{
-        fs.writeFileSync(path.resolve(__dirname, 'docs/search-docs.json'), JSON.stringify(searchDocs, null, 2), 'utf-8')
-        debug(`generate docs index successfully`)
-      } catch(err){
-        console.error('generate search docs failed: ', err.stack)
-      }
-
-      resolve(rawData)
-    })
-  })
-
-  return Promise.all([genDocs, genSearchIndex])
 }

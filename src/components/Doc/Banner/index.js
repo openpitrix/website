@@ -22,6 +22,8 @@ const Banner = styled.div`
   height: 340px;
   position: relative;
   top: 72px;
+  margin-bottom: 64px;
+  z-index: 1;
 
   .wrap {
     background: url('/images/document/banner-pic.svg') no-repeat;

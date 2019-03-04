@@ -1,9 +1,12 @@
 import React from 'react'
 import classnames from 'classnames'
 import styled from 'styled-components'
-import {Link, navigate, StaticQuery, graphql} from 'gatsby'
+import {Link, StaticQuery, graphql} from 'gatsby'
+import Modal from 'components/Modal'
 
 import { ReactComponent as SearchIcon } from 'assets/search.svg'
+
+import styles from './index.module.scss'
 
 const stripHtmlTag= html=>  html.replace(/(<([^>]+)>)/ig, '');
 
@@ -14,16 +17,13 @@ class Search extends React.Component {
 
   state={
     query: '',
-    results: []
+    results: [],
+    openModal: false
   }
 
   constructor(props) {
     super(props)
     this.docs = this.normalizeDocs(props.data.searchIndex.edges)
-  }
-
-  shouldComponentUpdate(prevProps, prevState) {
-    return prevState.query !== this.state.query
   }
 
   normalizeDocs=(edges=[])=> {
@@ -67,19 +67,28 @@ class Search extends React.Component {
   handleKeyDown=ev=> {
     // press enter
     if(ev.which === 13){
-      navigate(`/docs?query=${this.state.query}`)
+      this.setState({
+        openModal: true
+      })
+
     }
+  }
+
+  handleCloseModal=e=> {
+    this.setState({
+      openModal: false
+    })
   }
 
   render() {
     const { className, placeholder } = this.props
-    const {query, results}=this.state
+    const {query, results, openModal}=this.state
 
     return (
       <SearchWrapper className={classnames('search', className)}>
         <SearchIcon />
         <input type="text" placeholder={placeholder} value={query} onChange={this.handleSearch} onKeyDown={this.handleKeyDown}/>
-        <ul className='search-results'>
+        <ul className={classnames('search-results', {'has-res': results.length > 0})}>
           {
             results.map(({title, slug}, idx)=> {
               return (
@@ -90,6 +99,33 @@ class Search extends React.Component {
             })
           }
         </ul>
+
+          <Modal
+            className={styles.searchModal}
+            isOpen={openModal}
+            onClose={this.handleCloseModal}
+          >
+            {
+              results.map(({title, body, slug, version}, idx)=> {
+                return (
+                  <SearchItem key={idx}>
+                    <Link to={slug} className='title'>{title}</Link>
+                    <div className='body'>
+                      {stripHtmlTag(body).substring(0, 140) + '...'}
+                    </div>
+                    <div className='bottom-links'>
+                      <span className='version'>OpenPitrix {version}</span>
+                      <span className='link'>
+                        <Link to={slug}>{[location.origin, slug].join('')}</Link>
+                      </span>
+                    </div>
+                  </SearchItem>
+
+                )
+              })
+            }
+          </Modal>
+
       </SearchWrapper>
     )
   }
@@ -162,20 +198,47 @@ const SearchWrapper = styled.div`
     margin-right: 18px;
     max-height: 305px;
     overflow: scroll;
+    &.has-res {
+      border: 1px solid #ddd;
+      border-top: none;  
+    }
   
     li {
       list-style-type: none;
-      padding: 3px;
-      padding-left: 20px;
       margin-bottom: 4px;
       &:hover {
         background: #f2f2f2;
       }
       & > a{
         width: 100%;
+        padding: 5px 10px;
         display: inline-block;
         color: #555;
       }
+    }
+  }
+`
+
+const SearchItem=styled.li`
+  margin-bottom: 40px;
+  
+  .title {
+    color: #8454cd;
+    font-size: 24px;
+    line-height: 1.5;  
+  }
+  .body {
+    margin-top: 12px;
+    margin-bottom: 16px;
+    color: #474e5d;
+  }
+  .bottom-links {
+    .version{
+      margin-right: 13px;
+      color: #8c96ad;
+    }
+    .link {
+      color: #8454cd;
     }
   }
 `

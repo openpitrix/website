@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactModal from 'react-modal'
 import PropTypes from 'prop-types'
+import classnames from 'classnames'
 import { omit } from 'lodash'
 
 import styles from './index.module.scss'
@@ -24,7 +25,7 @@ export default class Modal extends React.Component {
   }
 
   render() {
-    const { width, isOpen, children, closable } = this.props
+    const { width, isOpen, children, closable, className, style, ...rest }  = this.props
 
     const customStyles = {
       content: {
@@ -35,11 +36,12 @@ export default class Modal extends React.Component {
     return (
       <ReactModal
         ariaHideApp={false}
-        className={styles.modal}
-        style={customStyles}
+        className={classnames(styles.modal, className)}
+        style={Object.assign(customStyles, style)}
         isOpen={isOpen}
         onRequestClose={this.onClose}
-        shouldCloseOnOverlayClick={true}
+        shouldCloseOnOverlayClick
+        {...rest}
       >
         <div className={styles.header}>
           {closable && (

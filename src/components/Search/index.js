@@ -70,7 +70,6 @@ class Search extends React.Component {
       this.setState({
         openModal: true
       })
-
     }
   }
 
@@ -85,29 +84,46 @@ class Search extends React.Component {
     const {query, results, openModal}=this.state
 
     return (
-      <SearchWrapper className={classnames('search', className)}>
-        <SearchIcon />
-        <input type="text" placeholder={placeholder} value={query} onChange={this.handleSearch} onKeyDown={this.handleKeyDown}/>
-        <ul className={classnames('search-results', {'has-res': results.length > 0})}>
-          {
-            results.map(({title, slug}, idx)=> {
-              return (
+      <Wrapper className={classnames('search', className)}>
+        <SearchWrapper>
+          <SearchIcon />
+          <input
+            type="text"
+            placeholder={placeholder}
+            value={query}
+            onChange={this.handleSearch}
+            onKeyDown={this.handleKeyDown}
+          />
+
+          <ul className={classnames('search-results', {hasRes: results.length > 0})}>
+            {
+              results.map(({title, slug}, idx)=> (
                 <li key={idx}>
                   <Link to={slug}>{title}</Link>
                 </li>
-              )
-            })
-          }
-        </ul>
+              ))
+            }
+          </ul>
+        </SearchWrapper>
 
-          <Modal
-            className={styles.searchModal}
-            isOpen={openModal}
-            onClose={this.handleCloseModal}
-          >
-            {
-              results.map(({title, body, slug, version}, idx)=> {
-                return (
+        <Modal
+          className={styles.searchModal}
+          isOpen={openModal}
+          onClose={this.handleCloseModal}
+        >
+          <SearchWrapper className="sch-wrap">
+            <SearchIcon />
+            <input
+              type="text"
+              placeholder={placeholder}
+              value={query}
+              onChange={this.handleSearch}
+            />
+          </SearchWrapper>
+
+          {
+            results.length ? (
+              results.map(({title, body, slug, version}, idx)=> (
                   <SearchItem key={idx}>
                     <Link to={slug} className='title'>{title}</Link>
                     <div className='body'>
@@ -116,17 +132,20 @@ class Search extends React.Component {
                     <div className='bottom-links'>
                       <span className='version'>OpenPitrix {version}</span>
                       <span className='link'>
-                        <Link to={slug}>{[location.origin, slug].join('')}</Link>
-                      </span>
+                      <Link to={slug}>{[location.origin, slug].join('')}</Link>
+                    </span>
                     </div>
                   </SearchItem>
 
                 )
-              })
-            }
-          </Modal>
+              )
+              ) : (
+                <div>搜索结果为空</div>
+            )
+          }
+        </Modal>
 
-      </SearchWrapper>
+      </Wrapper>
     )
   }
 }
@@ -155,11 +174,16 @@ export default props=> (
   )}/>
 )
 
+const Wrapper=styled.div`
+ 
+`
+
 const SearchWrapper = styled.div`
   position: relative;
   max-width: 460px;
   height: 36px;
-
+  z-index: 1;
+  
   input {
     width: 100%;
     height: 100%;
@@ -198,11 +222,11 @@ const SearchWrapper = styled.div`
     margin-right: 18px;
     max-height: 305px;
     overflow: scroll;
-    &.has-res {
+    &.hasRes {
+      border-top: none;
       border: 1px solid #ddd;
-      border-top: none;  
     }
-  
+    
     li {
       list-style-type: none;
       margin-bottom: 4px;

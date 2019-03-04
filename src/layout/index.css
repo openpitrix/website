@@ -9,6 +9,12 @@ html {
 body {
   margin: 0;
 }
+div, form, img, ul, ol, li, dl, dt, dd, option, td, th, video, h1, h2, h3, h4, h5, h6, p, blockquote, input, select, textarea {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none outside none;
+}
 article,
 aside,
 details,
@@ -516,9 +522,6 @@ ul li {
   padding-left: 0;
 }
 blockquote *:last-child {
-  margin-bottom: 0;
-}
-li *:last-child {
   margin-bottom: 0;
 }
 p *:last-child {

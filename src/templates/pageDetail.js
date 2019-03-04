@@ -5,8 +5,12 @@ import { graphql } from 'gatsby'
 import styled from 'styled-components'
 
 import Layout from 'layout'
-import { Nav as DocNav, Header, Footer } from 'components/Doc'
+import { Nav as DocNav, Footer } from 'components/Doc'
+import Header from 'components/Header'
 import Headings from 'components/Headings'
+
+import { ReactComponent as Logo } from 'assets/op-logo.svg'
+import { ReactComponent as IconGithub } from 'assets/github.svg'
 
 import last from 'lodash/last'
 
@@ -169,7 +173,7 @@ export default class MarkdownTemplate extends React.Component {
       frontmatter.id = slug
     }
 
-    const { prev, next } = this.state
+    const { prev, next, isExpand } = this.state
 
     return (
       <Layout>
@@ -179,10 +183,14 @@ export default class MarkdownTemplate extends React.Component {
           }`}</title>
         </Helmet>
 
-        <Header />
+        <Header isBlankBg />
+        <MobileHeader>
+          <img className='menu' onClick={this.handleExpand}  src='/images/menu-dark.svg' />
+          <a href='/'><img className='log' src='/images/op-logo.svg' /></a>
+        </MobileHeader>
 
         <BodyGrid>
-          <DocNav />
+          <DocNav isExpand={isExpand} />
 
           <MainContainer isExpand={this.state.isExpand}>
             <MarkdownWrapper>
@@ -200,7 +208,6 @@ export default class MarkdownTemplate extends React.Component {
                 <Footer prev={prev} next={next} />
               </FooterWrapper>
             </MarkdownWrapper>
-
             <HeadingsWrapper>
               <Headings
                 title={frontmatter.title}
@@ -209,6 +216,7 @@ export default class MarkdownTemplate extends React.Component {
                 onHeadClick={this.handleHeadClick}
               />
             </HeadingsWrapper>
+            <footer>Openpitrix Technology © 2019</footer>
           </MainContainer>
         </BodyGrid>
       </Layout>
@@ -265,7 +273,10 @@ const BodyGrid = styled.div`
 `
 
 const MainContainer = styled.div`
-  margin-left: 280px;
+  margin-top: 72px;
+  margin-left: 256px;
+  min-height: calc(100vh - 72px);
+  background: #fff;
 
   & > div {
     margin: auto;
@@ -275,33 +286,46 @@ const MainContainer = styled.div`
     color: #303e5a;
   }
 
+  footer {
+    padding-top: 100px;
+    line-height: 48px;
+    text-align: center;
+    font-family: 'Roboto';
+    font-size: 14px;
+    color: #8c96ad;
+    background: #fff;
+  }
+
   @media only screen and (max-width: 768px) {
+    margin-top: 56px;
+    min-height: calc(100vh - 56px);
     width: 100vw;
     margin-left: ${({ isExpand }) => {
-      return isExpand ? '280px' : '0'
+      return isExpand ? '256px' : '0'
     }};
     transition: margin-left 0.2s ease-in-out;
   }
 `
 
-const MarkdownBody = styled.div`
-  padding: 104px 40px;
-  padding-bottom: 40px;
-`
-
 const MarkdownWrapper = styled.div`
-  padding-right: 280px;
+  max-width: 1020px;
+  min-height: calc(100vh - 220px);
 
-  @media only screen and (max-width: 1280px) {
-    padding-right: 0;
+  @media only screen and (max-width: 768px) {
+    min-height: calc(100vh - 204px);
   }
 `
 
+const MarkdownBody = styled.div`
+  padding: 32px 40px;
+`
+
 const HeadingsWrapper = styled.div`
+  display: none;
   position: fixed;
   top: 72px;
   right: 20px;
-  height: calc(100vh - 120px);
+  min-height: calc(100vh - 120px);
   overflow-y: auto;
   box-shadow: -1px 0 0 0 #d5dee7;
 
@@ -314,4 +338,33 @@ const FooterWrapper = styled.div`
   max-width: 1217px;
   padding: 0 30px;
   margin: 0 auto;
+`
+
+const MobileHeader = styled.div`
+  display: none;
+  @media only screen and (max-width: 768px) {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    height: 56px;
+    padding: 16px 32px;
+    width: 100vw;
+    background: #fff;
+    box-shadow: inset 0 -1px 0 0 #eff0f5;
+    text-align: center;
+
+    .menu {
+       float: left;
+       margin: 0;
+       height: 24px;
+       cursor: pointer;
+    }
+
+    .logo {
+       margin: 0;
+       height: 24px;
+    }
+  }
 `

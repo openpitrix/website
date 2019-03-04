@@ -17,14 +17,12 @@ export default class Header extends React.Component {
   static propTypes = {
     hasBg: PropTypes.bool,
     isBlankBg: PropTypes.bool,
-    hasLightBg: PropTypes.bool,
     maxTop: PropTypes.number,
   }
 
   static defaultProps = {
     hasBg: false,
     isBlankBg: false,
-    hasLightBg: false,
     maxTop: 0,
   }
 
@@ -60,6 +58,14 @@ export default class Header extends React.Component {
     }
   }
 
+  isActiveLink = (path, active) => {
+    if(active === '/docs') {
+      return path.indexOf(active) > -1;
+    }
+
+    return path === active;
+  }
+
   changeMeuns = () => {
     const showMenus = this.state.showMenus
 
@@ -83,7 +89,7 @@ export default class Header extends React.Component {
                 key={item.name}
                 href={item.link}
                 className={classnames({
-                  [styles.active]: currentPath === item.active,
+                  [styles.active]: this.isActiveLink(currentPath, item.active),
                 })}
               >
                 {item.name}
@@ -114,7 +120,7 @@ export default class Header extends React.Component {
   }
 
   render() {
-    const { isBlankBg, hasBg, hasLightBg } = this.props
+    const { isBlankBg, hasBg } = this.props
     const { showMenus, currentPath } = this.state
     const isDarkBg = !isBlankBg && (this.state.isDarkBg || hasBg)
     const logoSrc = isBlankBg
@@ -123,13 +129,16 @@ export default class Header extends React.Component {
     const githubSrc = isBlankBg
       ? '/images/github-dark.svg'
       : '/images/github.svg'
+    const menuSrc = isBlankBg
+      ? '/images/menu-dark.svg'
+      : '/images/menu.svg'
 
     return (
       <div
         className={classnames(styles.header, {
           [styles.blankHeader]: isBlankBg,
           [styles.darkHeader]: isDarkBg,
-          [styles.lightHeader]: hasLightBg,
+          [styles.docHeader]: currentPath.startsWith('/docs'),
         })}
       >
         <div className={styles.wrapper}>
@@ -144,7 +153,7 @@ export default class Header extends React.Component {
                 key={item.name}
                 href={item.link}
                 className={classnames({
-                  [styles.active]: currentPath === item.active,
+                  [styles.active]: this.isActiveLink(currentPath, item.active),
                 })}
               >
                 {item.name}
@@ -164,7 +173,7 @@ export default class Header extends React.Component {
           <img
             onClick={this.changeMeuns}
             className={styles.menuIcon}
-            src="/images/menu.svg"
+            src={menuSrc}
           />
         </div>
 

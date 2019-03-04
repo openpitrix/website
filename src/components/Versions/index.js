@@ -52,8 +52,8 @@ class Versions extends Component {
 }
 
 const VersionsWrapper = styled.div`
-  padding: 20px;
-  padding-bottom: 24px;
+  height: 40px;
+  margin-bottom: 24px;
 
   .latest-ver {
     display: inline-block;

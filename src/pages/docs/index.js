@@ -3,7 +3,8 @@ import GatsbyLink from 'gatsby-link'
 import get from 'lodash/get'
 import styled from 'styled-components'
 
-import { Banner, Nav, Header } from 'components/Doc'
+import { Banner, Nav } from 'components/Doc'
+import Header from 'components/Header'
 import Layout from 'layout'
 
 const getChildLink = item => {
@@ -24,7 +25,7 @@ export default class Docs extends Component {
 
     return (
       <Layout>
-        <Header/>
+        <Header isBlankBg />
         <Wrapper>
           <Banner />
           <Nav />
@@ -36,11 +37,20 @@ export default class Docs extends Component {
                 const children = item.chapters || item.entries
 
                 return (
-                  <div key={`${link} div`}>
-                    <GatsbyLink key={`${link} link`} to={link}>
+                  <div className="block" key={`${link} div`}>
+                    <GatsbyLink
+                      className="title"
+                      key={`${link} link`}
+                      to={link}
+                    >
                       {item.title}
                     </GatsbyLink>
-                    <span key={`${link} describe`}>{item.describe}</span>
+                    <div
+                      className="description"
+                      key={`${link} describe`}
+                    >
+                      {item.describe}
+                    </div>
                     {children &&
                       children.map(child => {
                         let childLink = getChildLink(child)
@@ -58,7 +68,10 @@ export default class Docs extends Component {
                           )
                         }
                         return (
-                          <GatsbyLink key={childLink} to={childLink}>
+                          <GatsbyLink
+                            key={childLink}
+                            to={childLink}
+                          >
                             {title}
                           </GatsbyLink>
                         )
@@ -80,75 +93,80 @@ const Wrapper = styled.div`
   .body {
     min-height: calc(100vh - 324px);
     max-width: calc(100vw - 256px);
-    position: relative;
-    left: 256px;
+    margin-left: 256px;
+    padding-top: 64px;
+    background: #fff;
   }
+
   .main-body {
     display: flex;
     color: #8454cd;
     flex-flow: row wrap;
     font-size: 16px;
-    padding-top: 64px;
     position: relative;
-    width: 920px;
+    padding: 64px 24px 0;
+    max-width: 920px;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
 
-    a {
-      display: block;
-      color: #8454cd;
-      & + a {
-        margin-top: 16px;
-      }
-    }
-    span {
-      display: block;
-      font-size: 12px;
-      width: 80%;
-      color: #78839e;
-      margin: 11px 0 24px;
+    .block {
+      margin-bottom: 40px;
+      width: 50%;
     }
 
-    > div {
-      width: 100%;
-      margin-bottom: 64px;
+    .title {
+      margin-bottom: 16px;
+      line-height: 24px;
+      font-size: 16px;
+      font-weight: 500;
+      color: #343945;
+    }
+
+    .description {
+      margin-bottom: 8px;
+      line-height: 20px;
+      font-size: 12px;
+      width: calc(100% - 24px);
+      color: #78839e;
+    }
+
+    a {
+      display: block;
+      color: #6d35c3;
+      line-height: 28px;
+      font-size: 14px;
     }
   }
 
   footer {
-    margin: 16px auto;
+    padding-top: 100px;
+    margin-left: 256px;
+    line-height: 48px;
     text-align: center;
+    font-family: 'Roboto';
+    font-size: 14px;
+    color: #8c96ad;
+    background: #fff;
   }
 
-  @media only screen and (min-width: 768px) {
-    .main-body {
-      // padding: 64px 24.0972222%;
-      > div {
-        width: 50%;
-        margin-bottom: 64px;
-      }
-      span {
-        width: 65%;
-      }
-    }
-    footer {
-      margin-left: 256px;
-    }
-  }
   @media only screen and (max-width: 768px) {
+    .body {
+      margin-left: 16px;
+      max-width: calc(100vw - 32px);
+    }
+
     .main-body {
-      width: auto;
+      .block {
+        width: 100%;
+      }
+    }
+
+    footer {
+      padding-top: 0;
+      margin-left: 0;
     }
   }
-
-  // @media only screen and (min-width: 1280px) {
-  //   .main-body {
-  //     > div {
-  //     width: 33.3%;
-  //     margin-bottom: 64px;
-  //     }
-  //   }
-  // }
 `
 
 export const pageQuery = graphql`

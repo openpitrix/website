@@ -15,12 +15,12 @@ class Footer extends React.Component {
           {!isEmpty(prev) && (
             <Link href={prev.href}>
               <Previous />
-              上一篇: {prev.text}
+              <label>上一篇:</label> {prev.text}
             </Link>
           )}
           {!isEmpty(next) && (
             <Link href={next.href} right>
-              下一篇: {next.text}
+            <label>下一篇:</label> {next.text}
               <Next />
             </Link>
           )}
@@ -51,6 +51,16 @@ const Link = styled.a`
   &:hover {
     color: #8454cd;
   }
+
+ @media only screen and (max-width: 768px) {
+  font-size: 12px;
+ }
+
+ @media only screen and (max-width: 400px) {
+  >label {
+    display: none;
+  }
+ }
 `
 
 const FooterText = styled.p`

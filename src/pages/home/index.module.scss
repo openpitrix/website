@@ -204,6 +204,18 @@
       padding: 8vw $page-padding;
     }
   }
+
+  @media only screen and (min-width: $page-content) {
+    .image {
+      img {
+        max-width: 500px;
+      }
+    }
+
+    .description {
+      max-width: 482px;
+    }
+  }
 }
 
 .sceneBanner {

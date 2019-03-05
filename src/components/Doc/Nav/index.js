@@ -54,6 +54,7 @@ const StyledSearch = styled(Search)`
     height: 32px;
     margin: 0 auto 20px;
     border-radius: 16px;
+    z-index: 1;
 
     input {
       background-color: #fff;

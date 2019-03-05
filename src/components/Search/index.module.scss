@@ -1,0 +1,26 @@
+.searchModal {
+  position: absolute;
+  top: 10px;
+  @media screen and (min-width: 768px){
+    transform: translate(-50%, 0);
+  }
+
+  &> div:last-child {
+    max-height: 600px;
+    overflow-y: scroll;
+    padding: 20px;
+
+    :global {
+      .sch-wrap {
+        margin-bottom: 30px;
+      }
+    }
+    input {
+      color: #343945;
+
+      &::placeholder {
+        color: #343945;
+      }
+    }
+  }
+}

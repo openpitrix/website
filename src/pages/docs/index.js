@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import GatsbyLink from 'gatsby-link'
 import get from 'lodash/get'
 import styled from 'styled-components'
+import {graphql} from 'gatsby'
 
 import { Banner, Nav } from 'components/Doc'
 import Header from 'components/Header'

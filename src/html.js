@@ -10,10 +10,27 @@ let stylesStr
 if (process.env.NODE_ENV === `production`) {
   try {
     stylesStr = require(`!raw-loader!../public/styles.css`)
-  } catch (e) {
-    console.log(e)
-  }
+  } catch (e) {}
 }
+
+// inject head script
+const injectScript=`
+(function() {
+  var redirectPaths=[
+    '/openpitrix',
+    '/libconfd',
+    '/metadata',
+    '/metad',
+    '/logger',
+    '/notification',
+    '/iam'
+  ];
+  
+  if(redirectPaths.indexOf(location.pathname) > -1){
+    location.replace('//github.com/openpitrix' + location.pathname);
+  }
+}())
+`
 
 const Html = ({
   htmlAttributes,
@@ -45,14 +62,7 @@ const Html = ({
         {headComponents}
         {css}
         <link rel="icon" href={fav} />
-        {/*<link*/}
-        {/*rel="stylesheet"*/}
-        {/*href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"*/}
-        {/*/>*/}
-        {/*<script*/}
-        {/*type="text/javascript"*/}
-        {/*src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"*/}
-        {/*/>*/}
+        <script dangerouslySetInnerHTML={{__html: injectScript}}></script>
       </head>
       <body {...bodyAttributes}>
         {preBodyComponents}

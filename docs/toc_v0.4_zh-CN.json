@@ -1,0 +1,191 @@
+{
+  "id": "v0.4-zh-CN",
+  "chapters": [
+    {
+      "title": "产品介绍",
+      "describe": "通过直观的视频资料与简单的介绍帮助您了解 OpenPitrix。",
+      "chapters": [
+        {
+          "title": "产品概述",
+          "entry": "./v0.4/zh-CN/introduction/basic.md"
+        },
+        {
+          "title": "产品功能",
+          "entry": "./v0.4/zh-CN/introduction/openpitrix-features.md"
+        },
+        {
+          "title": "应用场景",
+          "entry": "./v0.4/zh-CN/introduction/openpitrix-scenarios.md"
+        },
+        {
+          "title": "视频演示",
+          "entry": "./v0.4/zh-CN/introduction/video.md"
+        }
+      ]
+    },
+    {
+      "title": "安装指南",
+      "describe": "指导用户如何快速安装 OpenPitrix，并对平台做简单设置，投入使用。",
+      "chapters": [
+        {
+          "title": "部署 OpenPitrix",
+          "entry": "./v0.4/zh-CN/installation/installation-guide.md"
+        },
+        {
+          "title": "All-in-One 模式",
+          "entry": "./v0.4/zh-CN/installation/allinone.md"
+        },
+        {
+          "title": "Kubernetes 模式",
+          "entry": "./v0.4/zh-CN/installation/kubernetes.md"
+        },
+        {
+          "title": "Helm Chart 模式",
+          "entry": "./v0.4/zh-CN/installation/helm-chart.md"
+        }
+      ]
+    },
+    {
+      "title": "快速入门",
+      "describe": "安装完成后，通过关键功能和流程的介绍引导用户快速入门。",
+      "chapters": [
+        {
+          "title": "入门必读",
+          "entry": "./v0.4/zh-CN/getting-start/introduction.md"
+        },
+        {
+          "title": "开发者",
+          "entry": "./v0.4/zh-CN/getting-start/developer-quick-start.md"
+        },
+        {
+          "title": "管理员",
+          "entry": "./v0.4/zh-CN/getting-start/admin-quick-start.md"
+        },
+        {
+          "title": "普通用户",
+          "entry": "./v0.4/zh-CN/getting-start/regular-user-quick-start.md"
+        }
+      ]
+    },
+    {
+      "title": "用户指南",
+      "describe": "指导用户如何使用平台提供的基本功能。",
+      "chapters": [
+        {
+          "title": "简介",
+          "entry": "./v0.4/zh-CN/user-guide/introduction.md"
+        },
+        {
+          "title": "总览页",
+          "entry": "./v0.4/zh-CN/user-guide/dashboard.md"
+        },
+        {
+          "title": "部署应用",
+          "entries": [
+            {
+              "entry": "./v0.4/zh-CN/user-guide/deploying-app-on-qingcloud.md"
+            },
+            {
+              "entry": "./v0.4/zh-CN/user-guide/deploying-app-on-aws.md"
+            },
+            {
+              "entry": "./v0.4/zh-CN/user-guide/deploying-app-on-k8s.md"
+            }
+          ]
+        },
+        {
+          "title": "运行环境管理",
+          "entry": "./v0.4/zh-CN/user-guide/runtime-management.md"
+        },
+        {
+          "title": "集群管理",
+          "entry": "./v0.4/zh-CN/user-guide/cluster-management.md"
+        },
+        {
+          "title": "仓库管理",
+          "entry": "./v0.4/zh-CN/user-guide/repo-management.md"
+        },
+        {
+          "title": "商店管理",
+          "entries": [
+            {
+              "entry": "./v0.4/zh-CN/user-guide/store-management.md"
+            },
+            {
+              "entry": "./v0.4/zh-CN/user-guide/category-management.md"
+            },
+            {
+              "entry": "./v0.4/zh-CN/user-guide/app-management.md"
+            }
+          ]
+        },
+        {
+          "title": "用户管理",
+          "entry": "./v0.4/zh-CN/user-guide/user-management.md"
+        }
+      ]
+    },
+    {
+      "title": "开发指南",
+      "describe": "全面介绍应用的完整生命周期，以及不同平台的应用开发规范。",
+      "chapters": [
+        {
+          "title": "简介",
+          "entry": "./v0.4/zh-CN/developer-guide/introduction.md"
+        },
+        {
+          "title": "OpenPitrix 规范及应用开发",
+          "entries": [
+            {
+              "title": "OpenPitrix 贡献说明",
+              "entry": "./v0.4/zh-CN/developer-guide/openpitrix-developer-guide.md"
+            },
+            {
+              "title": "如何搭开发环境",
+              "entry": "./v0.4/zh-CN/developer-guide/openpitrix-specification.md"
+            },
+            {
+              "title": "如何实现新的 Provider Plugin",
+              "entry": "./v0.4/zh-CN/developer-guide/packaging-openpitrix-app.md"
+            }
+          ]
+        },
+        {
+          "title": "Helm 规范及应用开发",
+          "entries": [
+            {
+              "entry": "./v0.4/zh-CN/developer-guide/helm-developer-guide.md"
+            },
+            {
+              "entry": "./v0.4/zh-CN/developer-guide/helm-specification.md"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "贡献指南",
+      "describe": "引导社区成员如何为 OpenPitrix 开始你的第一个贡献。",
+      "chapters": [
+        {
+          "title": "OpenPitrix 贡献说明",
+          "entry": "./v0.4/zh-CN/contribution/contribution-guide.md"
+        },
+        {
+          "title": "如何搭开发环境",
+          "entry": "./v0.4/zh-CN/contribution/set-up-env.md"
+        },
+        {
+          "title": "如何实现新的 Provider Plugin",
+          "entry": "./v0.4/zh-CN/contribution/implementing-new-plugin.md"
+        }
+      ]
+    },
+    {
+      "title": "常见问题",
+      "describe": "总结实际应用场景中可能遇到的问题并给出通用解决方案。",
+      "entry": "./v0.4/zh-CN/faq.md",
+      "chapters": []
+    }
+  ]
+}

@@ -97,11 +97,11 @@ export default class Header extends React.Component {
             </li>
           ))}
 
-          <li className={styles.demo}>
+          {/*<li className={styles.demo}>
             <a onClick={this.changeMeuns} href="#" target="_blank">
               Demo
             </a>
-          </li>
+          </li>*/}
           <li className={styles.github}>
             <a
               onClick={this.changeMeuns}
@@ -162,7 +162,7 @@ export default class Header extends React.Component {
           </div>
 
           <div className={styles.otherLinks}>
-            <a href="#">Demo</a>
+            {/*<a href="#">Demo</a>*/}
             <a href="https://github.com/openpitrix/openpitrix" target="_blank">
               <label className={styles.github}>
                 <img src={githubSrc} />

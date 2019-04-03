@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="76" height="105" viewBox="0 0 76 105">
+    <g fill="none" fill-rule="evenodd">
+        <path fill="#30343E" d="M0 8h72v97L36 91.859 0 105z"/>
+        <path fill="#8454CD" d="M0 0h72v100L36 86.859 0 100z"/>
+        <path fill="#6D35C3" d="M72 0l4 8h-4z"/>
+        <g fill="#FFF" font-family="Futura-Medium, Futura" font-weight="400">
+            <text font-size="16" transform="translate(16 20)">
+                <tspan x=".203" y="47">scene</tspan>
+            </text>
+            <text font-size="32" transform="translate(16 20)">
+                <tspan x="11" y="33">4</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

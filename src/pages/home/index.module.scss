@@ -223,10 +223,11 @@
   margin-bottom: 200px;
 
   .sceneContent {
+    position: relative;
     box-sizing: border-box;
     margin: 0 auto;
     width: 835px;
-    height: 568px;
+    height: 566px;
     padding: 32px 24px 0;
     background-image: radial-gradient(
       circle at 0 0,
@@ -242,11 +243,40 @@
       color: $N500;
     }
 
+    .contentOuter {
+      position: relative;
+      overflow: hidden;
+      height: 470px;
+
+      .content {
+        position: absolute;
+        transition: all 0.5s ease-in-out;
+      }
+    }
+
     .scene {
       position: relative;
-      background-image: url('/images/home/scene-bg-1.svg');
+      float: left;
+      display: inline-block;
+      width: 788px;
       padding-left: 52px;
-      height: 440px;
+      height: 470px;
+      background-color: $N500;
+      background-image: url('/images/home/scene-bg-1.svg');
+      background-repeat: no-repeat;
+      background-position: bottom right;
+
+      &:nth-child(2) {
+        background-image: url('/images/home/scene-bg-2.svg');
+      }
+
+      &:nth-child(3) {
+        background-image: url('/images/home/scene-bg-3.svg');
+      }
+
+      &:nth-child(4) {
+        background-image: url('/images/home/scene-bg-4.svg');
+      }
 
       .currentImg {
         position: absolute;
@@ -264,7 +294,7 @@
 
       .description {
         margin-bottom: 20px;
-        //width: 500px;
+        max-width: 500px;
         line-height: 36px;
         font-size: 16px;
         color: $N30;
@@ -291,64 +321,90 @@
           background-color: rgba($Y100, 0.12);
         }
       }
+    }
 
-      .number {
-        position: absolute;
-        right: -160px;
-        bottom: -50px;
-        width: 278px;
+    .numberButton {
+      position: absolute;
+      right: -160px;
+      bottom: -50px;
+      width: 278px;
+      height: 84px;
+      background-color: $P75;
+      line-height: 40px;
+      font-size: 30px;
+      font-weight: 500;
+      color: $N0;
+
+      > label {
+        display: inline-block;
+        width: 128px;
         height: 84px;
-        background-color: $P75;
-        line-height: 40px;
-        font-size: 30px;
-        font-weight: 500;
-        color: $N0;
+        padding: 22px 0;
+        vertical-align: top;
+        cursor: pointer;
+      }
 
-        > label {
-          display: inline-block;
-          width: 128px;
-          height: 84px;
-          padding: 22px 0;
-          vertical-align: top;
-          cursor: pointer;
-        }
+      .arrowLeft,
+      .arrowRight {
+        vertical-align: top;
+        margin-top: 10px;
+        cursor: pointer;
+      }
 
-        .arrowLeft,
-        .arrowRight {
-          vertical-align: top;
-          margin-top: 10px;
-          cursor: pointer;
-        }
+      .arrowLeft {
+        margin-left: 48px;
+        margin-right: 25px;
+      }
 
-        .arrowLeft {
-          margin-left: 48px;
-          margin-right: 25px;
-        }
+      .arrowRight {
+        margin-left: 25px;
+      }
 
-        .arrowRight {
-          margin-left: 25px;
-          // margin-right: 48px;
-        }
+      .currentNumber {
+        position: relative;
+        width: 150px;
+        background-color: $P200;
+        font-size: 40px;
 
-        .currentNumber {
-          position: relative;
-          width: 150px;
-          background-color: $P200;
-          font-size: 40px;
-
-          &::before {
-            content: '';
-            position: absolute;
-            top: -120px;
-            right: 0;
-            bottom: 0;
-            width: 20px;
-            background: $P75;
-            transform: perspective(0.5em) rotateX(8deg);
-            transform-origin: bottom right;
-          }
+        &::before {
+          content: '';
+          position: absolute;
+          top: -120px;
+          right: 0;
+          bottom: 0;
+          width: 20px;
+          background: $P75;
+          transform: perspective(0.5em) rotateX(8deg);
+          transform-origin: bottom right;
         }
       }
+
+      .noClick {
+        cursor: not-allowed;
+        img {
+          opacity: 0.3;
+        }
+      }
+    }
+
+    .leftShadow,
+    .rightShadow {
+      position: absolute;
+      width: 100%;
+      height: 415px;
+      top: 150px;
+      bottom: 0;
+      z-index: -1;
+      background-image: linear-gradient(to left, $N500, rgba(52, 57, 69, 0));
+    }
+
+    .leftShadow {
+      left: -160px;
+    }
+
+    .rightShadow {
+      right: -160px;
+      background-image: linear-gradient(to right, $N500, rgba(52, 57, 69, 0));
     }
   }
 
@@ -356,27 +412,35 @@
     .sceneContent {
       margin: 0 40px;
       width: calc(100vw - 80px);
-      height: auto;
 
       .title {
         margin-bottom: 20px;
       }
 
       .scene {
-        padding-bottom: calc((100vw - 250px) * 470 / 788 - 32px);
+        width: calc(100vw - 80px - 48px);
         padding-left: 30px;
-        height: auto;
-        background-size: calc(100vw - 80px - 48px) auto;
-        background-repeat: no-repeat;
-        background-position: bottom;
-        background-color: $N500;
-        margin-bottom: 200px;
 
-        .number {
-          position: absolute;
-          right: -40px;
+        &:nth-child(2) {
+          background-size: calc((100vw - 80px - 48px) * 0.7) auto;
+        }
+
+        &:nth-child(3) {
+          background-size: calc((100vw - 80px - 48px) * 0.4) auto;
+        }
+
+        &:nth-child(4) {
+          background-size: calc((100vw - 80px - 48px) * 0.7) auto;
         }
       }
+      .numberButton {
+        right: -20px;
+      }
+    }
+
+    .leftShadow,
+    .rightShadow {
+      display: none;
     }
   }
 }
@@ -460,24 +524,7 @@
 
   .sceneBanner {
     .sceneContent {
-      margin: 0 40px;
-      width: calc(100vw - 80px);
-      height: auto;
-
-      .title {
-        margin-bottom: 20px;
-      }
-
       .scene {
-        padding-bottom: calc((100vw - 250px) * 470 / 788 - 32px);
-        padding-left: 30px;
-        height: auto;
-        background-size: calc(100vw - 80px - 48px) auto;
-        background-repeat: no-repeat;
-        background-position: bottom;
-        background-color: $N500;
-        margin-bottom: 200px;
-
         .currentImg {
           position: absolute;
           top: -4px;
@@ -497,25 +544,25 @@
           line-height: 28px;
           font-size: 14px;
         }
+      }
 
-        .number {
-          position: absolute;
-          right: 0;
-          bottom: -110px;
-          width: calc(100vw - 80px - 48px);
-          line-height: 40px;
+      .numberButton {
+        position: absolute;
+        right: 24px;
+        bottom: -110px;
+        width: calc(100vw - 80px - 48px);
+        line-height: 40px;
 
-          > label {
-            width: calc(50% - 15px);
-          }
+        > label {
+          width: calc(50% - 15px);
+        }
 
-          .arrowLeft {
-            margin-left: calc(50vw - 150px);
-          }
+        .arrowLeft {
+          margin-left: calc(50vw - 150px);
+        }
 
-          .currentNumber {
-            width: calc(50% + 15px);
-          }
+        .currentNumber {
+          width: calc(50% + 15px);
         }
       }
     }

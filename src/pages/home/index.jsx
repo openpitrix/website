@@ -1,18 +1,45 @@
 import React, { Component } from 'react'
 import classnames from 'classnames'
+import _ from 'lodash'
 
 import Header from 'components/Header'
 import Footer from 'components/Footer'
 import DownloadModal from 'components/DownloadModal'
 import MailModal from 'components/MailModal'
 import banners from 'config/banners'
+import scenes from 'config/scenes'
 
 import styles from './index.module.scss'
 
+const pageMargin = 40
+const pagePadding = 24
+const pageWidth = 1200
+const maxWidth = 788
 export default class Home extends Component {
   state = {
     isDownloadOpen: false,
     isMailOpen: false,
+    currentNumber: 1,
+    sceneWidth:
+      document.body.clientWidth > pageWidth
+        ? maxWidth
+        : document.body.clientWidth - pageMargin * 2 - pagePadding * 2,
+  }
+
+  componentDidMount() {
+    window.onresize = _.debounce(this.handleResize, 100)
+  }
+
+  componentWillUnmount() {
+    window.onscroll = null
+  }
+
+  handleResize = () => {
+    const width = document.body.clientWidth
+    this.setState({
+      sceneWidth:
+        width > pageWidth ? maxWidth : width - pageMargin * 2 - pagePadding * 2,
+    })
   }
 
   openVersionModal = () => {
@@ -36,37 +63,70 @@ export default class Home extends Component {
     })
   }
 
+  changeScene = number => {
+    const { currentNumber } = this.state
+    const total = scenes.length
+    if (
+      (currentNumber > 1 && number === -1) ||
+      (currentNumber < total && number === 1)
+    ) {
+      this.setState({ currentNumber: currentNumber + number })
+    }
+  }
+
   renderSceneBanner() {
+    const { currentNumber, sceneWidth } = this.state
+    const total = scenes.length
+    const scenesWidth = sceneWidth * total + 2
+    const sceneLeft = (1 - currentNumber) * sceneWidth
+
     return (
       <div className={styles.sceneBanner}>
         <div className={styles.sceneContent}>
           <div className={styles.title}>应用场景</div>
-          <div className={styles.scene}>
-            <img className={styles.currentImg} src="/images/home/scene-1.svg" />
-            <div className={styles.name}>快速构建行业应用商店 </div>
-            <div className={styles.description}>
-              在以应用为核心的行业云或集团云构建中，基于 OpenPitrix
-              的应用管理与计费、统计等商业运营功能，可以提供一套完整行业应用运营管理解决方案，助力用户快速实现应用商店的落地。
-            </div>
-            <button onClick={this.openVersionModal}>获取社区版 →</button>
-
-            <div className={styles.number}>
-              <label className={styles.currentNumber}>
-                <img
-                  className={styles.arrowLeft}
-                  src="/images/home/arrow-left.svg"
-                />
-                1
-              </label>
-              <label>
-                4
-                <img
-                  className={styles.arrowRight}
-                  src="/images/home/arrow-right.svg"
-                />
-              </label>
+          <div className={styles.contentOuter}>
+            <div
+              className={styles.content}
+              style={{ width: scenesWidth, left: sceneLeft }}
+            >
+              {scenes.map((scene, index) => (
+                <div key={index} className={styles.scene}>
+                  <img className={styles.currentImg} src={scene.number_img} />
+                  <div className={styles.name}>{scene.name}</div>
+                  <div className={styles.description}>{scene.description}</div>
+                  <button onClick={this.openVersionModal}>获取社区版 →</button>
+                </div>
+              ))}
             </div>
           </div>
+          <div className={styles.numberButton}>
+            <label
+              className={classnames(styles.currentNumber, {
+                [styles.noClick]: currentNumber === 1,
+              })}
+              onClick={() => this.changeScene(-1)}
+            >
+              <img
+                className={styles.arrowLeft}
+                src="/images/home/arrow-left.svg"
+              />
+              {currentNumber}
+            </label>
+            <label
+              className={classnames({
+                [styles.noClick]: currentNumber === total,
+              })}
+              onClick={() => this.changeScene(1)}
+            >
+              {total}
+              <img
+                className={styles.arrowRight}
+                src="/images/home/arrow-right.svg"
+              />
+            </label>
+          </div>
+          <div className={styles.leftShadow} />
+          <div className={styles.rightShadow} />
         </div>
       </div>
     )
@@ -86,13 +146,13 @@ export default class Home extends Component {
             <label>{banner.titlePrefix}</label>
             {banner.title}
           </div>
-          <div className={classnames(styles.image,' mobileShow')}>
+          <div className={classnames(styles.image, 'mobileShow')}>
             <img src={banner.image} />
           </div>
           <div className={styles.description}>{banner.description}</div>
           <label className={styles.button}>了解更多 →</label>
         </div>
-        {banner.position === 'right' &&  (
+        {banner.position === 'right' && (
           <div className={classnames(styles.image, 'webShow')}>
             <img src={banner.image} />
           </div>

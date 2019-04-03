@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="275px" height="392px" viewBox="0 0 275 392" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 53.2 (72643) - https://sketchapp.com -->
+    <title>4C4CA5C3-0DB8-4D60-BA32-2C6A9EC1D7F0</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <radialGradient cx="46.953688%" cy="12.1751372%" fx="46.953688%" fy="12.1751372%" r="38.1239817%" gradientTransform="translate(0.469537,0.121751),scale(0.712219,1.000000),rotate(73.634087),translate(-0.469537,-0.121751)" id="radialGradient-1">
+            <stop stop-color="#8053C8" offset="0%"></stop>
+            <stop stop-color="#4A406B" stop-opacity="0" offset="100%"></stop>
+        </radialGradient>
+        <radialGradient cx="18.9286621%" cy="-30.0377395%" fx="18.9286621%" fy="-30.0377395%" r="277.197617%" gradientTransform="translate(0.189287,-0.300377),scale(0.339635,1.000000),rotate(59.317962),translate(-0.189287,0.300377)" id="radialGradient-2">
+            <stop stop-color="#F7B236" offset="0%"></stop>
+            <stop stop-color="#FCD966" stop-opacity="0" offset="100%"></stop>
+        </radialGradient>
+        <radialGradient cx="14.1712107%" cy="-11.3200733%" fx="14.1712107%" fy="-11.3200733%" r="443.511121%" gradientTransform="translate(0.141712,-0.113201),scale(0.228296,1.000000),rotate(25.122423),translate(-0.141712,0.113201)" id="radialGradient-3">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#343945" stop-opacity="0" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="Web" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="应用场景3" transform="translate(-839.000000, -306.000000)" fill-rule="nonzero">
+            <g id="Triangle" transform="translate(326.000000, 228.000000)">
+                <g id="Group-2" transform="translate(479.000000, 76.000000)">
+                    <path d="M400.158014,127 L221.841986,127 L311,0 L400.158014,127 Z M522.311512,301 L622,443 L0,443 L99.6884876,301 L522.311512,301 Z" id="Combined-Shape" fill="url(#radialGradient-1)"></path>
+                    <path d="M414.198646,147 L508.27088,281 L113.72912,281 L207.801354,147 L414.198646,147 Z" id="Combined-Shape" fill="url(#radialGradient-2)"></path>
+                    <path d="M523.293874,301 L622,443 L0,443 L99.6379903,301 L523.293874,301 Z" id="Combined-Shape" fill="url(#radialGradient-3)"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

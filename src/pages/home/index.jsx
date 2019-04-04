@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import classnames from 'classnames'
-import _ from 'lodash'
 
 import Header from 'components/Header'
 import Footer from 'components/Footer'
@@ -11,35 +10,11 @@ import scenes from 'config/scenes'
 
 import styles from './index.module.scss'
 
-const pageMargin = 40
-const pagePadding = 24
-const pageWidth = 1200
-const maxWidth = 788
 export default class Home extends Component {
   state = {
     isDownloadOpen: false,
     isMailOpen: false,
     currentNumber: 1,
-    sceneWidth:
-      document.body.clientWidth > pageWidth
-        ? maxWidth
-        : document.body.clientWidth - pageMargin * 2 - pagePadding * 2,
-  }
-
-  componentDidMount() {
-    window.onresize = _.debounce(this.handleResize, 100)
-  }
-
-  componentWillUnmount() {
-    window.onscroll = null
-  }
-
-  handleResize = () => {
-    const width = document.body.clientWidth
-    this.setState({
-      sceneWidth:
-        width > pageWidth ? maxWidth : width - pageMargin * 2 - pagePadding * 2,
-    })
   }
 
   openVersionModal = () => {
@@ -75,20 +50,16 @@ export default class Home extends Component {
   }
 
   renderSceneBanner() {
-    const { currentNumber, sceneWidth } = this.state
+    const { currentNumber } = this.state
     const total = scenes.length
-    const scenesWidth = sceneWidth * total + 2
-    const sceneLeft = (1 - currentNumber) * sceneWidth
+    const sceneLeft = `${100 * (1 - currentNumber)}%`
 
     return (
       <div className={styles.sceneBanner}>
         <div className={styles.sceneContent}>
           <div className={styles.title}>应用场景</div>
           <div className={styles.contentOuter}>
-            <div
-              className={styles.content}
-              style={{ width: scenesWidth, left: sceneLeft }}
-            >
+            <div className={styles.content} style={{ left: sceneLeft }}>
               {scenes.map((scene, index) => (
                 <div key={index} className={styles.scene}>
                   <img className={styles.currentImg} src={scene.number_img} />

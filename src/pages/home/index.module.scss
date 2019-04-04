@@ -251,6 +251,7 @@
 
       .content {
         position: absolute;
+        width: 835px * 4;
         transition: all 0.5s ease-in-out;
       }
     }
@@ -410,6 +411,11 @@
   }
 
   @media only screen and (max-width: $page-content) {
+    .contentOuter {
+      .content {
+        width: calc(#{$scene-width} * 4);
+      }
+    }
     .sceneContent {
       margin: 0 40px;
       width: calc(100vw - 80px);
@@ -419,19 +425,19 @@
       }
 
       .scene {
-        width: calc(100vw - 80px - 48px);
+        width: calc(#{$scene-width});
         padding-left: 30px;
 
         &:nth-child(2) {
-          background-size: calc((100vw - 80px - 48px) * 0.7) auto;
+          background-size: calc(#{$scene-width} * 0.7) auto;
         }
 
         &:nth-child(3) {
-          background-size: calc((100vw - 80px - 48px) * 0.4) auto;
+          background-size: calc(#{$scene-width} * 0.4) auto;
         }
 
         &:nth-child(4) {
-          background-size: calc((100vw - 80px - 48px) * 0.7) auto;
+          background-size: calc(#{$scene-width} * 0.7) auto;
         }
       }
       .numberButton {
@@ -551,7 +557,7 @@
         position: absolute;
         right: 24px;
         bottom: -110px;
-        width: calc(100vw - 80px - 48px);
+        width: calc(#{$scene-width});
         line-height: 40px;
 
         > label {

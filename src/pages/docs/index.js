@@ -145,7 +145,6 @@ const Wrapper = styled.div`
     margin-left: 256px;
     line-height: 48px;
     text-align: center;
-    font-family: 'Roboto';
     font-size: 14px;
     color: #8c96ad;
     background: #fff;

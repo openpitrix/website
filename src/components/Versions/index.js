@@ -61,7 +61,6 @@ const VersionsWrapper = styled.div`
     padding: 2px;
     border-radius: 1px;
     background-color: #fac846;
-    font-family: PingFangSC san-serif;
     font-size: 12px;
     color: #343945;
   }

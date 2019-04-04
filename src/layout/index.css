@@ -1,14 +1,26 @@
 html {
-  font-family: 'Roboto', 'PingFang SC', 'Lantinghei SC', 'Helvetica Neue',
-    Helvetica, Arial, 'Microsoft YaHei', 微软雅黑, STHeitiSC-Light, simsun, 宋体,
-    'WenQuanYi Zen Hei', 'WenQuanYi Micro Hei', sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   overflow: visible;
 }
+
 body {
+  font-size: 0.875rem;
+  background: #f9fafb;
+  color: #343945;
+  font-family: 'Roboto', 'PingFang SC', 'Lantinghei SC', 'Helvetica Neue',
+  Helvetica, Arial, 'Microsoft YaHei', 微软雅黑, STHeitiSC-Light, simsun, 宋体,
+  'WenQuanYi Zen Hei', 'WenQuanYi Micro Hei', sans-serif;
+  font-weight: normal;
+  word-wrap: break-word;
+  font-kerning: normal;
+  -moz-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
+  -ms-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
+  -webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
+  font-feature-settings: 'kern', 'liga', 'clig', 'calt';
   margin: 0;
 }
+
 div, form, img, ul, ol, li, dl, dt, dd, option, td, th, video, h1, h2, h3, h4, h5, h6, p, blockquote, input, select, textarea {
   margin: 0;
   padding: 0;
@@ -206,21 +218,7 @@ html {
 *:after {
   box-sizing: inherit;
 }
-body {
-  font-size: 0.875rem;
-  background: #f9fafb;
-  color: #343945;
-  font-family: 'Roboto', 'PingFang SC', 'Lantinghei SC', 'Helvetica Neue',
-    Helvetica, Arial, 'Microsoft YaHei', 微软雅黑, STHeitiSC-Light, simsun, 宋体,
-    'WenQuanYi Zen Hei', 'WenQuanYi Micro Hei', sans-serif;
-  font-weight: normal;
-  word-wrap: break-word;
-  font-kerning: normal;
-  -moz-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
-  -ms-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
-  -webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
-  font-feature-settings: 'kern', 'liga', 'clig', 'calt';
-}
+
 img {
   max-width: 100%;
   margin-left: 0;

@@ -60,6 +60,7 @@ const Html = ({
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
         {headComponents}
+        <link ref="text/stylesheet" href="/fonts/roboto/roboto.css" />
         {css}
         <link rel="icon" href={fav} />
         <script dangerouslySetInnerHTML={{__html: injectScript}}></script>

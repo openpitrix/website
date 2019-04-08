@@ -69,7 +69,6 @@ const StyledSearch = styled(Search)`
 
       &::placeholder {
         opacity: 0.5;
-        font-family: PingFangSC san-serif;
         font-size: 12px;
         color: #78839e;
       }

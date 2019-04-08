@@ -36,7 +36,6 @@ const Banner = styled.div`
 
     .text {
       padding: 114px 0 20px;
-      font-family: 'Roboto';
       font-size: 32px;
       font-weight: 500;
       line-height: 40px;

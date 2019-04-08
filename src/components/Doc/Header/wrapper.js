@@ -27,7 +27,6 @@ export default styled.div`
   .items {
     height: 100%;
     padding: 26px 32px;
-    font-family: PingFangSC san-serif;
     font-size: 14px;
 
     .logo {

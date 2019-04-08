@@ -24,14 +24,13 @@
     margin: 0;
     right: 0;
     bottom: 24px;
-
     max-height: 650px;
   }
 
   @media only screen and (max-width: 858px) {
     .imgRight {
-      width: 30vw;
-      //right: -5.8vw;
+      top: 0;
+      max-height: 620px;
     }
   }
 
@@ -251,7 +250,10 @@
 
       .content {
         position: absolute;
-        width: $scene-max-width * 4;
+        width: $scene-max-width * 6;
+      }
+
+      .contentTransition {
         transition: all 0.5s ease-in-out;
       }
     }
@@ -260,23 +262,28 @@
       position: relative;
       float: left;
       display: inline-block;
-      width: 788px;
+      width: $scene-max-width - 48px;
       padding-left: 52px;
       height: 470px;
       background-color: $N500;
-      background-image: url('/images/home/scene-bg-1.svg');
+      background-image: url('/images/home/scene-bg-4.svg');
       background-repeat: no-repeat;
       background-position: bottom right;
 
-      &:nth-child(2) {
-        background-image: url('/images/home/scene-bg-2.svg');
+      &:nth-child(2),
+      &:nth-child(6) {
+        background-image: url('/images/home/scene-bg-1.svg');
       }
 
       &:nth-child(3) {
-        background-image: url('/images/home/scene-bg-3.svg');
+        background-image: url('/images/home/scene-bg-2.svg');
       }
 
       &:nth-child(4) {
+        background-image: url('/images/home/scene-bg-3.svg');
+      }
+
+      &:nth-child(5) {
         background-image: url('/images/home/scene-bg-4.svg');
       }
 
@@ -371,7 +378,7 @@
         &::before {
           content: '';
           position: absolute;
-          top: -120px;
+          top: -121px;
           right: 0;
           bottom: 0;
           width: 20px;
@@ -421,7 +428,7 @@
 
       .contentOuter {
         .content {
-          width: calc(#{$scene-width} * 4);
+          width: calc(#{$scene-width} * 6);
         }
       }
 
@@ -429,15 +436,16 @@
         width: calc(#{$scene-width});
         padding-left: 30px;
 
-        &:nth-child(2) {
+        &:nth-child(3) {
           background-size: calc(#{$scene-width} * 0.7) auto;
         }
 
-        &:nth-child(3) {
+        &:nth-child(4) {
           background-size: calc(#{$scene-width} * 0.4) auto;
         }
 
-        &:nth-child(4) {
+        &:nth-child(1),
+        &:nth-child(5) {
           background-size: calc(#{$scene-width} * 0.7) auto;
         }
       }
@@ -457,6 +465,10 @@
   .topBanner {
     .wrapper {
       height: 460px;
+    }
+
+    .imgRight {
+      max-height: 440px;
     }
     .title {
       padding-top: 128px;

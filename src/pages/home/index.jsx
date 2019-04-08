@@ -10,11 +10,25 @@ import scenes from 'config/scenes'
 
 import styles from './index.module.scss'
 
+scenes.push(scenes[0])
+scenes.unshift(scenes[scenes.length - 1])
+const intervalTime = 2000
+
 export default class Home extends Component {
   state = {
     isDownloadOpen: false,
     isMailOpen: false,
     currentNumber: 1,
+    showNumber: 2,
+    hasTransition: true,
+  }
+
+  componentDidMount() {
+    this.play()
+  }
+
+  componentWillUnmount() {
+    this.pause()
   }
 
   openVersionModal = () => {
@@ -38,28 +52,62 @@ export default class Home extends Component {
     })
   }
 
+  play = () => {
+    this.autoChange = setInterval(() => this.changeScene(1), intervalTime)
+  }
+
+  pause = () => {
+    clearInterval(this.autoChange)
+  }
+
   changeScene = number => {
-    const { currentNumber } = this.state
+    const { currentNumber, showNumber } = this.state
     const total = scenes.length
     if (
-      (currentNumber > 1 && number === -1) ||
-      (currentNumber < total && number === 1)
+      (showNumber > 1 && number === -1) ||
+      (showNumber < total && number === 1)
     ) {
-      this.setState({ currentNumber: currentNumber + number })
+      let current = currentNumber + number
+      current = current === 0 ? total - 2 : current
+      current = current === total - 1 ? 1 : current
+      const show = showNumber + number
+      this.setState({
+        hasTransition: true,
+        currentNumber: current,
+        showNumber: show,
+      })
+
+      if (show === 1 || show === total) {
+        setTimeout(() => {
+          this.setState({
+            hasTransition: false,
+            showNumber: show === 1 ? total - 1 : 2,
+          })
+        }, 500)
+      }
     }
   }
 
   renderSceneBanner() {
-    const { currentNumber } = this.state
-    const total = scenes.length
-    const sceneLeft = `${100 * (1 - currentNumber)}%`
+    const { currentNumber, showNumber, hasTransition } = this.state
+    const total = scenes.length - 2
+    const sceneLeft = `${100 * (1 - showNumber)}%`
 
     return (
       <div className={styles.sceneBanner}>
-        <div className={styles.sceneContent}>
+        <div
+          className={styles.sceneContent}
+          onMouseEnter={() => this.pause()}
+          onMouseLeave={() => this.play()}
+        >
           <div className={styles.title}>应用场景</div>
           <div className={styles.contentOuter}>
-            <div className={styles.content} style={{ left: sceneLeft }}>
+            <div
+              className={classnames(styles.content, {
+                [styles.contentTransition]: hasTransition,
+              })}
+              style={{ left: sceneLeft }}
+            >
               {scenes.map((scene, index) => (
                 <div key={index} className={styles.scene}>
                   <img className={styles.currentImg} src={scene.number_img} />
@@ -72,9 +120,7 @@ export default class Home extends Component {
           </div>
           <div className={styles.numberButton}>
             <label
-              className={classnames(styles.currentNumber, {
-                [styles.noClick]: currentNumber === 1,
-              })}
+              className={styles.currentNumber}
               onClick={() => this.changeScene(-1)}
             >
               <img
@@ -83,12 +129,7 @@ export default class Home extends Component {
               />
               {currentNumber}
             </label>
-            <label
-              className={classnames({
-                [styles.noClick]: currentNumber === total,
-              })}
-              onClick={() => this.changeScene(1)}
-            >
+            <label onClick={() => this.changeScene(1)}>
               {total}
               <img
                 className={styles.arrowRight}

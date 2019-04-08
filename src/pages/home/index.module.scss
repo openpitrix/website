@@ -226,7 +226,7 @@
     position: relative;
     box-sizing: border-box;
     margin: 0 auto;
-    width: 835px;
+    width: $scene-max-width;
     height: 566px;
     padding: 32px 24px 0;
     background-image: radial-gradient(
@@ -251,7 +251,7 @@
 
       .content {
         position: absolute;
-        width: 835px * 4;
+        width: $scene-max-width * 4;
         transition: all 0.5s ease-in-out;
       }
     }
@@ -411,17 +411,18 @@
   }
 
   @media only screen and (max-width: $page-content) {
-    .contentOuter {
-      .content {
-        width: calc(#{$scene-width} * 4);
-      }
-    }
     .sceneContent {
       margin: 0 40px;
       width: calc(100vw - 80px);
 
       .title {
         margin-bottom: 20px;
+      }
+
+      .contentOuter {
+        .content {
+          width: calc(#{$scene-width} * 4);
+        }
       }
 
       .scene {

@@ -22,12 +22,12 @@ export default class BlogDetail extends React.Component{
 
         <Header isBlankBg />
 
-        <Content>
+        <Article>
           <h1>{title}</h1>
           <p>{description}</p>
 
           <div dangerouslySetInnerHTML={{ __html: html }} />
-        </Content>
+        </Article>
       </Layout>
     )
   }
@@ -55,9 +55,11 @@ export const pageQuery=graphql`
   }
 `
 
-const Content = styled.div`
+const Article = styled.div`
   position: relative;
   top: 72px;
+  width: 80vw;
+  margin: 0 auto;
   
 `
 

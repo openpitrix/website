@@ -2,6 +2,27 @@ const path = require(`path`)
 const debug=require('debug')('app');
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
+const getDocNodeFields = (slug = '')=> {
+  const parts = slug.split('/').filter(Boolean)
+  const [version, language] = parts
+
+  return {
+    // add /docs prefix when gen doc file
+    slug: `/docs${slug}`,
+    language,
+    version
+  }
+}
+
+const getBlogNodeFields = (slug='')=> {
+  const [language]=slug.split('/').filter(Boolean)
+
+  return {
+    slug: `/blog${slug}`,
+    language
+  }
+}
+
 exports.onCreateWebpackConfig = ({ stage, actions }) => {
   actions.setWebpackConfig({
     resolve: {
@@ -15,26 +36,39 @@ exports.onCreateWebpackConfig = ({ stage, actions }) => {
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
+
   if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({ node, getNode, basePath: `docs` })
+    // debug(`inspect node obj: %O`, node)
 
-    debug(`slug: %s`, slug);
+    // generate doc file node
+    if(node.fileAbsolutePath.indexOf('/docs/') > 0){
+      const slugDoc = createFilePath({ node, getNode, basePath: 'docs' })
+      debug(`Add doc node: %s`, slugDoc);
 
-    const parts = slug.split('/').filter(Boolean)
-    const [version, language] = parts
+      for(const [name, value] of Object.entries(getDocNodeFields(slugDoc))){
+        createNodeField({node, name, value})
+      }
+    }
 
-    // add `/docs` prefix
-    createNodeField({ node, name: `slug`, value: `/docs${slug}`, })
-    createNodeField({ node, name: `language`, value: language, })
-    createNodeField({ node, name: `version`, value: version, })
+    if(node.fileAbsolutePath.indexOf('/blogs/') > 0) {
+      // generate blog file node
+      const slugBlog = createFilePath({node, getNode, basePath: 'blogs'})
+      debug(`Add blog node: %s`, slugBlog)
+
+      for(const [name, value] of Object.entries(getBlogNodeFields(slugBlog))){
+        createNodeField({node, name, value})
+      }
+    }
   }
 }
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
-  return new Promise((resolve, reject) => {
+
+  // generate page for docs
+  const genAllDocs = new Promise((resolve, reject) => {
     graphql(`{
-        pages: allMarkdownRemark {
+        docs: allMarkdownRemark(filter: {fields: {slug: {regex: "/^\/docs\//"}}}) {
           edges {
             node {
               fields {
@@ -51,13 +85,14 @@ exports.createPages = ({ graphql, actions }) => {
         reject(res.errors)
       }
 
-      const {edges}=res.data.pages;
+      const {edges}=res.data.docs;
 
       edges.forEach(({ node }) => {
         const { version, language, slug } = node.fields
+
         createPage({
           path: slug,
-          component: path.resolve(`./src/templates/pageDetail.js`),
+          component: path.resolve(`./src/templates/doc-detail.js`),
           context: {
             slug: slug,
             version: version,
@@ -69,4 +104,45 @@ exports.createPages = ({ graphql, actions }) => {
       resolve()
     })
   })
+
+  const genAllBlogs = new Promise((resolve, reject)=> {
+    graphql(`{
+        blogs: allMarkdownRemark(filter: {fields: {slug: {regex: "/^\/blog\//"}}}) {
+          edges {
+            node {
+              fields {
+                slug
+                language
+                version
+              }
+            }
+          }
+        }
+      }
+    `).then(res=> {
+      if(res.errors){
+        reject(res.errors)
+      }
+
+      const {edges}=res.data.blogs;
+
+      edges.forEach(({ node }) => {
+        const { language, slug } = node.fields
+
+        createPage({
+          path: slug,
+          component: path.resolve(`./src/templates/blog-detail.js`),
+          context: {
+            slug,
+            language,
+            id: `${slug}-${language}`
+          }
+        });
+      })
+
+      resolve()
+    })
+  })
+
+  return Promise.all([genAllDocs, genAllBlogs])
 }

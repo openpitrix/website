@@ -70,7 +70,7 @@ export default props => (
   <StaticQuery
     query={graphql`
       {
-        versions: allMarkdownRemark {
+        versions: allMarkdownRemark(filter: {fields: {slug: {regex: "/^/docs//"}}}) {
           group(field: fields___version) {
             fieldValue
           }

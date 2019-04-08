@@ -66,7 +66,7 @@ const query = graphql`
     }
   }
   query {
-    versions: allMarkdownRemark {
+    versions: allMarkdownRemark(filter: {fields: {slug: {regex: "/^/docs//"}}}) {
       group(field: fields___version) {
         fieldValue
       }

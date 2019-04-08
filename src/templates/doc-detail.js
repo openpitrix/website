@@ -17,7 +17,7 @@ import last from 'lodash/last'
 import './markdown.css'
 import './b16-tomorrow-dark.css'
 
-export default class MarkdownTemplate extends React.Component {
+export default class DocumentTemplate extends React.Component {
   static childContextTypes = {
     location: PropTypes.object,
   }
@@ -29,14 +29,6 @@ export default class MarkdownTemplate extends React.Component {
   }
 
   componentDidMount() {
-    // if (typeof docsearch === 'function') {
-    //   docsearch({
-    //     apiKey: '221332a85783d16a5b930969fe4a934a',
-    //     indexName: 'openpitrix',
-    //     inputSelector: '.ks-search > input',
-    //     debug: false,
-    //   })
-    // }
     this.checkLocalHref()
     document.addEventListener('click', this.handleClick)
 
@@ -259,7 +251,7 @@ export const pageQuery = graphql`
     }
     # toggle lang
     languages: allMarkdownRemark(
-      filter: { fields: { version: { eq: $version } } }
+      filter: { fields: { version: { eq: $version }, slug: {regex: "/^/docs//"}  } }
     ) {
       group(field: fields___language) {
         fieldValue

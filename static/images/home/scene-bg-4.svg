@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="467" height="224" viewBox="0 0 467 224">
+    <defs>
+        <radialGradient id="a" cx="14.171%" cy="-11.32%" r="276.312%" fx="14.171%" fy="-11.32%" gradientTransform="scale(.45333 1) rotate(42.958 .227 .104)">
+            <stop offset="0%" stop-color="#FFF"/>
+            <stop offset="100%" stop-color="#343945" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="b" cx="27.444%" cy="11.006%" r="135.771%" fx="27.444%" fy="11.006%" gradientTransform="matrix(.2981 .7534 -.34154 .65757 .23 -.17)">
+            <stop offset="0%" stop-color="#8053C8"/>
+            <stop offset="100%" stop-color="#4A406B"/>
+        </radialGradient>
+        <radialGradient id="c" cx="18.929%" cy="-30.038%" r="260.885%" fx="18.929%" fy="-30.038%" gradientTransform="scale(.45333 1) rotate(66.034 .303 -.125)">
+            <stop offset="0%" stop-color="#F7B236"/>
+            <stop offset="100%" stop-color="#FCD966" stop-opacity="0"/>
+        </radialGradient>
+    </defs>
+    <g fill="none" fill-rule="nonzero">
+        <path fill="url(#a)" d="M340 0h150v68H340z"/>
+        <path fill="url(#b)" d="M340 88h150v68H340z"/>
+        <path fill="url(#c)" d="M170 88h150v68H170zM340 176h150v68H340z"/>
+        <path fill="url(#a)" d="M170 176h150v68H170z"/>
+        <path fill="url(#b)" d="M0 176h150v68H0z"/>
+    </g>
+</svg>

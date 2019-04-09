@@ -6,13 +6,29 @@ import Footer from 'components/Footer'
 import DownloadModal from 'components/DownloadModal'
 import MailModal from 'components/MailModal'
 import banners from 'config/banners'
+import scenes from 'config/scenes'
 
 import styles from './index.module.scss'
+
+scenes.push(scenes[0])
+scenes.unshift(scenes[scenes.length - 1])
+const intervalTime = 2000
 
 export default class Home extends Component {
   state = {
     isDownloadOpen: false,
     isMailOpen: false,
+    currentNumber: 1,
+    showNumber: 2,
+    hasTransition: true,
+  }
+
+  componentDidMount() {
+    this.play()
+  }
+
+  componentWillUnmount() {
+    this.pause()
   }
 
   openVersionModal = () => {
@@ -36,37 +52,93 @@ export default class Home extends Component {
     })
   }
 
+  play = () => {
+    this.autoChange = setInterval(() => this.changeScene(1), intervalTime)
+  }
+
+  pause = () => {
+    clearInterval(this.autoChange)
+  }
+
+  changeScene = number => {
+    const { currentNumber, showNumber } = this.state
+    const total = scenes.length
+    if (
+      (showNumber > 1 && number === -1) ||
+      (showNumber < total && number === 1)
+    ) {
+      let current = currentNumber + number
+      current = current === 0 ? total - 2 : current
+      current = current === total - 1 ? 1 : current
+      const show = showNumber + number
+      this.setState({
+        hasTransition: true,
+        currentNumber: current,
+        showNumber: show,
+      })
+
+      if (show === 1 || show === total) {
+        setTimeout(() => {
+          this.setState({
+            hasTransition: false,
+            showNumber: show === 1 ? total - 1 : 2,
+          })
+        }, 500)
+      }
+    }
+  }
+
   renderSceneBanner() {
+    const { currentNumber, showNumber, hasTransition } = this.state
+    const total = scenes.length - 2
+    const sceneLeft = `${100 * (1 - showNumber)}%`
+
     return (
       <div className={styles.sceneBanner}>
-        <div className={styles.sceneContent}>
+        <div
+          className={styles.sceneContent}
+          onMouseEnter={() => this.pause()}
+          onMouseLeave={() => this.play()}
+        >
           <div className={styles.title}>应用场景</div>
-          <div className={styles.scene}>
-            <img className={styles.currentImg} src="/images/home/scene-1.svg" />
-            <div className={styles.name}>快速构建行业应用商店 </div>
-            <div className={styles.description}>
-              在以应用为核心的行业云或集团云构建中，基于 OpenPitrix
-              的应用管理与计费、统计等商业运营功能，可以提供一套完整行业应用运营管理解决方案，助力用户快速实现应用商店的落地。
-            </div>
-            <button onClick={this.openVersionModal}>获取社区版 →</button>
-
-            <div className={styles.number}>
-              <label className={styles.currentNumber}>
-                <img
-                  className={styles.arrowLeft}
-                  src="/images/home/arrow-left.svg"
-                />
-                1
-              </label>
-              <label>
-                4
-                <img
-                  className={styles.arrowRight}
-                  src="/images/home/arrow-right.svg"
-                />
-              </label>
+          <div className={styles.contentOuter}>
+            <div
+              className={classnames(styles.content, {
+                [styles.contentTransition]: hasTransition,
+              })}
+              style={{ left: sceneLeft }}
+            >
+              {scenes.map((scene, index) => (
+                <div key={index} className={styles.scene}>
+                  <img className={styles.currentImg} src={scene.number_img} />
+                  <div className={styles.name}>{scene.name}</div>
+                  <div className={styles.description}>{scene.description}</div>
+                  <button onClick={this.openVersionModal}>获取社区版 →</button>
+                </div>
+              ))}
             </div>
           </div>
+          <div className={styles.numberButton}>
+            <label
+              className={styles.currentNumber}
+              onClick={() => this.changeScene(-1)}
+            >
+              <img
+                className={styles.arrowLeft}
+                src="/images/home/arrow-left.svg"
+              />
+              {currentNumber}
+            </label>
+            <label onClick={() => this.changeScene(1)}>
+              {total}
+              <img
+                className={styles.arrowRight}
+                src="/images/home/arrow-right.svg"
+              />
+            </label>
+          </div>
+          <div className={styles.leftShadow} />
+          <div className={styles.rightShadow} />
         </div>
       </div>
     )
@@ -86,13 +158,13 @@ export default class Home extends Component {
             <label>{banner.titlePrefix}</label>
             {banner.title}
           </div>
-          <div className={classnames(styles.image,' mobileShow')}>
+          <div className={classnames(styles.image, 'mobileShow')}>
             <img src={banner.image} />
           </div>
           <div className={styles.description}>{banner.description}</div>
           <label className={styles.button}>了解更多 →</label>
         </div>
-        {banner.position === 'right' &&  (
+        {banner.position === 'right' && (
           <div className={classnames(styles.image, 'webShow')}>
             <img src={banner.image} />
           </div>

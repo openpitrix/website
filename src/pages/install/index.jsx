@@ -4,6 +4,7 @@ import {graphql} from 'gatsby'
 import get from 'lodash/get'
 import find from 'lodash/find'
 
+import Layout from 'layout'
 import Header from 'components/Header'
 import Footer from 'components/Footer'
 
@@ -69,7 +70,7 @@ class Install extends Component {
     const install = find(installs, { type: activeType }) || {}
 
     return (
-      <div>
+      <Layout>
         <Header maxTop={150} />
         <div className={styles.installBanner}>
           <div className={styles.wrapper}>
@@ -108,7 +109,7 @@ class Install extends Component {
         </div>
 
         <Footer />
-      </div>
+      </Layout>
     )
   }
 }

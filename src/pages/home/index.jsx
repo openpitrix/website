@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import classnames from 'classnames'
 
+import Layout from 'layout'
 import Header from 'components/Header'
 import Footer from 'components/Footer'
 import DownloadModal from 'components/DownloadModal'
@@ -214,7 +215,7 @@ export default class Home extends Component {
     const { isDownloadOpen, isMailOpen } = this.state
 
     return (
-      <div>
+      <Layout>
         {this.renderTopBanner()}
         {banners.map(banner => (
           <div className={styles.homeBanner} key={banner.name}>
@@ -234,7 +235,7 @@ export default class Home extends Component {
           onClose={this.closeModal}
           onSubmit={this.closeModal}
         />
-      </div>
+      </Layout>
     )
   }
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 
@@ -10,15 +11,19 @@ import {formatTime} from 'utils'
 export default class Blogs extends React.Component {
 
   render() {
-    const {edges} = this.props.data.blogs
+    const {site, blogs}=this.props.data
 
     return (
       <Layout>
+        <Helmet>
+          <title>{`Blog | ${site.siteMetadata.title}`}</title>
+        </Helmet>
+
         <Header isBlankBg/>
 
         <ArticleList>
             {
-              edges.map(({node})=> {
+              blogs.edges.map(({node})=> {
                 const {excerpt, fields, frontmatter}=node
                 const {slug}=fields
                 const {title, description, author, date}=frontmatter
@@ -26,9 +31,9 @@ export default class Blogs extends React.Component {
                 return (
                   <article key={slug}>
                     <ArticleTitle><a href={slug}>{title}</a></ArticleTitle>
-                    <ArticleCaption>By: {author} | {formatTime(date)}</ArticleCaption>
+                    <ArticleCaption>By: <strong>{author}</strong> | {formatTime(date)}</ArticleCaption>
                     <ArticleDesc>{description || excerpt}</ArticleDesc>
-                    <a href={slug}>详情...</a>
+                    <a href={slug}>[阅读全文..]</a>
                   </article>
                 )
               })
@@ -42,7 +47,15 @@ export default class Blogs extends React.Component {
 
 export const pageQuery = graphql`
   query {
-    blogs: allMarkdownRemark(filter: {fields: {slug: {regex: "/^/blog//"}, language: {eq: "zh-CN"}}}) {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    blogs: allMarkdownRemark(
+      filter: {fields: {slug: {regex: "/^/blog//"}, language: {eq: "zh"}}}
+      sort: {fields: [frontmatter___date, frontmatter___title], order: DESC}
+    ) {
       edges {
         node {
           excerpt
@@ -85,15 +98,20 @@ const ArticleTitle=styled.h2`
     font-weight: 500;
     line-height: 40px;
     margin: 0 0 8px;
-    >a:active {
+    
+    >a, a:active {
       color: #6626AF;
     }
 `
 const ArticleCaption=styled.p`
-    color: #aaa;
+    color: #300E56;
     font-size: 14px;
     font-weight: normal;
     line-height: 18px;
+    > strong {
+     font-weight: 400;
+      color: #F4971C;
+    }
 `
 const ArticleDesc=styled.p`
   margin-bottom: 20px;

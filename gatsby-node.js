@@ -1,6 +1,7 @@
 const path = require(`path`)
 const debug=require('debug')('app');
 const { createFilePath } = require(`gatsby-source-filesystem`)
+const day=require('dayjs')
 
 const getDocNodeFields = (slug = '')=> {
   const parts = slug.split('/').filter(Boolean)
@@ -14,11 +15,11 @@ const getDocNodeFields = (slug = '')=> {
   }
 }
 
-const getBlogNodeFields = (slug='')=> {
-  const [language]=slug.split('/').filter(Boolean)
+const getBlogNodeFields = (slug='', createdAt=new Date)=> {
+  const [language, file]=slug.split('/').filter(Boolean)
 
   return {
-    slug: `/blog${slug}`,
+    slug: '/blog/' + [language, day(createdAt).format('YYYY/MM'), file].join('/'),
     language
   }
 }
@@ -38,14 +39,15 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
-    // debug(`inspect node obj: %O`, node)
-
     // generate doc file node
     if(node.fileAbsolutePath.indexOf('/docs/') > 0){
       const slugDoc = createFilePath({ node, getNode, basePath: 'docs' })
-      debug(`Add doc node: %s`, slugDoc);
 
       for(const [name, value] of Object.entries(getDocNodeFields(slugDoc))){
+        if(name === 'slug'){
+          debug(`Add doc slug: %s`, value);
+        }
+
         createNodeField({node, name, value})
       }
     }
@@ -53,9 +55,11 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     if(node.fileAbsolutePath.indexOf('/blogs/') > 0) {
       // generate blog file node
       const slugBlog = createFilePath({node, getNode, basePath: 'blogs'})
-      debug(`Add blog node: %s`, slugBlog)
 
-      for(const [name, value] of Object.entries(getBlogNodeFields(slugBlog))){
+      for(const [name, value] of Object.entries(getBlogNodeFields(slugBlog, node.frontmatter.date))){
+        if(name === 'slug'){
+          debug(`Add blog slug: %s`, value)
+        }
         createNodeField({node, name, value})
       }
     }

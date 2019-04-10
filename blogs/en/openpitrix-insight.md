@@ -15,8 +15,6 @@ tags:
 
 > OpenPitrix - an open-source system to manage applications on multiple clouds
 
-[中文版](/zh/blog/2018/03/OpenPitrix-Insight)
-
 ### Background
 
 Nowadays cloud computing is widely adopted in enterprise organizations. Furthermore, most of enterprises have multi-cloud strategy according to the [survey from RightScale](https://www.rightscale.com/blog/cloud-industry-insights/cloud-computing-trends-2018-state-cloud-survey). There are quite a few reasons that a company deploys more than one cloud environment, usually from different vendors, resulting that shadow IT becomes a reality again in cloud era. Therefore, how to manage and automate multi-cloud environment becomes an emerging requirement, especially for application management. Moreover, it is challenging to create one stop store that manages different types of applications, including traditional application (or called monolithic application, or traditional distributed application in master-slave or peer-to-peer architecture style), microservice application, and serverless application which is increasingly hot recently. OpenPitrix is such a platform to solve these problems. In one word, 

@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
@@ -22,12 +21,18 @@ export default class BlogDetail extends React.Component{
 
         <Header isBlankBg />
 
-        <Article>
-          <h1>{title}</h1>
-          <p>{description}</p>
+        <Container>
+          <Headings/>
+          <Article>
+            <ArticleMeta>
+              <h1>{title}</h1>
+              <p>{description}</p>
+            </ArticleMeta>
 
-          <div dangerouslySetInnerHTML={{ __html: html }} />
-        </Article>
+            <div dangerouslySetInnerHTML={{ __html: html }} />
+          </Article>
+        </Container>
+
       </Layout>
     )
   }
@@ -55,11 +60,24 @@ export const pageQuery=graphql`
   }
 `
 
+const Container=styled.div`
+    position: relative;
+    margin: 0 auto;
+    max-width: 1128px;
+    top: 72px;
+`
+const Headings=styled.div`
+  position: fixed;
+  top: 100px;
+  bottom: 66px;
+  width: 260px;
+`
 const Article = styled.div`
-  position: relative;
-  top: 72px;
-  width: 80vw;
-  margin: 0 auto;
-  
+    margin-left: 280px;
+    width: 760px;
+`
+const ArticleMeta=styled.div`
+  overflow: hidden;
+  padding: 30px 0 0;
 `
 

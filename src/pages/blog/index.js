@@ -5,6 +5,8 @@ import styled from 'styled-components'
 import Layout from 'layout'
 import Header from 'components/Header'
 
+import {formatTime} from 'utils'
+
 export default class Blogs extends React.Component {
 
   render() {
@@ -17,18 +19,17 @@ export default class Blogs extends React.Component {
         <ArticleList>
             {
               edges.map(({node})=> {
-                const {excerpt, fields}=node
+                const {excerpt, fields, frontmatter}=node
                 const {slug}=fields
+                const {title, description, author, date}=frontmatter
 
                 return (
-                  <div key={slug}>
-                    <p>
-                      {excerpt}
-                    </p>
-                    <span>
-                      <a href={slug}>详情...</a>
-                    </span>
-                  </div>
+                  <article key={slug}>
+                    <ArticleTitle><a href={slug}>{title}</a></ArticleTitle>
+                    <ArticleCaption>By: {author} | {formatTime(date)}</ArticleCaption>
+                    <ArticleDesc>{description || excerpt}</ArticleDesc>
+                    <a href={slug}>详情...</a>
+                  </article>
                 )
               })
             }
@@ -41,10 +42,16 @@ export default class Blogs extends React.Component {
 
 export const pageQuery = graphql`
   query {
-    blogs: allMarkdownRemark(filter: {fields: {slug: {regex: "/^/blog//"}}}) {
+    blogs: allMarkdownRemark(filter: {fields: {slug: {regex: "/^/blog//"}, language: {eq: "zh-CN"}}}) {
       edges {
         node {
           excerpt
+          frontmatter {
+            title
+            description
+            author
+            date
+          }
           fields {
             slug
             language
@@ -58,15 +65,36 @@ export const pageQuery = graphql`
 
 const ArticleList=styled.div`
   position: relative;
+  max-width: 1128px;
+  margin: 0 auto;
   top: 72px;
+  margin-top: 30px;
   
-  > div {
-    margin: 0 auto;
-    width: 80vw;
-    margin-top: 30px;
-    > p {
-      // border: 1px solid #aaa;
-      margin-bottom: 20px;
-    }
+  @media (max-width: 768px) {
+    margin: 0 32px;
   }
+  
+  > article {
+    margin-top: 30px;
+  }
+`
+
+const ArticleTitle=styled.h2`
+    color: #6626AF;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 40px;
+    margin: 0 0 8px;
+    >a:active {
+      color: #6626AF;
+    }
+`
+const ArticleCaption=styled.p`
+    color: #aaa;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 18px;
+`
+const ArticleDesc=styled.p`
+  margin-bottom: 20px;
 `

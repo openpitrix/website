@@ -14,8 +14,6 @@ tags:
 
 > OpenPitrix 是一款开源多云应用程序管理系统
 
-[English Edition](/en/blog/2018/03/OpenPitrix-Insight)
-
 ## 背景
 
 云计算在今天已经被绝大多数的企业所采用，具知名云服务厂商 [RightScale 最近的调查](https://www.rightscale.com/blog/cloud-industry-insights/cloud-computing-trends-2018-state-cloud-survey)显示，已经有越来越多的厂商采用多云管理。客户有太多的理由来选择多云管理了，其中最大的原因莫过于采用单一的供应商，会导致被锁定。因此，如何管理多云环境，并在多云的环境下进行自动化，正成为众多企业的刚需，而在这其中，应用程序的管理显得尤为的重要。进一步讲，颇具挑战的是创建一个一站式的应用管理平台，来管理不同类型的应用程序，其中包括传统的应用（或者称之为单体应用，或者传统的主从、分片、peer-to-peer 架构的企业分布式应用）、微服务应用、以及近来发展迅猛的 Serverless 应用等，OpenPitrix 就是为了解决这些问题而生的。用一句话来描述 OpenPitrix：

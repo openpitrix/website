@@ -1,4 +1,8 @@
 import * as compareVersions from 'compare-versions'
+import day from 'dayjs'
+import 'dayjs/locale/zh-cn'
+
+day.locale('zh-cn')
 
 export function getScrollTop() {
   return window.pageYOffset !== undefined
@@ -22,4 +26,14 @@ export const sortVersions = (versions = [], desc = true) => {
     return res.slice().reverse()
   }
   return res
+}
+
+export const formatTime=(time=new Date, format=`YYYY/MM/DD HH:mm:ss`)=> {
+  const dt=day(time)
+
+  if(!dt.isValid()){
+    throw Error(`invalid time: ${time}`)
+  }
+
+  return dt.format(format)
 }

@@ -153,7 +153,7 @@ class Search extends React.Component {
 export default props=> (
   <StaticQuery query={
     graphql`{
-       searchIndex: allMarkdownRemark {
+       searchIndex: allMarkdownRemark(filter: {fields: {slug: {regex: "/^/docs//"}}}) {
            edges {
              node {
                fields {

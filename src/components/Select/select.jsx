@@ -1,17 +1,18 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { ReactComponent as Caret } from 'assets/arrow-black.svg'
 
 export default class Select extends React.Component {
-  // static propTypes = {
-  //   children: PropTypes.any,
-  //   className: PropTypes.string,
-  //   defaultValue: PropTypes.string,
-  //   name: PropTypes.string,
-  //   onChange: PropTypes.func,
-  //   value: PropTypes.string
-  // };
+  static propTypes = {
+    children: PropTypes.any,
+    className: PropTypes.string,
+    defaultValue: PropTypes.string,
+    name: PropTypes.string,
+    onChange: PropTypes.func,
+    value: PropTypes.string
+  };
 
   static defaultProps = {
     className: '',
@@ -40,7 +41,7 @@ export default class Select extends React.Component {
 
     if (value !== prevState.value) {
       if (typeof onChange === 'function') {
-        onChange(this.state.value)
+        onChange(value)
       }
     }
   }
@@ -77,7 +78,7 @@ export default class Select extends React.Component {
 
   setChildNodes() {
     const { children } = this.props
-    const value = this.props.value || this.state.value
+    const value = this.props.value || this.state.value || this.props.defaultValue
 
     this.currentLabel = ''
     this.childNodes =
@@ -121,7 +122,7 @@ export default class Select extends React.Component {
 
   render() {
     const { name } = this.props
-    const { value } = this
+    const value = this.props.value || this.state.value
 
     this.setChildNodes()
 

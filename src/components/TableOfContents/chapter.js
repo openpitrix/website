@@ -12,23 +12,12 @@ class Link extends React.Component {
     location: PropTypes.object,
   }
 
-  constructor(props, { location = {} }) {
+  constructor(props, { location = window.location }) {
     super(props)
 
     this.state = {
       pathname: location.pathname,
       hash: location.hash,
-    }
-  }
-
-  componentDidMount() {
-    if (!this.state.pathname) {
-      let { pathname, hash } = window.location
-
-      this.setState({
-        pathname,
-        hash,
-      })
     }
   }
 
@@ -41,27 +30,24 @@ class Link extends React.Component {
       <GatsbyLink
         to={to}
         {...rest}
-        className={classnames({ ['selected-link']: selected })}
+        className={classnames({ 'selected-link': selected })}
       />
     )
   }
 }
 
 class LinkWithHeadings extends React.Component {
-  constructor(props) {
-    super(props)
+  static contextTypes = {
+    location: PropTypes.object,
+  }
 
-    this.state = {
-      open: false,
-    }
+  state = {
+    open: false
   }
 
   componentDidMount() {
-    let { location } = this.context
-    if (!location) {
-      location = window.location
-    }
-    const { fields } = this.props.entry.childMarkdownRemark
+    const { location = window.location } = this.context
+    const { fields } = this.props.entry.childMarkdownRemark || this.props.entry
 
     this.setState({
       open: location.pathname === fields.slug,
@@ -76,8 +62,9 @@ class LinkWithHeadings extends React.Component {
 
   render() {
     const { entry, level, title, idKey } = this.props
-    const { headings, fields, frontmatter = {} } = entry.childMarkdownRemark
+    const { headings, fields, frontmatter = {} } = entry.childMarkdownRemark || entry
     const { open } = this.state
+    const possibleTitle = title || frontmatter.title
 
     let heads = []
 
@@ -94,7 +81,7 @@ class LinkWithHeadings extends React.Component {
             ) : (
               <Arrow className={classnames({ 'arrow-open': open })} />
             )}
-            {title || frontmatter.title}
+            <span title={possibleTitle}>{possibleTitle}</span>
           </Title>
         </Link>
         <HeadingsWrapper
@@ -107,10 +94,6 @@ class LinkWithHeadings extends React.Component {
       </div>
     )
   }
-}
-
-LinkWithHeadings.contextTypes = {
-  location: PropTypes.object,
 }
 
 const Headings = ({ heads, prefix, level }) => (
@@ -145,11 +128,15 @@ const Links = ({ entries, level }) => (
   </StyledList>
 )
 
-class ChapterList extends React.Component {
+export default class ChapterList extends React.Component {
+  static contextTypes = {
+    location: PropTypes.object,
+  }
+
   constructor(props, context) {
     super(props)
 
-    let pathname = (context.location || {}).pathname
+    const pathname = (context.location || window.location).pathname
 
     let open = false
     if (props.entries) {
@@ -161,28 +148,28 @@ class ChapterList extends React.Component {
     } else if (props.chapters) {
       const slugs = []
       props.chapters.forEach(chapter => {
-        if (chapter.entry) {
+        if(chapter.slug){
+          slugs.push(chapter.slug)
+        }
+        else if (chapter.entry) {
           slugs.push(chapter.entry.childMarkdownRemark.fields.slug)
-        } else if (chapter.entries) {
+        }
+        else if (chapter.entries) {
           slugs.push(
             ...chapter.entries.map(
               ({ entry }) => entry.childMarkdownRemark.fields.slug
             )
           )
         }
+        else if (Array.isArray(chapter.chapters)) {
+          slugs.push(...chapter.chapters.map(({slug})=> slug))
+        }
       })
+
       open = slugs.includes(pathname)
     }
 
     this.state = { open, pathname }
-  }
-
-  componentDidMount() {
-    if (!this.state.pathname) {
-      this.setState({
-        pathname: window.location.pathname,
-      })
-    }
   }
 
   handleClick = () => {
@@ -204,7 +191,7 @@ class ChapterList extends React.Component {
             ) : (
               <Title level={level} onClick={this.handleClick} active={open}>
                 <Arrow className={classnames({ 'arrow-open': open })} />
-                {title}
+                <span title={title}>{title}</span>
               </Title>
             )}
           </ListItem>
@@ -222,12 +209,6 @@ class ChapterList extends React.Component {
     )
   }
 }
-
-ChapterList.contextTypes = {
-  location: PropTypes.object,
-}
-
-export default ChapterList
 
 const StyledList = styled.ol`
   list-style: none;

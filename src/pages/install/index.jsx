@@ -4,6 +4,7 @@ import {graphql} from 'gatsby'
 import get from 'lodash/get'
 import find from 'lodash/find'
 
+import Layout from 'layout'
 import Header from 'components/Header'
 import Footer from 'components/Footer'
 
@@ -69,7 +70,7 @@ class Install extends Component {
     const install = find(installs, { type: activeType }) || {}
 
     return (
-      <div>
+      <Layout>
         <Header maxTop={150} />
         <div className={styles.installBanner}>
           <div className={styles.wrapper}>
@@ -108,7 +109,7 @@ class Install extends Component {
         </div>
 
         <Footer />
-      </div>
+      </Layout>
     )
   }
 }
@@ -118,7 +119,7 @@ export default Install
 export const pageQuery = graphql`
   query queryAll {
     all: markdownRemark(
-      fields: { slug: { eq: "/docs/v0.3/zh-CN/installation/allinone/" } }
+      fields: { slug: { eq: "/docs/v0.3/zh-CN/installation/allinone" } }
     ) {
       html
       frontmatter {
@@ -133,7 +134,7 @@ export const pageQuery = graphql`
       }
     }
     kubernetes: markdownRemark(
-      fields: { slug: { eq: "/docs/v0.3/zh-CN/installation/kubernetes/" } }
+      fields: { slug: { eq: "/docs/v0.3/zh-CN/installation/kubernetes" } }
     ) {
       html
       frontmatter {
@@ -148,7 +149,7 @@ export const pageQuery = graphql`
       }
     }
     helm: markdownRemark(
-      fields: { slug: { eq: "/docs/v0.3/zh-CN/installation/helm-chart/" } }
+      fields: { slug: { eq: "/docs/v0.3/zh-CN/installation/helm-chart" } }
     ) {
       html
       frontmatter {

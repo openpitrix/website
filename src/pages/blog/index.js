@@ -79,12 +79,12 @@ export const pageQuery = graphql`
 const ArticleList=styled.div`
   position: relative;
   max-width: 1128px;
-  margin: 0 auto;
+  margin: 0 32px;
   top: 72px;
   margin-top: 30px;
   
-  @media (max-width: 768px) {
-    margin: 0 32px;
+  @media (min-width: 1200px){
+    margin: 0 auto;
   }
   
   > article {

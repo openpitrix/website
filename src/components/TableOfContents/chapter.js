@@ -64,6 +64,7 @@ class LinkWithHeadings extends React.Component {
     const { entry, level, title, idKey } = this.props
     const { headings, fields, frontmatter = {} } = entry.childMarkdownRemark || entry
     const { open } = this.state
+    const possibleTitle = title || frontmatter.title
 
     let heads = []
 
@@ -80,7 +81,7 @@ class LinkWithHeadings extends React.Component {
             ) : (
               <Arrow className={classnames({ 'arrow-open': open })} />
             )}
-            {title || frontmatter.title}
+            <span title={possibleTitle}>{possibleTitle}</span>
           </Title>
         </Link>
         <HeadingsWrapper
@@ -160,6 +161,9 @@ export default class ChapterList extends React.Component {
             )
           )
         }
+        else if (Array.isArray(chapter.chapters)) {
+          slugs.push(...chapter.chapters.map(({slug})=> slug))
+        }
       })
 
       open = slugs.includes(pathname)
@@ -187,7 +191,7 @@ export default class ChapterList extends React.Component {
             ) : (
               <Title level={level} onClick={this.handleClick} active={open}>
                 <Arrow className={classnames({ 'arrow-open': open })} />
-                {title}
+                <span title={title}>{title}</span>
               </Title>
             )}
           </ListItem>

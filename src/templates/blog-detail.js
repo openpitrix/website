@@ -53,6 +53,8 @@ export default class BlogDetail extends React.Component {
     const { frontmatter, html } = post
     const { title, author, date } = frontmatter
 
+    console.log('toc: ', this.getTocFromPosts())
+
     return (
       <Layout>
         <Helmet>
@@ -139,17 +141,25 @@ const ArchiveList = styled.div`
   top: 100px;
   bottom: 66px;
   width: 260px;
-  word-break: break-words;
-  // border: 1px dashed #ccc;
+  
   > h3 {
     color: #6626AF;
     font-size: 16px;
     line-height: 18px;
   }
+  
+  @media (max-width: 1128px){
+    display: none;
+  }
 `
 const Article = styled.div`
     margin-left: 280px;
     width: 760px;
+    
+    @media (max-width: 1128px){
+      margin: 0 auto;
+      width: 90vw;
+    }
 `
 const ArticleMeta = styled.div`
   overflow: hidden;

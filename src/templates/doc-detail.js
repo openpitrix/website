@@ -29,7 +29,6 @@ export default class DocumentTemplate extends React.Component {
   }
 
   componentDidMount() {
-    this.checkLocalHref()
     document.addEventListener('click', this.handleClick)
 
     if (
@@ -60,16 +59,6 @@ export default class DocumentTemplate extends React.Component {
         element && element.scrollIntoView()
       }
     }, 100)
-  }
-
-  checkLocalHref() {
-    let { href } = location
-    if (last(href) !== '/') {
-      if (href.includes('#') && !href.includes('/#')) {
-        href = href.split('#').join('/#')
-      }
-      location.replace(`${href}/`)
-    }
   }
 
   getChildContext() {

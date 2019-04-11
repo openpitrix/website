@@ -9,27 +9,35 @@ import Select from 'components/Select'
 class Versions extends Component {
   state = {
     currentVersion: '',
+    latestVersion: ''
   }
 
   componentDidMount() {
+    const { versions } = this.props.data
+    const sortedVersions = sortVersions(versions)
+    const latestVersion = sortedVersions[0]
+
     const parts = location.pathname.match(/docs\/?(v[^\/]+)/)
-    let currentVersion = parts && parts[1] ? parts[1] : null
+    let currentVersion = parts && parts[1] ? parts[1] : ''
+
     this.setState({
-      currentVersion,
+      latestVersion,
+      currentVersion: currentVersion || latestVersion
     })
   }
 
   handleChangeVersion = version => {
-    // todo: default entry
-    const docEntry = `/docs/${version}/zh-CN/user-guide/introduction/`
-    navigate(docEntry)
+    this.setState({
+      currentVersion: version
+    }, ()=> {
+      // todo: default entry link
+      navigate(`/docs/${version}/zh-CN/user-guide/introduction`)
+    })
   }
 
   render() {
-    const { versions } = this.props.data
-    const sortedVersions = sortVersions(versions)
-    const latestVer = sortedVersions[0]
-    const currentVersion = this.state.currentVersion || latestVer
+    const {currentVersion, latestVersion}=this.state
+    const {versions}=this.props.data
 
     return (
       <VersionsWrapper>
@@ -37,14 +45,16 @@ class Versions extends Component {
           defaultValue={currentVersion}
           onChange={this.handleChangeVersion}
         >
-          {sortedVersions.map((version, idx) => (
-            <Select.Option key={idx} value={version}>
-              OpenPitrix {version}
-              {version === latestVer && (
-                <span className="latest-ver">最新</span>
-              )}
-            </Select.Option>
-          ))}
+          {
+            sortVersions(versions).map((version, idx) => (
+              <Select.Option key={idx} value={version}>
+                OpenPitrix {version}
+                {version === latestVersion && (
+                  <span className="latest-ver">最新</span>
+                )}
+              </Select.Option>
+            ))
+          }
         </Select>
       </VersionsWrapper>
     )

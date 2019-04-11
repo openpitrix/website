@@ -41,7 +41,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   if (node.internal.type === `MarkdownRemark`) {
     // generate doc file node
     if(node.fileAbsolutePath.indexOf('/docs/') > 0){
-      const slugDoc = createFilePath({ node, getNode, basePath: 'docs' })
+      const slugDoc = createFilePath({ node, getNode, basePath: 'docs', trailingSlash: false })
 
       for(const [name, value] of Object.entries(getDocNodeFields(slugDoc))){
         if(name === 'slug'){
@@ -54,7 +54,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
     if(node.fileAbsolutePath.indexOf('/blogs/') > 0) {
       // generate blog file node
-      const slugBlog = createFilePath({node, getNode, basePath: 'blogs'})
+      const slugBlog = createFilePath({node, getNode, basePath: 'blogs', trailingSlash: false})
 
       for(const [name, value] of Object.entries(getBlogNodeFields(slugBlog, node.frontmatter.date))){
         if(name === 'slug'){

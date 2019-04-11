@@ -119,7 +119,7 @@ export default Install
 export const pageQuery = graphql`
   query queryAll {
     all: markdownRemark(
-      fields: { slug: { eq: "/docs/v0.3/zh-CN/installation/allinone/" } }
+      fields: { slug: { eq: "/docs/v0.3/zh-CN/installation/allinone" } }
     ) {
       html
       frontmatter {
@@ -134,7 +134,7 @@ export const pageQuery = graphql`
       }
     }
     kubernetes: markdownRemark(
-      fields: { slug: { eq: "/docs/v0.3/zh-CN/installation/kubernetes/" } }
+      fields: { slug: { eq: "/docs/v0.3/zh-CN/installation/kubernetes" } }
     ) {
       html
       frontmatter {
@@ -149,7 +149,7 @@ export const pageQuery = graphql`
       }
     }
     helm: markdownRemark(
-      fields: { slug: { eq: "/docs/v0.3/zh-CN/installation/helm-chart/" } }
+      fields: { slug: { eq: "/docs/v0.3/zh-CN/installation/helm-chart" } }
     ) {
       html
       frontmatter {

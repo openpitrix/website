@@ -1,15 +1,16 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { ReactComponent as IconCheck } from 'assets/check.svg'
 
 export default class Option extends React.Component {
-  // static propTypes = {
-  //   children: PropTypes.any,
-  //   className: PropTypes.string,
-  //   isSelected: PropTypes.bool,
-  //   value: PropTypes.string
-  // };
+  static propTypes = {
+    children: PropTypes.any,
+    className: PropTypes.string,
+    isSelected: PropTypes.bool,
+    value: PropTypes.string
+  };
 
   static defaultProps = {
     className: '',

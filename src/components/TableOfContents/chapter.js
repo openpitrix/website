@@ -12,12 +12,23 @@ class Link extends React.Component {
     location: PropTypes.object,
   }
 
-  constructor(props, { location = window.location }) {
+  constructor(props, { location = {} }) {
     super(props)
 
     this.state = {
       pathname: location.pathname,
       hash: location.hash,
+    }
+  }
+
+  componentDidMount() {
+    if (!this.state.pathname) {
+      let { pathname, hash } = window.location
+
+      this.setState({
+        pathname,
+        hash,
+      })
     }
   }
 
@@ -133,18 +144,26 @@ export default class ChapterList extends React.Component {
     location: PropTypes.object,
   }
 
+  state={
+    open: false,
+    pathname: ''
+  }
+
   constructor(props, context) {
     super(props)
+    this.pathname = (context.location || {}).pathname
+  }
 
-    const pathname = (context.location || window.location).pathname
+  checkSlug(){
+    const {props}=this
+    let open=false
 
-    let open = false
     if (props.entries) {
       const slugs = props.entries.map(
         ({ entry }) => entry.childMarkdownRemark.fields.slug
       )
 
-      open = slugs.includes(pathname)
+      open = slugs.includes(this.pathname)
     } else if (props.chapters) {
       const slugs = []
       props.chapters.forEach(chapter => {
@@ -166,10 +185,21 @@ export default class ChapterList extends React.Component {
         }
       })
 
-      open = slugs.includes(pathname)
+      open = slugs.includes(this.pathname)
     }
 
-    this.state = { open, pathname }
+    this.setState({
+      open,
+      pathname: this.pathname
+    })
+  }
+
+  componentDidMount() {
+    if (!this.state.pathname) {
+      this.pathname = window.location.pathname
+
+      this.checkSlug()
+    }
   }
 
   handleClick = () => {

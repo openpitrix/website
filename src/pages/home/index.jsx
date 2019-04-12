@@ -13,7 +13,7 @@ import styles from './index.module.scss'
 
 scenes.push(scenes[0])
 scenes.unshift(scenes[scenes.length - 1])
-const intervalTime = 2000
+const intervalTime = 4000
 
 export default class Home extends Component {
   state = {
@@ -186,10 +186,28 @@ export default class Home extends Component {
             <label className={styles.word}>多云应用管理平台</label>
           </div>
           <div className={styles.slogan}>
-            Run <label>any application</label> at any scale on{' '}
-            <label>any infrastructure</label>
+            Run{' '}
+            <label className={styles.move}>
+              <div className={styles.moveList}>
+                <p>any application</p>
+                <p>Container</p>
+                <p>any application</p>
+              </div>
+            </label>{' '}
+            at any scale on{' '}
+            <label className={styles.scroll}>
+              <div className={styles.showList}>
+                <p>any infrastructure</p>
+                <p>Kubernetes</p>
+                <p>VMware</p>
+                <p>any infrastructure</p>
+              </div>
+            </label>
           </div>
 
+          <div className={styles.sloganMobile}>
+            Run any application at any scale on any infrastructure
+          </div>
           <label onClick={this.openVersionModal} className={styles.button}>
             获取社区版 →
           </label>

@@ -54,12 +54,16 @@
           "entry": "./v0.4/zh-CN/getting-start/introduction.md"
         },
         {
-          "title": "开发者",
-          "entry": "./v0.4/zh-CN/getting-start/developer-quick-start.md"
-        },
-        {
           "title": "管理员",
           "entry": "./v0.4/zh-CN/getting-start/admin-quick-start.md"
+        },
+        {
+          "title": "应用服务商",
+          "entry": "./v0.4/zh-CN/getting-start/isv-quick-start.md"
+        },
+        {
+          "title": "开发者",
+          "entry": "./v0.4/zh-CN/getting-start/developer-quick-start.md"
         },
         {
           "title": "普通用户",

@@ -16,32 +16,33 @@ Kubernetes 模式需要准备 `至少 1 台` 满足最小资源要求的主机�
 
 ### 软件环境
 
-Kubernetes 模式需提前准备好 Kubernetes 环境且安装配置了存储服务端，并创建了相应的存储类型，详见 [部署 OpenPitrix - 前提条件](../installation-guide/#前提条件)。
+Kubernetes 模式需提前准备好 Kubernetes 环境且安装配置了存储服务端，并创建了相应的存储类型，详见 [部署 OpenPitrix - 前提条件](../installation/installation-guide)。
 
 ## 第二步: 准备 OpenPitrix 安装包
 
-1. 下载 OpenPitrix 安装包并解压，此命令会自动下载最新版本的 OpenPitrix 在 Kubernetes 运行环境上的安装包：
+1. 下载 [OpenPitrix v0.4.1](https://github.com/openpitrix/openpitrix/releases/download/v0.4.1/openpitrix-v0.4.1-kubernetes.tar.gz) 的 Kubernetes 运行环境上的安装包并解压，例如下载至 ubuntu 系统：
 
 ```bash
-$ curl -L https://git.io/GetOpenPitrix | sh -
+$ wget https://github.com/openpitrix/openpitrix/releases/download/v0.4.1/openpitrix-v0.4.1-kubernetes.tar.gz
 ``` 
 
-2. 进入解压完成后的文件夹，执行命令时应替换 “${version}” 为实际的下载版本号：
+2. 解压文件并进入目录：
 
 ```bash
-$ cd openpitrix-${version}-kubernetes/
+$ tar -zxf openpitrix-v0.4.1-kubernetes.tar.gz
+$ cd openpitrix-v0.4.1-kubernetes/kubernetes/scripts
 ```
 
 ## 第三步: 安装 OpenPitrix
 
-OpenPitrix 管理的多云环境可以是 VM-based 的云平台，如 QingCloud、AWS 等，也可以是容器管理平台，如 Kubernetes 等。以下分两种情况说明安装步骤：
+OpenPitrix 管理的多云环境可以是 VM-based 的云平台，如 QingCloud、阿里云、AWS 等，也可以是容器管理平台，如 KubeSphere、 Kubernetes 等。以下分两种情况说明安装步骤：
 
 ### 无需管理 VM-based 平台
 
-如果只需要管理 Kubernetes 运行环境，参考如下执行安装脚本，升级基础服务，启动 Dashboard 服务。如果需要同时管理 Kubernetes 和 VM-based 运行环境，请跳过此步，参考 [需要管理 VM-based 平台](../kubernetes/#需要管理-vm-based-平台)。
+如果需要将 OP 部署在 KubeSphere 且只需要管 Kubernetes 运行环境，参考如下执行安装脚本，升级基础服务，启动 Dashboard 服务。如果需要同时管理 Kubernetes 和 VM-based 运行环境，请跳过此步，参考 [需要管理 VM-based 平台](../kubernetes/#需要管理-vm-based-平台)。
 
 ```bash
-$ kubernetes/scripts/deploy-k8s.sh -n openpitrix-system -b -d -s -u
+$ ./deploy-k8s.sh -n openpitrix-system -b -d -s -u
 ```
 
 deploy-k8s.sh 用法说明: 
@@ -70,7 +71,7 @@ deploy-k8s.sh [-n NAMESPACE] [-v VERSION] COMMAND
 1. 执行安装脚本，升级基础服务，启动 Dashboard 服务，启动 Pilot 服务：
 
 ```
-$ kubernetes/scripts/deploy-k8s.sh -n openpitrix-system -a
+$ ./deploy-k8s.sh -n openpitrix-system -a
 ```
 
 2. 查看 Pilot 服务，Pilot 用于接受来自集群服务的指令和信息的组件，如创建集群等，并可以传递指令给 Frontgate，它还接收来自 Frontgate 上传上来的信息。以下可以看到两个端口，依次是 https 和 http 协议的端口，Pilot 服务 http 协议的 9114 端口对应的端口是 30119，因此 Pilot 服务的端口需要暴露给外部访问（可能需要端口转发和防火墙放行该端口）：
@@ -85,7 +86,7 @@ openpitrix-pilot-service   NodePort   10.96.224.102   <none>        9110:31866/T
 3. 执行以下命令修改 etcd 中配置，同时修改 Pilot 的 IP 和 PORT。由于 Pilot 是需要公网访问，所以需要保证在外网能访问上述的 Pilot 服务，然后通过下面的命令修改 `${EIP}` 和 `{PORT}`，即外网通过 `${EIP}:${PORT}` 访问 (如通过端口转发的方式) 到集群任意一节点的 Pilot 服务的 NodePort，如上述 30119：
 
 ```
-$ kubernetes/scripts/put-global-config.sh -n openpitrix-system -i ${EIP} -p {PORT}
+$ ./update-global-config.sh -v 0.4.1 -n openpitrix-system
 ```
 
 ## 第四步: 验证
@@ -94,63 +95,88 @@ $ kubernetes/scripts/put-global-config.sh -n openpitrix-system -i ${EIP} -p {POR
 
 ```bash
  $ kubectl get pods -n openpitrix-system
- NAME                                                      READY     STATUS      RESTARTS   AGE
- openpitrix-api-gateway-deployment-99fc6b46f-qj885         1/1       Running     0          12m
- openpitrix-app-db-ctrl-job-2rd22                          0/1       Completed   0          12m
- openpitrix-app-manager-deployment-577dc77dd-ksp6s         1/1       Running     0          12m
- openpitrix-category-manager-deployment-799c45c777-r7qpm   1/1       Running     0          12m
- openpitrix-cluster-db-ctrl-job-vsczz                      0/1       Completed   1          12m
- openpitrix-cluster-manager-deployment-5c776bcfd9-spvmt    1/1       Running     0          12m
- openpitrix-dashboard-deployment-7477795dd6-fb5d2          1/1       Running     0          12m
- openpitrix-db-deployment-68b6dcf746-7f2kn                 1/1       Running     0          12m
- openpitrix-db-init-job-7gc8c                              0/1       Completed   0          12m
- openpitrix-etcd-deployment-68c98bfff8-x8pgp               1/1       Running     0          12m
- openpitrix-iam-db-ctrl-job-pk6zm                          0/1       Completed   0          12m
- openpitrix-iam-service-deployment-7b8c65dcfb-bhxcg        1/1       Running     2          12m
- openpitrix-job-db-ctrl-job-4mv26                          0/1       Completed   0          12m
- openpitrix-job-manager-deployment-54c5595f8d-kpcg2        1/1       Running     0          12m
- openpitrix-minio-deployment-57bff9dd9-l8djn               1/1       Running     0          12m
- openpitrix-repo-db-ctrl-job-kgghr                         0/1       Completed   0          12m
- openpitrix-repo-indexer-deployment-6885f6597c-j6l89       1/1       Running     0          12m
- openpitrix-repo-manager-deployment-79cbd56746-5n697       1/1       Running     0          12m
- openpitrix-runtime-db-ctrl-job-8m9kv                      0/1       Completed   0          12m
- openpitrix-runtime-manager-deployment-6c674966bd-4kz8g    1/1       Running     0          12m
- openpitrix-task-db-ctrl-job-cxlwt                         0/1       Completed   0          12m
- openpitrix-task-manager-deployment-867ccb7559-8ldpd       1/1       Running     0          12m
- ```
+NAME                                                        READY   STATUS      RESTARTS   AGE
+global-config-watcher-68ffbd57f9-gx5qw                      1/1     Running     0          9h
+openpitrix-account-service-deployment-77c59bd58b-pwqd4      1/1     Running     5          9h
+openpitrix-am-db-init-job-np98f                             0/1     Completed   0          9h
+openpitrix-am-service-deployment-775bd96cf4-mwjpg           1/1     Running     0          9h
+openpitrix-api-gateway-deployment-7c4fd4949c-5nxk6          1/1     Running     0          9h
+openpitrix-app-db-ctrl-job-hvw2m                            0/1     Completed   0          9h
+openpitrix-app-manager-deployment-7558858f94-f4jz5          1/1     Running     0          9h
+openpitrix-attachment-db-ctrl-job-jb9mr                     0/1     Completed   0          9h
+openpitrix-attachment-manager-deployment-86f799bc4c-v9psz   1/1     Running     0          9h
+openpitrix-category-manager-deployment-796756f7-8r8k7       1/1     Running     0          9h
+openpitrix-cluster-db-ctrl-job-tckdv                        0/1     Completed   0          9h
+openpitrix-cluster-manager-deployment-b54d558d5-4wlgr       1/1     Running     0          9h
+openpitrix-dashboard-deployment-5df748665c-qpj7c            1/1     Running     0          9h
+openpitrix-db-deployment-684db56447-669xm                   1/1     Running     0          9h
+openpitrix-db-init-job-78hpk                                0/1     Completed   0          9h
+openpitrix-etcd-deployment-7c4f8b6844-ptbnv                 1/1     Running     0          9h
+openpitrix-iam-db-ctrl-job-2b5f8                            0/1     Completed   5          9h
+openpitrix-im-db-ctrl-job-wjpmw                             0/1     Completed   0          9h
+openpitrix-im-db-init-job-gl2sr                             0/1     Completed   0          9h
+openpitrix-im-service-deployment-5ff897759b-kj2p9           1/1     Running     0          9h
+openpitrix-isv-db-ctrl-job-zrgkl                            0/1     Completed   0          9h
+openpitrix-isv-manager-deployment-779d4dc596-srh5n          1/1     Running     0          9h
+openpitrix-job-db-ctrl-job-pxkqz                            0/1     Completed   4          9h
+openpitrix-job-manager-deployment-6f4f5f765d-d8dkg          1/1     Running     0          9h
+openpitrix-minio-deployment-78dd6bc9c6-vtbxr                1/1     Running     0          9h
+openpitrix-notification-db-ctrl-job-6q7f9                   0/1     Completed   5          9h
+openpitrix-notification-db-init-job-ppzr6                   0/1     Completed   0          9h
+openpitrix-notification-deployment-67cf55786d-hppxh         1/1     Running     5          9h
+openpitrix-pilot-deployment-856bdf59f6-5fc84                1/1     Running     0          9h
+openpitrix-repo-db-ctrl-job-lh7pw                           0/1     Completed   0          9h
+openpitrix-repo-indexer-deployment-67b84dc78c-jvvk6         1/1     Running     0          9h
+openpitrix-repo-manager-deployment-79f87bff94-49x9s         1/1     Running     0          9h
+openpitrix-rp-aliyun-deployment-59f997bb47-qvvjk            1/1     Running     0          9h
+openpitrix-rp-aws-deployment-7479c58c85-nfsqz               1/1     Running     0          9h
+openpitrix-rp-kubernetes-deployment-56bb587d55-wbcn5        1/1     Running     0          9h
+openpitrix-rp-manager-deployment-567756dd6d-tq6ch           1/1     Running     0          9h
+openpitrix-rp-qingcloud-deployment-6df7648ccf-ttcq2         1/1     Running     0          9h
+openpitrix-runtime-db-ctrl-job-79cp5                        0/1     Completed   4          9h
+openpitrix-runtime-manager-deployment-68b96f958b-b999w      1/1     Running     0          9h
+openpitrix-task-db-ctrl-job-6l7cz                           0/1     Completed   3          9h
+openpitrix-task-manager-deployment-5d745c7bfc-g57zf         1/1     Running     0          9h
+```
 
-2. 查看 Dashboard 服务
+2. 查看 Dashboard 服务暴露的端口。
 
 ```bash
 $ kubectl get service openpitrix-dashboard -n openpitrix-system
-NAME                   TYPE       CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
-openpitrix-dashboard   NodePort   10.96.41.130   <none>        80:31879/TCP   5m
+NAME                   TYPE       CLUSTER-IP     EXTERNAL-IP   PORT(S)                        AGE
+openpitrix-dashboard   NodePort   10.233.21.57   <none>        80:31195/TCP,30300:30300/TCP   1h
 ```
 
-您可以通过浏览器，使用集群中任一节点的 IP 地址和端口号即 `<NodeIP>:<NodePort>` 可在集群内部访问 Dashboard，如 `http://192.168.100.10:31879`。也可以通过公网 IP (EIP) 并将端口转发后访问控制台，如：`http://139.198.121.143:31879`，即可进入 OpenPitrix 主页面。
+您可以通过浏览器，使用集群中任一节点的 IP 地址和端口号即 `<NodeIP>:<NodePort>` 可在集群内部访问 Dashboard，如 `http://192.168.100.10:31879`。
 
-![OpenPitrix 主页](/dashboard-kubernetes.png)
+若需要在外网访问，在云平台需要在端口转发规则中将上述的**内网端口** 31195 转发到**源端口** 31195，然后在防火墙开放这个**源端口**，确保外网流量可以通过该端口。
 
-> 若公网 IP 有防火墙，请在防火墙添加规则放行对应的端口，外部才能够访问。
+> 提示：例如在 QingCloud 平台配置端口转发和防火墙规则，则可以参考 [云平台配置端口转发和防火墙](../../appendix/qingcloud-manipulation)。
 
-OpenPitrix 部署成功后，点击右上角 **登录**，可使用以下的管理员默认的用户名和密码登录 OpenPitrix 控制台体验，参见 [用户管理](../../user-guide/user-management) 创建开发者和普通用户的角色，[快速入门](../../getting-start/introduction) 将帮助您快速上手 OpenPitrix。
+然后可以通过 `<EIP>:<NodePort>` 的方式访问控制台，如：`http://139.198.111.111:31195`，即可进入 OpenPitrix dashboard。
+
+
+![](https://pek3b.qingstor.com/kubesphere-docs/png/20190612182143.png)
+
+
+3. OpenPitrix 部署成功后，点击右上角 **登录**，可使用以下的管理员默认的用户名和密码登录 OpenPitrix 控制台体验，建议参考 [用户管理](../../user-guide/user-management) 创建开发者和普通用户的角色，[快速入门](../../getting-start/introduction) 将帮助您快速上手 OpenPitrix。
 
 
 | 角色 |	用户名 |	密码 |
 |-----|-----|-----|
-| 管理员	| admin@op.com 	| 将生成在 `kubernetes/iam-config/admin-password.txt` 文件中，建议您登陆后修改初始密码 | 
+| 管理员	| admin@op.com 	| 将生成在 `kubernetes/iam-config/admin-password.txt` 文件中，强烈建议您登陆后修改初始密码 | 
 
-3. 查看 Api Gateway 服务
+4. 查看 Api Gateway 服务
 
 ```
 $ kubectl get service openpitrix-api-gateway -n openpitrix-system
-NAME                     TYPE       CLUSTER-IP    EXTERNAL-IP    PORT(S)          AGE
-openpitrix-api-gateway   NodePort   10.96.66.66   <none>         9100:30441/TCP   5m
+NAME                     TYPE       CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
+openpitrix-api-gateway   NodePort   10.233.37.35   <none>        9100:31627/TCP   1h
 ```
 
-同上，您也可以通过浏览器访问 OpenPitrix API 界面，如：`http://139.198.121.143:30441/swagger-ui/`。
+同上，您也可以通过浏览器访问 OpenPitrix API 的 Swagger UI 界面，如：`http://139.198.111.111:31627/swagger-ui/`。
 
-![swagger 页面](/swaggerUI-kubernetes.png)
+![](https://pek3b.qingstor.com/kubesphere-docs/png/20190612182534.png)
     
 ## 升级
 

@@ -131,9 +131,9 @@ const Headings = ({ heads, prefix, level }) => (
 
 const Links = ({ entries, level }) => (
   <StyledList>
-    {entries.map(({ entry }, key) => (
+    {entries.map(({ entry, title }, key) => (
       <ListItem key={key}>
-        <LinkWithHeadings entry={entry} level={level} />
+        <LinkWithHeadings entry={entry} title={title} level={level} />
       </ListItem>
     ))}
   </StyledList>

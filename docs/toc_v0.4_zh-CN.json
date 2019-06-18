@@ -66,6 +66,10 @@
           "entry": "./v0.4/zh-CN/getting-start/developer-quick-start.md"
         },
         {
+          "title": "应用审核",
+          "entry": "./v0.4/zh-CN/getting-start/app-review.md"
+        },
+        {
           "title": "普通用户",
           "entry": "./v0.4/zh-CN/getting-start/regular-user-quick-start.md"
         }

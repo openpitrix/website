@@ -103,13 +103,13 @@ openpitrix-task-manager           task-manager                     Up
 
 若需要在外网访问，在云平台需要在端口转发规则中将上述的**内网端口** 8000 转发到**源端口** 8000，然后在防火墙开放这个**源端口**，确保外网流量可以通过该端口。
 
-> 提示：例如在 QingCloud 平台配置端口转发和防火墙规则，则可以参考 [云平台配置端口转发和防火墙](../../appendix/qingcloud-manipulation)。
+> 提示：例如在 QingCloud 平台配置端口转发和防火墙规则，则可以参考 [云平台配置端口转发和防火墙](../appendix/qingcloud-manipulation)。
 
 然后可以通过 `<EIP>:8000` 的方式访问控制台，如：`http://139.198.111.111:8000`，即可进入 OpenPitrix dashboard。
 
 ![](https://pek3b.qingstor.com/kubesphere-docs/png/20190612182143.png)
 
-3. OpenPitrix 部署成功后，点击右上角 **登录**，可使用以下的管理员默认的用户名和密码登录 OpenPitrix 控制台体验，建议参考 [用户管理](../../user-guide/user-management) 创建开发者和普通用户的角色，[快速入门](../../getting-start/introduction) 将帮助您快速上手 OpenPitrix。
+3. OpenPitrix 部署成功后，点击右上角 **登录**，可使用以下的管理员默认的用户名和密码登录 OpenPitrix 控制台体验，建议参考 [用户管理](../../user-guide/user-management) 创建开发者和普通用户的角色，[快速入门](../getting-start/introduction) 将帮助您快速上手 OpenPitrix。
 
 
 | 角色 |	用户名 |	密码 |

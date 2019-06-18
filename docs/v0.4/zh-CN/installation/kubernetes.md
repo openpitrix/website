@@ -35,14 +35,20 @@ $ cd openpitrix-v0.4.1-kubernetes/kubernetes/scripts
 
 ## 第三步: 安装 OpenPitrix
 
-OpenPitrix 管理的多云环境可以是 VM-based 的云平台，如 QingCloud、阿里云、AWS 等，也可以是容器管理平台，如 KubeSphere、 Kubernetes 等。以下分两种情况说明安装步骤：
+OpenPitrix 管理的多云环境可以是 VM-based 的云平台，如 QingCloud、阿里云、AWS 等，也可以是容器管理平台，如 KubeSphere、 Kubernetes 等，参考如下步骤部署：
 
-### 无需管理 VM-based 平台
+<!-- ### 无需管理 VM-based 平台
 
 如果需要将 OP 部署在 KubeSphere 且只需要管 Kubernetes 运行环境，参考如下执行安装脚本，升级基础服务，启动 Dashboard 服务。如果需要同时管理 Kubernetes 和 VM-based 运行环境，请跳过此步，参考 [需要管理 VM-based 平台](../kubernetes/#需要管理-vm-based-平台)。
 
 ```bash
 $ ./deploy-k8s.sh -n openpitrix-system -b -d -s -u
+``` -->
+
+1. 执行安装脚本，升级基础服务，启动 Dashboard 服务，启动 Pilot 服务：
+
+```
+$ ./deploy-k8s.sh -n openpitrix-system -a
 ```
 
 deploy-k8s.sh 用法说明: 
@@ -51,28 +57,23 @@ deploy-k8s.sh 用法说明:
 deploy-k8s.sh [-n NAMESPACE] [-v VERSION] COMMAND
 ```
 >  描述:
-> -  -n NAMESPACE   ： 部署到 Kubernetes 指定的 namespace 下。
-> -  -v VERSION     ： 将要部署的版本，默认是最新的稳定版。
-> -  -r REQUESTS    ： 部署的 container 资源 requests 大小，参数形式为 cpu=100,memory=200, 默认值: cpu=100,memory=100。
-> -  -l LIMITS      ： 部署的 container 资源 limits 大小，参数形式为 cpu=100,memory=200, 默认值: cpu=500,memory=500。
-> -  -j JOB REPLICA ： Job 服务 replica 数量。
-> -  -t TASK REPLICA： Task 服务 replica 数量。
-> -  -b             ： 将要部署基础模块和服务。
-> -  -m             ： 将要部署 Pilot 服务，用来管理多云环境。
-> -  -d             ： 将要执行数据库初始化或升级操作。
-> -  -u             ： 将要部署图形界面 UI/Dashboard 服务。
-> -  -s             ： 将要部署存储服务，包括 etcd 和 MySQL。
-> -  -a             ： 将要部署以上所有的模块和服务。
+> -  -n NAMESPACE   ： 部署到 Kubernetes 指定的 namespace 下；
+> -  -v VERSION     ： 将要部署的版本，默认是最新的稳定版；
+> -  -r REQUESTS    ： 部署的 container 资源 requests 大小，参数形式为 cpu=100,memory=200, 默认值: cpu=100,memory=100；
+> -  -l LIMITS      ： 部署的 container 资源 limits 大小，参数形式为 cpu=100,memory=200, 默认值: cpu=500,memory=500；
+> -  -j JOB REPLICA ： Job 服务 replica 数量；
+> -  -t TASK REPLICA： Task 服务 replica 数量；
+> -  -o HOST        ： Ingress 中用到的 hostname (域名)；
+> -  -p PROVIDER    ： 云平台的 provider plugin，例如：**qingcloud、aws、kubernetes、aliyun**，若需要支持这四种，请填 `all`；
+> -  -b             ： 将要部署基础模块和服务；
+> -  -m             ： 将要部署 metadata 服务；
+> -  -c             ： 将要部署 dbctrl；
+> -  -d             ： 把日志级别设置成 “debug”；
+> -  -u             ： 将要部署图形界面 UI/Dashboard 服务；
+> -  -i             ： 将要部署 Ingress 服务；
+> -  -s             ： 将要部署存储服务，包括 etcd 和 MySQL；
+> -  -a             ： 将要部署以上所有的模块和服务；
 
-### 需要管理 VM-based 平台
-
-如果需要同时管理 Kubernetes 和 VM-based 运行环境，则参考如下步骤部署：
-
-1. 执行安装脚本，升级基础服务，启动 Dashboard 服务，启动 Pilot 服务：
-
-```
-$ ./deploy-k8s.sh -n openpitrix-system -a
-```
 
 2. 查看 Pilot 服务，Pilot 用于接受来自集群服务的指令和信息的组件，如创建集群等，并可以传递指令给 Frontgate，它还接收来自 Frontgate 上传上来的信息。以下可以看到两个端口，依次是 https 和 http 协议的端口，Pilot 服务 http 协议的 9114 端口对应的端口是 30119，因此 Pilot 服务的端口需要暴露给外部访问（可能需要端口转发和防火墙放行该端口）：
 
@@ -178,7 +179,7 @@ openpitrix-api-gateway   NodePort   10.233.37.35   <none>        9100:31627/TCP 
 
 ![](https://pek3b.qingstor.com/kubesphere-docs/png/20190612182534.png)
     
-## 升级
+<!-- ## 升级
 
 更新代码后，仅需要执行脚本即可升级环境。由于在第三步安装时提供了两种安装方式，因此升级也应根据第三步所选的安装方式进行升级。升级操作会保留数据库和 Etcd 服务中已有的数据，无需担心数据丢失。
 
@@ -196,7 +197,7 @@ $ kubernetes/scripts/deploy-k8s.sh -n openpitrix-system -b -d -s -u
 
 ```bash
 $ kubernetes/scripts/deploy-k8s.sh -n openpitrix-system -a
-```
+``` -->
 
 ## 清理环境
 

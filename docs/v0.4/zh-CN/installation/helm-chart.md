@@ -82,26 +82,7 @@ $ cd openpitrix
 
 ## 第三步: 安装 OpenPitrix
 
-OpenPitrix 管理的多云环境可以是 VM-based 的云平台，如 QingCloud、阿里云、AWS 等，也可以是容器管理平台，如 Kubernetes 等。以下分两种情况说明安装步骤：
-
-### 无需管理 VM-based 平台
-
-如果需要将 OP 部署在 KubeSphere 且只需要管 Kubernetes 运行环境，参考如下执行安装脚本，升级基础服务，启动 Dashboard 服务。如果需要同时管理 Kubernetes 和 VM-based 运行环境，请跳过此步，参考 [需要管理 VM-based 平台](../helm-chart/#需要管理-vm-based-平台)。
-
-
-```bash
-
-$ helm install . -n openpitrix --namespace openpitrix-system
-```
-
-
-> 说明：可以修改 values.yaml 文件来指定特定的版本及其他参数。
-
-
-
-### 需要管理 VM-based 平台
-
-如果需要同时管理 Kubernetes 和 VM-based 运行环境，则参考如下步骤部署：
+OpenPitrix 管理的多云环境可以是 VM-based 的云平台，如 QingCloud、阿里云、AWS 等，也可以是容器管理平台，如 Kubernetes、KubeSphere 等。参考如下步骤部署：
 
 1、执行以下命令安装 OpenPitrix。
 

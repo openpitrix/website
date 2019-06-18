@@ -4,6 +4,8 @@ title: "部署 OpenPitrix"
 
 OpenPitrix v0.4 支持 **`All-in-one`** 、 **`Kubernetes`** 和 **`Helm Chart`** 三种部署模式。
 
+> 提示：若已经安装了 OpenPitrix v0.3，需要先卸载 v0.3 然后再安装 v0.4 版本。
+
 ### All-in-One 模式
 
 [All-in-One 模式](../allinone) 即单节点部署，需要预先安装 Docker、Docker-Compose、Make 等依赖软件，仅建议您用来测试或熟悉部署流程和了解 OpenPitrix 功能特性，在正式使用环境建议使用 `Kubernetes` 模式，请参考下文的 `Kubernetes` 模式。

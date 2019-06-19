@@ -76,60 +76,46 @@
       ]
     },
     {
-      "title": "用户指南",
-      "describe": "指导用户如何使用平台提供的基本功能。",
+      "title": "使用指南",
+      "describe": "指导各个角色的用户如何使用平台提供的基本功能。",
       "chapters": [
         {
           "title": "简介",
-          "entry": "./v0.4/zh-CN/user-guide/introduction.md"
+          "entry": "./v0.4/zh-CN/manual-guide/introduction.md"
         },
         {
-          "title": "总览页",
-          "entry": "./v0.4/zh-CN/user-guide/dashboard.md"
-        },
-        {
-          "title": "部署应用",
-          "entries": [
-            {
-              "entry": "./v0.4/zh-CN/user-guide/deploying-app-on-qingcloud.md"
-            },
-            {
-              "entry": "./v0.4/zh-CN/user-guide/deploying-app-on-aws.md"
-            },
-            {
-              "entry": "./v0.4/zh-CN/user-guide/deploying-app-on-k8s.md"
-            }
-          ]
+          "title": "部署应用至多云环境",
+          "entry": "./v0.4/zh-CN/manual-guide/deploying-app-on-multicloud.md"
         },
         {
           "title": "运行环境管理",
-          "entry": "./v0.4/zh-CN/user-guide/runtime-management.md"
+          "entry": "./v0.4/zh-CN/manual-guide/runtime-management.md"
         },
         {
           "title": "集群管理",
-          "entry": "./v0.4/zh-CN/user-guide/cluster-management.md"
+          "entry": "./v0.4/zh-CN/manual-guide/cluster-management.md"
         },
         {
           "title": "仓库管理",
-          "entry": "./v0.4/zh-CN/user-guide/repo-management.md"
+          "entry": "./v0.4/zh-CN/manual-guide/repo-management.md"
         },
         {
           "title": "商店管理",
           "entries": [
             {
-              "entry": "./v0.4/zh-CN/user-guide/store-management.md"
+              "entry": "./v0.4/zh-CN/manual-guide/store-management.md"
             },
             {
-              "entry": "./v0.4/zh-CN/user-guide/category-management.md"
+              "entry": "./v0.4/zh-CN/manual-guide/category-management.md"
             },
             {
-              "entry": "./v0.4/zh-CN/user-guide/app-management.md"
+              "entry": "./v0.4/zh-CN/manual-guide/app-management.md"
             }
           ]
         },
         {
           "title": "用户管理",
-          "entry": "./v0.4/zh-CN/user-guide/user-management.md"
+          "entry": "./v0.4/zh-CN/manual-guide/user-management.md"
         }
       ]
     },

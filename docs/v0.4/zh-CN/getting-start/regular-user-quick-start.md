@@ -8,7 +8,7 @@ title: "普通用户"
 
 - Wordpress 示例应用已上架至应用商店，若还未上架请参考 [应用审核](../quick-start/app-review)；
 - 已有普通用户的账号 `regular@op.com`，若还未创建请参考 [管理员快速入门](../quick-start/admin-quick-start)。
-- 已有阿里云账号，已创建了 VPC 和私有网络，且 VPC 已绑定了公网 IP。
+- 已有阿里云账号，已预先创建了专有网络。
 
 ## 部署应用至阿里云
 
@@ -37,9 +37,9 @@ title: "普通用户"
 
 ![](https://pek3b.qingstor.com/kubesphere-docs/png/20190618084603.png)
 
-2、设置环境信息，区域需要根据 VPC 和私有网络所在的区域来选择。例如本示例已预先在阿里云账号的 `cn-beijing` 中创建了 VPC 和私有网络，因此区域选择 `cn-beijing`，名称和备注可自定义。完成后点击 「继续」。
+2、设置环境信息，区域需要根据专有网络所在的区域来选择。例如本示例已预先在阿里云账号的 `cn-beijing` 中创建了专有网络，因此区域选择 `cn-beijing`，名称和备注可自定义。完成后点击 「继续」。
 
-> 注意，添加云平台作为云环境的前提是该环境必须已有 VPC 和私有网络，且 VPC 已绑定了公网 IP。
+> 注意，添加云平台作为云环境的前提是该环境必须已创建了专有网络。
 
 
 - 区域：cn-beijing
@@ -50,7 +50,7 @@ title: "普通用户"
 
 ### 第三步：部署实例
 
-1、该应用实例将默认部署至上一步创建的 **aliyun-test-runtime** 的私有网络中，节点设置保留默认，点击 「部署」。
+1、该应用实例将默认部署至上一步创建的 **aliyun-test-runtime** 的专有网络中，节点设置保留默认，点击 「部署」。
 
 ![](https://pek3b.qingstor.com/kubesphere-docs/png/20190618085111.png)
 
@@ -58,9 +58,17 @@ title: "普通用户"
 
 ![](https://pek3b.qingstor.com/kubesphere-docs/png/20190618091259.png)
 
+![](https://pek3b.qingstor.com/kubesphere-docs/png/20190618111237.png)
+
 
 > 第一次部署由于需要从公网上下载必要的系统镜像，通常创建时间会比较长，应用部署成功后，这些镜像会缓存在 frontgate，以后再创建其它集群就从缓存中拉取系统镜像。若需要管理部署的集群如停用或删除集群，参考 [集群管理](../../user-guide/cluster-management)。
 
+
+### 清理资源
+
+在 「我的实例」下勾选全部节点，即可删除应用的实例，即删除该应用部署在阿里云上用到的所有资源。
+
+![](https://pek3b.qingstor.com/kubesphere-docs/png/20190618173210.png)
 
 
 至此，您已经基本了解了 OpenPitrix 平台对应用的全生命周期管理和其中多个常用角色的基本工作流程，建议您进一步熟悉和使用 OpenPitrix 平台，[用户指南](../user-guide/introduction) 和 [开发指南](../developer-guide/introduction) 提供更详细的文档说明，若在实际使用时遇到问题，参见 [常见问题](../faq) 或联系我们技术团队为您解答。

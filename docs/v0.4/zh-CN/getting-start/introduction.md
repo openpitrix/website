@@ -22,6 +22,6 @@ OpenPitrix 提供了基于多租户的应用创建、打包上传、应用审核
  
  - 已有 OpenPitrix 管理员账号 (安装指南已提供默认的管理员登录方式)，已登陆 OpenPitrix 控制台并为开发者和普通用户创建了账号，参见 [用户管理](../user-guide/user-management/#创建用户)。
  
- - 已有 [QingCloud 云平台](https://console.qingcloud.com/)、[阿里云](https://www.aliyun.com/) 或 [AWS 云平台](https://www.amazonaws.cn/) 的账号，本示例仅演示以 QingCloud 云平台作为运行环境 (AWS 相关操作类似)。
+ - 已有 [QingCloud 云平台](https://console.qingcloud.com/)、[阿里云](https://www.aliyun.com/) 或 [AWS 云平台](https://www.amazonaws.cn/) 的账号，本示例演示以 QingCloud 云平台、阿里云和 Kubernetes 作为运行环境 (AWS 相关操作类似)。
 
 

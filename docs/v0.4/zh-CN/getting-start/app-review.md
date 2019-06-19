@@ -154,7 +154,7 @@ title: "应用审核"
 
 2、参考如下提示设置环境信息：
 
-> - 命名空间：选择应用在 Kubernetes 集群中的命名空间，在 KubeSphere 中其代表项目；
+> - 命名空间：选择应用在 Kubernetes 集群中的命名空间，在 KubeSphere 中其代表项目；若填写的命名空间不存在，将在集群自动新建一个命名空间；
 > - 名称：为您的运行环境起一个简洁明了的名称，便于用户浏览和搜索，例如 k8s-testing-runtime；
 > - 备注：例如 Kubernetes 测试环境；
 
@@ -198,5 +198,4 @@ title: "应用审核"
 
 ![](https://pek3b.qingstor.com/kubesphere-docs/png/20190618074800.png)
 
-
-至此，您已经基本了解了开发者在 OpenPitrix 平台上传和发布应用的基本工作流程，若需要对当前的应用版本做升级，可创建新的应用版本，参见 [应用版本管理](../user-guide/app-management/#应用版本管理)。建议您继续阅读快速入门之 [普通用户](../regular-user-quick-start)。
+至此，您已经基本了解了开发者在 OpenPitrix 平台上传和发布应用的基本工作流程，

@@ -96,6 +96,19 @@
   width: 100vw;
   min-height: 220px;
   background-color: $body-background;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    line-height: 2;
+  }
+
   .markdown {
     width: 788px;
     margin: 220px auto 84px;
@@ -116,6 +129,24 @@
         width: 48px;
         height: 48px;
       }
+    }
+  }
+  blockquote {
+    margin: 0;
+    margin-bottom: 12px;
+    padding: 16px;
+    font-size: 0.875rem;
+    font-weight: normal;
+    line-height: 1.4;
+    color: #1e6eeb;
+    background: #e3f2ff;
+    padding: 16px;
+    border-radius: 2px;
+    p {
+      color: #1e6eeb;
+    }
+    ul {
+      padding-left: 2em;
     }
   }
 }

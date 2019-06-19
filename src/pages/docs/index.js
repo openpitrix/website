@@ -184,7 +184,7 @@ export const pageQuery = graphql`
   }
 
   query {
-    menus: allDocsJson(filter: { id: { eq: "v0.3-zh-CN" } }) {
+    menus: allDocsJson(filter: { id: { eq: "v0.4-zh-CN" } }) {
       edges {
         node {
           id

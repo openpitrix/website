@@ -28,25 +28,23 @@ All-in-One 模式部署由 [Docker-Compose](https://github.com/docker/compose) �
 
 ## 第二步: 准备 OpenPitrix 安装包
 
-1. 可通过 wget 命令从 GitHub 指定的 URL 下载指定版本的安装文件。
-
->以下载 v0.3.1 的安装包为例，若希望下载其它版本的安装包和源代码，查看 [OpenPitrix Releases](https://github.com/openpitrix/openpitrix/releases/)。
+1. 可通过 wget 命令从 GitHub 指定的 URL 下载 [OpenPitrix v0.4.1](https://github.com/openpitrix/openpitrix/releases/tag/v0.4.1) 的 Docker Compose 安装文件。
 
 ```bash
-$ wget  https://github.com/openpitrix/openpitrix/releases/download/v0.3.1/openpitrix-v0.3.1-docker-compose.tar.gz
+$ wget https://github.com/openpitrix/openpitrix/releases/download/v0.4.1/openpitrix-v0.4.1-docker-compose.tar.gz
 ```
 2. 解压安装包：
 
 ```bash
-$ tar -zxf openpitrix-v0.3.1-docker-compose.tar.gz
+$ openpitrix-v0.4.1-docker-compose.tar.gz
 ```
 
 ## 第三步: 部署 OpenPitrix
 
-进入 openpitrix 目录，编译项目。该过程需要拉取多个 OpenPitrix 的 docker 镜像，拉取镜像和安装速度与网络也有关系，需要等待几分钟。
+进入 openpitrix 安装目录，编译项目。该过程需要拉取多个 OpenPitrix 的 docker 镜像，拉取镜像和安装速度与网络也有关系，需要等待几分钟。
 
 ```bash
-$ cd openpitrix-v0.3.1-docker-compose/
+$ cd openpitrix-v0.4.1-docker-compose/
 $ make
 ```
 
@@ -56,40 +54,62 @@ $ make
 
 ```bash
 $ docker-compose ps
-Name                          Command                  State                           Ports                     
---------------------------------------------------------------------------------------------------------------
-openpitrix-api-gateway        api-gateway                      Up             0.0.0.0:9100->9100/tcp                        
-openpitrix-app-db-ctrl        flyway -url=jdbc:mysql://o ...   Exit 0                                                       
-openpitrix-app-manager        app-manager                      Up                                                           
-openpitrix-category-manager   category-manager                 Up                                                           
-openpitrix-cluster-db-ctrl    flyway -url=jdbc:mysql://o ...   Exit 0                                                       
-openpitrix-cluster-manager    cluster-manager                  Up                                                           
-openpitrix-dashboard          npm run prod:serve               Up             0.0.0.0:8000->8000/tcp                        
-openpitrix-db                 docker-entrypoint.sh --low ...   Up             0.0.0.0:13306->3306/tcp                       
-openpitrix-db-init            sh -c /flyway/sql/ddl/ddl_ ...   Exit 0                                                       
-openpitrix-etcd               etcd --data-dir /data --li ...   Up             0.0.0.0:12379->2379/tcp, 2380/tcp             
-openpitrix-iam-db-ctrl        flyway -url=jdbc:mysql://o ...   Exit 0                                                       
-openpitrix-iam-service        iam-service                      Up                                                           
-openpitrix-job-db-ctrl        flyway -url=jdbc:mysql://o ...   Exit 0                                                       
-openpitrix-job-manager        job-manager                      Up                                                           
-openpitrix-minio              sh -c mkdir -p /data/openp ...   Up (healthy)   0.0.0.0:19000->9000/tcp                       
-openpitrix-pilot-service      pilot -config=/opt/openpit ...   Up             0.0.0.0:9110->9110/tcp, 0.0.0.0:9114->9114/tcp
-openpitrix-repo-db-ctrl       flyway -url=jdbc:mysql://o ...   Exit 0                                                       
-openpitrix-repo-indexer       repo-indexer                     Up                                                           
-openpitrix-repo-manager       repo-manager                     Up                                                           
-openpitrix-runtime-db-ctrl    flyway -url=jdbc:mysql://o ...   Exit 0                                                       
-openpitrix-runtime-manager    runtime-manager                  Up                                                           
-openpitrix-task-db-ctrl       flyway -url=jdbc:mysql://o ...   Exit 0                                                       
-openpitrix-task-manager       task-manager                     Up    
+             Name                            Command                  State                           Ports
+--------------------------------------------------------------------------------------------------------------------------------
+openpitrix-account-service        account-service                  Exit 0
+openpitrix-am-db-ctrl             flyway -url=jdbc:mysql://o ...   Exit 0
+openpitrix-am-db-init             sh -c /flyway/sql/ddl/ddl_ ...   Exit 0
+openpitrix-am-service             am serve                         Exit 0
+openpitrix-api-gateway            api-gateway                      Up             0.0.0.0:9100->9100/tcp
+openpitrix-app-db-ctrl            flyway -url=jdbc:mysql://o ...   Exit 0
+openpitrix-app-manager            app-manager                      Up
+openpitrix-attachment-db-ctrl     flyway -url=jdbc:mysql://o ...   Exit 0
+openpitrix-attachment-manager     attachment-manager               Up
+openpitrix-category-manager       category-manager                 Up
+openpitrix-cluster-db-ctrl        flyway -url=jdbc:mysql://o ...   Exit 0
+openpitrix-cluster-manager        cluster-manager                  Up
+openpitrix-dashboard              npm run prod:serve               Up             0.0.0.0:8000->8000/tcp, 0.0.0.0:9300->9300/tcp
+openpitrix-db                     docker-entrypoint.sh --low ...   Up             0.0.0.0:13306->3306/tcp
+openpitrix-db-init                sh -c /flyway/sql/ddl/ddl_ ...   Exit 0
+openpitrix-etcd                   etcd --data-dir /data --li ...   Up             0.0.0.0:12379->2379/tcp, 2380/tcp
+openpitrix-iam-db-ctrl            flyway -url=jdbc:mysql://o ...   Exit 0
+openpitrix-im-db-ctrl             flyway -url=jdbc:mysql://o ...   Exit 0
+openpitrix-im-db-init             sh -c /flyway/sql/ddl/ddl_ ...   Exit 0
+openpitrix-im-service             im serve                         Exit 0
+openpitrix-isv-db-ctrl            flyway -url=jdbc:mysql://o ...   Exit 0
+openpitrix-isv-manager            isv-manager                      Up
+openpitrix-job-db-ctrl            flyway -url=jdbc:mysql://o ...   Exit 0
+openpitrix-job-manager            job-manager                      Up
+openpitrix-minio                  sh -c mkdir -p /data/openp ...   Up (healthy)   0.0.0.0:19000->9000/tcp
+openpitrix-notification           notification                     Exit 0
+openpitrix-notification-db-ctrl   flyway -url=jdbc:mysql://o ...   Exit 0
+openpitrix-notification-db-init   sh -c /flyway/sql/ddl/ddl_ ...   Exit 0
+openpitrix-pilot-service          pilot -config=/opt/openpit ...   Up             0.0.0.0:9110->9110/tcp, 0.0.0.0:9114->9114/tcp
+openpitrix-repo-db-ctrl           flyway -url=jdbc:mysql://o ...   Exit 0
+openpitrix-repo-indexer           repo-indexer                     Up
+openpitrix-repo-manager           repo-manager                     Up
+openpitrix-rp-aliyun              runtime-provider                 Up
+openpitrix-rp-aws                 runtime-provider                 Up
+openpitrix-rp-kubernetes          runtime-provider                 Up
+openpitrix-rp-manager             runtime-provider-manager         Up
+openpitrix-rp-qingcloud           runtime-provider                 Up
+openpitrix-runtime-db-ctrl        flyway -url=jdbc:mysql://o ...   Exit 0
+openpitrix-runtime-manager        runtime-manager                  Up
+openpitrix-task-db-ctrl           flyway -url=jdbc:mysql://o ...   Exit 0
+openpitrix-task-manager           task-manager                     Up
 ```
 
-2. 以上显示 dashboard 对外暴露的是 8000 端口，因此可通过公网 IP 和端口访问查看 OpenPitrix 主页，如 `http://139.198.121.143:8000`。
+2. 您可以通过浏览器，使用集群中任一节点的 IP 地址和 Dashboard 端口号即 `<NodeIP>:8000` 可在集群内部访问 Dashboard，如 `http://192.168.100.10:8000`。
 
-> 若公网 IP 有防火墙，请在防火墙添加规则放行对应的端口，外部才能够访问。
+若需要在外网访问，在云平台需要在端口转发规则中将上述的**内网端口** 8000 转发到**源端口** 8000，然后在防火墙开放这个**源端口**，确保外网流量可以通过该端口。
 
-![OpenPitrix 主页](/dashboard.png)
+> 提示：例如在 QingCloud 平台配置端口转发和防火墙规则，则可以参考 [云平台配置端口转发和防火墙](../appendix/qingcloud-manipulation)。
 
-OpenPitrix 部署成功后，可以使用以下的管理员默认的用户名和密码登录 OpenPitrix 控制台体验，参见 [用户管理](../../user-guide/user-management) 创建开发者和普通用户的角色，[快速入门](../../getting-start/introduction) 将帮助您快速上手 OpenPitrix。
+然后可以通过 `<EIP>:8000` 的方式访问控制台，如：`http://139.198.111.111:8000`，即可进入 OpenPitrix dashboard。
+
+![](https://pek3b.qingstor.com/kubesphere-docs/png/20190612182143.png)
+
+3. OpenPitrix 部署成功后，点击右上角 **登录**，可使用以下的管理员默认的用户名和密码登录 OpenPitrix 控制台体验，建议参考 [用户管理](../../user-guide/user-management) 创建开发者和普通用户的角色，[快速入门](../getting-start/introduction) 将帮助您快速上手 OpenPitrix。
 
 
 | 角色 |	用户名 |	密码 |
@@ -97,12 +117,11 @@ OpenPitrix 部署成功后，可以使用以下的管理员默认的用户名和
 | 管理员	| admin@op.com 	| passw0rd | 
 
 
-3. 查看 Api Gateway 服务
+4. 查看 Api Gateway 服务
 
-以上显示 api-gateway 对外暴露的是 9100 端口，同样，查看 OpenPitrix API 界面，可通过公网 IP 和端口转发的方式，如 `http://139.198.121.143:9100/swagger-ui/`。
+以上显示 api-gateway 对外暴露的是 9100 端口，同样，查看 OpenPitrix API 界面，可通过端口转发和开放防火墙的方式在公网访问 Swagger UI，如 `http://139.198.111.111:9100/swagger-ui/`。
 
-![swagger 页面](/swagger-kubernetes.png)
-
+![](https://pek3b.qingstor.com/kubesphere-docs/png/20190612182534.png)
 
 ## 清理环境
 

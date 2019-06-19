@@ -16,7 +16,7 @@ Kubernetes 模式需要准备 `至少 1 台` 满足最小资源要求的主机�
 
 ### 软件环境
 
-- 需提前准备好 [Kubernetes](https://kubernetes.io/) 环境且安装配置了存储服务端，并创建了相应的存储类型，详见 [部署 OpenPitrix - 前提条件](../installation-guide/#前提条件)。
+- 需提前准备好 [Kubernetes](https://kubernetes.io/) 环境且安装配置了存储服务端，并创建了相应的存储类型，详见 [部署 OpenPitrix - 前提条件](../installation/installation-guide)。
 - [Helm](https://helm.sh/) 客户端和 Tiller。
 
 ### 准备 Helm 客户端和 Tiller
@@ -56,7 +56,7 @@ tiller-deploy-1046433508-rj51m   1/1     Running  0          3m
 1、下载 OpenPitrix 的 Helm Chart 安装包。
 
 ```bash
-$ wget https://github.com/openpitrix/helm-chart/releases/download/v0.3.5/openpitrix-v0.3.5.tar.gz
+$ wget https://github.com/openpitrix/helm-chart/releases/download/v0.4.0/openpitrix-helm-chart-v0.4.0.tar.gz
 ```
 
 注意，若系统提示还未安装 wget 工具，则执行以下命令安装。
@@ -73,40 +73,16 @@ $ sudo apt-get install wget
 $ yum install wget
 ```
 
-2、执行以下命令解压安装包。
+2、执行以下命令解压安装包并安装目录。
 
 ```bash
-tar -zxf openpitrix-v0.3.5.tar.gz 
-```
-
-3、进入解压完成后的文件夹。
-
-```bash
+$ tar -zxf openpitrix-helm-chart-v0.4.0.tar.gz 
 $ cd openpitrix
 ```
 
 ## 第三步: 安装 OpenPitrix
 
-OpenPitrix 管理的多云环境可以是 VM-based 的云平台，如 QingCloud、AWS 等，也可以是容器管理平台，如 Kubernetes 等。以下分两种情况说明安装步骤：
-
-### 无需管理 VM-based 平台
-
-如果只需要管理 Kubernetes 运行环境，参考如下执行安装脚本，升级基础服务，启动 Dashboard 服务。如果需要同时管理 Kubernetes 和 VM-based 运行环境，请跳过此步，参考 [需要管理 VM-based 平台](../helm-chart/#需要管理-vm-based-平台)。
-
-
-```bash
-
-$ helm install . -n openpitrix --namespace openpitrix-system
-```
-
-
-> 说明：可以修改 values.yaml 文件来指定特定的版本及其他参数。
-
-
-
-### 需要管理 VM-based 平台
-
-如果需要同时管理 Kubernetes 和 VM-based 运行环境，则参考如下步骤部署：
+OpenPitrix 管理的多云环境可以是 VM-based 的云平台，如 QingCloud、阿里云、AWS 等，也可以是容器管理平台，如 Kubernetes、KubeSphere 等。参考如下步骤部署：
 
 1、执行以下命令安装 OpenPitrix。
 
@@ -160,32 +136,32 @@ NAME                           TYPE       CLUSTER-IP    EXTERNAL-IP     PORT(S) 
 openpitrix-dashboard          NodePort    10.233.33.118   <none>        80:31879/TCP          4m
 ```
 
-2、您可以通过浏览器，可以通过集群 `公网 IP : 端口号` 的方式 `( <{$IP}:{$NodePort} )` 访问控制台，如：`http://139.198.121.143:31879`，即可进入 OpenPitrix 主页面。
+2、您可以通过浏览器，可以通过集群 `公网 IP : 端口号` 的方式 `( <{$IP}:{$NodePort} )` 访问控制台，如：`http://139.198.111.111:31879`，即可进入 OpenPitrix 主页面。
 
-![OpenPitrix 主页](/dashboard-kubernetes.png)
+![](https://pek3b.qingstor.com/kubesphere-docs/png/20190612182143.png)
 
 3、OpenPitrix 部署成功后，点击右上角 **登录**，可使用以下的管理员默认的用户名和密码登录 OpenPitrix 控制台体验，参见 [用户管理](../../user-guide/user-management) 创建开发者和普通用户的角色，[快速入门](../../getting-start/introduction) 将帮助您快速上手 OpenPitrix。
 
 
 | 角色 |	用户名 |	初始密码 |
 |-----|-----|-----|
-| 管理员	| admin@op.com 	| 执行 `cat values.yaml | grep iam_account` 查看密码，建议您登陆后修改初始密码 | 
+| 管理员	| admin@op.com 	| 在后台 `helm-chart/openpitrix/` 执行 `cat values.yaml | grep iam_account` 查看密码，强烈建议您登陆后修改初始密码 | 
 
 ### 访问 API 界面
 
-1、查看 Api Gateway 服务。
+1、查看 API Gateway 服务。
 
 > 若公网 IP 有防火墙，请在防火墙添加规则放行对应的端口，外部才能够访问。
 
 ```
 $ kubectl get service openpitrix-api-gateway -n openpitrix-system
-NAME                     TYPE       CLUSTER-IP    EXTERNAL-IP    PORT(S)          AGE
-openpitrix-api-gateway   NodePort   10.233.66.66   <none>         9100:30441/TCP   5m
+NAME                     TYPE       CLUSTER-IP    EXTERNAL-IP   PORT(S)          AGE
+openpitrix-api-gateway   NodePort   10.233.8.57   <none>        9100:31304/TCP   31m
 ```
 
-2、同上，您也可以通过浏览器访问 OpenPitrix API 界面，如：`http://139.198.121.143:30441/swagger-ui/`。
+2、同上，您也可以通过浏览器访问 OpenPitrix API 界面，如：`http://139.198.111.111:31304/swagger-ui/`。
 
-![swagger 页面](/swaggerUI-kubernetes.png)
+![](https://pek3b.qingstor.com/kubesphere-docs/png/20190612182534.png)
 
 ## 卸载
 

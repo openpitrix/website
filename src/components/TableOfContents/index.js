@@ -100,6 +100,7 @@ const query = graphql`
                 }
               }
               entries {
+                title
                 entry {
                   id
                   childMarkdownRemark {

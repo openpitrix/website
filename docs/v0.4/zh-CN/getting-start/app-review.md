@@ -122,6 +122,8 @@ title: "应用审核"
 
 3、点击 「部署」，应用即可部署至 QingCloud 云平台，在 OpenPitrix 测试实例的列表页也可以查看到该应用的实例信息。
 
+> 说明：查看该集群下应用部署的资源，包含 MySQL 和 Wordpress 两个角色的节点和一个代理 frontgate。其中 frontgate 是一个节点，包含 proxy 和 etcd，负责元数据存储以及 OpenPitrix 框架同应用实例主机进行通信等功能，由系统自动创建。
+
 ![](https://pek3b.qingstor.com/kubesphere-docs/png/20190618070104.png)
 
 4、该应用将自动部署至 QingCloud 云平台主机并绑定硬盘。

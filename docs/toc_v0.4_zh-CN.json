@@ -96,10 +96,6 @@
           "entry": "./v0.4/zh-CN/manual-guide/cluster-management.md"
         },
         {
-          "title": "仓库管理",
-          "entry": "./v0.4/zh-CN/manual-guide/repo-management.md"
-        },
-        {
           "title": "商店管理",
           "entries": [
             {

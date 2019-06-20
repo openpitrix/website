@@ -9,11 +9,6 @@ import { Nav as DocNav, Footer } from 'components/Doc'
 import Header from 'components/Header'
 import Headings from 'components/Headings'
 
-import { ReactComponent as Logo } from 'assets/op-logo.svg'
-import { ReactComponent as IconGithub } from 'assets/github.svg'
-
-import last from 'lodash/last'
-
 import './markdown.css'
 import './b16-tomorrow-dark.css'
 

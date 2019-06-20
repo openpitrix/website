@@ -53,8 +53,6 @@ export default class BlogDetail extends React.Component {
     const { frontmatter, html } = post
     const { title, author, date } = frontmatter
 
-    console.log('toc: ', this.getTocFromPosts())
-
     return (
       <Layout>
         <Helmet>

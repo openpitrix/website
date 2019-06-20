@@ -16,7 +16,8 @@ export default class Api extends React.Component {
         <Content>
           <RedocStandalone
             options={{
-              nativeScrollbars: true
+              nativeScrollbars: true,
+              hideDownloadButton: true
             }}
             spec={specJson}
           />

@@ -31,7 +31,7 @@ class Versions extends Component {
       currentVersion: version
     }, ()=> {
       // todo: default entry link
-      navigate(`/docs/${version}/zh-CN/user-guide/introduction`)
+      navigate(`/docs/${version}/zh-CN/introduction/basic`)
     })
   }
 

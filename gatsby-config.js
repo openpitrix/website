@@ -2,6 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'OpenPitrix',
     keywords: 'openpitrix, openpitrix.io, official website, documents, docs, blog',
+    version: '0.4',
     description: 'openpitrix official site'
   },
   plugins: [

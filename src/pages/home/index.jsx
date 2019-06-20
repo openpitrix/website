@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import classnames from 'classnames'
+import { StaticQuery, graphql } from 'gatsby'
+import GatsbyLink from 'gatsby-link'
 
 import Layout from 'layout'
 import Header from 'components/Header'
@@ -15,7 +17,7 @@ scenes.push(scenes[0])
 scenes.unshift(scenes[scenes.length - 1])
 const intervalTime = 4000
 
-export default class Home extends Component {
+class Home extends Component {
   state = {
     isDownloadOpen: false,
     isMailOpen: false,
@@ -146,12 +148,13 @@ export default class Home extends Component {
   }
 
   renderBannerWord(banner) {
+    const { version } = this.props.data.site.siteMetadata;
     return (
       <div className={styles.wrapper}>
         {banner.position === 'left' && (
-          <div className={classnames(styles.image, 'webShow')}>
-            <img src={banner.image} />
-          </div>
+           <div className={classnames(styles.image, 'webShow')}>
+             <img src={banner.image} />
+           </div>
         )}
         <div className={styles.words}>
           <div className={styles.name}>{banner.name}</div>
@@ -163,12 +166,14 @@ export default class Home extends Component {
             <img src={banner.image} />
           </div>
           <div className={styles.description}>{banner.description}</div>
-          <label className={styles.button}>了解更多 →</label>
+          <GatsbyLink className={styles.button} to={`/docs/v${version}/zh-CN/${banner.link}`}>
+            了解更多 →
+          </GatsbyLink>
         </div>
         {banner.position === 'right' && (
-          <div className={classnames(styles.image, 'webShow')}>
-            <img src={banner.image} />
-          </div>
+           <div className={classnames(styles.image, 'webShow')}>
+             <img src={banner.image} />
+           </div>
         )}
       </div>
     )
@@ -208,9 +213,9 @@ export default class Home extends Component {
           <div className={styles.sloganMobile}>
             Run any application at any scale on any infrastructure
           </div>
-          <label onClick={this.openVersionModal} className={styles.button}>
-            获取社区版 →
-          </label>
+          <GatsbyLink className={styles.button} to='/install'>
+            快速安装 →
+          </GatsbyLink>
 
           <img
             src="/images/home/banner-top-top.svg"
@@ -257,3 +262,18 @@ export default class Home extends Component {
     )
   }
 }
+
+export default props => (
+  <StaticQuery
+    query={graphql`
+      query {
+        site {
+          siteMetadata {
+            version
+          }
+        }
+      }
+      `}
+    render={data => <Home data={data} {...props} />}
+  />
+)

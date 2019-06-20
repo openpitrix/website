@@ -10,7 +10,8 @@ const headerLinks = [
   { name: '首页', link: '/', active: '/' },
   { name: '安装', link: '/install', active: '/install' },
   { name: '文档', link: '/docs', active: '/docs' },
-  { name: '博客', link: '/blog', active: '/blog' },
+  { name: 'API', link: '/api', active: '/api' },
+  { name: '博客', link: '/blog', active: '/blog' }
 ]
 
 export default class Header extends React.Component {
@@ -70,6 +71,11 @@ export default class Header extends React.Component {
     const showMenus = this.state.showMenus
 
     this.setState({ showMenus: !showMenus })
+  }
+
+  isWideHeader=()=> {
+    const { currentPath } = this.state
+    return currentPath.startsWith('/docs') || currentPath.startsWith('/api')
   }
 
   renderMenus() {
@@ -133,7 +139,7 @@ export default class Header extends React.Component {
         className={classnames(styles.header, {
           [styles.blankHeader]: isBlankBg,
           [styles.darkHeader]: isDarkBg,
-          [styles.docHeader]: currentPath.startsWith('/docs'),
+          [styles.docHeader]: this.isWideHeader(),
         })}
       >
         <div className={styles.wrapper}>

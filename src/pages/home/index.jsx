@@ -196,6 +196,7 @@ class Home extends Component {
               <div className={styles.moveList}>
                 <p>any application</p>
                 <p>Container</p>
+                <p>VM-Based</p>
                 <p>any application</p>
               </div>
             </label>{' '}
@@ -204,7 +205,9 @@ class Home extends Component {
               <div className={styles.showList}>
                 <p>any infrastructure</p>
                 <p>Kubernetes</p>
-                <p>VMware</p>
+                <p>AWS</p>
+                <p>QingCloud</p>
+                <p>Aliyun</p>
                 <p>any infrastructure</p>
               </div>
             </label>

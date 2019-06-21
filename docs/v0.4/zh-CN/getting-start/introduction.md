@@ -10,18 +10,24 @@ OpenPitrix 提供了基于多租户的应用创建、打包上传、应用审核
 
 本文旨在帮助您了解通过 OpenPitrix 平台管理应用生命周期的基本工作流程，带您快速上手 OpenPitrix。快速入门包含三篇文档，依次从平台管理员、应用服务商和普通用户等角色详细说明各角色的工作流程，以上传和部署一个基于 OpenPitrix 开发规范的 Wordpress 应用为示例。
 
-- [管理员](../getting-start/admin-quick-start)：描述了管理员创建不同的角色和用户，然后通过新建的各个示例用户，演示不同角色下创建应用、审核应用和下架应用的工作流程。
-- [普通用户](../getting-start/regular-user-quick-start)：描述了普通用户访问商店和应用、创建 Runtime 资源、部署应用等基本工作流程。
-- [应用服务商](../getting-start/developer-quick-start)：描述了创建开发者账号、提交服务商认证，并通过开发者来创建应用和上传应用、提交审核、创建新版本等工作流程。
+> - [管理员](../getting-start/admin-quick-start)：描述管理员创建不同的角色和用户，然后通过新建的各个示例用户，演示不同角色下创建应用、审核应用和下架应用的工作流程。
+> - [应用服务商](../getting-start/developer-quick-start)：描述创建开发者账号、提交服务商认证。
+> - [开发者](../getting-start/developer-quick-start)：说明创建应用和上传应用、提交审核、创建新版本等工作流程。
+> - [应用审核与发布](../getting-start/app-review)：演示将应用版本提交给应用服务商、商务和技术审核，以及如何创建测试环境并部署至测试环境。
+> - [普通用户](../getting-start/regular-user-quick-start)：描述了普通用户访问商店和应用、创建 Runtime 资源、部署应用等基本工作流程。
+
+
+下图说明了快速入门文档演示的完整流程。
+
+![](https://pek3b.qingstor.com/kubesphere-docs/png/20190621181149.png)
+
 
 ## 前提条件
 
 正式开始前，需要准备好以下资源：
 
- - 已成功安装了 OpenPitrix，若没有请参照 [安装指南](../installation/installation-guide) 安装 OpenPitrix，且部署的集群能够访问外网。
- 
- - 已有 OpenPitrix 管理员账号 (安装指南已提供默认的管理员登录方式)，已登陆 OpenPitrix 控制台并为开发者和普通用户创建了账号，参见 [用户管理](../user-guide/user-management/#创建用户)。
- 
- - 已有 [QingCloud 云平台](https://console.qingcloud.com/)、[阿里云](https://www.aliyun.com/) 或 [AWS 云平台](https://www.amazonaws.cn/) 的账号，本示例演示以 QingCloud 云平台、阿里云和 Kubernetes 作为运行环境 (AWS 相关操作类似)。
+ > - 已成功安装了 OpenPitrix，若没有请参照 [安装指南](../installation/installation-guide) 安装 OpenPitrix，且部署的集群能够访问外网。
+ > - 已有 OpenPitrix 管理员账号 (安装指南已提供默认的管理员登录方式)。
+ > - 已有 [QingCloud 云平台](https://console.qingcloud.com/)、[阿里云](https://www.aliyun.com/) 或 [AWS 云平台](https://www.amazonaws.cn/) 的账号，已准备了 Kubernetes 集群。本示例演示以 QingCloud 云平台、阿里云和 Kubernetes 作为运行环境 (AWS 相关操作类似)。
 
 

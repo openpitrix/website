@@ -2,7 +2,7 @@
 title: "常见问题"
 ---
 
-1、作为新手，如何从一个最简单的例子入手？0.4
+1、作为新手，如何从一个最简单的例子入手？
 
 我们提供了一个如何准备一个基于 OpenPitrix 应用开发规范的示例，建议从 [ WordPress 实战](../developer-guide/openpitrix-developer-guide/#wordpress-实战) 入手，从零开始准备一个配置包并上传到 OpenPitrix 中，后续可参考 [用户指南](../user-guide/introduction) 熟悉应用的全生命周期管理。
 
@@ -65,6 +65,10 @@ openpitrix-task-manager       task-manager                     Exit 2
 ```
 
 可能是由于主机环境预先安装了 Kubernetes 环境，造成 Docker 容器间的网络不通，建议准备一台新的符合最小规格的主机并安装依赖软件后进行安装。安装过程中如果中断可重复执行 make 命令运行项目。
+
+8、部署至 Kubernetes 中的应用的状态一直是 Pending 或部署成功却无法访问服务？
+
+请检查应用配置包的与 service 相关的 yaml 中，service 的类型可能设置的是 LoadBalancer，该服务类型需要预先安装云平台 LB 插件，若没有安装该插件请将 service 的类型修改成 nodeport，然后重新上传。
 
 
 如果有其他疑问，您也可以通过提问形式与我们联系探讨。若对项目有任何问题，欢迎提交 [GitHub Issues](https://github.com/openpitrix/openpitrix/issues)。

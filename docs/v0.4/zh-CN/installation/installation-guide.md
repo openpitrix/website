@@ -28,9 +28,9 @@ OpenPitrix v0.4 支持 **`All-in-one`** 、 **`Kubernetes`** 和 **`Helm Chart`*
 > 
 > KubeSphere 是在目前主流容器调度平台 [Kubernetes](https://kubernetes.io) 之上构建的 **企业级分布式多租户容器管理平台**，为用户提供简单易用的操作界面以及向导式操作方式，KubeSphere 提供了在生产环境集群部署的全栈化容器部署与管理平台，且 KubeSphere 提供一键部署的方式，提供在 Kubernetes 中最优的存储和网络解决方案，帮助用户快速部署环境，并且 KubeSphere 已集成了 Helm Client 和 Tiller，方便 Helm Chart 模式安装。详见 [KubeSphere 安装指南](https://docs.kubesphere.io/)。
 > 
-> * **[Kubernetes on QingCloud AppCenter](https://docs.qingcloud.com/product/container/k8s)**
+> * **[QKE on QingCloud AppCenter](https://docs.qingcloud.com/product/container/k8s) (推荐)**
 > 
-> QingCloud 提供的支持一键部署的 Kubernetes 集群环境，同时集成了 KubeSphere 容器管理平台。
+> QingCloud 提供的支持一键部署的 KubeSphere 容器管理平台，底层是原生的 Kubernetes 集群环境。
 > 
 > 注：网络插件请选用 Calico 或 Hostnic。
 > 

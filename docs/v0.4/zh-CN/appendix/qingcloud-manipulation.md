@@ -14,7 +14,7 @@ title: "云平台配置端口转发和防火墙"
 
 2、点击 「管理配置」。
 
-3、点击 「添加规则」，在弹窗中填写端口转发的规则，将示例端口 31680 转发出来，详见 [QingCloud SDN 官方文档](https://docs.qingcloud.com/product/network/appcenter_network_config/config_portmapping)。
+3、点击 「添加规则」，在弹窗中填写端口转发的规则，将示例端口 31680 转发出来，详见 [QingCloud VPC 官方文档](https://docs.qingcloud.com/product/network/appcenter_network_config/config_portmapping)。
 
 ![](https://pek3b.qingstor.com/kubesphere-docs/png/20190417084751.png)
 

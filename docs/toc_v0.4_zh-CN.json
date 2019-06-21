@@ -66,7 +66,7 @@
           "entry": "./v0.4/zh-CN/getting-start/developer-quick-start.md"
         },
         {
-          "title": "应用审核",
+          "title": "应用审核与发布",
           "entry": "./v0.4/zh-CN/getting-start/app-review.md"
         },
         {
@@ -88,6 +88,10 @@
           "entry": "./v0.4/zh-CN/manual-guide/deploying-app-on-multicloud.md"
         },
         {
+          "title": "应用商店管理",
+          "entry": "./v0.4/zh-CN/manual-guide/store-management.md"
+        },
+        {
           "title": "运行环境管理",
           "entry": "./v0.4/zh-CN/manual-guide/runtime-management.md"
         },
@@ -96,22 +100,12 @@
           "entry": "./v0.4/zh-CN/manual-guide/cluster-management.md"
         },
         {
-          "title": "商店管理",
-          "entries": [
-            {
-              "entry": "./v0.4/zh-CN/manual-guide/store-management.md"
-            },
-            {
-              "entry": "./v0.4/zh-CN/manual-guide/category-management.md"
-            },
-            {
-              "entry": "./v0.4/zh-CN/manual-guide/app-management.md"
-            }
-          ]
-        },
-        {
           "title": "用户管理",
           "entry": "./v0.4/zh-CN/manual-guide/user-management.md"
+        },
+        {
+          "title": "邮件服务器",
+          "entry": "./v0.4/zh-CN/manual-guide/email-server.md"
         }
       ]
     },
@@ -152,6 +146,19 @@
               "entry": "./v0.4/zh-CN/developer-guide/helm-specification.md"
             }
           ]
+        },
+        {
+          "title": "命令行工具安装使用指南",
+          "entries": [
+            {
+              "title": "OP 命令行工具",
+              "entry": "./v0.4/zh-CN/developer-guide/op-cmd-tool.md"
+            },
+            {
+              "title": "OPCTL 开发者工具",
+              "entry": "./v0.4/zh-CN/developer-guide/opctl-cmd-tool.md"
+            }
+          ]
         }
       ]
     },
@@ -178,6 +185,16 @@
       "describe": "总结实际应用场景中可能遇到的问题并给出通用解决方案。",
       "entry": "./v0.4/zh-CN/faq.md",
       "chapters": []
+    },
+    {
+      "title": "附录",
+      "describe": "附录包括与 OpenPitrix 相关的参考资料。",
+      "chapters": [
+        {
+          "title": "QingCloud 云平台配置端口转发和防火墙",
+          "entry": "./v0.4/zh-CN/appendix/qingcloud-manipulation.md"
+        }
+      ]
     }
   ]
 }

@@ -1,5 +1,5 @@
 ---
-title: "应用审核"
+title: "应用审核与发布"
 ---
 
 本文档演示将此应用版本提交给应用服务商、商务和技术审核，以及如何创建测试环境并部署至测试环境。
@@ -88,7 +88,7 @@ title: "应用审核"
 
 ![](https://pek3b.qingstor.com/kubesphere-docs/png/20190617004118.png)
 
-> 注意，添加云平台作为云环境的前提是该环境必须已有 VPC 和私有网络，且 VPC 已绑定了公网 IP。选择 QingCloud 然后点击 「继续」。
+> 注意，部署应用至 QingCloud 云运行环境的前提是该环境必须已有 VPC 和私有网络，且 VPC 已绑定了公网 IP。选择 QingCloud 然后点击 「继续」。
 
 ![](https://pek3b.qingstor.com/kubesphere-docs/png/20190617233103.png)
 

@@ -2,6 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
+import { DiscussionEmbed } from "disqus-react"
 import get from 'lodash/get'
 import find from 'lodash/find'
 
@@ -52,6 +53,13 @@ export default class BlogDetail extends React.Component {
     const { post, site } = this.props.data
     const { frontmatter, html } = post
     const { title, author, date } = frontmatter
+    const disqusConfig = {
+      shortname: process.env.GATSBY_DISQUS_NAME,
+      config: {
+        identifier: frontmatter.title + frontmatter.date,
+        title: frontmatter.title
+      },
+    }
 
     return (
       <Layout>
@@ -81,6 +89,7 @@ export default class BlogDetail extends React.Component {
             </ArticleMeta>
 
             <div className="md-body" dangerouslySetInnerHTML={{ __html: html }}/>
+            <DiscussionEmbed {...disqusConfig} />
           </Article>
         </Container>
 

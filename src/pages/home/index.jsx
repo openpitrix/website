@@ -116,7 +116,9 @@ class Home extends Component {
                   <img className={styles.currentImg} src={scene.number_img} />
                   <div className={styles.name}>{scene.name}</div>
                   <div className={styles.description}>{scene.description}</div>
-                  <button onClick={this.openVersionModal}>获取社区版 →</button>
+                  <GatsbyLink className={styles.button} to='/install'>
+                    <button>快速安装 →</button>
+                  </GatsbyLink>
                 </div>
               ))}
             </div>

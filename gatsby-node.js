@@ -3,6 +3,8 @@ const debug=require('debug')('app');
 const { createFilePath } = require(`gatsby-source-filesystem`)
 const day=require('dayjs')
 
+const config = require('./gatsby-config');
+
 const getDocNodeFields = (slug = '')=> {
   const parts = slug.split('/').filter(Boolean)
   const [version, language] = parts
@@ -63,6 +65,20 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
         createNodeField({node, name, value})
       }
     }
+  }
+}
+
+exports.onCreatePage = ({ page, actions, graphql }) => {
+  const { createPage, deletePage } = actions
+  if (page.path === '/docs/') {
+    deletePage(page);
+    const version = config.siteMetadata.version
+    createPage({
+      ...page,
+      context: {
+        latestVersion: `v${version}-zh-CN`,
+      }
+    })
   }
 }
 

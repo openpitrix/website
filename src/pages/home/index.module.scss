@@ -214,6 +214,8 @@
     color: #fabf3a;
     background-color: transparent;
     cursor: pointer;
+    position: absolute;
+    z-index: 1;
 
     &:hover {
       background-color: rgba($Y100, 0.08);

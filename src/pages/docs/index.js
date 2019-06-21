@@ -183,8 +183,8 @@ export const pageQuery = graphql`
     }
   }
 
-  query {
-    menus: allDocsJson(filter: { id: { eq: "v0.4-zh-CN" } }) {
+  query($latestVersion: String!) {
+    menus: allDocsJson(filter: { id: { eq: $latestVersion } }) {
       edges {
         node {
           id

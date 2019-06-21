@@ -3,6 +3,10 @@ export default [
     title: '相关产品',
     items: [
       {
+        name: 'AppCenter',
+        link: 'https://appcenter.qingcloud.com/',
+      },
+      {
         name: 'KubeSphere',
         link: 'https://kubesphere.io/',
       },

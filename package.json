@@ -8,6 +8,7 @@
     "compare-versions": "^3.4.0",
     "dayjs": "^1.8.12",
     "debug": "^4.1.1",
+    "disqus-react": "^1.0.5",
     "es6-shim": "^0.35.4",
     "gatsby": "^2.0.103",
     "gatsby-link": "^2.0.9",

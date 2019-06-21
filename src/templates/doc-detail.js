@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
+import { DiscussionEmbed } from "disqus-react"
 
 import Layout from 'layout'
 import { Nav as DocNav, Footer } from 'components/Doc'
@@ -143,6 +144,13 @@ export default class DocumentTemplate extends React.Component {
   render() {
     const { slug } = this.props.pageContext
     const { html, frontmatter, headings } = this.props.data.post
+    const disqusConfig = {
+      shortname: process.env.GATSBY_DISQUS_NAME,
+      config: {
+        identifier: slug,
+        title: frontmatter.title
+      },
+    }
 
     // fixme
     if (!frontmatter.id) {
@@ -178,6 +186,7 @@ export default class DocumentTemplate extends React.Component {
               >
                 <h1>{frontmatter.title}</h1>
                 <div dangerouslySetInnerHTML={{ __html: html }} />
+                <DiscussionEmbed {...disqusConfig} />
               </MarkdownBody>
 
               <FooterWrapper>

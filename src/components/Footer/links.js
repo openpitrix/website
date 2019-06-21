@@ -39,10 +39,10 @@ export default [
         name: '贡献指南',
         link: '../docs/v0.4/zh-CN/contribution/contribution-guide',
       },
-      // {
-      //   name: 'API 文档',
-      //   link: '#',
-      // },
+      {
+        name: 'API 文档',
+        link: '/api',
+      },
     ],
   },
   {

@@ -26,6 +26,7 @@
     "gatsby-transformer-json": "^2.1.7",
     "gatsby-transformer-remark": "^2.2.1",
     "lodash": "^4.17.11",
+    "mobx": "^4",
     "node-sass": "^4.11.0",
     "prismjs": "^1.15.0",
     "promise-polyfill": "^8.1.0",
@@ -34,6 +35,7 @@
     "react-dom": "^16.7.0",
     "react-helmet": "^5.2.0",
     "react-modal": "^3.8.1",
+    "redoc": "^2.0.0-rc.8-1",
     "rimraf": "^2.6.3",
     "styled-components": "^4.1.3"
   },

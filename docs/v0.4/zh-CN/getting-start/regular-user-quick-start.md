@@ -6,8 +6,8 @@ title: "普通用户"
 
 ## 前提条件
 
-- Wordpress 示例应用已上架至应用商店，若还未上架请参考 [应用审核](../quick-start/app-review)；
-- 已有普通用户的账号 `regular@op.com`，若还未创建请参考 [管理员快速入门](../quick-start/admin-quick-start)。
+- Wordpress 示例应用已上架至应用商店，若还未上架请参考 [应用审核](../getting-start/app-review)；
+- 已有普通用户的账号 `regular@op.com`，若还未创建请参考 [管理员快速入门](../getting-start/admin-quick-start)。
 - 已有阿里云账号，已预先创建了专有网络。
 
 ## 部署应用至阿里云
@@ -71,4 +71,4 @@ title: "普通用户"
 ![](https://pek3b.qingstor.com/kubesphere-docs/png/20190618173210.png)
 
 
-至此，您已经基本了解了 OpenPitrix 平台对应用的全生命周期管理和其中多个常用角色的基本工作流程，建议您进一步熟悉和使用 OpenPitrix 平台，[用户指南](../user-guide/introduction) 和 [开发指南](../developer-guide/introduction) 提供更详细的文档说明，若在实际使用时遇到问题，参见 [常见问题](../faq) 或联系我们技术团队为您解答。
+至此，您已经基本了解了 OpenPitrix 平台对应用的全生命周期管理和其中多个常用角色的基本工作流程，建议您进一步熟悉和使用 OpenPitrix 平台，[用户指南](../manual-guide/introduction) 和 [开发指南](../developer-guide/introduction) 提供更详细的文档说明，若在实际使用时遇到问题，参见 [常见问题](../faq) 或联系我们技术团队为您解答。

@@ -6,7 +6,7 @@ title: "Kubernetes 模式"
 
 ### 主机环境
 
-Kubernetes 模式需要准备 `至少 1 台` 满足最小资源要求的主机节点并准备好相应的 Kubernetes 存储服务端。
+Kubernetes 模式需要准备 `至少 1 台` 满足最小资源要求的主机节点，并准备好相应的 Kubernetes 存储服务端。
 
 **最小配置**
 
@@ -16,17 +16,17 @@ Kubernetes 模式需要准备 `至少 1 台` 满足最小资源要求的主机�
 
 ### 软件环境
 
-Kubernetes 模式需提前准备好 Kubernetes 环境且安装配置了存储服务端，并创建了相应的存储类型，详见 [部署 OpenPitrix - 前提条件](../installation/installation-guide)。
+Kubernetes 模式需提前安装 Kubernetes 环境且配置了存储服务端，并创建了相应的存储类型，详见 [部署 OpenPitrix - 前提条件](https://openpitrix.io/docs/v0.4/zh-CN/installation/installation-guide#%E5%89%8D%E6%8F%90%E6%9D%A1%E4%BB%B6)。
 
 ## 第二步: 准备 OpenPitrix 安装包
 
-1. 下载 [OpenPitrix v0.4.1](https://github.com/openpitrix/openpitrix/releases/download/v0.4.1/openpitrix-v0.4.1-kubernetes.tar.gz) 的 Kubernetes 运行环境上的安装包并解压，例如下载至 ubuntu 系统：
+1. 下载 [OpenPitrix v0.4.1](https://github.com/openpitrix/openpitrix/releases/download/v0.4.1/openpitrix-v0.4.1-kubernetes.tar.gz) 的 Kubernetes 运行环境上的安装包并解压，例如下载至 Ubuntu 系统：
 
 ```bash
 $ wget https://github.com/openpitrix/openpitrix/releases/download/v0.4.1/openpitrix-v0.4.1-kubernetes.tar.gz
 ``` 
 
-2. 解压文件并进入目录：
+2. 解压文件并进入 `scripts` 目录：
 
 ```bash
 $ tar -zxf openpitrix-v0.4.1-kubernetes.tar.gz
@@ -75,16 +75,17 @@ deploy-k8s.sh [-n NAMESPACE] [-v VERSION] COMMAND
 > -  -a             ： 将要部署以上所有的模块和服务；
 
 
-2. 查看 Pilot 服务，Pilot 用于接受来自集群服务的指令和信息的组件，如创建集群等，并可以传递指令给 Frontgate，它还接收来自 Frontgate 上传上来的信息。以下可以看到两个端口，依次是 https 和 http 协议的端口，Pilot 服务 http 协议的 9114 端口对应的端口是 30119，因此 Pilot 服务的端口需要暴露给外部访问（可能需要端口转发和防火墙放行该端口）：
+2. 查看 Pilot 服务，以下可以看到两个端口，依次是 https 和 http 协议的端口，Pilot 服务 http 协议的 9114 端口对应的端口是 30119，需要将该端口暴露给外部访问（可能需要端口转发和防火墙放行该端口）：
+
+> 说明：Pilot 用于接受来自集群服务的指令和信息的组件，如创建集群等，并可以传递指令给 Frontgate，它还接收来自 Frontgate 上传上来的信息。
 
 ```bash
 $ kubectl get service openpitrix-pilot-service -n openpitrix-system
-root@i-tjwio1m2:/opt/openpitrix-v0.1.9-kubernetes/kubernetes# kubectl get service openpitrix-pilot-service -n openpitrix-system
 NAME                       TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)                         AGE
 openpitrix-pilot-service   NodePort   10.96.224.102   <none>        9110:31866/TCP, 9114:30119/TCP   5m
 ```
 
-3. 执行以下命令修改 etcd 中配置，同时修改 Pilot 的 IP 和 PORT。由于 Pilot 是需要公网访问，所以需要保证在外网能访问上述的 Pilot 服务，然后通过下面的命令修改 `${EIP}` 和 `{PORT}`，即外网通过 `${EIP}:${PORT}` 访问 (如通过端口转发的方式) 到集群任意一节点的 Pilot 服务的 NodePort，如上述 30119：
+3. 执行以下命令修改 etcd 中配置，该命令还将自动修改 Pilot 的 IP 和 PORT。需要保证在外网能访问到上述的 Pilot 服务：
 
 ```
 $ ./update-global-config.sh -v 0.4.1 -n openpitrix-system
@@ -148,11 +149,11 @@ NAME                   TYPE       CLUSTER-IP     EXTERNAL-IP   PORT(S)          
 openpitrix-dashboard   NodePort   10.233.21.57   <none>        80:31195/TCP,30300:30300/TCP   1h
 ```
 
-您可以通过浏览器，使用集群中任一节点的 IP 地址和端口号即 `<NodeIP>:<NodePort>` 可在集群内部访问 Dashboard，如 `http://192.168.100.10:31879`。
+您可以通过浏览器，使用集群中任一节点的 IP 地址和端口号即 `<NodeIP>:<NodePort>` 可在集群内部访问 Dashboard，如 `http://192.168.100.10:31195`。
 
 若需要在外网访问，在云平台需要在端口转发规则中将上述的**内网端口** 31195 转发到**源端口** 31195，然后在防火墙开放这个**源端口**，确保外网流量可以通过该端口。
 
-> 提示：例如在 QingCloud 平台配置端口转发和防火墙规则，则可以参考 [云平台配置端口转发和防火墙](../../appendix/qingcloud-manipulation)。
+> 提示：例如在 QingCloud 平台配置端口转发和防火墙规则，则可以参考 [云平台配置端口转发和防火墙](https://openpitrix.io/docs/v0.4/zh-CN/appendix/qingcloud-manipulation)。
 
 然后可以通过 `<EIP>:<NodePort>` 的方式访问控制台，如：`http://139.198.111.111:31195`，即可进入 OpenPitrix dashboard。
 
@@ -160,14 +161,14 @@ openpitrix-dashboard   NodePort   10.233.21.57   <none>        80:31195/TCP,3030
 ![](https://pek3b.qingstor.com/kubesphere-docs/png/20190612182143.png)
 
 
-3. OpenPitrix 部署成功后，点击右上角 **登录**，可使用以下的管理员默认的用户名和密码登录 OpenPitrix 控制台体验，建议参考 [用户管理](../../user-guide/user-management) 创建开发者和普通用户的角色，[快速入门](../../getting-start/introduction) 将帮助您快速上手 OpenPitrix。
+3. OpenPitrix 部署成功后，点击右上角 **登录**，可使用下表管理员默认的用户名和密码登录 OpenPitrix 控制台体验，建议先参考 [快速入门](https://openpitrix.io/docs/v0.4/zh-CN/getting-start/introduction) 的示例文档，将帮助您快速上手 OpenPitrix。
 
 
 | 角色 |	用户名 |	密码 |
 |-----|-----|-----|
 | 管理员	| admin@op.com 	| 将生成在 `kubernetes/iam-config/admin-password.txt` 文件中，强烈建议您登陆后修改初始密码 | 
 
-4. 查看 Api Gateway 服务
+4. 查看 API Gateway 服务。
 
 ```
 $ kubectl get service openpitrix-api-gateway -n openpitrix-system
@@ -175,7 +176,7 @@ NAME                     TYPE       CLUSTER-IP     EXTERNAL-IP   PORT(S)        
 openpitrix-api-gateway   NodePort   10.233.37.35   <none>        9100:31627/TCP   1h
 ```
 
-同上，您也可以通过浏览器访问 OpenPitrix API 的 Swagger UI 界面，如：`http://139.198.111.111:31627/swagger-ui/`。
+同上，可通过端口转发和开放防火墙后，即可在公网访问 Swagger UI 界面，如：`http://139.198.111.111:31627/swagger-ui/`。OpenPitrix API 文档请参考 [API](https://openpitrix.io/api)。
 
 ![](https://pek3b.qingstor.com/kubesphere-docs/png/20190612182534.png)
     
@@ -201,8 +202,8 @@ $ kubernetes/scripts/deploy-k8s.sh -n openpitrix-system -a
 
 ## 清理环境
 
-执行 clean.sh 脚本，停止并删除 OpenPitrix 所有服务，删除 openpitrix-system 的 namespace。
+若需要卸载 OpenPitrix 清理环境，在 script 目录下执行 clean.sh 脚本，停止并删除 OpenPitrix 所有服务，删除 openpitrix-system 的 namespace，请谨慎操作。
 
 ```bash
-$ kubernetes/scripts/clean.sh -n openpitrix-system 
+$ ./clean.sh -n openpitrix-system 
 ```

@@ -36,7 +36,7 @@ $ wget https://github.com/openpitrix/openpitrix/releases/download/v0.4.1/openpit
 2. 解压安装包：
 
 ```bash
-$ openpitrix-v0.4.1-docker-compose.tar.gz
+$ tar -zxf openpitrix-v0.4.1-docker-compose.tar.gz
 ```
 
 ## 第三步: 部署 OpenPitrix
@@ -103,13 +103,13 @@ openpitrix-task-manager           task-manager                     Up
 
 若需要在外网访问，在云平台需要在端口转发规则中将上述的**内网端口** 8000 转发到**源端口** 8000，然后在防火墙开放这个**源端口**，确保外网流量可以通过该端口。
 
-> 提示：例如在 QingCloud 平台配置端口转发和防火墙规则，则可以参考 [云平台配置端口转发和防火墙](../appendix/qingcloud-manipulation)。
+> 提示：例如在 QingCloud 平台配置端口转发和防火墙规则，则可以参考 [云平台配置端口转发和防火墙](https://openpitrix.io/docs/v0.4/zh-CN/appendix/qingcloud-manipulation)。
 
 然后可以通过 `<EIP>:8000` 的方式访问控制台，如：`http://139.198.111.111:8000`，即可进入 OpenPitrix dashboard。
 
 ![](https://pek3b.qingstor.com/kubesphere-docs/png/20190612182143.png)
 
-3. OpenPitrix 部署成功后，点击右上角 **登录**，可使用以下的管理员默认的用户名和密码登录 OpenPitrix 控制台体验，建议参考 [用户管理](../../user-guide/user-management) 创建开发者和普通用户的角色，[快速入门](../getting-start/introduction) 将帮助您快速上手 OpenPitrix。
+3. OpenPitrix 部署成功后，点击右上角 **登录**，可使用下表管理员默认的用户名和密码登录 OpenPitrix 控制台体验，建议先参考 [快速入门](https://openpitrix.io/docs/v0.4/zh-CN/getting-start/introduction) 的示例文档，将帮助您快速上手 OpenPitrix。
 
 
 | 角色 |	用户名 |	密码 |
@@ -117,16 +117,16 @@ openpitrix-task-manager           task-manager                     Up
 | 管理员	| admin@op.com 	| passw0rd | 
 
 
-4. 查看 Api Gateway 服务
+4. 查看 API Gateway 服务
 
-以上显示 api-gateway 对外暴露的是 9100 端口，同样，查看 OpenPitrix API 界面，可通过端口转发和开放防火墙的方式在公网访问 Swagger UI，如 `http://139.198.111.111:9100/swagger-ui/`。
+以上显示 api-gateway 对外暴露的是 9100 端口，同上，查看 OpenPitrix API 界面，可通过端口转发和开放防火墙后，即可在公网访问 Swagger UI，如 `http://139.198.111.111:9100/swagger-ui/`。OpenPitrix API 文档请参考 [API](https://openpitrix.io/api)。
 
 ![](https://pek3b.qingstor.com/kubesphere-docs/png/20190612182534.png)
 
 ## 清理环境
 
-在项目文件目录下，执行以下命令，停止并删除 OpenPitrix 所有服务。
+若需要卸载 OpenPitrix 清理环境，在项目文件目录下，执行以下命令，停止并删除 OpenPitrix 所有服务，请谨慎操作。
 
 ```bash
-$ docker compose-down
+$ docker compose-down 
 ```

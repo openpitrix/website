@@ -12,7 +12,7 @@ title: "部署 WordPress 到多云环境"
 
  - 已有 Wordpress 应用上架商店，若没有请参考 [快速入门之开发者](../getting-start/app-review) 将应用提交管理员审核后发布到商店。
  
- - 已有 OpenPitrix 普通用户账号 `regular@op.com`，普通用户账号由管理员提供，参见 [管理员快速入门](../manual-guide/user-management/#创建用户)。
+ - 已有 OpenPitrix 普通用户账号 `regular@op.com`，普通用户账号由管理员提供，参见 [管理员快速入门](../getting-start/admin-quick-start)。
  
  - 已有 [AWS 云平台](https://console.qingcloud.com/)、[QingCloud](https://console.qingcloud.com/)、[阿里云](https://account.aliyun.com/login/) 的账号，已有 [Kubernetes](https://kubernetes.io) 集群。
 
@@ -92,7 +92,7 @@ title: "部署 WordPress 到多云环境"
 
 ## 部署应用至阿里云
 
-在普通用户快速入门中，已通过普通用户的账号 `regular@op.com` 说明了如何创建阿里云环境并将应用部署至阿里云，此处不再赘述，请参考 [创建测试环境 (QingCloud Runtime)](../getting-start/regular-user-quick-start)。
+在普通用户快速入门中，已通过普通用户的账号 `regular@op.com` 说明了如何创建阿里云环境并将应用部署至阿里云，此处不再赘述，请参考 [创建测试环境 (Aliyun Runtime)](../getting-start/regular-user-quick-start)。
 
 ![](https://pek3b.qingstor.com/kubesphere-docs/png/20190619003223.png)
 
@@ -100,7 +100,7 @@ title: "部署 WordPress 到多云环境"
 
 ## 部署应用至 Kubernetes
 
-由于在应用审核快速入门中，已通过技术审核账号说明了如何创建 Kubernetes 运行环境并将应用部署至 Kubernetes，此处不再赘述，请参考 [创建测试环境 (QingCloud Runtime)](../getting-start/app-review#审核应用-helm-版本)。
+由于在应用审核快速入门中，已通过技术审核账号说明了如何创建 Kubernetes 运行环境并将应用部署至 Kubernetes，此处不再赘述，请参考 [创建测试环境 (Kubernetes Runtime)](../getting-start/app-review#审核应用-helm-版本)。
 
 ![](https://pek3b.qingstor.com/kubesphere-docs/png/20190619003501.png)
 

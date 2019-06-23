@@ -136,11 +136,15 @@ $ helm package nginx
 $ ls
 nginx  nginx-0.1.0.tgz
 ```
-至此，应用配置包就已经准备完毕，接下来需要创建仓库和上传应用。
+至此，应用配置包就已经准备完毕。
 
-仓库可以是 QingCloud 或 AWS 的对象存储，创建仓库可参考 [仓库管理](../../user-guide/repo-management)。
+## 上传应用
 
-仓库创建完成即可上传应用到平台进一步测试和部署应用到 Kubernetes 运行环境中，可参考 [开发者 - 上传应用](../../getting-start/developer-quick-start/#第二步：上传应用)。部署 Helm Chart 类型的应用（如本篇提到的 nginx）到 Kubernetes 运行环境，参见 [部署 Nginx 到 Kubernetes](../../user-guide/deploying-app-on-k8s)。
+接下来就可以通过开发者来上传应用到平台进一步测试和部署应用到 Kubernetes 运行环境中，可参考 [开发者 - 上传应用](../getting-start/developer-quick-start)。
+
+## 部署应用
+
+部署 Helm Chart 类型的应用（如本篇提到的 nginx）到 Kubernetes 运行环境，参考 [应用审核与发布 - 部署应用到 Kubernetes 运行环境](https://openpitrix.io/docs/v0.4/zh-CN/getting-start/getting-start/app-review)。
 
 
 

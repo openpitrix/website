@@ -58,7 +58,7 @@ OpenPitrix 中数据权限固定为 3 种：（all-所有数据，department-本
 
 ## 创建角色
 
-管理员快速入门提供了一个创建商务审核与技术审核角色的示例，请参考 [管理员快速入门 - 创建角色](../getting-start/admin-quick-start#创建角色)。
+管理员快速入门提供了一个创建商务审核与技术审核角色的示例，请参考 [管理员快速入门 - 创建角色](../getting-start/admin-quick-start)。
 
 ![](https://pek3b.qingstor.com/kubesphere-docs/png/20190621175841.png)
 

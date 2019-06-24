@@ -21,7 +21,7 @@ OpenPitrix 提供了基于多租户的应用创建、打包上传、应用审核
 
 下图说明了快速入门文档演示的完整流程。
 
-![](https://pek3b.qingstor.com/kubesphere-docs/png/20190621181149.png)
+![](https://pek3b.qingstor.com/kubesphere-docs/png/20190624222312.png)
 
 
 ## 前提条件

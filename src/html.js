@@ -59,11 +59,11 @@ const Html = ({
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
+        <script dangerouslySetInnerHTML={{__html: injectScript}}></script>
         {headComponents}
         <link ref="text/stylesheet" href="/fonts/roboto/roboto.css" />
         {css}
         <link rel="icon" href={fav} />
-        <script dangerouslySetInnerHTML={{__html: injectScript}}></script>
       </head>
       <body {...bodyAttributes}>
         {preBodyComponents}

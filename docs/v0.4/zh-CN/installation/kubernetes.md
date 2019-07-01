@@ -29,7 +29,7 @@ $ wget https://github.com/openpitrix/openpitrix/releases/download/v0.4.1/openpit
 2. 解压文件并进入 `scripts` 目录：
 
 ```bash
-tar -zxf openpitrix-v0.4.1-kubernetes.tar.gz && cd openpitrix-v0.4.1-kubernetes/kubernetes/scripts
+$ tar -zxf openpitrix-v0.4.1-kubernetes.tar.gz && cd openpitrix-v0.4.1-kubernetes/kubernetes/scripts
 ```
 
 ## 第三步: 安装 OpenPitrix

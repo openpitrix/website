@@ -29,8 +29,7 @@ $ wget https://github.com/openpitrix/openpitrix/releases/download/v0.4.1/openpit
 2. 解压文件并进入 `scripts` 目录：
 
 ```bash
-$ tar -zxf openpitrix-v0.4.1-kubernetes.tar.gz
-$ cd openpitrix-v0.4.1-kubernetes/kubernetes/scripts
+tar -zxf openpitrix-v0.4.1-kubernetes.tar.gz && cd openpitrix-v0.4.1-kubernetes/kubernetes/scripts
 ```
 
 ## 第三步: 安装 OpenPitrix
@@ -75,7 +74,9 @@ deploy-k8s.sh [-n NAMESPACE] [-v VERSION] COMMAND
 > -  -a             ： 将要部署以上所有的模块和服务；
 
 
-2. 查看 Pilot 服务，以下可以看到两个端口，依次是 https 和 http 协议的端口，Pilot 服务 http 协议的 9114 端口对应的端口是 30119，需要将该端口暴露给外部访问（可能需要端口转发和防火墙放行该端口）：
+2. 查看 Pilot 服务，以下可以看到两个端口，依次是 https 和 http 协议的端口，Pilot 服务 http 协议的 9114 端口对应的端口是 30119，需要将端口 30119 暴露给集群外部访问（可能需要端口转发和防火墙放行该端口，确保流量能够通过该端口）：
+
+> 提示：例如在 QingCloud 平台配置端口转发和防火墙规则，则可以参考 [云平台配置端口转发和防火墙](https://openpitrix.io/docs/v0.4/zh-CN/appendix/qingcloud-manipulation)。
 
 > 说明：Pilot 用于接受来自集群服务的指令和信息的组件，如创建集群等，并可以传递指令给 Frontgate，它还接收来自 Frontgate 上传上来的信息。
 
@@ -85,7 +86,16 @@ NAME                       TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)     
 openpitrix-pilot-service   NodePort   10.96.224.102   <none>        9110:31866/TCP, 9114:30119/TCP   5m
 ```
 
-3. 执行以下命令修改 etcd 中配置，该命令还将自动修改 Pilot 的 IP 和 PORT。需要保证在外网能访问到上述的 Pilot 服务：
+3. 修改 `global_config.yaml` 文件中的配置 `global_config` 下的 `pilot_ip` 和 `pilot_port` 为您实际的公网 IP (EIP) 和 Pilot 服务的端口号 (NodePort)。
+
+```bash
+pilot:
+  ip: 139.198.111.111   // 此处替换为您的公网 IP
+  port: 30119          // 替换为您实际的 Pilot 服务端口
+  ···
+```
+
+4. 执行以下命令更新 etcd 中的配置，需要保证在外网能访问到上述的 Pilot 服务：
 
 ```
 $ ./update-global-config.sh -v 0.4.1 -n openpitrix-system

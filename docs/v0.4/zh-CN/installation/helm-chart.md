@@ -78,8 +78,7 @@ $ yum install wget
 2、解压安装包并进入安装目录。
 
 ```bash
-$ tar -zxf openpitrix-helm-chart-v0.4.0.tar.gz 
-$ cd openpitrix
+$ tar -zxf openpitrix-helm-chart-v0.4.0.tar.gz && cd openpitrix
 ```
 
 ## 第三步: 安装 OpenPitrix
@@ -93,7 +92,9 @@ $ helm install . -n openpitrix --namespace openpitrix-system
 ```
 
 
-2、查看 Pilot 服务，以下可以看到两个端口 (NodePort)，依次是 https 和 http 协议的端口，例如以下返回的 http 协议的端口是 30119，需要将 Pilot 服务的端口 30119 暴露给外部访问，保证外网流量能够通过该端口。
+2、查看 Pilot 服务，以下可以看到两个端口 (NodePort)，依次是 https 和 http 协议的端口，例如以下返回的 http 协议的端口是 30119，需要将 Pilot 服务的端口 30119 暴露给外部访问 (可能需要配置端口转发和防火墙规则，保证外网流量能够通过该端口)。
+
+> 提示：例如在 QingCloud 平台配置端口转发和防火墙规则，则可以参考 [云平台配置端口转发和防火墙](https://openpitrix.io/docs/v0.4/zh-CN/appendix/qingcloud-manipulation)。
 
 > 说明：Pilot 用于接受来自集群服务的指令和信息的组件，如创建集群等，并可以传递指令给 Frontgate，它还接收来自 Frontgate 上传上来的信息。
 
@@ -105,11 +106,9 @@ openpitrix-pilot-service   NodePort   10.96.224.102   <none>        9110:31866/T
 
 3、修改 `values.yaml` 文件中的配置 `global_config` 下的 `pilot_ip` 和 `pilot_port` 为您实际的公网 IP (EIP) 和 Pilot 服务的端口号 (NodePort)。
 
-> 注意：若公网 IP 有防火墙，请在防火墙添加规则放行对应的端口，外部才能够访问。
-
 ```bash
 global_config:
-  pilot_ip: 139.198.121.143   // 此处替换为您的公网 IP
+  pilot_ip: 139.198.111.111   // 此处替换为您的公网 IP
   pilot_port: 30119          // 替换为您实际的 Pilot 服务端口
   ···
 ```

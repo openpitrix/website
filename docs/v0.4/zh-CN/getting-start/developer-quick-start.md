@@ -15,8 +15,8 @@ OpenPitrix 旨在帮助软件开发者以极低的学习成本快速部署自己
 为方便您快速熟悉 OpenPitrix，本示例准备了一个 Wordpress 应用，包括了 2 个 [WordPress](https://wordpress.org)  以下应用配置包，且示例已准备好 Wordpress 与 MySQL 镜像并上传到了 Docker Hub 镜像仓库：
 
 
-- 基于 [OpenPitrix 开发规范](../../developer-guide/openpitrix-specification)：点击下载 [Wordpress-0.3.0.tar](https://openpitrix.anybox.qingcloud.com/s/9iNpm77Z2RAOQFUQBSv1luQEHvWTEGdY?type=folder&id=527923)；
-- 基于 [Helm Chart 开发规范](https://helm.sh/docs/)，点击下载 [Wordpress-0.3.0.tgz](https://openpitrix.anybox.qingcloud.com/s/9iNpm77Z2RAOQFUQBSv1luQEHvWTEGdY?type=folder&id=527917)。
+- 基于 [OpenPitrix 开发规范](../../developer-guide/openpitrix-specification)：点击下载 [Wordpress-0.3.0.tar](https://openpitrix.anybox.qingcloud.com/s/9iNpm77Z2RAOQFUQBSv1luQEHvWTEGdY?type=folder&id=527917)；
+- 基于 [Helm Chart 开发规范](https://helm.sh/docs/)，点击下载 [Wordpress-0.3.0.tgz](https://openpitrix.anybox.qingcloud.com/s/9iNpm77Z2RAOQFUQBSv1luQEHvWTEGdY?type=folder&id=527923)。
 
 
 > - 同样，也可参考 [OpenPitrix 规范及应用开发 - 准备 Wordpress 配置文件](../../developer-guide/openpitrix-developer-guide/#准备应用配置包) 的三个必须的配置文件，然后获取 [OpenPitrix 客户端工具](../../developer-guide/packaging-openpitrix-app/#准备-openpitrix-客户端工具) 将配置文件打包 (默认为 `.tgz` 格式)，即可生成一个 Wordpress 应用配置包。注意，基于 OpenPitrix 开发规范准备的应用可以部署到 QingCloud、阿里云、AWS 这类云运行时环境 (Runtime)。

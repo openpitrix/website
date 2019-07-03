@@ -6,15 +6,15 @@ OpenPitrix 支持 **`all-in-one`** 、 **`Kubernetes`** 和 **`Helm Chart`** 三
 
 ### All-in-One 模式
 
-[All-in-One 模式](../allinone) 即单节点部署，需要预先安装 Docker、Docker-Compose、Make 等依赖软件，仅建议您用来测试或熟悉部署流程和了解 OpenPitrix 功能特性，在正式使用环境建议使用 `Kubernetes` 模式，请参考下文的 `Kubernetes` 模式。
+[All-in-One 模式](../installation/allinone) 即单节点部署，需要预先安装 Docker、Docker-Compose、Make 等依赖软件，仅建议您用来测试或熟悉部署流程和了解 OpenPitrix 功能特性，在正式使用环境建议使用 `Kubernetes` 模式，请参考下文的 `Kubernetes` 模式。
 
 ### Kubernetes 模式
 
-[Kubernetes 模式](../kubernetes) 是将 OpenPitrix 部署到 Kubernetes 集群环境中，部署完成后 OpenPitrix 可作为基于 Kubernetes 的一个应用管理系统，提供应用的全生命周期管理。
+[Kubernetes 模式](../installation/kubernetes) 是将 OpenPitrix 部署到 Kubernetes 集群环境中，部署完成后 OpenPitrix 可作为基于 Kubernetes 的一个应用管理系统，提供应用的全生命周期管理。
 
 ### Helm-Chart 模式
 
-[Helm-Chart 模式](../helm-chart) 是将 OpenPitrix 以 Helm Chart 的方式部署到 Kubernetes 集群环境中，需要预先安装 Helm Client 和 Tiller。
+[Helm-Chart 模式](../installation/helm-chart) 是将 OpenPitrix 以 Helm Chart 的方式部署到 Kubernetes 集群环境中，需要预先安装 Helm Client 和 Tiller。
 
 
 ### 前提条件

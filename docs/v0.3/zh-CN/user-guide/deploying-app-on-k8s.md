@@ -8,7 +8,7 @@ title: "部署 Nginx 到 Kubernetes"
 
 正式开始前，需要准备好以下资源：
  
- - 已有 OpenPitrix 普通用户账号，普通用户由管理员提供，参见 [用户管理](../user-management/#创建用户)。
+ - 已有 OpenPitrix 普通用户账号，普通用户由管理员提供，参见 [用户管理](../user-guide/user-management/#创建用户)。
 
  - 已有 Nginx 应用上架应用商店，若没有请参考 [Helm Chart 开发入门](../developer-guide/helm-developer-guide) 准备 Nginx 应用配置包并提交。
  
@@ -17,7 +17,7 @@ title: "部署 Nginx 到 Kubernetes"
 
 ## 创建环境
 
-进入 **我的环境** 标签页，点击右侧 **创建** 按钮，填写 Kubernetes 运行环境的基本信息，详见 [运行环境管理](../runtime-management/#创建运行环境)。
+进入 **我的环境** 标签页，点击右侧 **创建** 按钮，填写 Kubernetes 运行环境的基本信息，详见 [运行环境管理](../user-guide/runtime-management/#创建运行环境)。
 
 ![](/create-runtime-kubernetes.png)
 

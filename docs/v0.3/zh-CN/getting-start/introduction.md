@@ -6,9 +6,9 @@ OpenPitrix 提供了应用创建、打包上传、应用审核、应用商店、
 
 本文旨在帮助您了解通过 OpenPitrix 平台管理应用生命周期的基本工作流程，带您快速上手 OpenPitrix。快速入门包含三篇文档，依次从开发者、平台管理员、普通用户等角色详细说明各角色的工作流程，以上传和部署一个基于 OpenPitrix 开发规范的 Wordpress 应用为示例。
 
-- [开发者](../developer-quick-start)：描述了开发者创建仓库、创建应用和上传应用、提交审核、创建新版本等工作流程。
-- [管理员](../admin-quick-start)：描述了管理员审核应用和下架应用的工作流程。
-- [普通用户](../regular-user-quick-start)：描述了用户创建运行环境、创建 QingCloud 平台资源、部署应用等工作流程。
+- [开发者](../getting-start/developer-quick-start)：描述了开发者创建仓库、创建应用和上传应用、提交审核、创建新版本等工作流程。
+- [管理员](../getting-start/admin-quick-start)：描述了管理员审核应用和下架应用的工作流程。
+- [普通用户](../getting-start/regular-user-quick-start)：描述了用户创建运行环境、创建 QingCloud 平台资源、部署应用等工作流程。
 
 ## 前提条件
 

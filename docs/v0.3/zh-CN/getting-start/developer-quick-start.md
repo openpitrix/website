@@ -2,7 +2,7 @@
 title: "开发者"
 ---
 
-OpenPitrix 旨在帮助软件开发者以极低的学习成本快速部署自己的应用到多云的运行环境中并提供一站式的平台方便管理用户的资源和环境，如果您开发基于 OpenPitrix 平台的应用，那么本篇文档可以帮助您快速开始相关的基础功能操作，主要描述了开发者创建仓库、创建应用和上传应用、提交审核、发布应用等工作流程，流程中的相关文档链接页涵盖了更详细的内容介绍。完成本篇操作后建议您继续阅读 [管理员](../admin-quick-start) 和 [普通用户](../regular-user-quick-start) 的快速入门。
+OpenPitrix 旨在帮助软件开发者以极低的学习成本快速部署自己的应用到多云的运行环境中并提供一站式的平台方便管理用户的资源和环境，如果您开发基于 OpenPitrix 平台的应用，那么本篇文档可以帮助您快速开始相关的基础功能操作，主要描述了开发者创建仓库、创建应用和上传应用、提交审核、发布应用等工作流程，流程中的相关文档链接页涵盖了更详细的内容介绍。完成本篇操作后建议您继续阅读 [管理员](../getting-start/admin-quick-start) 和 [普通用户](../getting-start/regular-user-quick-start) 的快速入门。
 
 ## 创建仓库
 
@@ -106,4 +106,4 @@ OpenPitrix 旨在帮助软件开发者以极低的学习成本快速部署自己
 
 ![应用详情页](/zk-details.png)
 
-至此，您已经基本了解了开发者在 OpenPitrix 平台上传和发布应用的基本工作流程，若需要对当前的应用版本做升级，可创建新的应用版本，参见 [应用版本管理](../user-guide/app-management/#应用版本管理)。建议您继续阅读快速入门之 [管理员](../admin-quick-start) 和 [普通用户](../regular-user-quick-start)。
+至此，您已经基本了解了开发者在 OpenPitrix 平台上传和发布应用的基本工作流程，若需要对当前的应用版本做升级，可创建新的应用版本，参见 [应用版本管理](../user-guide/app-management/#应用版本管理)。建议您继续阅读快速入门之 [管理员](../getting-start/admin-quick-start) 和 [普通用户](../getting-start/regular-user-quick-start)。

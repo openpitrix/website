@@ -9,7 +9,7 @@ OpenPitrix 下一步会将应用商店进一步升级，独立的应用商店管
 
 
 * [源代码](https://github.com/openpitrix/openpitrix)
-* [OpenPitrix Insight](https://openpitrix.io/zh/blog/2018/03/OpenPitrix-Insight/)
+* [OpenPitrix Insight](https://openpitrix.io/blog/zh/2018/03/openpitrix-insight)
 
 
 ![](https://pek3b.qingstor.com/kubesphere-docs/png/op-architecture.png)

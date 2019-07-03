@@ -144,7 +144,7 @@ nginx  nginx-0.1.0.tgz
 
 ## 部署应用
 
-部署 Helm Chart 类型的应用（如本篇提到的 nginx）到 Kubernetes 运行环境，参考 [应用审核与发布 - 部署应用到 Kubernetes 运行环境](https://openpitrix.io/docs/v0.4/zh-CN/getting-start/getting-start/app-review)。
+部署 Helm Chart 类型的应用（如本篇提到的 nginx）到 Kubernetes 运行环境，参考 [应用审核与发布 - 部署应用到 Kubernetes 运行环境](../getting-start/app-review)。
 
 
 

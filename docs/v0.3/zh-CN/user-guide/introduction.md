@@ -26,7 +26,7 @@ OpenPitrix 旨在帮助用户快速创建应用并将其部署到多云的运行
 
 ---
 
-[快速入门](../../getting-start/introduction) 帮助您快速上手 OpenPitrix，熟悉和体验应用生命周期管理的多项功能。
+[快速入门](../getting-start/introduction) 帮助您快速上手 OpenPitrix，熟悉和体验应用生命周期管理的多项功能。
 
 
 

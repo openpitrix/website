@@ -46,7 +46,7 @@ title: "普通用户"
 - 名称：aliyun-test-runtime
 - 备注：阿里云测试环境
 
-> 若准备将应用部署到 AWS 运行环境，参见 [部署 Wordpress 到 AWS](../user-guide/deploying-app-on-aws.md)。
+> 若准备将应用部署到 AWS 运行环境，参见 [部署 Wordpress 到 AWS](../user-guide/deploying-app-on-multicloud#部署应用至-aws)。
 
 ### 第三步：部署实例
 
@@ -61,7 +61,7 @@ title: "普通用户"
 ![](https://pek3b.qingstor.com/kubesphere-docs/png/20190618111237.png)
 
 
-> 第一次部署由于需要从公网上下载必要的系统镜像，通常创建时间会比较长，应用部署成功后，这些镜像会缓存在 frontgate，以后再创建其它集群就从缓存中拉取系统镜像。若需要管理部署的集群如停用或删除集群，参考 [集群管理](../../user-guide/cluster-management)。
+> 第一次部署由于需要从公网上下载必要的系统镜像，通常创建时间会比较长，应用部署成功后，这些镜像会缓存在 frontgate，以后再创建其它集群就从缓存中拉取系统镜像。若需要管理部署的集群如停用或删除集群，参考 [集群管理](../manual-guide/cluster-management)。
 
 
 ### 清理资源

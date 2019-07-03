@@ -58,7 +58,7 @@ title: "仓库管理"
 
 - 可见性：即该仓库设置为公有还是私有仓库。所有用户都能使用公有仓库，即所有用户都可以上传应用配置包，而私有仓库仅属于创建者。
 
-- 运行环境提供商：可以多选，其中 Kubernetes 与 QingCloud 和 AWS 环境的应用配置包格式不同，若选择 QingCloud 和 AWS，意味着当前仓库仅支持上传基于 [OpenPitrix 应用开发规范](../../developer-guide/openpitrix-specification) 的应用，既可以部署到 QingCloud，也可以部署到 AWS。若选择 Kubernetes 则表示当前仓库仅支持上传基于 [Helm Chart 应用开发规范](../../developer-guide/helm-specification) 的应用配置包，且只能部署到 Kubernetes 环境。
+- 运行环境提供商：可以多选，其中 Kubernetes 与 QingCloud 和 AWS 环境的应用配置包格式不同，若选择 QingCloud 和 AWS，意味着当前仓库仅支持上传基于 [OpenPitrix 应用开发规范](../developer-guide/openpitrix-specification) 的应用，既可以部署到 QingCloud，也可以部署到 AWS。若选择 Kubernetes 则表示当前仓库仅支持上传基于 [Helm Chart 应用开发规范](../developer-guide/helm-specification) 的应用配置包，且只能部署到 Kubernetes 环境。
 
 - 运行环境选择器：填写运行环境的标签键值对，将会选择具有所填标签的运行环境匹配该仓库。例如，当运行环境选择器设置为 “env=testing” 时，只有标签也是 “env=testing” 运行环境的才能部署该仓库中的应用。
 
@@ -67,7 +67,7 @@ title: "仓库管理"
    - S3：参数形式为 `s3://s3.<region>.qingstor.com/<bucket_name>`。可读可写，支持获取该应用仓库中的应用并能够部署到运行环境，这类协议的仓库支持在 OpenPitrix 中上传应用。
    - HTTP/HTTPS：可读，不可写，仅支持获取该应用仓库中的应用并能够部署到运行环境，但不支持在 OpenPitrix 上传应用到这类仓库。
 
-> 注意：若添加 HTTP 或 HTTPS 协议的仓库，在 QingStor 中需要预先上传索引文件 `index.yaml`，该文件由 [OpenPitrix 客户端工具](../../developer-guide/packaging-openpitrix-app/#准备-openpitrix-客户端工具) 或 [Helm 客户端工具](../../developer-guide/helm-developer-guide/#准备-helm-客户端工具) 生成。若添加 S3 协议的仓库，在上传应用到仓库时将自动在对象存储中生成索引文件。如果是在 QingStor 中上传的应用配置包，其应用将自动同步到 OpenPitrix 的仓库中。
+> 注意：若添加 HTTP 或 HTTPS 协议的仓库，在 QingStor 中需要预先上传索引文件 `index.yaml`，该文件由 [OpenPitrix 客户端工具](../developer-guide/packaging-openpitrix-app/#准备-openpitrix-客户端工具) 或 [Helm 客户端工具](../developer-guide/helm-developer-guide/#准备-helm-客户端工具) 生成。若添加 S3 协议的仓库，在上传应用到仓库时将自动在对象存储中生成索引文件。如果是在 QingStor 中上传的应用配置包，其应用将自动同步到 OpenPitrix 的仓库中。
 
 - 描述：简单介绍应用仓库的主要特性，让用户进一步了解该应用仓库；
 
@@ -105,7 +105,7 @@ title: "仓库管理"
 
 - 可见性：即该仓库设置为公有还是私有仓库。所有用户都能使用公有仓库，即所有用户都可以上传应用配置包，而私有仓库仅属于创建者。
 
-- 运行环境提供商：可以多选，其中 Kubernetes 与 QingCloud 和 AWS 环境的应用配置包格式不同，若选择 QingCloud 和 AWS，意味着当前仓库仅支持上传基于 [OpenPitrix 应用开发规范](../../developer-guide/openpitrix-specification) 的应用，既可以部署到 QingCloud，也可以部署到 AWS。若选择 Kubernetes 则表示当前仓库仅支持上传基于 [Helm Chart 应用开发规范](../../developer-guide/helm-specification) 的应用配置包，且只能部署到 Kubernetes 环境。
+- 运行环境提供商：可以多选，其中 Kubernetes 与 QingCloud 和 AWS 环境的应用配置包格式不同，若选择 QingCloud 和 AWS，意味着当前仓库仅支持上传基于 [OpenPitrix 应用开发规范](../developer-guide/openpitrix-specification) 的应用，既可以部署到 QingCloud，也可以部署到 AWS。若选择 Kubernetes 则表示当前仓库仅支持上传基于 [Helm Chart 应用开发规范](../developer-guide/helm-specification) 的应用配置包，且只能部署到 Kubernetes 环境。
 
 - 运行环境选择器：填写运行环境的标签键值对，将会选择具有所填标签的运行环境匹配该仓库。例如，当运行环境选择器设置为 “env=testing” 时，只有标签也是 “env=testing” 运行环境的才能部署该仓库中的应用。
 
@@ -114,7 +114,7 @@ title: "仓库管理"
    - S3：可读可写，支持获取该应用仓库中的应用并能够部署到运行环境，这类协议的仓库支持在 OpenPitrix 中上传应用，参数形式为 `s3://s3.<region>.amazonaws.com/<bucket_name>`。
    - HTTP/HTTPS：可读，不可写，仅支持获取该应用仓库中的应用并能够部署到运行环境，但不支持在 OpenPitrix 上传应用到这类仓库。
 
-> 注意：若添加 HTTP 或 HTTPS 协议的仓库，在对象存储中需要预先上传索引文件 `index.yaml`，该文件由 [OpenPitrix 客户端工具](../../developer-guide/packaging-openpitrix-app/#准备-openpitrix-客户端工具) 或 [Helm 客户端工具](../../developer-guide/helm-developer-guide/#准备-helm-客户端工具) 生成。若添加 S3 协议的仓库，在上传应用到仓库时将自动在对象存储中生成索引文件。如果是在对象存储中上传的应用配置包，其应用将自动同步到 OpenPitrix 的仓库中。
+> 注意：若添加 HTTP 或 HTTPS 协议的仓库，在对象存储中需要预先上传索引文件 `index.yaml`，该文件由 [OpenPitrix 客户端工具](../developer-guide/packaging-openpitrix-app/#准备-openpitrix-客户端工具) 或 [Helm 客户端工具](../developer-guide/helm-developer-guide/#准备-helm-客户端工具) 生成。若添加 S3 协议的仓库，在上传应用到仓库时将自动在对象存储中生成索引文件。如果是在对象存储中上传的应用配置包，其应用将自动同步到 OpenPitrix 的仓库中。
 
 - 描述：简单介绍应用仓库的主要特性，让用户进一步了解该应用仓库；
 

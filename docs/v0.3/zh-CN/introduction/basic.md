@@ -6,6 +6,6 @@ title: "产品概述"
 
 ---
 * [源代码](https://github.com/openpitrix/openpitrix)
-* [OpenPitrix Insight](https://openpitrix.io/zh/blog/2018/03/OpenPitrix-Insight/)
+* [OpenPitrix Insight](https://openpitrix.io/blog/zh/2018/03/openpitrix-insight)
 
 

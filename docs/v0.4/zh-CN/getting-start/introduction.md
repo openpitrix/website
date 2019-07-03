@@ -12,16 +12,15 @@ OpenPitrix 提供了基于多租户的应用创建、打包上传、应用审核
 
 本文旨在帮助您了解通过 OpenPitrix 平台管理应用生命周期的基本工作流程，带您快速上手 OpenPitrix。包含五篇文档，依次从平台管理员、应用服务商、开发者、应用审核与发布、普通用户等多种角色详细说明各角色的工作流程。本文档准备了一个 Wordpress 应用 (包含 VM 与 Heml 应用类型) 作为示例。
 
+下图说明了快速入门文档演示的完整流程 (请从上至下看)。
+
+![](https://pek3b.qingstor.com/kubesphere-docs/png/20190703150151.png)
+
 > - [管理员](../getting-start/admin-quick-start)：描述管理员创建不同的角色和用户，然后通过新建的各个示例用户，演示不同角色下创建应用、审核应用和下架应用的工作流程。
 > - [应用服务商](../getting-start/developer-quick-start)：描述创建开发者账号、提交服务商认证。
 > - [开发者](../getting-start/developer-quick-start)：说明创建应用和上传应用、提交审核、创建新版本等工作流程。
 > - [应用审核与发布](../getting-start/app-review)：演示将应用版本提交给应用服务商、商务和技术审核，以及如何创建测试环境并部署至测试环境。
 > - [普通用户](../getting-start/regular-user-quick-start)：描述了普通用户访问商店和应用、创建 Runtime 资源、部署应用等基本工作流程。
- 
-
-下图说明了快速入门文档演示的完整流程。
-
-![](https://pek3b.qingstor.com/kubesphere-docs/png/20190624222312.png)
 
 
 ## 前提条件

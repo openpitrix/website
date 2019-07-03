@@ -4,7 +4,7 @@ title: "应用管理"
 应用为用户提供完整的业务功能，由一个或多个特定功能的组件组成（例如在 WordPress 博客网站中一个 PHP 的前端和 MySQL 后端就是不同的两个组件），每个组件可以独立于其他组件启动、运行、治理。一个应用或它的一个组件可包含一个或多个版本。
 多云环境下如何实现应用的统一打包、部署，如何在应用的生命周期中实现统一管理，开发者如何将自己的应用共享给用户，如何实现应用的商业化运营？对于这一类场景 OpenPitrix 提供了非常适合的解决方案。
 
-本节提到的应用管理，实际是指应用生命周期管理。OpenPitrix 提供了如应用创建、打包上传、应用审核、应用上架、测试部署、版本管理、应用下架等功能，对应用的生命周期有完整的管理机制。在 OpenPitrix 中，开发者能够创建应用和创建新的版本，应用的开发支持 [OpenPitrix 开发规范](../../developer-guide/openpitrix-specification) 或 [Helm Chart 开发规范](../../developer-guide/helm-specification) 。当开发者在本地完成开发并准备好应用配置包后（应用配置包是一组根据应用开发模版规范描述应用实例的文件组成，用于创建应用），即可登录 OpenPitrix 控制台上传自己的应用，以下介绍如何进行应用管理。
+本节提到的应用管理，实际是指应用生命周期管理。OpenPitrix 提供了如应用创建、打包上传、应用审核、应用上架、测试部署、版本管理、应用下架等功能，对应用的生命周期有完整的管理机制。在 OpenPitrix 中，开发者能够创建应用和创建新的版本，应用的开发支持 [OpenPitrix 开发规范](../developer-guide/openpitrix-specification) 或 [Helm Chart 开发规范](../developer-guide/helm-specification) 。当开发者在本地完成开发并准备好应用配置包后（应用配置包是一组根据应用开发模版规范描述应用实例的文件组成，用于创建应用），即可登录 OpenPitrix 控制台上传自己的应用，以下介绍如何进行应用管理。
 
 ## 上传应用
 
@@ -12,7 +12,7 @@ title: "应用管理"
 
 ![创建应用](/overview-page.png)
 
-2、选择预先创建好的应用仓库，若还未创建应用仓库，请参考 [仓库管理 - 创建仓库](../../user-guide/repo-management/#创建仓库) 来创建。完成后点击 **下一步**。
+2、选择预先创建好的应用仓库，若还未创建应用仓库，请参考 [仓库管理 - 创建仓库](../user-guide/repo-management/#创建仓库) 来创建。完成后点击 **下一步**。
 
 ![选择仓库](/select-repo.png)
 
@@ -33,9 +33,9 @@ title: "应用管理"
 
 平台的所有用户均可部署应用到运行环境中，在应用列表或商店中点击应用进入应用详情，点击 **部署** 即可。注意，部署依赖 QingCloud、AWS、Kubernetes 这类运行环境，所以在部署前需要创建运行环境并申请相关的资源。以下准备了三个示例将应用分别部署到 QingCloud、AWS 和 Kubernetes 环境中：
 
-- [部署 Wordpress 到 QingCloud](../../user-guide/deploying-app-on-qingcloud)
-- [部署 Wordpress 到 AWS](../../user-guide/deploying-app-on-aws)
-- [部署 Nginx 到 Kubernetes](../../user-guide/deploying-app-on-k8s)
+- [部署 Wordpress 到 QingCloud](../user-guide/deploying-app-on-qingcloud)
+- [部署 Wordpress 到 AWS](../user-guide/deploying-app-on-aws)
+- [部署 Nginx 到 Kubernetes](../user-guide/deploying-app-on-k8s)
 
 ## 应用版本管理
 

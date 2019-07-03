@@ -6,7 +6,7 @@ title: "应用审核与发布"
 
 ## 前提条件
 
-- 已有 OpenPitrix 的应用服务商、开发者、商务审核、技术审核账号，若还未创建请参考 [管理员快速入门](../quick-start/admin-quick-start)。
+- 已有 OpenPitrix 的应用服务商、开发者、商务审核、技术审核账号，若还未创建请参考 [管理员快速入门](../getting-start/admin-quick-start)。
 - 已有 [QingCloud 云平台](https://console.qingcloud.com) 的账号 (或阿里云、AWS)，本示例仅以 QingCloud 云平台作为运行环境演示部署。
 - 已有 Kubernetes 集群环境，建议使用 KubeSphere 作为 Kubernetes 运行环境，需要提前安装 KubeSphere，参考 [KubeSphere 安装指南](https://docs.kubesphere.io/advanced-v2.0/zh-CN/installation/intro/)。
 
@@ -138,7 +138,7 @@ title: "应用审核与发布"
 
 ![](https://pek3b.qingstor.com/kubesphere-docs/png/20190618091028.png)
 
-> 第一次部署由于需要从公网上下载必要的系统镜像，通常创建时间会比较长，应用部署成功后，这些镜像会缓存在 frontgate，以后再创建其它集群就从缓存中拉取系统镜像。若需要管理部署的集群如停用或删除集群，参考 [集群管理](../../user-guide/cluster-management)。
+> 第一次部署由于需要从公网上下载必要的系统镜像，通常创建时间会比较长，应用部署成功后，这些镜像会缓存在 frontgate，以后再创建其它集群就从缓存中拉取系统镜像。若需要管理部署的集群如停用或删除集群，参考 [集群管理](../user-guide/cluster-management)。
 
 ## 审核应用 (Helm 版本)
 

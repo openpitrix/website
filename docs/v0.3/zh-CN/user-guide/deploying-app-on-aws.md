@@ -8,9 +8,9 @@ title: "部署 WordPress 到 AWS"
 
 正式开始前，需要准备好以下资源：
 
- - 已有 Wordpress 应用上架商店，若没有请参考 [快速入门之开发者](../../getting-start/developer-quick-start) 将应用提交管理员审核后发布到商店。
+ - 已有 Wordpress 应用上架商店，若没有请参考 [快速入门之开发者](../getting-start/developer-quick-start) 将应用提交管理员审核后发布到商店。
  
- - 已有 OpenPitrix 普通用户账号，普通用户账号由管理员提供，参见 [用户管理](../../user-guide/user-management/#创建用户)。
+ - 已有 OpenPitrix 普通用户账号，普通用户账号由管理员提供，参见 [用户管理](../user-guide/user-management/#创建用户)。
  
  - 已有 [AWS 云平台](https://console.qingcloud.com/) 的账号，本示例以 AWS 云平台作为运行环境。
 
@@ -76,4 +76,4 @@ title: "部署 WordPress 到 AWS"
 
 ![Wordpress 主页](/wordpress-aws.png)
 
-> 应用部署成功后，若需要管理部署的集群如停用或删除集群，参考 [集群管理](../cluster-management)。
+> 应用部署成功后，若需要管理部署的集群如停用或删除集群，参考 [集群管理](../user-guide/cluster-management)。

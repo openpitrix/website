@@ -2,6 +2,7 @@ const path = require(`path`)
 const debug=require('debug')('app');
 const { createFilePath } = require(`gatsby-source-filesystem`)
 const day=require('dayjs')
+const loadAndBundleSpec = require('redoc').loadAndBundleSpec
 
 const config = require('./gatsby-config');
 
@@ -164,5 +165,55 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
-  return Promise.all([genAllDocs, genAllBlogs])
+  const genAllAPI = new Promise((resolve, reject) => {
+    const { createPage } = actions
+
+    graphql(`
+      {
+        site {
+          siteMetadata {
+            apiDocuments {
+              version
+              swaggerUrls {
+                name
+                url
+              }
+            }
+          }
+        }
+      }
+    `).then(({ data: { site } }) => {
+        const promises = []
+        site.siteMetadata.apiDocuments.forEach(doc => {
+          doc.swaggerUrls.forEach(item => {
+            promises.push(
+              new Promise(resolve => {
+                loadAndBundleSpec(item.url).then(data => {
+                  resolve({
+                    data,
+                    name: item.name,
+                    version: doc.version,
+                  })
+                })
+              })
+            )
+          })
+        })
+        Promise.all(promises).then(ret => {
+          ret.forEach(({ version, data }) => {
+            createPage({
+              path: `/api/`,
+              component: path.resolve(`./src/templates/api.js`),
+              context: {
+                version: version,
+                swaggerData: JSON.stringify(data),
+              },
+            })
+          })
+          resolve()
+        })
+      })
+  })
+
+  return Promise.all([genAllDocs, genAllBlogs, genAllAPI])
 }

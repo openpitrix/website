@@ -3,7 +3,18 @@ module.exports = {
     title: 'OpenPitrix',
     keywords: 'openpitrix, openpitrix.io, multi-cloud, application management, kubernetes',
     version: '0.4',
-    description: 'openpitrix official site'
+    description: 'openpitrix official site',
+    apiDocuments: [
+      {
+        version: '0.4',
+        swaggerUrls: [
+          {
+            name: 'openpitrix',
+            url: './api.swagger.json',
+          }
+        ]
+      }
+    ]
   },
   plugins: [
     'gatsby-plugin-sass',

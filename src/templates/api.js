@@ -5,8 +5,6 @@ import { RedocStandalone } from 'redoc';
 import Layout from 'layout';
 import Header from 'components/Header';
 
-import specJson from '../../../api.swagger.json';
-
 export default class Api extends React.Component {
   render() {
     return (
@@ -96,7 +94,7 @@ export default class Api extends React.Component {
                 },
               },
             }}
-            spec={specJson}
+            spec={JSON.parse(this.props.pageContext.swaggerData)}
           />
         </Content>
       </Layout>

@@ -171,7 +171,7 @@ exports.createPages = ({ graphql, actions }) => {
 
   const genAllAPI = new Promise((resolve) => {
     const specJson=require('./api.swagger.json');
-    createStore(specJson, path.resolve('./api.swagger.json'), apiDocOptions).then(store=> {
+    createStore(specJson, './api.swagger.json', apiDocOptions).then(store=> {
       const sheet = new ServerStyleSheet();
       const html=renderToString(sheet.collectStyles(React.createElement(Redoc, {store})));
       const css=sheet.getStyleTags();

@@ -46,7 +46,7 @@ title: "普通用户"
 - 名称：aliyun-test-runtime
 - 备注：阿里云测试环境
 
-> 若准备将应用部署到 AWS 运行环境，参见 [部署 Wordpress 到 AWS](../user-guide/deploying-app-on-multicloud#部署应用至-aws)。
+> 若准备将应用部署到 AWS 运行环境，参见 [部署 Wordpress 到 AWS](../manual-guide/deploying-app-on-multicloud#部署应用至-aws)。
 
 ### 第三步：部署实例
 

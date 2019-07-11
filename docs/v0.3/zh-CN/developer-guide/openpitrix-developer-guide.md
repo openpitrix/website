@@ -127,7 +127,7 @@ $ mkdir Wordpress
 
 ### 第三步：准备配置文件
 
-其中 cluster.json.tmpl，config.json，package.json 这三个配置文件是必须的，详见 [开发模板规范](../openpitrix-specification)。
+其中 cluster.json.tmpl，config.json，package.json 这三个配置文件是必须的，详见 [开发模板规范](../developer-guide/openpitrix-specification)。
 
 **Wordpress/cluster.json.tmpl**
 

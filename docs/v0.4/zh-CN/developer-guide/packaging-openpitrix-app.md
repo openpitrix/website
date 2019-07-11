@@ -36,7 +36,7 @@ $ ls
 cluster.json.tmpl  config.json  package.json
 ```
 
-参见 [OpenPitrix 应用开发规范](../openpitrix-specification) 编辑 test 目录下文件，编辑好后保存。
+参见 [OpenPitrix 应用开发规范](../developer-guide/openpitrix-specification) 编辑 test 目录下文件，编辑好后保存。
 
 ### 生成索引文件（可选）
 

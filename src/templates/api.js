@@ -5,6 +5,18 @@ import Layout from 'layout';
 import Header from 'components/Header';
 
 export default class Api extends React.Component {
+  componentDidMount() {
+    const {state}=this.props.pageContext;
+    window.__redoc_state = JSON.stringify(state);
+
+    this.tmCheckRedoc=setInterval(()=> {
+      if(typeof Redoc !== 'undefined' && typeof Redoc.hydrate === 'function'){
+        Redoc.hydrate(state, document.getElementById('redoc'));
+        clearInterval(this.tmCheckRedoc);
+      }
+    }, 50);
+  }
+
   render() {
     // inject style tags
     const {html, css}=this.props.pageContext;
@@ -12,7 +24,7 @@ export default class Api extends React.Component {
     return (
       <Layout>
         <Header isBlankBg />
-        <Content dangerouslySetInnerHTML={{__html: `${html}${css}`}} />
+        <Content id="redoc" dangerouslySetInnerHTML={{__html: css + html }} />
       </Layout>
     )
   }

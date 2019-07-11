@@ -74,6 +74,7 @@ const Html = ({
         />
         {postBodyComponents}
         <script src="/smooth-scroll.polyfills.min.js" />
+        <script src="https://cdn.jsdelivr.net/npm/redoc/bundles/redoc.standalone.js"></script>
       </body>
     </html>
   )

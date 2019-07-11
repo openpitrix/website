@@ -753,17 +753,17 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
-"@emotion/is-prop-valid@^0.7.3":
-  version "0.7.3"
-  resolved "http://registry.npm.taobao.org/@emotion/is-prop-valid/download/@emotion/is-prop-valid-0.7.3.tgz#a6bf4fa5387cbba59d44e698a4680f481a8da6cc"
-  integrity sha1-pr9PpTh8u6WdROaYpGgPSBqNpsw=
+"@emotion/is-prop-valid@^0.8.1":
+  version "0.8.2"
+  resolved "https://registry.npm.taobao.org/@emotion/is-prop-valid/download/@emotion/is-prop-valid-0.8.2.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40emotion%2Fis-prop-valid%2Fdownload%2F%40emotion%2Fis-prop-valid-0.8.2.tgz#b9692080da79041683021fcc32f96b40c54c59dc"
+  integrity sha1-uWkggNp5BBaDAh/MMvlrQMVMWdw=
   dependencies:
-    "@emotion/memoize" "0.7.1"
+    "@emotion/memoize" "0.7.2"
 
-"@emotion/memoize@0.7.1":
-  version "0.7.1"
-  resolved "http://registry.npm.taobao.org/@emotion/memoize/download/@emotion/memoize-0.7.1.tgz#e93c13942592cf5ef01aa8297444dc192beee52f"
-  integrity sha1-6TwTlCWSz17wGqgpdETcGSvu5S8=
+"@emotion/memoize@0.7.2":
+  version "0.7.2"
+  resolved "https://registry.npm.taobao.org/@emotion/memoize/download/@emotion/memoize-0.7.2.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40emotion%2Fmemoize%2Fdownload%2F%40emotion%2Fmemoize-0.7.2.tgz#7f4c71b7654068dfcccad29553520f984cc66b30"
+  integrity sha1-f0xxt2VAaN/MytKVU1IPmEzGazA=
 
 "@emotion/unitless@^0.7.0":
   version "0.7.3"
@@ -4586,10 +4586,10 @@ gatsby-plugin-sass@^2.0.10:
     "@babel/runtime" "^7.0.0"
     sass-loader "^7.0.1"
 
-gatsby-plugin-styled-components@^3.0.4:
-  version "3.0.6"
-  resolved "http://registry.npm.taobao.org/gatsby-plugin-styled-components/download/gatsby-plugin-styled-components-3.0.6.tgz#873857d1a03123683833688c8f008bd9f782504b"
-  integrity sha1-hzhX0aAxI2g4M2iMjwCL2feCUEs=
+gatsby-plugin-styled-components@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.npm.taobao.org/gatsby-plugin-styled-components/download/gatsby-plugin-styled-components-3.1.0.tgz#ce837299807247cf2c4347bd51aaed4c58c195d9"
+  integrity sha1-zoNymYByR88sQ0e9UartTFjBldk=
   dependencies:
     "@babel/runtime" "^7.0.0"
 
@@ -6128,6 +6128,11 @@ is-utf8@^0.2.0:
   resolved "http://registry.npm.taobao.org/is-utf8/download/is-utf8-0.2.1.tgz#4b0da1442104d1b336340e80797e865cf39f7d72"
   integrity sha1-Sw2hRCEE0bM2NA6AeX6GXPOffXI=
 
+is-what@^3.2.3:
+  version "3.2.3"
+  resolved "https://registry.npm.taobao.org/is-what/download/is-what-3.2.3.tgz#50f76f1bd8e56967e15765d1d34302513701997b"
+  integrity sha1-UPdvG9jlaWfhV2XR00MCUTcBmXs=
+
 is-whitespace-character@^1.0.0:
   version "1.0.2"
   resolved "http://registry.npm.taobao.org/is-whitespace-character/download/is-whitespace-character-1.0.2.tgz#ede53b4c6f6fb3874533751ec9280d01928d03ed"
@@ -6870,11 +6875,6 @@ mem@^4.0.0:
     mimic-fn "^1.0.0"
     p-is-promise "^2.0.0"
 
-memoize-one@^4.0.0:
-  version "4.1.0"
-  resolved "http://registry.npm.taobao.org/memoize-one/download/memoize-one-4.1.0.tgz#a2387c58c03fff27ca390c31b764a79addf3f906"
-  integrity sha1-ojh8WMA//yfKOQwxt2Snmt3z+QY=
-
 memoize-one@^5.0.0:
   version "5.0.4"
   resolved "https://registry.npm.taobao.org/memoize-one/download/memoize-one-5.0.4.tgz#005928aced5c43d890a4dfab18ca908b0ec92cbc"
@@ -6903,6 +6903,13 @@ meow@^3.7.0:
     read-pkg-up "^1.0.1"
     redent "^1.0.0"
     trim-newlines "^1.0.0"
+
+merge-anything@^2.2.4:
+  version "2.2.5"
+  resolved "https://registry.npm.taobao.org/merge-anything/download/merge-anything-2.2.5.tgz#37ef13f36359ee64f09c657d2cef45f7e29493f9"
+  integrity sha1-N+8T82NZ7mTwnGV9LO9F9+KUk/k=
+  dependencies:
+    is-what "^3.2.3"
 
 merge-deep@^3.0.2:
   version "3.0.2"
@@ -10404,17 +10411,19 @@ style-to-object@^0.2.1:
   dependencies:
     css "2.2.4"
 
-styled-components@^4.1.3:
-  version "4.1.3"
-  resolved "http://registry.npm.taobao.org/styled-components/download/styled-components-4.1.3.tgz#4472447208e618b57e84deaaeb6acd34a5e0fe9b"
-  integrity sha1-RHJEcgjmGLV+hN6q62rNNKXg/ps=
+styled-components@^4.3.2:
+  version "4.3.2"
+  resolved "https://registry.npm.taobao.org/styled-components/download/styled-components-4.3.2.tgz#4ca81918c812d3006f60ac5fdec7d6b64a9509cc"
+  integrity sha1-TKgZGMgS0wBvYKxf3sfWtkqVCcw=
   dependencies:
     "@babel/helper-module-imports" "^7.0.0"
-    "@emotion/is-prop-valid" "^0.7.3"
+    "@babel/traverse" "^7.0.0"
+    "@emotion/is-prop-valid" "^0.8.1"
     "@emotion/unitless" "^0.7.0"
     babel-plugin-styled-components ">= 1"
     css-to-react-native "^2.2.2"
-    memoize-one "^4.0.0"
+    memoize-one "^5.0.0"
+    merge-anything "^2.2.4"
     prop-types "^15.5.4"
     react-is "^16.6.0"
     stylis "^3.5.0"

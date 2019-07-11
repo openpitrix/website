@@ -2,8 +2,13 @@ const path = require(`path`)
 const debug=require('debug')('app');
 const { createFilePath } = require(`gatsby-source-filesystem`)
 const day=require('dayjs')
+const React=require('react');
+const {renderToString}=require('react-dom/server');
+const {ServerStyleSheet}=require('styled-components');
+const {createStore, Redoc} = require('redoc');
 
 const config = require('./gatsby-config');
+const apiDocOptions=require('./api-doc-options');
 
 const getDocNodeFields = (slug = '')=> {
   const parts = slug.split('/').filter(Boolean)
@@ -164,5 +169,28 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
-  return Promise.all([genAllDocs, genAllBlogs])
+  const genAllAPI = new Promise((resolve) => {
+    const specJson=require('./api.swagger.json');
+    createStore(specJson, './api.swagger.json', apiDocOptions).then(store=> {
+      const sheet = new ServerStyleSheet();
+      const html=renderToString(sheet.collectStyles(React.createElement(Redoc, {store})));
+      const css=sheet.getStyleTags();
+
+      store.toJS().then(state=> {
+        createPage({
+          path: `/api/`,
+          component: path.resolve(`./src/templates/api.js`),
+          context: {
+            html,
+            css,
+            state
+          },
+        })
+
+        resolve()
+      })
+    })
+  })
+
+  return Promise.all([genAllDocs, genAllBlogs, genAllAPI])
 }

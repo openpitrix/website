@@ -60,10 +60,9 @@ export default class Header extends React.Component {
   }
 
   isActiveLink = (path, active) => {
-    if(active === '/docs' || active === '/blog') {
-      return path.indexOf(active) > -1;
+    if(active !== '/'){
+      return path.startsWith(active);
     }
-
     return path === active;
   }
 

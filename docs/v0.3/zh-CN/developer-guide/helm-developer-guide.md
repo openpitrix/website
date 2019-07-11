@@ -46,7 +46,7 @@ nginx/
 2 directories, 7 files
 ```
 
-Chart.yaml 是用于描述 Chart 的基本信息，包括名称、API 和应用版本等，其中 appVersion 字段与 version 字段无关。这是一种指定应用程序版本的方法详见 [Chart.yaml 文件](../helm-specification/#chartyaml-文件)。
+Chart.yaml 是用于描述 Chart 的基本信息，包括名称、API 和应用版本等，其中 appVersion 字段与 version 字段无关。这是一种指定应用程序版本的方法详见 [Chart.yaml 文件](../developer-guide/helm-specification)。
 
 **Chart.yaml 文件示例：**
 
@@ -114,7 +114,7 @@ affinity: {}
 
 ```
 
-可根据 [Helm 应用开发规范](../helm-specification) 编辑 nginx 目录下文件，编辑好后保存。
+可根据 [Helm 应用开发规范](../developer-guide/helm-specification) 编辑 nginx 目录下文件，编辑好后保存。
 
 ### 生成索引文件（可选）
 

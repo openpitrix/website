@@ -30,7 +30,7 @@ OpenPitrix 从一开始就是以开源的方式来进行，并且在 2017 年的
 
 - [安装指南](../installation/installation-guide)：将 OpenPitrix 部署到自己的环境中开始试用和功能体验
 - [快速入门](../getting-start)：引导新用户快速上手 OpenPitrix 
-- [用户指南](../user-guide/introduction) ：熟悉 OpenPitrix 的使用详情
+- [用户指南](../manual-guide/introduction) ：熟悉 OpenPitrix 的使用详情
 - [项目设计](https://github.com/openpitrix/openpitrix/blob/master/docs/design/README.md)
 
 ### 发现可以参与的事情

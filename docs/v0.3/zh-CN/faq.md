@@ -4,7 +4,7 @@ title: "常见问题"
 
 1、作为新手，如何从一个最简单的例子入手？
 
-我们提供了一个如何准备一个基于 OpenPitrix 应用开发规范的示例，建议从 [ WordPress 实战](../developer-guide/openpitrix-developer-guide/#wordpress-实战) 入手，从零开始准备一个配置包并上传到 OpenPitrix 中，后续可参考 [用户指南](../user-guide/introduction) 熟悉应用的全生命周期管理。
+我们提供了一个如何准备一个基于 OpenPitrix 应用开发规范的示例，建议从 [WordPress 实战](../zh-CN/developer-guide/openpitrix-developer-guide/#wordpress-实战) 入手，从零开始准备一个配置包并上传到 OpenPitrix 中，后续可参考 [用户指南](../zh-CN/user-guide/introduction) 熟悉应用的全生命周期管理。
 
 2、应用如何语言国际化？
 
@@ -13,7 +13,7 @@ title: "常见问题"
 - locale/en.json 英文翻译文件
 - locale/zh-cn.json 中文翻译文件
 
-具体配置请参考文档 [国际化](../developer-guide/openpitrix-specification/#国际化) 。
+具体配置请参考文档 [国际化](../zh-CN/developer-guide/openpitrix-specification/#国际化) 。
 
 3、上传配置包或新的版本时报错：配置验证失败，报 “创建资源失败” 错误？
 
@@ -23,11 +23,11 @@ title: "常见问题"
 
 4、All-in-one 模式安装 OpenPitrix 时，卡在某一步进度一直没有变化，是什么原因？
 
-可能是主机的配置规格不符合要求，比如内存不足，建议按照我们提供的 [all-in-one 模式 - 主机环境](../installation/allinone/#主机环境) 准备环境。
+可能是主机的配置规格不符合要求，比如内存不足，建议按照我们提供的 [all-in-one 模式 - 主机环境](../zh-CN/installation/allinone/#主机环境) 准备环境。
 
 5、All-in-one 模式安装 OpenPitrix 时，make 命令执行失败，为什么？
 
-可能是依赖的软件版本不满足要求，可检查其版本并对照 [all-in-one 模式 - 软件环境](../installation/allinone/#软件环境) 安装符合要求的版本。
+可能是依赖的软件版本不满足要求，可检查其版本并对照 [all-in-one 模式 - 软件环境](../zh-CN/installation/allinone/#软件环境) 安装符合要求的版本。
 
 6、Kubernetes 模式执行安装脚本 deploy-k8s.sh 失败？
 

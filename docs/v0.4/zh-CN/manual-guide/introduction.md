@@ -4,12 +4,12 @@ title: "简介"
 
 OpenPitrix 旨在帮助用户快速创建应用并将其部署到多云的运行环境中，具备对应用生命周期的管理，用户指南将介绍控制台中各个模块的操作说明，通过 OpenPitrix 页面可以看到以下几个模块：**总览**、**应用**、**运行环境**、**集群**、**仓库**、**商店**、**分类**、**用户**。
 
-* [部署应用至多云环境](../deploying-app-on-multicloud)：通过三个示例说明如何将应用部署到 QingCloud、Aliyun、AWS 和 Kubernetes 等多云的运行环境中。
-* [应用商店管理](../store-management)：介绍如何管理应用商店、应用审核、应用分类。
-* [运行环境管理](../runtime-management)：管理云的运行时环境，如 AWS、Azure、Kubernetes、QingCloud、OpenStack、VMWare 等等，可以是公有云，也可以是私有云。
-* [集群管理](../cluster-management)：管理和运维已部署到云的运行时环境上应用的集群实例。
-* [用户管理](../user-management)：用户管理主要提供管理员对三种角色的账号权限管理。
-* [邮件服务器](../email-server)：介绍如何配置 SMTP 邮件服务器。
+* [部署应用至多云环境](../manual-guide/deploying-app-on-multicloud)：通过三个示例说明如何将应用部署到 QingCloud、Aliyun、AWS 和 Kubernetes 等多云的运行环境中。
+* [应用商店管理](../manual-guide/store-management)：介绍如何管理应用商店、应用审核、应用分类。
+* [运行环境管理](../manual-guide/runtime-management)：管理云的运行时环境，如 AWS、Azure、Kubernetes、QingCloud、OpenStack、VMWare 等等，可以是公有云，也可以是私有云。
+* [集群管理](../manual-guide/cluster-management)：管理和运维已部署到云的运行时环境上应用的集群实例。
+* [用户管理](../manual-guide/user-management)：用户管理主要提供管理员对三种角色的账号权限管理。
+* [邮件服务器](../manual-guide/email-server)：介绍如何配置 SMTP 邮件服务器。
 
 | 角色 | 职责 |
 |-------|------|

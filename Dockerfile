@@ -25,3 +25,4 @@ WORKDIR /pub
 RUN mkdir -p /pub
 
 COPY --from=builder /app/public/ /pub
+COPY nginx-server-rules.conf /etc/nginx/server.conf

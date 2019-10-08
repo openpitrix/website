@@ -18,7 +18,7 @@ RUN cd /app && ln -fs /tmp/node_modules/ \
     && yarn build
 
 
-FROM gatsbyjs/gatsby:latest
+FROM leoendlessx/gatsby:latest
 
 WORKDIR /pub
 
@@ -26,4 +26,3 @@ RUN mkdir -p /pub
 
 COPY --from=builder /app/public/ /pub
 COPY nginx-server-rules.conf /etc/nginx/server.conf
-ENV TRAILING_SLASH=false

@@ -6,7 +6,7 @@ title: "常见问题"
 
 我们提供了一个如何准备一个基于 OpenPitrix 应用开发规范的示例，建议从 [WordPress 实战](../zh-CN/developer-guide/openpitrix-developer-guide/#wordpress-实战) 入手，从零开始准备一个配置包并上传到 OpenPitrix 中，后续可参考 [用户指南](../zh-CN/manual-guide/introduction) 熟悉应用的全生命周期管理。
 
-2、应用如何语言国际化？
+2、如何对上传的应用进行语言的国际化？
 
 如果您想要适应不同的语言，需要在提交的应用中包含一个 locale 文件夹，并添加对应语言的翻译文件，如：
 

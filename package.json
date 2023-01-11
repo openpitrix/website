@@ -26,7 +26,7 @@
     "gatsby-remark-responsive-iframe": "^2.0.8",
     "gatsby-source-filesystem": "^2.0.18",
     "gatsby-transformer-json": "^2.1.7",
-    "gatsby-transformer-remark": "^2.2.1",
+    "gatsby-transformer-remark": "^5.25.1",
     "lodash": "^4.17.14",
     "mobx": "^4",
     "node-sass": "^4.11.0",
